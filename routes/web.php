@@ -20,3 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dashboard', 'Dashboard@admin')->name('dashboard');
+
+Route::get('registration', 'CustomAuthController@showRegisterForm')->name('registration');
+
+Route::post('registration', 'CustomAuthController@registration');
