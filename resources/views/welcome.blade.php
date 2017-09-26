@@ -6,7 +6,7 @@
 	
 		<div class="row">
 			<div class="col-md-7">
-				<div id="myCarousel" class="carousel slide pt10px" data-ride="carousel">
+				<div id="myCarousel" class="carousel slide pt10px pb20px" data-ride="carousel">
 					<div class="carousel-inner">
 						<div class="item active">
 						  <img src="resources/frontend_assets/img/vaisya.jpg" alt="Los Angeles" style="height:280px;">

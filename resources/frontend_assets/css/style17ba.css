@@ -5,20 +5,23 @@ footer{margin:50px 0;}
 h1.logo{background-repeat:no-repeat;text-indent:-9999px;width:100%;}
 .hidetxt{display:none;}
 .pt10px{padding-top: 10px;}
-.top{padding: 0px 10px 0px 10px;}
-.mb20px{padding-bottom: 10px;border-bottom: 1px solid #eaeaea;}
+.pb20px{padding-bottom: 20px;}
+.top{padding: 0px 10px 0px 10px;background: #000;height: 40px;}
+.white{color:#fff;}
+.mb20px{padding-bottom: 5px;}
 .brdr{border: 1px dotted #eaeaea;padding: 10px;text-align: center;background: #b60c31;color: #fff;min-height: 80px;}
-.header{border-top:3px solid #b60c31;padding:35px 5px 5px;}
+.header{padding: 0px 15px 0px 15px;background: #b60c31;}
 .navbar-inverse{background-color:#ffffff;border:0px;}
 .navbar{background:#ffffff none repeat scroll 0 0;border-bottom:4px solid #b60c31;border-radius:0;border-top:1px solid #e6e6e6;box-shadow:-2px -2px 6px -1px #000;color:#ffffff;margin-bottom:20px;padding-top:8px;position:relative;}
-.navbar-nav>li>a{padding-bottom:2px;padding-top:5px;}
+.navbar-nav>li>a{padding-bottom:5px;padding-top:5px;}
 .navbar-inverse .navbar-nav>li>a{color:#000000;}
 .navbar-inverse .navbar-nav>li>a:hover{color:#B22841;}
 .navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a:hover{color:#000!important;}
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover{background-color:#b60c31;color:#fff!important;}
-.newskannada a{background:#b60c31 none repeat scroll 0 0;color:#ffffff;float:right;margin-top:-35px;padding:3px;}
-.newskannada-video a{background:#b60c31 none repeat scroll 0 0;color:#ffffff;float:right;margin-top:-35px;padding:3.5px;position: relative;right:80px;}
-.newskannada-vaish a{background:#b60c31 none repeat scroll 0 0;color:#ffffff;float:left;margin-top:-35px;padding:3.5px;position: relative;}
+.newskannada a{color:#ffffff;float:right;padding:3px;}
+.newskannada-video a{color:#ffffff;float:right;padding:10.5px;position: relative;right:40px;}
+.newskannada-vaish a{color:#ffffff;float:left;padding:7.5px;position: relative;}
+.newskannada-log{color:#ffffff;float:right;padding:7.5px;position: relative;right:120px;}
 .shadow{border-left:2px solid #c7c7c7;border-right:2px solid #c7c7c7;margin-top:-20px;padding-bottom:13px;padding-top:13px;}
 .carousel{position:relative;}
 .carousel h2{position:absolute;top:10px;background-color:rgba(215,44,44,0.6);background:#b60c31;color:#ffffff;padding:5px;font-size:16px;font-weight:;}
