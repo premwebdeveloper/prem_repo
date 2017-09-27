@@ -48,14 +48,24 @@ class CustomAuthController extends Controller
 		
 		$user_id = $id->id;
 		
-		$user_insert = DB::table('user_details')->insert([
-			['user_id' => $user_id],
-			['name' => $data['name']],
-			['lastname' => $data['lastname']],
-			['email' => $data['email']],
-		]);
+		$user_insert = DB::table('user_details')->insert(
+			 array(
+					'user_id'     =>   $user_id, 
+					'name'   =>   $data['name'],
+					'lastname'   =>   $data['lastname'],
+					'email'   =>   $data['email'],
+					'contact'   =>   $data['contact']
+			 )
+		);
 		
-		print_r($user_insert);
-		exit;
+		if($user_insert)
+		{
+			$status = "Registration Successfully.";
+		}
+		else
+		{
+			$status = "Something Went Wrong !";
+		}
+		return redirect('registration')->with('status', $status);
     }
 }

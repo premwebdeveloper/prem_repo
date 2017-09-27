@@ -18,7 +18,7 @@
 					@if(session('status'))
 						<div class="alert alert-success"> {{ session('status') }} </div>
 					@endif
-				
+									
                     <form class="form-horizontal" method="post" action="{{ route('registration') }}">
 					  <fieldset>
 						
@@ -56,6 +56,13 @@
 						  <label for="inputPassword" class="col-lg-2 control-label">Confirm Password</label>
 						  <div class="col-lg-10">
 							<input type="password" class="form-control" id="inputPassword" name="password_confirmation" placeholder="Confirm Password">
+						  </div>
+						</div>
+						
+						<div class="form-group">
+						  <label for="inputEmail" class="col-lg-2 control-label">Contact</label>
+						  <div class="col-lg-10">
+							<input type="text" class="form-control" id="contact" name="contact" value="{{ old('contact') }}" placeholder="Contact Number">
 						  </div>
 						</div>
 						

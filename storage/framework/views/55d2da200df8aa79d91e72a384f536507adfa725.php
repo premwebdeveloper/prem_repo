@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,14 +20,10 @@
 <link href="<?php echo e(asset('resources/frontend_assets/css/font-awesome.min17ba.css?1480271400')); ?>" rel="stylesheet">
 <link href="<?php echo e(asset('resources/frontend_assets/css/top.css')); ?>" rel="stylesheet">
 
-<script type="text/javascript">
-_atrk_opts = { atrk_acct:"yltAh1acBa00is", domain:"newskarnataka.com",dynamic: true};
-(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "../d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
-</script>
+</head>
 
-    </head>
+<body class="lazy">
 
-    <body class="lazy">
 	<div class="top">
 		<div class="newskannada-vaish">
 			<a href="#" title="Video">
@@ -37,10 +32,11 @@ _atrk_opts = { atrk_acct:"yltAh1acBa00is", domain:"newskarnataka.com",dynamic: t
 			<a href="#" title="Video">
 				<i class="fa fa-envelope"></i> info@vaishparivarsangh.com
 			</a>
-		</div>		
+		</div>
+		
 		<?php if(Auth::guest()): ?>
 		<div class="newskannada-video">
-			<a href="<?php echo e(route('register')); ?>">Join Us</a>
+			<a href="<?php echo e(route('registration')); ?>">Join Us</a>
 			<a href="<?php echo e(route('login')); ?>">Login</a>
 		</div>
 		<?php else: ?>
@@ -63,6 +59,7 @@ _atrk_opts = { atrk_acct:"yltAh1acBa00is", domain:"newskarnataka.com",dynamic: t
 		</div>		
 		<?php endif; ?>
 	</div>
+	
 	<div class="header">
 		<div class="row mb20px">
 			<div class="col-md-1 hidetext">
@@ -88,24 +85,24 @@ _atrk_opts = { atrk_acct:"yltAh1acBa00is", domain:"newskarnataka.com",dynamic: t
 				<img src="<?php echo e(asset('resources/frontend_assets/img/Gandhi.png')); ?>" class="img-responsive" alt="News Karnataka">
 			</div>	
 		</div>	
-	</div>  <!--header-->
-	  <!--navigation-->
-	<div  class="navbar navbar-default navbar-static-top" role="navigation">
+	</div><!--header-->
+	
+	<!--navigation-->
+	<div class="navbar navbar-default navbar-static-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav ">
-					<li class="active"><a href="index.html" title="Home">Home</a></li>
-					<li><a href="index.html" title="Home">About Us</a></li>
-					<li><a href="index.html" title="Home">Aims & Objectives</a></li>
-					<li><a href="index.html" title="Home">आज के विचार </a></li>
-					<li><a href="index.html" title="Home">अब तक के समाचार</a></li>
-					<li><a href="index.html" title="Home">Your Suggestion</a></li>
-					<li><a href="index.html" title="Home">Submit Your Problem</a></li>
+					<li class="active"><a href="<?php echo e(url('/')); ?>" title="Home">Home</a></li>
+					<li><a href="javascript:;" title="Home">About Us</a></li>
+					<li><a href="javascript:;" title="Home">Aims & Objectives</a></li>
+					<li><a href="javascript:;" title="Home">आज के विचार </a></li>
+					<li><a href="javascript:;" title="Home">अब तक के समाचार</a></li>
+					<li><a href="javascript:;" title="Home">Your Suggestion</a></li>
+					<li><a href="javascript:;" title="Home">Submit Your Problem</a></li>
 				</ul>
 			</div>
 		</div>
-	</div>  <!--navigation-->
-
+	</div><!--navigation-->
