@@ -37,6 +37,8 @@ class CustomAuthController extends Controller
 	# custom registration function
 	protected function createUser(array $data)
     {
+		#First generate otp and send on email id  then register successfully
+		
         $id = User::create([
             'name' => $data['name'],
             'lastname' => $data['lastname'],

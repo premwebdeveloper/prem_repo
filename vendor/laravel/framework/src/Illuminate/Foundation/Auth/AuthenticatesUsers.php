@@ -83,10 +83,10 @@ trait AuthenticatesUsers
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-    protected function credentials(Request $request)
+    /* protected function credentials(Request $request)
     {
         return $request->only($this->username(), 'password');
-    }
+    } */
 
     /**
      * Send the response after the user was authenticated.
@@ -168,5 +168,11 @@ trait AuthenticatesUsers
     protected function guard()
     {
         return Auth::guard();
+    }
+	
+	protected function credentials(Request $request)
+    {
+        //return $request->only($this->username(), 'password');
+		return['email'=>$request->{$this->username()},'password'=>$request->password,'status'=>'1'];
     }
 }

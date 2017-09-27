@@ -24,3 +24,5 @@ Route::get('/dashboard', 'Dashboard@admin')->name('dashboard');
 Route::get('registration', 'CustomAuthController@showRegisterForm')->name('registration');
 
 Route::post('registration', 'CustomAuthController@registration');
+
+Route::get('sendEmail', 'EmailController@sendEmail');
