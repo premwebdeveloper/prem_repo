@@ -36,7 +36,7 @@
 		
 		@if (Auth::guest())
 		<div class="newskannada-video">
-			<a href="{{ route('registration') }}">Join Us</a>
+			<a href="{{ route('register') }}">Join Us</a>
 			<a href="{{ route('login') }}">Login</a>
 		</div>
 		@else

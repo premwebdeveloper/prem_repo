@@ -36,7 +36,7 @@
 		
 		<?php if(Auth::guest()): ?>
 		<div class="newskannada-video">
-			<a href="<?php echo e(route('registration')); ?>">Join Us</a>
+			<a href="<?php echo e(route('register')); ?>">Join Us</a>
 			<a href="<?php echo e(route('login')); ?>">Login</a>
 		</div>
 		<?php else: ?>

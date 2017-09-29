@@ -26,3 +26,7 @@ Route::get('registration', 'CustomAuthController@showRegisterForm')->name('regis
 Route::post('registration', 'CustomAuthController@registration');
 
 Route::get('sendEmail', 'EmailController@sendEmail');
+
+Route::get('verifyEmailFirst', 'Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
+
+Route::get('verify/{email}/{verifyToken}', 'Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
