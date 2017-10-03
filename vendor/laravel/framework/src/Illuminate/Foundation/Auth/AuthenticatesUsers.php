@@ -94,7 +94,7 @@ trait AuthenticatesUsers
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    protected function sendLoginResponse(Request $request)
+    /*protected function sendLoginResponse(Request $request)
     {
         $request->session()->regenerate();
 
@@ -102,7 +102,7 @@ trait AuthenticatesUsers
 
         return $this->authenticated($request, $this->guard()->user())
                 ?: redirect()->intended($this->redirectPath());
-    }
+    }*/
 
     /**
      * The user has been authenticated.

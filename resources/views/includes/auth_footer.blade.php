@@ -1,6 +1,6 @@
  <div class="footer">
                     <div class="pull-right">
-                        10GB of <strong>250GB</strong> Free.
+                        &nbsp;
                     </div>
                     <div>
                         <strong>Copyright</strong> Example Company &copy; 2014-2017
@@ -96,6 +96,8 @@
 
             </a>
         </div>
+
+        <!--
         <div id="right-sidebar" class="animated">
             <div class="sidebar-container">
 
@@ -339,7 +341,7 @@
                                 <a href="#">
                                     <span class="label label-primary pull-right">NEW</span>
                                     <h4>The generated</h4>
-                                    <!--<div class="small pull-right m-t-xs">9 hours ago</div>-->
+                                    <div class="small pull-right m-t-xs">9 hours ago</div>
                                     There are many variations of passages of Lorem Ipsum available.
                                     <div class="small">Completion with: 22%</div>
                                     <div class="small text-muted m-t-xs">Project end: 4:00 pm - 12.06.2014</div>
@@ -470,27 +472,27 @@
 
             </div>
 
-
-
-        </div>
+        </div> -->
     </div>
 
     <!-- Mainly scripts -->
 	<script src="{{ asset('resources/assets/js/jquery-3.1.1.min.js') }}"></script>
-	
+
 	<script src="{{ asset('resources/assets/js/bootstrap.min.js') }}"></script>
 	<script src="{{ asset('resources/assets/js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
-	
+
 	<script src="{{ asset('resources/assets/js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
 	<script src="{{ asset('resources/assets/js/plugins/flot/jquery.flot.js') }}"></script>
-	
+
 	<script src="{{ asset('resources/assets/js/plugins/flot/jquery.flot.tooltip.min.js') }}"></script>
 	<script src="{{ asset('resources/assets/js/plugins/flot/jquery.flot.spline.js') }}"></script>
 	<script src="{{ asset('resources/assets/js/plugins/flot/jquery.flot.resize.js') }}"></script>
 	<script src="{{ asset('resources/assets/js/plugins/flot/jquery.flot.pie.js') }}"></script>
-	
+
 	<script src="{{ asset('resources/assets/js/plugins/peity/jquery.peity.min.js') }}"></script>
 	<script src="{{ asset('resources/assets/js/demo/peity-demo.js') }}"></script>
+
+    <script src="{{ asset('resources/assets/js/plugins/dataTables/datatables.min.js') }}"></script>
 	<script src="{{ asset('resources/assets/js/inspinia.js') }}"></script>
 	<script src="{{ asset('resources/assets/js/plugins/pace/pace.min.js') }}"></script>
 	<script src="{{ asset('resources/assets/js/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
@@ -499,25 +501,36 @@
 	<script src="{{ asset('resources/assets/js/demo/sparkline-demo.js') }}"></script>
 	<script src="{{ asset('resources/assets/js/plugins/chartJs/Chart.min.js') }}"></script>
 	<script src="{{ asset('resources/assets/js/plugins/toastr/toastr.min.js') }}"></script>
-	
 
-    <!-- Flot -->
+    <script>
+        $(document).ready(function(){
+            $('.dataTables-example').DataTable({
+                pageLength: 10,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
 
-    <!-- Peity -->
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
 
-    <!-- Custom and plugin javascript -->
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ]
 
-    <!-- jQuery UI -->
+            });
 
-    <!-- GITTER -->
+        });
 
-    <!-- Sparkline -->
-
-    <!-- Sparkline demo data  -->
-
-    <!-- ChartJS-->
-
-    <!-- Toastr -->
+    </script>
 
 
     <script>
@@ -529,7 +542,7 @@
                     showMethod: 'slideDown',
                     timeOut: 4000
                 };
-                toastr.success('Responsive Admin Theme', 'Welcome to INSPINIA');
+                toastr.success('Welcome to Matrimonial');
 
             }, 1300);
 

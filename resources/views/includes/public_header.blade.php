@@ -44,16 +44,22 @@
 			<div class="dropdown">
 				<button class="dropbtn">{{ Auth::user()->name }} <i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
 				<div class="dropdown-content">
+					<a href="{{ route('profile') }}">
+						Profile
+					</a>
+					<a href="{{ route('settings') }}">
+						Settings
+					</a>
 					<a href="{{ route('logout') }}"
 						onclick="event.preventDefault();
 								 document.getElementById('logout-form').submit();">
 						Logout
 					</a>
-
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 						{{ csrf_field() }}
 					</form>
 				</div>
+
 			</div>
 		</div>		
 		@endif

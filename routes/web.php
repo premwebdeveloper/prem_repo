@@ -15,15 +15,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/', 'HomeController@index')->name('/');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home', 'HomeController@index')->name('home');
 
-Route::get('/dashboard', 'Dashboard@admin')->name('dashboard');
+Route::get('profile', 'User@profile')->name('profile');
 
-Route::get('registration', 'CustomAuthController@showRegisterForm')->name('registration');
+Route::get('settings', 'User@settings')->name('settings');
 
-Route::post('registration', 'CustomAuthController@registration');
+Route::get('dashboard', 'Dashboard@admin')->name('dashboard');
+
+Route::get('users', 'AdminUser@index')->name('users');
+
+Route::get('user_profile', 'AdminUser@user_profile')->name('user_profile');
+
+/*Route::get('registration', 'CustomAuthController@showRegisterForm')->name('registration');
+
+Route::post('registration', 'CustomAuthController@registration');*/
 
 Route::get('sendEmail', 'EmailController@sendEmail');
 

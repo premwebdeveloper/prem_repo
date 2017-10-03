@@ -68,6 +68,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         Session::flash('status', 'Registered Successfully. But verify your email to activate your account.');
+
         $user = User::create([
             'name' => $data['name'],
             'lastname' => $data['lastname'],
@@ -83,6 +84,17 @@ class RegisterController extends Controller
         
         $date = date("Y-m-d H:i:s");
 
+        # Create user role
+        $user_role = DB::table('user_roles')->insert(
+             array(
+                    'role_id' => '2',
+                    'user_id' => $user_id,
+                    'created_at' => $date,
+                    'updated_at' => $date
+             )
+        );
+
+        #user insert in user details table
         $user_insert = DB::table('user_details')->insert(
              array(
                     'user_id' => $user_id, 
