@@ -16,27 +16,23 @@ Route::get('/', function () {
 });
 
 Route::get('/', 'HomeController@index')->name('/');
+Route::get('home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('home', 'HomeController@index')->name('home');
-
 Route::get('profile', 'User@profile')->name('profile');
-
 Route::get('settings', 'User@settings')->name('settings');
 
-Route::get('dashboard', 'Dashboard@admin')->name('dashboard');
-
-Route::get('users', 'AdminUser@index')->name('users');
-
-Route::get('user_profile', 'AdminUser@user_profile')->name('user_profile');
-
-/*Route::get('registration', 'CustomAuthController@showRegisterForm')->name('registration');
-
-Route::post('registration', 'CustomAuthController@registration');*/
+Route::get('verifyEmailFirst', 'Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
+Route::get('verify/{email}/{verifyToken}', 'Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
 
 Route::get('sendEmail', 'EmailController@sendEmail');
 
-Route::get('verifyEmailFirst', 'Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
+// Only Admin can access these controllers
+Route::group(['middleware' => 'App\Http\Middleware\Admin'], function()
+{
+    Route::get('dashboard', 'Dashboard@admin')->name('dashboard');
 
-Route::get('verify/{email}/{verifyToken}', 'Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
+    Route::get('users', 'AdminUser@index')->name('users');
+    Route::get('user_profile', 'AdminUser@user_profile')->name('user_profile');
+});
