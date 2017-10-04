@@ -37,7 +37,7 @@ class LoginController extends Controller
 
         # Get user id
         $currentuserid = Auth::user()->id;
-        
+
         # Get User role
         $user = DB::table('user_roles')->where('user_id', $currentuserid)->first();
 
@@ -52,7 +52,7 @@ class LoginController extends Controller
         {
             return redirect(route('/'));
         }
-        
+
         /*return $this->authenticated($request, $this->guard()->user())
                 ?: redirect()->intended($this->redirectPath());*/
     }
