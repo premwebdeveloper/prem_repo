@@ -17,7 +17,11 @@ Route::get('/', function () {
 
 Route::get('/', 'HomeController@index')->name('/');
 Route::get('home', 'HomeController@index')->name('home');
-
+Route::get('aboutus', 'HomeController@aboutus')->name('aboutus');
+Route::get('aims', 'HomeController@aims')->name('aims');
+Route::get('member', 'HomeController@member')->name('member');
+Route::get('suggestion', 'HomeController@suggestion')->name('suggestion');
+Route::get('problem', 'HomeController@problem')->name('problem');
 Auth::routes();
 
 Route::get('profile', 'User@profile')->name('profile');
