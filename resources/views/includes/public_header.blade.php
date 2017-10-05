@@ -2,24 +2,27 @@
 <html lang="en">
 
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Vaish Parivar Sangh</title>
-		
-<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+	<title>Vaish Parivar Sangh</title>
 
-<link href="{{ asset('resources/frontend_assets/css/list_page17ba.css?1480271400') }}" rel="stylesheet">
-<link href="{{ asset('resources/frontend_assets/css/bootstrap.min17ba.css?1480271400') }}" rel="stylesheet">
-<link href="{{ asset('resources/frontend_assets/css/style17ba.css?1480271400') }}" rel="stylesheet">
-<link href="{{ asset('resources/frontend_assets/css/easytabs17ba.css?1480271400') }}" rel="stylesheet">
-<link href="{{ asset('resources/frontend_assets/css/font-awesome.min17ba.css?1480271400') }}" rel="stylesheet">
-<link href="{{ asset('resources/frontend_assets/css/top.css') }}" rel="stylesheet">
+	<script src="{{ asset('resources/assets/js/jquery-3.1.1.min.js') }}"></script>
+	<script src="{{ asset('resources/assets/js/bootstrap.min.js') }}"></script>
 
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+
+	<link href="{{ asset('resources/frontend_assets/css/list_page17ba.css?1480271400') }}" rel="stylesheet">
+	<link href="{{ asset('resources/frontend_assets/css/bootstrap.min17ba.css?1480271400') }}" rel="stylesheet">
+	<link href="{{ asset('resources/frontend_assets/css/style17ba.css?1480271400') }}" rel="stylesheet">
+	<link href="{{ asset('resources/frontend_assets/css/easytabs17ba.css?1480271400') }}" rel="stylesheet">
+	<link href="{{ asset('resources/frontend_assets/css/font-awesome.min17ba.css?1480271400') }}" rel="stylesheet">
+	<link href="{{ asset('resources/frontend_assets/css/top.css') }}" rel="stylesheet">
+	<link href="{{ asset('resources/frontend_assets/css/custom.css') }}" rel="stylesheet">
 
 </head>
 
@@ -29,12 +32,12 @@
 		<div class="newskannada-vaish">
 			<a href="tel:+91-9871495195" title="Video">
 				<i class="fa fa-phone"></i> +91-9871495195
-			</a>			
+			</a>
 			<a href="mailto:info@vaishparivarsangh.com" title="Video">
 				<i class="fa fa-envelope"></i> info@vaishparivarsangh.com
 			</a>
 		</div>
-		
+
 		@if (Auth::guest())
 		<div class="newskannada-video">
 			<a href="{{ route('register') }}">Join Us</a>
@@ -60,15 +63,15 @@
 				</div>
 
 			</div>
-		</div>		
+		</div>
 		@endif
 	</div>
-	
+
 	<div class="header">
 		<div class="row">
 			<div class="col-md-1 hidetext">
 				<img src="{{asset('resources/frontend_assets/img/maharaja-agrasen.png')}}" class="img-responsive" alt="News Karnataka">
-			</div>		
+			</div>
 			<div class="col-md-2 hidetext">
 				<img src="{{asset('resources/frontend_assets/img/mahalaxmi.png')}}" class="img-responsive" alt="Maha Laxmi" style="height: 115px;">
 			</div>
@@ -84,13 +87,13 @@
 			</div>
 			<div class="col-md-2 hidetext">
 				<img src="{{asset('resources/frontend_assets/img/agar.gif')}}" class="img-responsive" alt="News">
-			</div>	
+			</div>
 			<div class="col-md-1 hidetext">
 				<img src="{{asset('resources/frontend_assets/img/Gandhi.png')}}" class="img-responsive" alt="News">
-			</div>	
-		</div>	
+			</div>
+		</div>
 	</div><!--header-->
-	
+
 	<!--navigation-->
 	<div class="navbar navbar-default navbar-static-top" role="navigation">
 		<div class="container">

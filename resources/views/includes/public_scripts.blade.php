@@ -1,5 +1,11 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $(document).on('click', '.edit_profile', function(){
+            $(".personal_info").removeAttr('readonly');
+        });
+    });
+
     // Activate Carousel
     $(document).ready(function(){
         $("#myCarousel").carousel({interval: 15000});
@@ -28,7 +34,7 @@
               panel.style.maxHeight = null;
             } else {
               panel.style.maxHeight = panel.scrollHeight + "px";
-            } 
+            }
           }
         }
     $(document).ready(function(){
@@ -45,7 +51,7 @@
             {
                 $('#MaleMember').slideUp('slow');
             }
-        });        
+        });
         $("#Female").on("click", function(){
             if(this.checked)
                 $('#FemaleMember').slideDown('slow');
