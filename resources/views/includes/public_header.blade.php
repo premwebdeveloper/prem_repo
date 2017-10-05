@@ -27,10 +27,10 @@
 
 	<div class="top">
 		<div class="newskannada-vaish">
-			<a href="#" title="Video">
+			<a href="tel:+91-9871495195" title="Video">
 				<i class="fa fa-phone"></i> +91-9871495195
 			</a>			
-			<a href="#" title="Video">
+			<a href="mailto:info@vaishparivarsangh.com" title="Video">
 				<i class="fa fa-envelope"></i> info@vaishparivarsangh.com
 			</a>
 		</div>
@@ -43,13 +43,11 @@
 		@else
 		<div class="newskannada-log">
 			<div class="dropdown">
-				<button class="dropbtn">{{ Auth::user()->name }} <i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+				<button class="dropbtn">{{ Auth::user()->name }} <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+				</button>
 				<div class="dropdown-content">
 					<a href="{{ route('profile') }}">
 						Profile
-					</a>
-					<a href="{{ route('settings') }}">
-						Settings
 					</a>
 					<a href="{{ route('logout') }}"
 						onclick="event.preventDefault();
@@ -67,14 +65,14 @@
 	</div>
 	
 	<div class="header">
-		<div class="row mb20px">
+		<div class="row">
 			<div class="col-md-1 hidetext">
 				<img src="{{asset('resources/frontend_assets/img/maharaja-agrasen.png')}}" class="img-responsive" alt="News Karnataka">
 			</div>		
-			<div class="col-md-1 hidetext">
-				<img src="{{asset('resources/frontend_assets/img/maharaja-agrasen.png')}}" class="img-responsive" alt="News Karnataka">
+			<div class="col-md-2 hidetext">
+				<img src="{{asset('resources/frontend_assets/img/mahalaxmi.png')}}" class="img-responsive" alt="Maha Laxmi" style="height: 115px;">
 			</div>
-			<div class="col-md-8">
+			<div class="col-md-6">
 				<div class="row pt10px">
 					<div class="col-md-12">
 					<h1 class="text-center white">Vaish Parivar Sangh</h1>
@@ -84,11 +82,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-1 hidetext">
-				<img src="{{asset('resources/frontend_assets/img/mahalaxmi.png')}}" class="img-responsive" style="height: 100px;" alt="News Karnataka">
+			<div class="col-md-2 hidetext">
+				<img src="{{asset('resources/frontend_assets/img/agar.gif')}}" class="img-responsive" alt="News">
 			</div>	
 			<div class="col-md-1 hidetext">
-				<img src="{{asset('resources/frontend_assets/img/Gandhi.png')}}" class="img-responsive" alt="News Karnataka">
+				<img src="{{asset('resources/frontend_assets/img/Gandhi.png')}}" class="img-responsive" alt="News">
 			</div>	
 		</div>	
 	</div><!--header-->
@@ -102,12 +100,12 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav ">
 					<li class="active"><a href="{{ url('/') }}" title="Home">Home</a></li>
-					<li><a href="javascript:;" title="Home">About Us</a></li>
-					<li><a href="javascript:;" title="Home">Aims & Objectives</a></li>
+					<li><a href="{{ route('aboutus') }}" title="Home">About Us</a></li>
+					<li><a href="{{ route('aims') }}" title="Home">Aims & Objectives</a></li>
 					<li><a href="javascript:;" title="Home">आज के विचार </a></li>
 					<li><a href="javascript:;" title="Home">अब तक के समाचार</a></li>
-					<li><a href="javascript:;" title="Home">Your Suggestion</a></li>
-					<li><a href="javascript:;" title="Home">Submit Your Problem</a></li>
+					<li><a href="{{ route('suggestion') }}" title="Home">Your Suggestion</a></li>
+					<li><a href="{{ route('problem') }}" title="Home">Submit Your Problem</a></li>
 				</ul>
 			</div>
 		</div>
