@@ -22,17 +22,31 @@ Route::get('aims', 'HomeController@aims')->name('aims');
 Route::get('member', 'HomeController@member')->name('member');
 Route::get('suggestion', 'HomeController@suggestion')->name('suggestion');
 Route::get('problem', 'HomeController@problem')->name('problem');
-Auth::routes();
 
-Route::get('profile', 'User@profile')->name('profile');
-Route::get('settings', 'User@settings')->name('settings');
+Auth::routes();
 
 Route::get('verifyEmailFirst', 'Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
 Route::get('verify/{email}/{verifyToken}', 'Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
-
 Route::get('sendEmail', 'EmailController@sendEmail');
 
-// Only Admin can access these controllers
+
+/**************************************************/
+// A user can access after login only these routes//
+/**************************************************/
+
+Route::get('profile', 'User@profile')->name('profile');
+
+Route::post('updatePersonalInfo', 'User@updatePersonalInfo')->name('updatePersonalInfo');
+
+/**************************************************/
+// A user can access after login only these routes//
+/**************************************************/
+
+
+/**************************************************/
+//     Only Admin can access these controllers    //
+/**************************************************/
+
 Route::group(['middleware' => 'App\Http\Middleware\Admin'], function()
 {
     Route::get('dashboard', 'Dashboard@admin')->name('dashboard');
@@ -40,3 +54,7 @@ Route::group(['middleware' => 'App\Http\Middleware\Admin'], function()
     Route::get('users', 'AdminUser@index')->name('users');
     Route::get('user_profile', 'AdminUser@user_profile')->name('user_profile');
 });
+
+/**************************************************/
+//     Only Admin can access these controllers    //
+/**************************************************/
