@@ -42,7 +42,7 @@ class User extends Controller
         # Get User role
         $user = DB::table('user_details')->where('user_id', $user_id)->first();
 
-        return view('user.profile', array('user' => $user));
+        return redirect('profile');
 
     }
 
