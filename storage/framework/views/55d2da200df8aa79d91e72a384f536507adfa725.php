@@ -20,6 +20,7 @@
 <link href="<?php echo e(asset('resources/frontend_assets/css/font-awesome.min17ba.css?1480271400')); ?>" rel="stylesheet">
 <link href="<?php echo e(asset('resources/frontend_assets/css/top.css')); ?>" rel="stylesheet">
 
+
 </head>
 
 <body class="lazy">
