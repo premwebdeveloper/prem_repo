@@ -11,30 +11,40 @@
 				        <div class="col-md-4">
 				            <div class="ibox float-e-margins">
 
-				                <div>
+								<!-- Image update code -->
+								<div class="col-md-4">
+			                    	<img alt="image" class="img-circle img-responsive" src="resources/assets/profile_images/{{$user->image}}">
 
-									<div class="col-md-4">
-				                    	<img alt="image" class="img-circle img-responsive" src="resources/assets/img/a1.jpg">
-				                    	<a href="javascript:;" class="btn btn-info btn-xs" style="margin-top:5px">update image</a>
-				                	</div>
-				                    <div class="col-md-8">
-					                    <div class="ibox-content profile-content">
-					                        <h4><strong>Monica Smith</strong></h4>
-					                        <p><i class="fa fa-envelope"></i> demo@gmail.com</p>
-					                        <p><i class="fa fa-phone"></i> +91-1234567890</p>
+									<form action="{{ route('updateProfileImage') }}" method="post" enctype="multipart/form-data">
+										{{ csrf_field() }}
+										<input type="file" name="image">
+										<input type="submit" name="updateProfileImage" value="Update Profile Image" class="btn btn-info btn-xs">
+									</form>
+			                	</div>
+			                	<!-- Image update code -->
 
-										</div>
-				                    </div>
-				                    <div class="col-md-12">
-				                		<h5> Profile </h5>
-				                        <p>
-				                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.
-				                        </p>
+								<!-- Show Personal Info -->
+			                    <div class="col-md-8">
+				                    <div class="ibox-content profile-content">
+				                        <h4><strong>{{$user->name ." ". $user->lastname}}</strong></h4>
+				                        <p><i class="fa fa-envelope"></i> {{ $user->email }}</p>
+				                        <p><i class="fa fa-phone"></i> {{$user->phone}} </p>
 
-				                    </div>
-				            </div>
-				        </div>
-				    </div>
+									</div>
+			                    </div>
+
+			                    <div class="col-md-12">
+			                		<h5> Profile </h5>
+			                        <p>
+			                           {{$user->bio}}
+			                        </p>
+			                    </div>
+			                    <!-- Show Personal Info -->
+
+				        	</div>
+				    	</div>
+
+				    	<!-- Profile update section start here-->
 				        <div class="col-md-8">
 
 				    	    <div class="with-nav-tabs">
