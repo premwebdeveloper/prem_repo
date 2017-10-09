@@ -36,6 +36,8 @@ Route::get('sendEmail', 'EmailController@sendEmail');
 
 Route::get('profile', 'User@profile')->name('profile');
 
+Route::post('updateProfileImage', 'User@updateProfileImage')->name('updateProfileImage');
+
 Route::post('updatePersonalInfo', 'User@updatePersonalInfo')->name('updatePersonalInfo');
 
 /**************************************************/
