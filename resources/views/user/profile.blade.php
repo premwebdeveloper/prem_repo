@@ -13,10 +13,11 @@
 
 								<!-- Image update code -->
 								<div class="col-md-4">
-			                    	<img alt="image" class="img-circle img-responsive" src="resources/assets/profile_images/{{$user->image}}">
+			                    	<img alt="image" class="img-circle img-responsive" src="resources/uploads/profile_images/{{$user->image}}">
 
 									<form action="{{ route('updateProfileImage') }}" method="post" enctype="multipart/form-data">
 										{{ csrf_field() }}
+										<input type="hidden" name="user_id" id="user_id" value="{{ $user->user_id }}">
 										<input type="file" name="image">
 										<input type="submit" name="updateProfileImage" value="Update Profile Image" class="btn btn-info btn-xs">
 									</form>
@@ -33,7 +34,15 @@
 									</div>
 			                    </div>
 
+
+
 			                    <div class="col-md-12">
+
+									<!-- Profile image success message show -->
+									@if(session('status'))
+										<div class="alert alert-success"> {{ session('status') }} </div>
+									@endif
+
 			                		<h5> Profile </h5>
 			                        <p>
 			                           {{$user->bio}}
