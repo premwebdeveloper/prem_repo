@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
+use Illuminate\Support\Facades\Input;
+use Storage;
 
 class User extends Controller
 {
@@ -44,6 +46,50 @@ class User extends Controller
 
         return redirect('profile');
 
+    }
+
+    # update Profile Image
+    public function updateProfileImage(Request $request)
+    {
+        $user_id = $request->user_id;
+
+        $date = date('Y-m-d H:i:s');
+
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+
+            $filename = $request->image->getClientOriginalName();
+            $filesize = $request->image->getClientSize();
+
+            $destinationPath = config('app.fileDestinationPath').'/'.$filename;
+            $uploaded = Storage::put($destinationPath, file_get_contents($file->getRealPath()));
+
+            if($uploaded)
+            {
+                 $image_update = DB::table('user_details')->where('user_id', $user_id)->update(array('image' => $filename,
+                    'updated_at' => $date));
+            }
+
+            if( $image_update)
+            {
+                $status = "Profile image updated successfully !";
+
+                return redirect('profile')->with('status', $status);
+
+            }
+
+            //$request->image->storeAs('public/upload', $filename);
+        }
+        else
+        {
+            $status = "Please upload any image !";
+
+            return redirect('profile')->with('status', $status);
+
+        }
+
+        //return redirect('profile');
     }
 
 }
