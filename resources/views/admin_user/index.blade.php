@@ -37,32 +37,30 @@
                     <table class="table table-striped table-bordered table-hover dataTables-example" >
                         <thead>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
-                                <th>CSS grade</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="gradeX">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 4.0
-                                </td>
-                                <td>Win 95+</td>
-                                <td class="center">4</td>
-                                <td class="center">X</td>
-                            </tr>
-                            <tr class="gradeC">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 5.0
-                                </td>
-                                <td>Win 95+</td>
-                                <td class="center">5</td>
-                                <td class="center">C</td>
-                            </tr>
+
+                            @foreach($users as $user)
+
+                                <tr class="gradeX">
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->lastname }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->phone }}</td>
+                                    <td>
+                                        <a href="">View</a>
+                                        <a href="">Disable</a>
+                                    </td>
+                                </tr>
+
+                            @endforeach
+
                         </tbody>
                     </table>
                 </div>
