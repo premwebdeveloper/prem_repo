@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class AdminUser extends Controller
 {
     // Get All Users For admin console
     public function index()
     {
-        return view('admin_user.index');
+        //  Get Users
+        $users = DB::table('user_details')->get();
+
+        return view('admin_user.index', array('users' => $users));
     }
 
     // User profile ( User details view )
