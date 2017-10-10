@@ -66,7 +66,9 @@
 				                </div>
 				                <div class="panel-body">
 				                    <div class="tab-content">
+				                    	<!-- Presonal Information -->
 				                        <div class="tab-pane fade in active" id="profile">
+				                        	<!-- Update Personal Info -->
 				                        	<form class="form-inline" action="{{ route('updatePersonalInfo') }}" method="post">
 
 												{{ csrf_field() }}
@@ -76,6 +78,7 @@
 													<div class="row mb10px">
 														<div class="col-md-6">
 											    			<h4>Personal Information</h4>
+											    			<hr>
 											    		</div>
 
 											    		<div class="col-md-6 text-right">
@@ -97,13 +100,7 @@
 													    </div>
 												    </div>
 
-												    <div class="col-md-12">
-														<input type="submit" class="btn btn-success personal_info" name="update_personal_info" id="update_personal_info">
-													</div>
-
-												</form>
-
-											   		<div class="col-md-12 mb10px">
+											   		<div class="col-md-6">
 												    	<h4>Your Gender</h4>
 													    <div class="form-group ml0px">
 													      	<input type="radio" placeholder="First Name" name="male" checked="checked">
@@ -113,107 +110,173 @@
 													      	&nbsp;&nbsp;Female
 													    </div>
 												    </div>
-											   		<div class="col-md-6 mb10px">
-												    	<h4>Email Address</h4>
-												    	<div class="form-group">
-													      <input type="email" class="form-control" placeholder="Example@gmail.com" name="email">
-													    </div>
-												    </div>
 													<div class="col-md-6 mb10px">
 												    	<h4>Mobile Number</h4>
 												    	<div class="form-group">
-													      <input type="tel" class="form-control" placeholder="+91-123456789" name="mobile">
+													      <input type="tel" class="form-control personal_info" placeholder="+91-123456789" name="mobile" readonly>
 													    </div>
 												    </div>
+
 													<div class="col-md-6 mb10px">
 												    	<h4>DOB</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="20-12-1990" name="bloodgroup">
+													      <input type="text" class="form-control personal_info" placeholder="20-12-1990" name="bloodgroup" readonly>
 													    </div>
 												    </div>
 													<div class="col-md-6 mb10px">
 												    	<h4>Blood Group</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="AB+" name="bloodgroup">
+													      <input type="text" class="form-control personal_info" placeholder="AB+" name="bloodgroup" readonly>
 													    </div>
 												    </div>
 
 													<div class="col-md-6 mb10px">
 														<h4>Address</h4>
 												    	<div class="form-group">
-										      	<textarea class="form-control" rows="5" placeholder="Address" name="suggestion"></textarea>
+										      	<textarea class="form-control personal_info" rows="5" placeholder="Address" name="suggestion" readonly></textarea>
 													    </div>
 												    </div>
 
 													<div class="col-md-6 mb10px">
 												    	<h4>Pin Code</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="333516" name="pin">
+													      <input type="text" class="form-control personal_info" placeholder="333516" name="pin" readonly>
 													    </div>
 												    </div>
 
 											    	<div class="col-md-6 mb10px">
 												    	<h4>District</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="Jaipur" name="dis">
+													      <input type="text" class="form-control personal_info" placeholder="Jaipur" name="dis" readonly>
 													    </div>
 												    </div>
 
 													<div class="col-md-6 mb10px">
 													    <h4>State</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="Rajasthan" name="state">
+													      <input type="text" class="form-control personal_info" placeholder="Rajasthan" name="state" readonly>
 													    </div>
 												    </div>
 
 													<div class="col-md-6 mb10px">
 													    <h4>Country</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="India" name="country">
+													      <input type="text" class="form-control personal_info" placeholder="India" name="country" readonly>
 													    </div>
 												    </div>
+												    <div class="col-md-12 update_per_info" style="display:none;">
+														<input type="submit" class="btn btn-success personal_info" name="update_personal_info" id="update_personal_info" value="update personal info">
+													</div>
 
+												</form>
+												<!-- Update Personal Info -->
+
+												<!-- Update Email Info-->
+												<form class="form-inline" action="" method="post">
+													{{ csrf_field() }}
+													<input type="hidden" name="user_id" id="user_id" value="{{ $user->user_id }}">
+													<div class="row">
+														<div class="col-md-6">
+											    			<h4>Email Id Information</h4>
+											    			<hr>
+											    		</div>
+
+											    		<div class="col-md-6 text-right">
+											    			<h4>
+									    				<a href="javascript:;" id="edit_email" class="edit_email">Edit Email Id</a>
+											    			</h4>
+											    		</div>
+										    		</div>
+											   		<div class="col-md-12 mb10px">
+												    	<h4>Email Address</h4>
+												    	<div class="form-group">
+													      <input type="email" class="form-control email_info" placeholder="Example@gmail.com" name="email" readonly>
+													    </div>
+												    </div>
+												    <div class="col-md-12 update_email" style="display:none;">
+														<input type="submit" class="btn btn-success" name="update_personal_info" id="update_personal_info" value="update email info">
+													</div>
+										    	</form>
+										    	<!-- Update Email Info-->
+
+										    	<!-- Update Religion Info -->
+												<form class="form-inline" action="" method="post">
+													{{ csrf_field() }}
+													<input type="hidden" name="user_id" id="user_id" value="{{ $user->user_id }}">
+													<div class="row">
+														<div class="col-md-6">
+											    			<h4>Religion Information</h4>
+											    			<hr>
+											    		</div>
+
+											    		<div class="col-md-6 text-right">
+											    			<h4>
+									    				<a href="javascript:;" id="edit_religion" class="edit_religion">Edit Religion</a>
+											    			</h4>
+											    		</div>
+										    		</div>
 											    	<div class="col-md-6 mb10px">
 											    		<h4>जाति </h4>
 												    	<div class="form-group">
-													      	<input type="text" class="form-control" placeholder="जाति" name="caste">
+													      	<input type="text" class="form-control religion_info" placeholder="जाति" name="caste" readonly>
 													    </div>
 												    </div>
 
 												    <div class="col-md-6 mb10px">
 												    	<h4>उपजाति </h4>
 													    <div class="form-group">
-													      <input type="text" class="form-control" placeholder="उपजाति" name="lname">
+													      <input type="text" class="form-control religion_info" placeholder="उपजाति" name="lname" readonly>
 													    </div>
 												    </div>
 
 											    	<div class="col-md-6 mb10px">
 											    		<h4>घटक </h4>
 												    	<div class="form-group">
-													      	<input type="text" class="form-control" placeholder="घटक" name="caste">
+													      	<input type="text" class="form-control religion_info" placeholder="घटक" name="caste" readonly>
 													    </div>
 												    </div>
 
 												    <div class="col-md-6 mb10px">
 												    	<h4>उपघटक </h4>
 													    <div class="form-group">
-													      <input type="text" class="form-control " placeholder="उपघटक" name="lname">
+													      <input type="text" class="form-control religion_info" placeholder="उपघटक" name="lname" readonly>
 													    </div>
 												    </div>
 
 											    	<div class="col-md-6 mb10px">
 											    		<h4>गौत्र </h4>
 												    	<div class="form-group">
-													      	<input type="text" class="form-control" placeholder="गौत्र" name="caste">
+													      	<input type="text" class="form-control religion_info" placeholder="गौत्र" name="caste" readonly>
 													    </div>
 												    </div>
 
 												    <div class="col-md-6 mb10px">
 												    	<h4>उपगौत्र </h4>
 													    <div class="form-group">
-													      <input type="text" class="form-control" placeholder="उपगौत्र" name="lname">
+													      <input type="text" class="form-control religion_info" placeholder="उपगौत्र" name="lname" readonly>
 													    </div>
 												    </div>
+												    <div class="col-md-12 update_religion" style="display:none;">
+														<input type="submit" class="btn btn-success" name="update_personal_info" id="update_personal_info" value="update religion info">
+													</div>
+												</form>
+												<!-- Update Religion Info -->
+												<!-- Update Extra Info -->
+												<form class="form-inline" action="" method="post">
+													{{ csrf_field() }}
+													<input type="hidden" name="user_id" id="user_id" value="{{ $user->user_id }}">
+													<div class="row">
+														<div class="col-md-6">
+											    			<h4>Extra Information</h4>
+											    			<hr>
+											    		</div>
+
+											    		<div class="col-md-6 text-right">
+											    			<h4>
+									    				<a href="javascript:;" id="edit_extra" class="edit_extra">Edit Extra Info</a>
+											    			</h4>
+											    		</div>
+										    		</div>
 													<div class="col-md-12 mb10px">
 											    	<h4>मरने पर अंग दान करना चाहेंगे</h4>
 												    <div class="form-group ml0px">
@@ -287,7 +350,11 @@
 												      	&nbsp;&nbsp;No
 											    	</div>
 											    </div>
+											    <div class="col-md-12 update_extra" style="display:none;">
+													<input type="submit" class="btn btn-success" name="update_personal_info" id="update_personal_info" value="update extra info">
+												</div>
 											</form>
+											<!-- Update Extra Info -->
 				                        </div>
 
 				                        <div class="tab-pane fade" id="family">

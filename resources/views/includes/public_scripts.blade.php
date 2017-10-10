@@ -3,6 +3,26 @@
     $(document).ready(function(){
         $(document).on('click', '.edit_profile', function(){
             $(".personal_info").removeAttr('readonly');
+            $('.update_per_info').css({
+                'display' : 'block'
+            })
+        });
+        $(document).on('click', '.edit_email', function(){
+             $('.email_info').removeAttr('readonly');
+             $('.update_email').css({
+                'display' : 'block'
+             });
+        });       
+        $(document).on('click', '.edit_religion', function(){
+             $('.religion_info').removeAttr('readonly');
+             $('.update_religion').css({
+                'display' : 'block'
+             });
+        });        
+        $(document).on('click', '.edit_extra', function(){
+             $('.update_extra').css({
+                'display' : 'block'
+             });
         });
     });
 
