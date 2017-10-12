@@ -30,3 +30,27 @@ ALTER TABLE `user_religion_details`
 
 ALTER TABLE `user_religion_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+
+-- ---------------------------Created Table user_extra_details ON 12-10-2017--------------------------
+
+CREATE TABLE `user_extra_details` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `donate_body_part` int(11) DEFAULT NULL,
+  `farm_member` int(11) DEFAULT NULL,
+  `club_member` int(11) DEFAULT NULL,
+  `abc_club_member` int(11) DEFAULT NULL,
+  `project_committee` int(11) DEFAULT NULL,
+  `blood_donate` int(11) DEFAULT NULL,
+  `vaishya_vahini` int(11) DEFAULT NULL,
+  `year_calendar` int(11) DEFAULT NULL,
+  `created_on` date NOT NULL,
+  `updated_on` date NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `user_extra_details`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `user_extra_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
