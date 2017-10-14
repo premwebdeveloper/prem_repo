@@ -24,7 +24,13 @@ class User extends Controller
         # Get User role
         $user = DB::table('user_details')->where('user_id', $currentuserid)->first();
 
-        return view('user.profile', array('user' => $user));
+        # Get User Religion
+        $religion = DB::table('user_religion_details')->where('user_id', $currentuserid)->first();
+
+        # Get User Extra Info
+        $extra = DB::table('user_extra_details')->where('user_id', $currentuserid)->first();
+        
+        return view('user.profile', array('user' => $user, 'religion' => $religion, 'extra' => $extra));
     }
 
     # Update Personal Info
@@ -33,18 +39,77 @@ class User extends Controller
         $user_id = $request->user_id;
         $fname = $request->fname;
         $lname = $request->lname;
+        $gender = $request->gender;
+        $phone = $request->phone;
+        $dob = $request->dob;
+        $bloodgroup = $request->bloodgroup;
+        $address = $request->address;
+        $pincode = $request->pincode;
+        $district = $request->district;
+        $state = $request->state;
+        $country = $request->country;
+        
+        /* dob date format chnage Y-m-d */
+        //$change_format_dob = date('Y-m-d', strtotime( $dob ));
 
-        $user_update = DB::table('users')->where('id', $user_id)->update(array('name' => $fname, 'lastname' => $lname));
+        $user_update = DB::table('users')->where('id', $user_id)->update(array('name' => $fname, 'lastname' => $lname, 'username' => $fname.$lname, 'phone' => $phone));
 
-        if($user_update)
-        {
-             $user_details_update = DB::table('user_details')->where('user_id', $user_id)->update(array('name' => $fname, 'lastname' => $lname));
-        }
-
+        $user_details_update = DB::table('user_details')->where('user_id', $user_id)->update(array('name' => $fname, 'lastname' => $lname, 'gender' => $gender, 'phone' => $phone, 'dob' => $dob, 'blood_group' => $bloodgroup, 'address' => $address, 'pin_code' => $pincode, 'district' => $district, 'state' => $state, 'country' => $country));
+       
         # Get User role
         $user = DB::table('user_details')->where('user_id', $user_id)->first();
+        
+        $personal_status = "Personal information updated successfully !";
 
-        return redirect('profile');
+        return redirect('profile')->with('personal_status', $personal_status);
+        
+    }
+
+    # Update Religion Info
+    public function updateReligionInfo(Request $request)
+    {
+        $date = date('Y-m-d H:i:s');
+
+        $user_id = $request->user_id;
+        $cast = $request->cast;
+        $sub_cast = $request->sub_cast;
+        $ghatak = $request->ghatak;
+        $sub_ghatak = $request->sub_ghatak;
+        $gotra = $request->gotra;
+        $sub_gotra = $request->sub_gotra;
+
+        $user_religion_update = DB::table('user_religion_details')->where('user_id', $user_id)->update(array('cast' => $cast, 'sub_cast' => $sub_cast, 'ghatak' => $ghatak, 'sub_ghatak' => $sub_ghatak, 'gotra' => $gotra, 'sub_gotra' => $sub_gotra, 'updated_on' => $date));
+
+        $religion = DB::table('user_religion_details')->where('user_id', $user_id)->first();
+
+        $religion_status = "Religion information updated successfully !";
+
+        return redirect('profile')->with('religion_status', $religion_status);
+
+    }
+
+    # Update Extra Info
+    public function updateExtraInfo(Request $request)
+    {
+        $date = date('Y-m-d H:i:s');
+
+        $user_id = $request->user_id;
+        $donate_body_part = $request->donate_body_part;
+        $farm_member = $request->farm_member;
+        $club_member = $request->club_member;
+        $abc_club_member = $request->abc_club_member;
+        $project_committee = $request->project_committee;
+        $blood_donate = $request->blood_donate;
+        $vaishya_vahini = $request->vaishya_vahini;
+        $year_calendar = $request->year_calendar;
+
+        $user_extra_info = DB::table('user_extra_details')->where('user_id', $user_id)->update(array('donate_body_part' => $donate_body_part, 'farm_member' => $farm_member, 'club_member' => $club_member, 'abc_club_member' => $abc_club_member, 'project_committee' => $project_committee, 'blood_donate' => $blood_donate, 'vaishya_vahini' => $vaishya_vahini, 'year_calendar' => $year_calendar, 'updated_on' => $date));
+
+        $extra = DB::table('user_extra_details')->where('user_id', $user_id)->first();
+
+        $extra_status = "Extra information updated successfully !";
+
+        return redirect('profile')->with('extra_status', $extra_status);
 
     }
 
@@ -71,7 +136,7 @@ class User extends Controller
                     'updated_at' => $date));
             }
 
-            if( $image_update)
+            if($image_update)
             {
                 $status = "Profile image updated successfully !";
 
