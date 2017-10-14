@@ -23,7 +23,18 @@
              $('.update_extra').css({
                 'display' : 'block'
              });
+        });        
+        $(document).on('click', '.Profie_image', function(){
+            $('.primage').slideDown();
+             $('.primage').css({
+                'display' : 'block'
+             });
         });
+      
+        setTimeout(function(){
+            $('.alert').slideUp();
+        }, 3000);
+       
     });
 
     // Activate Carousel
@@ -60,24 +71,15 @@
     $(document).ready(function(){
         $("#addmember").on("click", function(){
             $(".member").slideDown('slow');
-            $('#MaleMember').slideDown('slow');
+            $('#MemberMale').slideDown('slow');
         });
-        $("#Male").on("click", function(){
-            if(this.checked)
-            {
-                $('#MaleMember').slideDown('slow');
-            }
-            else
-            {
-                $('#MaleMember').slideUp('slow');
-            }
-        });
-        $("#Female").on("click", function(){
-            if(this.checked)
-                $('#FemaleMember').slideDown('slow');
-            else
-                $('#FemaleMember').slideUp('slow');
-        });
+        $("input[name$='family']").click(function() {
+
+        var test = $(this).val();
+        
+        $("div.user_family").hide();
+        $("#Member" + test).show();
+    });
     });
 </script>
 

@@ -40,6 +40,10 @@ Route::post('updateProfileImage', 'User@updateProfileImage')->name('updateProfil
 
 Route::post('updatePersonalInfo', 'User@updatePersonalInfo')->name('updatePersonalInfo');
 
+Route::post('updateReligionInfo', 'User@updateReligionInfo')->name('updateReligionInfo');
+
+Route::post('updateExtraInfo', 'User@updateExtraInfo')->name('updateExtraInfo');
+
 /**************************************************/
 // A user can access after login only these routes//
 /**************************************************/
