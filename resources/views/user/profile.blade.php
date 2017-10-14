@@ -18,7 +18,7 @@
 									<form action="{{ route('updateProfileImage') }}" method="post" enctype="multipart/form-data" class="primage" style="display:none">
 										{{ csrf_field() }}
 										<input type="hidden" name="user_id" id="user_id" value="{{ $user->user_id }}">
-										
+
 										<input type="file" name="image" class="mt10">
 
 										<input type="submit" name="updateProfileImage" value="Update Image" class="btn btn-success btn-xs mt10">
@@ -51,7 +51,7 @@
 
 				        	</div>
 				    	</div>
-						
+
 				    	<!-- Profile update section start here-->
 				        <div class="col-md-7">
 
@@ -64,6 +64,12 @@
 				                       </ul>
 				                </div>
 				                <div class="panel-body">
+
+									<!-- Add member success message -->
+				                	@if(session('add_member'))
+										<div class="alert alert-success">{{ session('add_member') }}</div>
+									@endif
+
 				                    <div class="tab-content">
 				                    	<!-- Presonal Information -->
 				                        <div class="tab-pane fade in active" id="profile">
@@ -117,7 +123,7 @@
 													      <input type="text" class="form-control personal_info" placeholder="Last Name" name="lname" id="lname" value="{{$user->lastname}}" readonly>
 													    </div>
 												    </div>
-												    
+
 											   		<div class="col-md-6">
 												    	<h4>Your Gender / तुम्हारा लिंग </h4>
 													    <div class="form-group ml0px">
@@ -360,7 +366,7 @@
 												      		<input type="radio" name="club_member" class="radio" value="2">
 												      		&nbsp;&nbsp;No
 												      	@else
-											   			
+
 												   			<input type="radio" name="club_member" class="radio" value="1">
 													      	&nbsp;&nbsp;Yes
 													      	<input type="radio" name="club_member" class="radio" value="2" checked="checked">
@@ -428,7 +434,7 @@
 												      	@endif
 													</div>
 
-											    	<h4>वार्षिक कैलेंडर पहुंच गया </h4>	
+											    	<h4>वार्षिक कैलेंडर पहुंच गया </h4>
 												    <div class="form-group ml0px">
 												    	@if($extra->year_calendar==1)
 													      	<input type="radio" name="year_calendar" class="radio" value="1" checked="checked">
@@ -458,32 +464,32 @@
 											<a class="btn btn-info mb10px" id="addmember">
 												<i class="fa fa-plus" aria-hidden="true"></i> Add Member
 											</a>
-											<form class="form-inline" action="">
+
+											<form class="form-inline" method="post" action="{{ route('add_member') }}">
+
 										   		<div class="col-md-12 mb10px member" style="display:none;">
 											    	<div class="form-group ml0px">
-												      	<input type="radio" name="family" checked="checked" value="Male">
-												      	&nbsp;&nbsp;Male
-											   			&nbsp;&nbsp;&nbsp;&nbsp;
-												      	<input type="radio" name="family" value="Female">
-												      	&nbsp;&nbsp;Female
-												      	&nbsp;&nbsp;&nbsp;&nbsp;
-												      	<input type="radio" name="family" value="Child">
-												      	&nbsp;&nbsp;Child
+												      	<input type="radio" name="family" checked="checked" value="1" class="member_type"> Male
+												      	<input type="radio" name="family" value="2" class="member_type"> Female
+												      	<input type="radio" name="family" value="3" class="member_type"> Child
 												    </div>
 											    </div>
-											</form>
 
-											<!--MaleMemberForm  -->
-											<div id="MemberMale" style="display:none;" class="user_family">
-												<form class="form-inline" action="">
+												<!--MaleMemberForm  -->
+												<div id="MemberMale" style="display:none;" class="user_family">
+
+													{{ csrf_field() }}
+
+													<input type="hidden" name="user_id" id="user_id" value="{{ $user->user_id }}">
+
 											   		<div class="col-md-6 mb10px">
-											    		<h4>Male Information</h4>
+											    		<h4>First name</h4>
 												    	<div class="form-group">
 													      	<input type="text" class="form-control" placeholder="First Name" name="fname">
 													    </div>
 												    </div>
 												    <div class="col-md-6 mb10px">
-												    	<h4>&nbsp;</h4>
+												    	<h4>Last Name</h4>
 													    <div class="form-group">
 													      <input type="text" class="form-control" placeholder="Last Name" name="lname">
 													    </div>
@@ -491,17 +497,17 @@
 											   		<div class="col-md-6 mb10px">
 												    	<h4>Your Gender</h4>
 													    <div class="form-group ml0px">
-													      	<input type="radio" placeholder="First Name" name="male" checked="checked">
+													      	<input type="radio" placeholder="First Name" name="gender" value="1" checked="checked">
 													      	&nbsp;&nbsp;Male
 												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" placeholder="Last Name" name="male">
+													      	<input type="radio" placeholder="Last Name" name="gender" value="2">
 													      	&nbsp;&nbsp;Female
 													    </div>
 												    </div>
 											   		<div class="col-md-6 mb10px">
 												    	<h4>Photo</h4>
 												    	<div class="form-group">
-													      <input type="file" class="form-control" name="email">
+													      <input type="file" class="form-control" name="image">
 													    </div>
 												    </div>
 											   		<div class="col-md-6 mb10px">
@@ -513,13 +519,13 @@
 													<div class="col-md-6 mb10px">
 												    	<h4>Mobile Number</h4>
 												    	<div class="form-group">
-													      <input type="tel" class="form-control" placeholder="+91-123456789" name="mobile">
+													      <input type="text" class="form-control" placeholder="+91-123456789" name="mobile">
 													    </div>
 												    </div>
 													<div class="col-md-6 mb10px">
-												    	<h4>DOB</h4>
+												    	<h4>Date of Birth</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="20-12-1990" name="bloodgroup">
+													      <input type="text" class="form-control" placeholder="20-12-1990" name="dob">
 													    </div>
 												    </div>
 													<div class="col-md-6 mb10px">
@@ -532,10 +538,10 @@
 											   		<div class="col-md-6 mb10px">
 												    	<h4>मांगलिक</h4>
 													    <div class="form-group ml0px">
-													      	<input type="radio" placeholder="First Name" name="mang">
+													      	<input type="radio" placeholder="First Name" value="1" name="mang" checked="checked">
 													      	&nbsp;&nbsp;Yes
 												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" placeholder="Last Name" name="mang" checked="checked">
+													      	<input type="radio" placeholder="Last Name" name="mang" value="2">
 													      	&nbsp;&nbsp;No
 													    </div>
 												    </div>
@@ -543,10 +549,10 @@
 											   		<div class="col-md-6 mb10px">
 												    	<h4>Married</h4>
 													    <div class="form-group ml0px">
-													      	<input type="radio" placeholder="First Name" name="married" checked="checked">
+													      	<input type="radio" placeholder="First Name" name="married" checked="checked" value="1">
 													      	&nbsp;&nbsp;Yes
 												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" placeholder="Last Name" name="married">
+													      	<input type="radio" placeholder="Last Name" name="married" value="2">
 													      	&nbsp;&nbsp;No
 													    </div>
 												    </div>
@@ -554,24 +560,24 @@
 											    	<div class="col-md-6 mb10px">
 												    	<h4>विवाह की तिथि </h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="विवाह की तिथि " name="vivah">
+													      <input type="text" class="form-control" placeholder="विवाह की तिथि " name="marriage_date">
 													    </div>
 												    </div>
 
 													<div class="col-md-6 mb10px">
 													    <h4>Any Exeprience</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="Any Experience" name="country">
+													      <input type="text" class="form-control" placeholder="Any Experience" name="experience">
 													    </div>
 												    </div>
 
 											   		<div class="col-md-6 mb10px">
 												    	<h4>P.H.दिव्यांगता </h4>
 													    <div class="form-group ml0px">
-													      	<input type="radio" placeholder="First Name" name="ph">
+													      	<input type="radio" placeholder="First Name" value="1" name="ph">
 													      	&nbsp;&nbsp;Yes
 												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" placeholder="Last Name" name="ph" checked="checked">
+													      	<input type="radio" placeholder="Last Name" value="2" name="ph" checked="checked">
 													      	&nbsp;&nbsp;No
 													    </div>
 												    </div>
@@ -579,232 +585,28 @@
 													<div class="col-md-6 mb10px">
 												    	<h4>Job/Business</h4>
 													    <div class="form-group ml0px">
-													      	<input type="radio" placeholder="First Name" name="job">
+													      	<input type="radio" placeholder="First Name" name="job_busi" value="1" checked="checked">
 													      	&nbsp;&nbsp;Job
 												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" placeholder="Last Name" name="job" checked="checked">
+													      	<input type="radio" placeholder="Last Name" name="job_busi" value="2" >
 													      	&nbsp;&nbsp;Businesss
 													    </div>
 												    </div>
-												</form>
-											</div>
-											<!--MaleMemberForm  -->
 
-											<!--FemaleMemberForm  -->
-											<div id="MemberFemale" style="display:none;" class="user_family">
-												<form class="form-inline" action="">
-											   		<div class="col-md-6 mb10px">
-											    		<h4>Female Information</h4>
-												    	<div class="form-group">
-													      	<input type="text" class="form-control" placeholder="First Name" name="fname">
-													    </div>
-												    </div>
-												    <div class="col-md-6 mb10px">
-												    	<h4>&nbsp;</h4>
-													    <div class="form-group">
-													      <input type="text" class="form-control" placeholder="Last Name" name="lname">
-													    </div>
-												    </div>
-											   		<div class="col-md-6 mb10px">
-												    	<h4>Your Gender</h4>
+													<div class="col-md-12 mb10px">
 													    <div class="form-group ml0px">
-													      	<input type="radio" name="fema">
-													      	&nbsp;&nbsp;Male
-												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" name="fema" checked="checked">
-													      	&nbsp;&nbsp;Female
-													    </div>
-												    </div>
-											   		<div class="col-md-6 mb10px">
-												    	<h4>Photo</h4>
-												    	<div class="form-group">
-													      <input type="file" class="form-control" name="email">
-													    </div>
-												    </div>
-											   		<div class="col-md-6 mb10px">
-												    	<h4>Email Address</h4>
-												    	<div class="form-group">
-													      <input type="email" class="form-control" placeholder="Example@gmail.com" name="email">
-													    </div>
-												    </div>
-													<div class="col-md-6 mb10px">
-												    	<h4>Mobile Number</h4>
-												    	<div class="form-group">
-													      <input type="tel" class="form-control" placeholder="+91-123456789" name="mobile">
-													    </div>
-												    </div>
-													<div class="col-md-6 mb10px">
-												    	<h4>DOB</h4>
-												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="20-12-1990" name="bloodgroup">
-													    </div>
-												    </div>
-													<div class="col-md-6 mb10px">
-												    	<h4>Blood Group</h4>
-												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="AB+" name="bloodgroup">
+													      	<input type="submit" name="add_member" value="Add Member">
 													    </div>
 												    </div>
 
-											   		<div class="col-md-6 mb10px">
-												    	<h4>मांगलिक</h4>
-													    <div class="form-group ml0px">
-													      	<input type="radio" placeholder="First Name" name="mang">
-													      	&nbsp;&nbsp;Yes
-												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" placeholder="Last Name" name="mang" checked="checked">
-													      	&nbsp;&nbsp;No
-													    </div>
-												    </div>
+												</div><!--MaleMemberForm  -->
 
-											   		<div class="col-md-6 mb10px">
-												    	<h4>Married</h4>
-													    <div class="form-group ml0px">
-													      	<input type="radio" placeholder="First Name" name="married" checked="checked">
-													      	&nbsp;&nbsp;Yes
-												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" placeholder="Last Name" name="married">
-													      	&nbsp;&nbsp;No
-													    </div>
-												    </div>
+											</form>
 
-											    	<div class="col-md-6 mb10px">
-												    	<h4>विवाह की तिथि </h4>
-												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="विवाह की तिथि " name="vivah">
-													    </div>
-												    </div>
-
-													<div class="col-md-6 mb10px">
-													    <h4>Any Exeprience</h4>
-												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="Any Experience" name="country">
-													    </div>
-												    </div>
-
-											   		<div class="col-md-6 mb10px">
-												    	<h4>P.H.दिव्यांगता </h4>
-													    <div class="form-group ml0px">
-													      	<input type="radio" placeholder="First Name" name="ph">
-													      	&nbsp;&nbsp;Yes
-												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" placeholder="Last Name" name="ph" checked="checked">
-													      	&nbsp;&nbsp;No
-													    </div>
-												    </div>
-
-													<div class="col-md-6 mb10px">
-												    	<h4>House Wife</h4>
-													    <div class="form-group ml0px">
-													      	<input type="radio" name="house" checked="checked">
-													      	&nbsp;&nbsp;Yes
-												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" name="house">
-													      	&nbsp;&nbsp;No
-													    </div>
-												    </div>
-												</form>
-											</div>
-											<!--FemaleMemberForm  -->
-
-											<!--ChildMemberForm  -->
-											<div id="MemberChild" style="display:none;" class="user_family">
-												<form class="form-inline" action="">
-											   		<div class="col-md-6 mb10px">
-											    		<h4>Child Information</h4>
-												    	<div class="form-group">
-													      	<input type="text" class="form-control" placeholder="First Name" name="fname">
-													    </div>
-												    </div>
-												    <div class="col-md-6 mb10px">
-												    	<h4>&nbsp;</h4>
-													    <div class="form-group">
-													      <input type="text" class="form-control" placeholder="Last Name" name="lname">
-													    </div>
-												    </div>
-											   		<div class="col-md-6 mb10px">
-												    	<h4>Your Gender</h4>
-													    <div class="form-group ml0px">
-													      	<input type="radio" name="fema">
-													      	&nbsp;&nbsp;Male
-												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" name="fema" checked="checked">
-													      	&nbsp;&nbsp;Female
-													    </div>
-												    </div>
-											   		<div class="col-md-6 mb10px">
-												    	<h4>Photo</h4>
-												    	<div class="form-group">
-													      <input type="file" class="form-control" name="email">
-													    </div>
-												    </div>
-											   		<div class="col-md-6 mb10px">
-												    	<h4>Email Address</h4>
-												    	<div class="form-group">
-													      <input type="email" class="form-control" placeholder="Example@gmail.com" name="email">
-													    </div>
-												    </div>
-													<div class="col-md-6 mb10px">
-												    	<h4>Mobile Number</h4>
-												    	<div class="form-group">
-													      <input type="tel" class="form-control" placeholder="+91-123456789" name="mobile">
-													    </div>
-												    </div>
-													<div class="col-md-6 mb10px">
-												    	<h4>DOB</h4>
-												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="20-12-1990" name="bloodgroup">
-													    </div>
-												    </div>
-													<div class="col-md-6 mb10px">
-												    	<h4>Blood Group</h4>
-												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="AB+" name="bloodgroup">
-													    </div>
-												    </div>
-
-											   		<div class="col-md-6 mb10px">
-												    	<h4>मांगलिक</h4>
-													    <div class="form-group ml0px">
-													      	<input type="radio" placeholder="First Name" name="mang">
-													      	&nbsp;&nbsp;Yes
-												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" placeholder="Last Name" name="mang" checked="checked">
-													      	&nbsp;&nbsp;No
-													    </div>
-												    </div>
-
-											   		<div class="col-md-6 mb10px">
-												    	<h4>Married</h4>
-													    <div class="form-group ml0px">
-													      	<input type="radio" placeholder="First Name" name="married" checked="checked">
-													      	&nbsp;&nbsp;Yes
-												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" placeholder="Last Name" name="married">
-													      	&nbsp;&nbsp;No
-													    </div>
-												    </div>
-
-											    	<div class="col-md-6 mb10px">
-												    	<h4>विवाह की तिथि </h4>
-												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="विवाह की तिथि " name="vivah">
-													    </div>
-												    </div>
-
-													<div class="col-md-6 mb10px">
-													    <h4>Any Exeprience</h4>
-												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="Any Experience" name="country">
-													    </div>
-												    </div>
-
-												</form>
-											</div>
-											<!--ChildMemberForm  -->
 				                        </div>
 				                         <!-- Family Member -->
 				                        <div class="tab-pane fade" id="jobportal">Default 3</div>
+
 				                     </div>
 				                </div>
 				            </div>

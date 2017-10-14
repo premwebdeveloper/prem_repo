@@ -7,6 +7,7 @@ use Auth;
 use DB;
 use Illuminate\Support\Facades\Input;
 use Storage;
+use Session;
 
 class User extends Controller
 {
@@ -156,6 +157,62 @@ class User extends Controller
         }
 
         //return redirect('profile');
+    }
+
+    // Add family member
+    public function add_member(Request $request)
+    {
+        $date = date('Y-m-d');
+
+        $user_id = $request->user_id;
+        $fname = $request->fname;
+        $lname = $request->lname;
+        $gender = $request->gender;
+        $email = $request->email;
+        $mobile = $request->mobile;
+        $dob = $request->dob;
+        $mang = $request->mang;
+        $bloodgroup = $request->bloodgroup;
+        $married = $request->married;
+        $marriage_date = $request->marriage_date;
+        $experience = $request->experience;
+        $ph = $request->ph;
+        $job_busi = $request->job_busi;
+
+        $user_insert = DB::table('user_family_details')->insert(
+             array(
+                    'user_id' => $user_id,
+                    'fname' => $fname,
+                    'lname' => $lname,
+                    'email' => $email,
+                    'mobile' => $mobile,
+                    'gender' => $gender,
+                    'dob' => $dob,
+                    'blood_group' => $bloodgroup,
+                    'manglik' => $mang,
+                    'married' => $married,
+                    'marriage_date' => $marriage_date,
+                    'experience' => $experience,
+                    'profession' => $job_busi,
+                    'ph_Divyangata' => $ph,
+                    'created_at' => $date,
+                    'updated_at' => $date,
+                    'status' => 1
+             )
+        );
+
+        if($user_insert)
+        {
+            $status = 'Add member successfully.';
+        }
+        else
+        {
+            $status = 'Something went wrong !';
+        }
+
+        return redirect('profile')->with('add_member', $status);
+
+        exit;
     }
 
 }

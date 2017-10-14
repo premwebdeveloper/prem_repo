@@ -17,8 +17,8 @@
              $('.update_email').css({
                 'display' : 'block'
              });
-        });  
-        /*Email Info Update*/ 
+        });
+        /*Email Info Update*/
 
         /*Religion Info Update*/
         $(document).on('click', '.edit_religion', function(){
@@ -26,7 +26,7 @@
              $('.update_religion').css({
                 'display' : 'block'
              });
-        });  
+        });
         /*Religion Info Update*/
 
         /*Extra Info update*/
@@ -35,8 +35,8 @@
                 'display' : 'block'
              });
              $(".radio").attr('disabled', false);
-        }); 
-        /*Extra Info update*/  
+        });
+        /*Extra Info update*/
 
         /*Profile Info image*/
         $(document).on('click', '.Profie_image', function(){
@@ -54,7 +54,7 @@
        setTimeout(function(){
             $('.alert').slideUp();
         }, 3000);
-       
+
     });
 
     // Activate Carousel
@@ -88,18 +88,20 @@
             }
           }
         }
-    $(document).ready(function(){
-        $("#addmember").on("click", function(){
-            $(".member").slideDown('slow');
-            $('#MemberMale').slideDown('slow');
-        });
-        $("input[name$='family']").click(function() {
+        $(document).ready(function(){
 
-        var test = $(this).val();
-        
-        $("div.user_family").hide();
-        $("#Member" + test).show();
-    });
-    });
+          $("#addmember").on("click", function(){
+              $(".member").slideDown('slow');
+              $('#MemberMale').slideDown('slow');
+          });
+
+          $(document).on('click', '.member_type', function() {
+
+              var member = $(this).val();
+
+
+
+          });
+        });
 </script>
 

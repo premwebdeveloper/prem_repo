@@ -44,6 +44,8 @@ Route::post('updateReligionInfo', 'User@updateReligionInfo')->name('updateReligi
 
 Route::post('updateExtraInfo', 'User@updateExtraInfo')->name('updateExtraInfo');
 
+Route::post('add_member', 'User@add_member')->name('add_member');
+
 /**************************************************/
 // A user can access after login only these routes//
 /**************************************************/
