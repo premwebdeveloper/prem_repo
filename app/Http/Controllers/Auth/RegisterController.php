@@ -102,7 +102,7 @@ class RegisterController extends Controller
                     'lastname' => $data['lastname'],
                     'email' => $data['email'],
                     'phone' => $data['phone'],
-                    'image' => $data['user.png'],
+                    'image' => 'user.png',
                     'created_at' => $date,
                     'updated_at' => $date
              )
