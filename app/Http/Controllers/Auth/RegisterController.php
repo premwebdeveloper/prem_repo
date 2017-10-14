@@ -77,11 +77,11 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'phone' => $data['phone'],
             'verify_token' => Str::random(40),
-    
+
         ]);
-        
+
         $user_id = $user->id;
-        
+
         $date = date("Y-m-d H:i:s");
 
         # Create user role
@@ -97,7 +97,7 @@ class RegisterController extends Controller
         #user insert in user details table
         $user_insert = DB::table('user_details')->insert(
              array(
-                    'user_id' => $user_id, 
+                    'user_id' => $user_id,
                     'name' => $data['name'],
                     'lastname' => $data['lastname'],
                     'email' => $data['email'],
@@ -106,7 +106,25 @@ class RegisterController extends Controller
                     'updated_at' => $date
              )
         );
-        
+
+        #user insert in user_religion_details table
+        $user_religion = DB::table('user_religion_details')->insert(
+             array(
+                    'user_id' => $user_id,
+                    'created_on' => $date,
+                    'updated_on' => $date
+             )
+        );
+
+        #user insert in user_extra_details table
+        $user_extra = DB::table('user_extra_details')->insert(
+             array(
+                    'user_id' => $user_id,
+                    'created_on' => $date,
+                    'updated_on' => $date
+             )
+        );
+
         if($user_insert)
         {
             $status = "Registration Successfully.";
@@ -142,7 +160,7 @@ class RegisterController extends Controller
         if($user)
         {
             User::where(['email'=>$email, 'verify_token'=>$verifyToken])->update(['status'=>'1', 'verify_token'=>NULL]);
-            
+
             user_details::where(['email'=>$email])->update(['status'=>'1']);
 
             $status = 'Verified email. You can login now.';

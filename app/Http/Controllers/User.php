@@ -29,7 +29,7 @@ class User extends Controller
 
         # Get User Extra Info
         $extra = DB::table('user_extra_details')->where('user_id', $currentuserid)->first();
-        
+
         return view('user.profile', array('user' => $user, 'religion' => $religion, 'extra' => $extra));
     }
 
@@ -48,21 +48,21 @@ class User extends Controller
         $district = $request->district;
         $state = $request->state;
         $country = $request->country;
-        
+
         /* dob date format chnage Y-m-d */
         //$change_format_dob = date('Y-m-d', strtotime( $dob ));
 
         $user_update = DB::table('users')->where('id', $user_id)->update(array('name' => $fname, 'lastname' => $lname, 'username' => $fname.$lname, 'phone' => $phone));
 
         $user_details_update = DB::table('user_details')->where('user_id', $user_id)->update(array('name' => $fname, 'lastname' => $lname, 'gender' => $gender, 'phone' => $phone, 'dob' => $dob, 'blood_group' => $bloodgroup, 'address' => $address, 'pin_code' => $pincode, 'district' => $district, 'state' => $state, 'country' => $country));
-       
+
         # Get User role
         $user = DB::table('user_details')->where('user_id', $user_id)->first();
-        
+
         $personal_status = "Personal information updated successfully !";
 
         return redirect('profile')->with('personal_status', $personal_status);
-        
+
     }
 
     # Update Religion Info
