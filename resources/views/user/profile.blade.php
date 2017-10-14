@@ -8,7 +8,7 @@
             <div class="panel-default">
                 <div class="wrapper wrapper-content mt30px">
 				    <div class="row animated fadeInRight">
-				        <div class="col-md-4">
+				        <div class="col-md-5">
 				            <div class="ibox float-e-margins">
 
 								<!-- Image update code -->
@@ -42,8 +42,8 @@
 										<div class="alert alert-success"> {{ session('status') }} </div>
 									@endif
 
-			                		<h5> Profile </h5>
-			                        <p>
+			                		<h5> Biography / जीवनी </h5>
+			                        <p class="text-justify">
 			                           {{$user->bio}}
 			                        </p>
 			                    </div>
@@ -53,7 +53,7 @@
 				    	</div>
 						
 				    	<!-- Profile update section start here-->
-				        <div class="col-md-8">
+				        <div class="col-md-7">
 
 				    	    <div class="with-nav-tabs">
 				                <div class="panel-heading">
@@ -119,7 +119,7 @@
 												    </div>
 												    
 											   		<div class="col-md-6">
-												    	<h4>Your Gender</h4>
+												    	<h4>Your Gender / तुम्हारा लिंग </h4>
 													    <div class="form-group ml0px">
 													    	@if($user->gender==2)
 													    		<input type="radio" class="radio" name="gender" value="1">
@@ -135,64 +135,71 @@
 												   		 </div>
 												    </div>
 													<div class="col-md-6 mb10px">
-												    	<h4>Mobile Number</h4>
+												    	<h4>Mobile Number / मोबाइल नंबर</h4>
 												    	<div class="form-group">
 													      <input type="tel" class="form-control personal_info" placeholder="+91-123456789" name="phone" id="phone" value="{{$user->phone}}" readonly>
 													    </div>
 												    </div>
 
 													<div class="col-md-6 mb10px">
-												    	<h4>Date of Birth</h4>
+												    	<h4>Date of Birth / जन्म की तारीख</h4>
 												    	<div class="form-group">
 													      <input type="date" format="Y-m-d" class="form-control personal_info" placeholder="20-12-1990" name="dob" id="dob" value="{{$user->dob}}" readonly>
 													    </div>
 												    </div>
 													<div class="col-md-6 mb10px">
-												    	<h4>Blood Group</h4>
+												    	<h4>Blood Group / रक्त समूह</h4>
 												    	<div class="form-group">
 													      <input type="text" class="form-control personal_info" placeholder="AB+" name="bloodgroup" id="bloodgroup" value="{{$user->blood_group}}" readonly>
 													    </div>
 												    </div>
 
 													<div class="col-md-6 mb10px">
-														<h4>Permanent Address</h4>
+														<h4>Permanent Address / स्थाई पता</h4>
 												    	<div class="form-group">
 										      	<textarea class="form-control personal_info" rows="5" placeholder="Address" name="address" id="address" readonly>{{$user->address}}</textarea>
 													    </div>
 												    </div>
 
 													<div class="col-md-6 mb10px">
-												    	<h4>Pin Code</h4>
+												    	<h4>Pin Code / पिन कोड</h4>
 												    	<div class="form-group">
 													      <input type="text" class="form-control personal_info" placeholder="333516" name="pincode" id="pincode" value="{{$user->pin_code}}" readonly>
 													    </div>
 												    </div>
 
 											    	<div class="col-md-6 mb10px">
-												    	<h4>District</h4>
+												    	<h4>District / जिला</h4>
 												    	<div class="form-group">
 													      <input type="text" class="form-control personal_info" placeholder="Jaipur" name="district" id="district" value="{{$user->district}}" readonly>
 													    </div>
 												    </div>
 
 													<div class="col-md-6 mb10px">
-														<h4>Residential/Office Address</h4>
+														<h4>Residential/Office Address / आवासीय / कार्यालय पता</h4>
 												    	<div class="form-group">
-										      	<textarea class="form-control personal_info" rows="5" placeholder="Address" name="address" id="address" readonly>{{$user->address}}</textarea>
+										      	<textarea class="form-control personal_info" rows="4" placeholder="Address" name="address" id="address" readonly>{{$user->address}}</textarea>
 													    </div>
 												    </div>
 
 													<div class="col-md-6 mb10px">
-													    <h4>State</h4>
+													    <h4>State / राज्य</h4>
 												    	<div class="form-group">
 													      <input type="text" class="form-control personal_info" placeholder="Rajasthan" name="state" id="state" value="{{$user->state}}" readonly>
 													    </div>
 												    </div>
 
 													<div class="col-md-6 mb10px">
-													    <h4>Country</h4>
+													    <h4>Country / देश</h4>
 												    	<div class="form-group">
 													      <input type="text" class="form-control personal_info" placeholder="India" name="country" id="country" value="{{$user->country}}" readonly>
+													    </div>
+												    </div>
+
+													<div class="col-md-12 mb10px update_per_info" style="display:none;">
+														<h4>Biography / जीवनी</h4>
+												    	<div class="form-group">
+										      				<textarea class="form-control personal_info" rows="6" placeholder="Biography" name="bio" id="bio" readonly>{{$user->bio}}</textarea>
 													    </div>
 												    </div>
 												    <div class="col-md-12 update_per_info" style="display:none;">
@@ -201,7 +208,7 @@
 
 												</form>
 												<!-- Update Personal Info -->
-
+											
 												<!-- Update Email Info-->
 												<form class="form-inline" action="" method="post">
 													{{ csrf_field() }}
@@ -330,7 +337,7 @@
 
 												    </div>
 
-											    	<h4>आप को उपभोक्ता फॉर्म का सदस्य बना दिया जाये </h4>
+											    	<h4>आप को उपभोक्ता फोरम का सदस्य बना दिया जाये </h4>
 												    <div class="form-group ml0px">
 												    	@if($extra->farm_member==1)
 												      		<input type="radio" name="farm_member" class="radio" value="1" checked="checked">
@@ -345,7 +352,7 @@
 												      	@endif
 												  	</div>
 
-											    	<h4>May I Help You Club का सदस्य बनना चाहते है </h4>
+											    	<h4>May I Help You Club का सदस्य बनना चाहते हैं </h4>
 												    <div class="form-group ml0px">
 												    	@if($extra->club_member==1)
 												      		<input type="radio" name="club_member" class="radio" value="1" checked="checked">
@@ -361,7 +368,7 @@
 												      	@endif
 												 </div>
 
-											    	<h4>ABC Club का सदस्य बनना चाहते है </h4>
+											    	<h4>ABC Club का सदस्य बनना चाहते हैं </h4>
 												    <div class="form-group ml0px">
 												    	@if($extra->abc_club_member==1)
 												      		<input type="radio" name="abc_club_member" class="radio" value="1" checked="checked">
@@ -376,7 +383,7 @@
 												      	@endif
 													</div>
 
-											    	<h4>किसी प्रोजेक्ट समिति का सदस्य बनना चाहते है </h4>
+											    	<h4>किसी प्रोजेक्ट समिति का सदस्य बनना चाहते हैं </h4>
 												    <div class="form-group ml0px">
 												    	@if($extra->project_committee==1)
 													      	<input type="radio" name="project_committee" class="radio" value="1" checked="checked">
@@ -406,7 +413,7 @@
 												      	@endif
 												 	</div>
 
-											    	<h4>वैश्य पंचायत वैश्य वाहिनी का सदस्य बनना चाहोगे </h4>
+											    	<h4>वैश्य पंचायत / वैश्य वाहिनी का सदस्य बनना चाहोगे </h4>
 												    <div class="form-group ml0px">
 												    	@if($extra->vaishya_vahini==1)
 													      	<input type="radio" name="vaishya_vahini" class="radio" value="1" checked="checked">

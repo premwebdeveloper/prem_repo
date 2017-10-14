@@ -48,13 +48,14 @@ class User extends Controller
         $district = $request->district;
         $state = $request->state;
         $country = $request->country;
+        $bio = $request->bio;
 
         /* dob date format chnage Y-m-d */
         //$change_format_dob = date('Y-m-d', strtotime( $dob ));
 
         $user_update = DB::table('users')->where('id', $user_id)->update(array('name' => $fname, 'lastname' => $lname, 'username' => $fname.$lname, 'phone' => $phone));
 
-        $user_details_update = DB::table('user_details')->where('user_id', $user_id)->update(array('name' => $fname, 'lastname' => $lname, 'gender' => $gender, 'phone' => $phone, 'dob' => $dob, 'blood_group' => $bloodgroup, 'address' => $address, 'pin_code' => $pincode, 'district' => $district, 'state' => $state, 'country' => $country));
+        $user_details_update = DB::table('user_details')->where('user_id', $user_id)->update(array('name' => $fname, 'lastname' => $lname, 'gender' => $gender, 'phone' => $phone, 'dob' => $dob, 'blood_group' => $bloodgroup, 'address' => $address, 'pin_code' => $pincode, 'district' => $district, 'state' => $state, 'country' => $country, 'bio' => $bio));
 
         # Get User role
         $user = DB::table('user_details')->where('user_id', $user_id)->first();
