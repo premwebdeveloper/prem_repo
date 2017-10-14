@@ -121,28 +121,18 @@
 											   		<div class="col-md-6">
 												    	<h4>Your Gender</h4>
 													    <div class="form-group ml0px">
-													    	@if($user->gender==1)
-													    	
-													    		<input type="radio" name="gender" value="1" checked="checked">
-												      			&nbsp;&nbsp;Male
-												   				&nbsp;&nbsp;&nbsp;&nbsp;
-													    	@else
-													    	<input type="radio" name="gender" value="1" checked="checked">
-												      			&nbsp;&nbsp;Male
-												   				&nbsp;&nbsp;&nbsp;&nbsp;
-												   			@endif
-												   				
 													    	@if($user->gender==2)
-													    	
-													      	<input type="radio" name="gender" value="2" checked="checked">
-													      	&nbsp;&nbsp;Female
-												      		@else
-
-												      		<input type="radio" name="gender" value="2">
-													      	&nbsp;&nbsp;Female
+													    		<input type="radio" class="radio" name="gender" value="1">
+												      			&nbsp;&nbsp;Male
+												   				<input type="radio" class="radio" name="gender" value="2" checked="checked">
+													      		&nbsp;&nbsp;Female
+													    	@else
+													    	<input type="radio" class="radio" name="gender" value="1" checked="checked">
+												      			&nbsp;&nbsp;Male
+												   				<input type="radio" class="radio" name="gender" value="2">
+													      		&nbsp;&nbsp;Female
 												   			@endif
-
-													    </div>
+												   		 </div>
 												    </div>
 													<div class="col-md-6 mb10px">
 												    	<h4>Mobile Number</h4>
@@ -327,14 +317,14 @@
 
 												    <div class="form-group ml0px">
 												    	@if($extra->donate_body_part == 1)
-												      		<input type="radio" name="donate_body_part" value="1" checked="checked">
+												      		<input type="radio" name="donate_body_part" class="radio" value="1" checked="checked">
 												      		&nbsp;&nbsp;Yes
-												      		<input type="radio" name="donate_body_part" value="2">
+												      		<input type="radio" name="donate_body_part" class="radio" value="2">
 												      		&nbsp;&nbsp;No
 												      	@else
-												      		<input type="radio" name="donate_body_part" value="1">
+												      		<input type="radio" name="donate_body_part" class="radio" value="1">
 												      		&nbsp;&nbsp;Yes
-												      		<input type="radio" name="donate_body_part" value="2" checked="checked">
+												      		<input type="radio" name="donate_body_part" class="radio" value="2" checked="checked">
 												      		&nbsp;&nbsp;No
 												      	@endif
 
@@ -343,14 +333,14 @@
 											    	<h4>आप को उपभोक्ता फॉर्म का सदस्य बना दिया जाये </h4>
 												    <div class="form-group ml0px">
 												    	@if($extra->farm_member==1)
-												      		<input type="radio" name="farm_member" value="1" checked="checked">
+												      		<input type="radio" name="farm_member" class="radio" value="1" checked="checked">
 												      		&nbsp;&nbsp;Yes
-												      		<input type="radio" name="farm_member" value="2">
+												      		<input type="radio" name="farm_member" class="radio" value="2">
 												      		&nbsp;&nbsp;No
 											   			@else
-											   				<input type="radio" name="farm_member" value="1">
+											   				<input type="radio" name="farm_member" class="radio" value="1">
 												      		&nbsp;&nbsp;Yes
-												      		<input type="radio" name="farm_member" value="2" checked="checked">
+												      		<input type="radio" name="farm_member" class="radio" value="2" checked="checked">
 												      		&nbsp;&nbsp;No
 												      	@endif
 												  	</div>
@@ -358,15 +348,15 @@
 											    	<h4>May I Help You Club का सदस्य बनना चाहते है </h4>
 												    <div class="form-group ml0px">
 												    	@if($extra->club_member==1)
-												      		<input type="radio" name="club_member" value="1" checked="checked">
+												      		<input type="radio" name="club_member" class="radio" value="1" checked="checked">
 												      		&nbsp;&nbsp;Yes
-												      		<input type="radio" name="club_member" value="2">
+												      		<input type="radio" name="club_member" class="radio" value="2">
 												      		&nbsp;&nbsp;No
 												      	@else
 											   			
-												   			<input type="radio" name="club_member" value="1">
+												   			<input type="radio" name="club_member" class="radio" value="1">
 													      	&nbsp;&nbsp;Yes
-													      	<input type="radio" name="club_member" value="2" checked="checked">
+													      	<input type="radio" name="club_member" class="radio" value="2" checked="checked">
 													      	&nbsp;&nbsp;No
 												      	@endif
 												 </div>
@@ -374,14 +364,14 @@
 											    	<h4>ABC Club का सदस्य बनना चाहते है </h4>
 												    <div class="form-group ml0px">
 												    	@if($extra->abc_club_member==1)
-												      		<input type="radio" name="abc_club_member" value="1" checked="checked">
+												      		<input type="radio" name="abc_club_member" class="radio" value="1" checked="checked">
 												      		&nbsp;&nbsp;Yes
-												      		<input type="radio" name="abc_club_member" value="2">
+												      		<input type="radio" name="abc_club_member" class="radio" value="2">
 												      		&nbsp;&nbsp;No
 												      	@else
-												      		<input type="radio" name="abc_club_member" value="1">
+												      		<input type="radio" name="abc_club_member" class="radio" value="1">
 												      		&nbsp;&nbsp;Yes
-												      	   	<input type="radio" name="abc_club_member" value="2" checked="checked">
+												      	   	<input type="radio" name="abc_club_member" class="radio" value="2" checked="checked">
 												      		&nbsp;&nbsp;No
 												      	@endif
 													</div>
@@ -389,14 +379,14 @@
 											    	<h4>किसी प्रोजेक्ट समिति का सदस्य बनना चाहते है </h4>
 												    <div class="form-group ml0px">
 												    	@if($extra->project_committee==1)
-													      	<input type="radio" name="project_committee" value="1" checked="checked">
+													      	<input type="radio" name="project_committee" class="radio" value="1" checked="checked">
 													      	&nbsp;&nbsp;Yes
-													      	<input type="radio" name="project_committee" value="2">
+													      	<input type="radio" name="project_committee" class="radio" value="2">
 													      	&nbsp;&nbsp;No
 												      	@else
-													      	<input type="radio" name="project_committee" value="1">
+													      	<input type="radio" name="project_committee" class="radio" value="1">
 													      	&nbsp;&nbsp;Yes
-													      	<input type="radio" name="project_committee" value="2" checked="checked">
+													      	<input type="radio" name="project_committee" class="radio" value="2" checked="checked">
 													      	&nbsp;&nbsp;No
 												      	@endif
 												   </div>
@@ -404,14 +394,14 @@
 											    	<h4>जरुरत में Blood Donate करने की सुचना चाहोगे </h4>
 												    <div class="form-group ml0px">
 												    	@if($extra->blood_donate==1)
-													      	<input type="radio" name="blood_donate" value="1" checked="checked">
+													      	<input type="radio" name="blood_donate" class="radio" value="1" checked="checked">
 													      	&nbsp;&nbsp;Yes
-													      	<input type="radio" name="blood_donate" value="2">
+													      	<input type="radio" name="blood_donate" class="radio" value="2">
 													      	&nbsp;&nbsp;No
 												      	@else
-													      	<input type="radio" name="blood_donate" value="1">
+													      	<input type="radio" name="blood_donate" class="radio" value="1">
 													      	&nbsp;&nbsp;Yes
-													      	<input type="radio" name="blood_donate" value="2" checked="checked">
+													      	<input type="radio" name="blood_donate" class="radio" value="2" checked="checked">
 													      	&nbsp;&nbsp;No
 												      	@endif
 												 	</div>
@@ -419,14 +409,14 @@
 											    	<h4>वैश्य पंचायत वैश्य वाहिनी का सदस्य बनना चाहोगे </h4>
 												    <div class="form-group ml0px">
 												    	@if($extra->vaishya_vahini==1)
-													      	<input type="radio" name="vaishya_vahini" value="1" checked="checked">
+													      	<input type="radio" name="vaishya_vahini" class="radio" value="1" checked="checked">
 													      	&nbsp;&nbsp;Yes
-												      		<input type="radio" name="vaishya_vahini" value="2">
+												      		<input type="radio" name="vaishya_vahini" class="radio" value="2">
 												      		&nbsp;&nbsp;No
 												      	@else
-													      	<input type="radio" name="vaishya_vahini" value="1">
+													      	<input type="radio" name="vaishya_vahini" class="radio" value="1">
 													      	&nbsp;&nbsp;Yes
-													      	<input type="radio" name="vaishya_vahini" value="2" checked="checked">
+													      	<input type="radio" name="vaishya_vahini" class="radio" value="2" checked="checked">
 													      	&nbsp;&nbsp;No
 												      	@endif
 													</div>
@@ -434,14 +424,14 @@
 											    	<h4>वार्षिक कैलेंडर पहुंच गया </h4>	
 												    <div class="form-group ml0px">
 												    	@if($extra->year_calendar==1)
-													      	<input type="radio" name="year_calendar" value="1" checked="checked">
+													      	<input type="radio" name="year_calendar" class="radio" value="1" checked="checked">
 													      	&nbsp;&nbsp;Yes
-													      	<input type="radio" name="year_calendar" value="2">
+													      	<input type="radio" name="year_calendar" class="radio" value="2">
 													      	&nbsp;&nbsp;No
 												      	@else
-													      	<input type="radio" name="year_calendar" value="1">
+													      	<input type="radio" name="year_calendar" class="radio" value="1">
 													      	&nbsp;&nbsp;Yes
-													      	<input type="radio" name="year_calendar" value="2" checked="checked">
+													      	<input type="radio" name="year_calendar" class="radio" value="2" checked="checked">
 													      	&nbsp;&nbsp;No
 												      	@endif
 												    </div>
