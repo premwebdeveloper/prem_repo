@@ -54,3 +54,33 @@ ALTER TABLE `user_extra_details`
 
 ALTER TABLE `user_extra_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+
+-- ---------------------------Created Table user_family_details ON 12-10-2017--------------------------
+
+CREATE TABLE `user_family_details` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `fname` varchar(255) NOT NULL,
+  `lname` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `mobile` varchar(15) DEFAULT NULL,
+  `gender` int(11) NOT NULL,
+  `dob` date NOT NULL,
+  `blood_group` varchar(15) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `manglik` int(11) DEFAULT NULL,
+  `married` int(11) DEFAULT NULL,
+  `marriage_date` date DEFAULT NULL,
+  `experience` varchar(50) DEFAULT NULL,
+  `profession` int(11) DEFAULT NULL,
+  `ph_Divyangata` int(11) DEFAULT NULL,
+  `created_at` date NOT NULL,
+  `updated_at` date NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `user_family_details`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `user_family_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
