@@ -89,3 +89,4 @@ ALTER TABLE `user_family_details`
 -- ---------------------------Updated Table users ON 15-10-2017--------------------------
 ALTER TABLE `users` ADD `family_id` VARCHAR(10) NOT NULL AFTER `id`;
 ALTER TABLE `users` CHANGE `family_id` `family_head_id` VARCHAR(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;
+ALTER TABLE `users` CHANGE `family_head_id` `family_head_id` VARCHAR(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL;
