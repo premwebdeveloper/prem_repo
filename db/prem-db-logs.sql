@@ -84,3 +84,7 @@ ALTER TABLE `user_family_details`
 
 ALTER TABLE `user_family_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+
+
+-- ---------------------------Updated Table users ON 15-10-2017--------------------------
+ALTER TABLE `users` ADD `family_id` VARCHAR(10) NOT NULL AFTER `id`;
