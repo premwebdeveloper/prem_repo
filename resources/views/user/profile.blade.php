@@ -23,7 +23,7 @@
 
 										<input type="submit" name="updateProfileImage" value="Update Image" class="btn btn-success btn-xs mt10">
 									</form>
-			                	</div>
+								</div>
 			                	<!-- Image update code -->
 
 								<!-- Show Personal Info -->
@@ -47,6 +47,17 @@
 			                           {{$user->bio}}
 			                        </p>
 			                    </div>
+
+			                    <!-- add family memeber list -->
+			                    <div class="col-md-12">
+			                    	<h4>Family Member List</h4>
+			                    	<ul>
+			                    		<li><a href="{{ route('profile') }}">View Profile</a></li>
+			                    		@if(count($familymember)>0)
+			                    		<li><a href="{{ route('familymember') }}">View Family Members</a></li>
+			                    		@endif
+			                    	</ul>
+			                     </div>
 			                    <!-- Show Personal Info -->
 
 				        	</div>
@@ -113,12 +124,14 @@
 										    		</div>
 
 											   		<div class="col-md-6">
+											   			<h4>First Name / पहला नाम</h4>
 												    	<div class="form-group">
 													      	<input type="text" class="form-control personal_info" placeholder="First Name" name="fname" id="fname" value="{{$user->name}}" readonly>
 													    </div>
 												    </div>
 
 												    <div class="col-md-6">
+												    	<h4>Last Name / अंतिम नाम</h4>
 													    <div class="form-group">
 													      <input type="text" class="form-control personal_info" placeholder="Last Name" name="lname" id="lname" value="{{$user->lastname}}" readonly>
 													    </div>

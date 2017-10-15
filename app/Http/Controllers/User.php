@@ -31,7 +31,38 @@ class User extends Controller
         # Get User Extra Info
         $extra = DB::table('user_extra_details')->where('user_id', $currentuserid)->first();
 
-        return view('user.profile', array('user' => $user, 'religion' => $religion, 'extra' => $extra));
+        #Get Family Member
+        $familymember = DB::table('user_family_details')->where('user_id', $currentuserid)->first();
+
+        return view('user.profile', array('user' => $user, 'religion' => $religion, 'extra' => $extra, 'familymember' => $familymember));
+    }
+
+    #family member view
+    public function familymember()
+    {
+        # Get User Id
+        $currentuserid = Auth::user()->id;
+
+        # Get User role
+        $user = DB::table('user_details')->where('user_id', $currentuserid)->first();
+
+        #Get Family Member
+        $familymember = DB::table('user_family_details')->where('user_id', $currentuserid)->first();
+
+        return view('user.family-member', array('user' => $user, 'familymember' => $familymember));
+    }
+
+    # view family member
+    public function viewfamilymember()
+    {
+        #Get User Id
+        $currentuserid = Aurh::user()->id;
+
+        #Get User role
+        $user = DB::table('user_details')->where('user_id', $currentuserid)->first();
+
+        #
+
     }
 
     # Update Personal Info
@@ -162,7 +193,7 @@ class User extends Controller
     // Add family member
     public function add_member(Request $request)
     {
-        $date = date('Y-m-d');
+        $date = date('Y-m-d H:i:s');
 
         $user_id = $request->user_id;
         $fname = $request->fname;
@@ -178,6 +209,27 @@ class User extends Controller
         $experience = $request->experience;
         $ph = $request->ph;
         $job_busi = $request->job_busi;
+
+        # Get data user table
+        $user = DB::table('users')->where('id', $user_id)->first();
+
+        # Get password user table
+        $user_password = $user->password;
+
+        # insert data user table
+        $user_table = DB::table('users')->insert(
+            array(
+                    'name' => $fname,
+                    'family_head_id' => $user_id,
+                    'lastname' => $lname,
+                    'username' => $fname.$lname,
+                    'email' => $email,
+                    'password' => $user_password,
+                    'phone' => $mobile,
+                    'created_at' => $date,
+                    'status' => 0
+            )
+        );
 
         $user_insert = DB::table('user_family_details')->insert(
              array(
