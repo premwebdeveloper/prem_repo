@@ -45,10 +45,46 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
+
                                 @if ($errors->has('email'))
+
+                                    <input type="hidden" name="csrf" id="csrf" value="{{ csrf_token() }}">
+
+                                    <script type="text/javascript">
+                                        $(document).ready(function(){
+                                            var email = $('#email').val();
+                                            var csrf = $('#csrf').val();
+
+                                            $.ajax({
+                                                url : 'get_exist_user_details',
+                                                type:'POST',
+                                                dataType: 'json',
+                                                headers: {
+                                                    'X-CSRF-TOKEN': csrf
+                                                },
+                                                data:{email: email},
+                                                success:function(response){
+                                                    // Access the JSON response //
+                                                    var head_email = response.head_email;
+                                                    var temp = head_email.split('@');
+                                                    var email_first = temp[0];
+                                                    var email_second = temp[1];
+
+                                                    var email_start_chars = email_first.substr(0,4);
+
+                                                    var display_email = email_start_chars+'******@'+email_second;
+
+                                                    $('#head_email').text('This email is already registered with '+display_email);
+                                                }
+                                            });
+
+                                        });
+                                    </script>
+
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
+                                    <span class="help-block" id="head_email"></span>
                                 @endif
                             </div>
                         </div>

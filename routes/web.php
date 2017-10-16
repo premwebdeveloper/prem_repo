@@ -23,6 +23,13 @@ Route::get('member', 'HomeController@member')->name('member');
 Route::get('suggestion', 'HomeController@suggestion')->name('suggestion');
 Route::get('problem', 'HomeController@problem')->name('problem');
 
+// If email already exist in users table then show error with their parent email
+Route::get('ajax',function(){
+   return view('message');
+});
+
+Route::post('/get_exist_user_details','AjaxController@index');
+
 Auth::routes();
 
 Route::get('verifyEmailFirst', 'Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
