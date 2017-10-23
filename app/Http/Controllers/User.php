@@ -33,7 +33,7 @@ class User extends Controller
         $extra = DB::table('user_extra_details')->where('user_id', $currentuserid)->first();
 
         #Get Family Member
-        $familymember = DB::table('user_family_details')->where('user_id', $currentuserid)->where('status', 1)->get();
+        $familymember = DB::table('user_family_details')->where('family_head_id', $currentuserid)->where('status', 1)->get();
 
         return view('user.profile', array('user' => $user, 'religion' => $religion, 'extra' => $extra, 'familymember' => $familymember));
     }
@@ -48,7 +48,7 @@ class User extends Controller
         $user = DB::table('user_details')->where('user_id', $currentuserid)->first();
 
         #Get Family Member
-        $familymember = DB::table('user_family_details')->where('user_id', $currentuserid)->get();
+        $familymember = DB::table('user_family_details')->where('family_head_id', $currentuserid)->get();
 
         return view('user.family-member', array('user' => $user, 'familymember' => $familymember));
     }
@@ -63,7 +63,7 @@ class User extends Controller
         $user = DB::table('user_details')->where('user_id', $currentuserid)->first();
 
         #Get Family Member
-        $familymember = DB::table('user_family_details')->where('user_id', $currentuserid)->first();
+        $familymember = DB::table('user_family_details')->where('family_head_id', $currentuserid)->first();
 
         #view family member
         $view_family_member = DB::table('user_family_details')->where('id', $id)->first();
@@ -201,11 +201,11 @@ class User extends Controller
     public function add_member(Request $request)
     {
         $email = $request->email;
-       
+
         $mobile = $request->mobile;
 
         $is_available = DB::table('users')->where('email', $email)->first();
-       
+
         $is_mobile_available = DB::table('users')->where('phone', $mobile)->first();
 
         if(!empty($is_available))
@@ -219,7 +219,7 @@ class User extends Controller
             $member_mobile_exist = 'This mobile no. is already exist.';
             return redirect('profile')->with('member_email_exist', $member_mobile_exist);
         }
-        
+
 
 
         $date = date('Y-m-d H:i:s');
@@ -228,7 +228,7 @@ class User extends Controller
         $fname = $request->fname;
         $lname = $request->lname;
         $gender = $request->gender;
-        
+
         //$mobile = $request->mobile;
         $dob = $request->dob;
         $mang = $request->mang;
@@ -259,12 +259,12 @@ class User extends Controller
                     'status' => 0
             )
         );
-        
+
        $lastInsertId = DB::getPdo()->lastInsertId();
 
         $user_insert = DB::table('user_family_details')->insert(
              array(
-                    'user_id' => $user_id,
+                    'family_head_id' => $user_id,
                     'f_member_user_id' => $lastInsertId,
                     'fname' => $fname,
                     'lname' => $lname,
@@ -345,7 +345,7 @@ class User extends Controller
 
         $user_insert = DB::table('user_family_details')->where('id', $id)->update(
              array(
-                    'user_id' => $user_id,
+                    'family_head_id' => $user_id,
                     'fname' => $fname,
                     'lname' => $lname,
                     'email' => $email,
