@@ -126,3 +126,5 @@ ALTER TABLE `family_member_marriagable_details`
 
 ALTER TABLE `family_member_marriagable_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+
+ALTER TABLE `user_family_details` ADD `f_member_user_id` INT NULL COMMENT 'family member\'s user table auto increment id' AFTER `family_head_id`;

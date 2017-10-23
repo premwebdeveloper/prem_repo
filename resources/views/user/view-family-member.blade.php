@@ -151,7 +151,7 @@
 													<div class="col-md-6 mb10px">
 												    	<h4>Date of Birth</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control view_member_info" placeholder="20-12-1990" value="{{ $viewfamily->dob }}" name="dob" readonly>
+													      <input type="text" class="form-control view_member_info datepicker" placeholder="20-12-1990" value="{{ $viewfamily->dob }}" name="dob" readonly>
 													    </div>
 												    </div>
 													<div class="col-md-6 mb10px">
