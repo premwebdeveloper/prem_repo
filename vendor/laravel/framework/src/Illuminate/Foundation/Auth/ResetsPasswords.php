@@ -105,7 +105,7 @@ trait ResetsPasswords
             'remember_token' => Str::random(60),
         ])->save();
 
-        $this->guard()->login($user);
+        //$this->guard()->login($user);
     }
 
     /**
