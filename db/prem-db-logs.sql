@@ -103,3 +103,26 @@ CREATE TABLE `password_resets` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 COMMIT;
+
+ALTER TABLE `user_family_details` CHANGE `user_id` `head_user_id` INT(11) NOT NULL;
+ALTER TABLE `user_family_details` CHANGE `head_user_id` `family_head_id` INT(11) NOT NULL;
+ALTER TABLE `user_family_details` DROP `f_member_user_id`;
+
+CREATE TABLE `family_member_marriagable_details` (
+  `id` int(11) NOT NULL,
+  `family_member_id` int(11) NOT NULL COMMENT 'user_family_details tables aotp increment id',
+  `family_head_id` int(11) NOT NULL COMMENT 'family head id',
+  `color` varchar(50) DEFAULT NULL,
+  `height` varchar(50) DEFAULT NULL,
+  `weight` varchar(50) DEFAULT NULL,
+  `specs_uses` tinyint(1) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `family_member_marriagable_details`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `family_member_marriagable_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
