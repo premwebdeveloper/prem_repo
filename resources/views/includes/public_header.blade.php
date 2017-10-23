@@ -13,6 +13,7 @@
 
 	<script src="{{ asset('resources/assets/js/jquery-3.1.1.min.js') }}"></script>
 	<script src="{{ asset('resources/assets/js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('resources/frontend_assets/js/bootstrap-datepicker.js') }}"></script>
 
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
 
@@ -22,7 +23,11 @@
 	<link href="{{ asset('resources/frontend_assets/css/easytabs17ba.css?1480271400') }}" rel="stylesheet">
 	<link href="{{ asset('resources/frontend_assets/css/font-awesome.min17ba.css?1480271400') }}" rel="stylesheet">
 	<link href="{{ asset('resources/frontend_assets/css/top.css') }}" rel="stylesheet">
+
+	<link href="{{ asset('resources/frontend_assets/css/bootstrap-datepicker.css') }}" rel="stylesheet">
+
 	<link href="{{ asset('resources/frontend_assets/css/custom.css') }}" rel="stylesheet">
+
 
 </head>
 

@@ -171,7 +171,7 @@
 													<div class="col-md-6 mb10px">
 												    	<h4>Date of Birth / जन्म की तारीख</h4>
 												    	<div class="form-group">
-													      <input type="date" format="Y-m-d" class="form-control personal_info" placeholder="20-12-1990" name="dob" id="dob" value="{{$user->dob}}" readonly>
+													      <input type="text" format="Y-m-d" class="form-control personal_info datepicker" placeholder="20-12-1990" name="dob" id="dob" value="{{$user->dob}}" readonly>
 													    </div>
 												    </div>
 													<div class="col-md-6 mb10px">
@@ -235,7 +235,7 @@
 
 												</form>
 												<!-- Update Personal Info -->
-											
+
 												<!-- Update Email Info-->
 												<form class="form-inline" action="" method="post">
 													{{ csrf_field() }}
@@ -493,7 +493,7 @@
 				                        <!-- Family Member -->
 										<div class="tab-pane fade" id="family">
 
-											
+
 											<table class="table table-striped">
 											  	<thead>
 												    <tr>
@@ -517,7 +517,7 @@
 												      	<td>{{ $family->email }}</td>
 												      	<td>{{ $family->mobile }}</td>
 												      	<td>
-												      		<a href="{{ url('viewfamilymember'.$family->id) }}" class="btn btn-info btn-xs">view</a> 
+												      		<a href="{{ url('viewfamilymember'.$family->id) }}" class="btn btn-info btn-xs">view</a>
 												       		<a href="{{ url('deletefamilymember'.$family->id) }}" class="btn btn-danger btn-xs">delete</a>
 											       		</td>
 											     	 </tr>
@@ -526,7 +526,7 @@
 
 											     	@endif
 										     	</tbody>
-											</table>										
+											</table>
 
 				                        </div>
 
@@ -612,7 +612,7 @@
 													<div class="col-md-6 mb10px">
 												    	<h4>Date of Birth</h4>
 												    	<div class="form-group">
-													      <input type="date" class="form-control" placeholder="20-12-1990" name="dob" required="">
+													      <input type="text" class="form-control datepicker" placeholder="20-12-1990" name="dob" required="">
 													    </div>
 												    </div>
 													<div class="col-md-6 mb10px">
@@ -635,7 +635,7 @@
 											    	<div class="col-md-6 mb10px unmarried">
 												    	<h4>विवाह की तिथि </h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="विवाह की तिथि " name="marriage_date">
+													      <input type="text" class="form-control datepicker" placeholder="विवाह की तिथि " name="marriage_date">
 													    </div>
 												    </div>
 

@@ -1,6 +1,14 @@
 <script type="text/javascript">
 
     $(document).ready(function(){
+
+        // Bootstrap Datepicker
+        $('.datepicker').datepicker({
+            format: "yyyy-mm-dd",
+            autoclose: true,
+            todayHighlight:'TRUE',
+        });
+
         /*Personal Info Update*/
         $(document).on('click', '.edit_profile', function(){
             $(".personal_info").removeAttr('readonly');
@@ -65,7 +73,7 @@
         });
 
         /*remove family_info class*/
-       
+
     });
 
     // Activate Carousel
