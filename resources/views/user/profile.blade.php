@@ -48,16 +48,6 @@
 			                        </p>
 			                    </div>
 
-			                    <!-- add family memeber list -->
-			                    <div class="col-md-12">
-			                    	<h4>Family Member List</h4>
-			                    	<ul>
-			                    		<li><a href="{{ route('profile') }}">View Profile</a></li>
-			                    		@if(count($familymember)>0)
-			                    		<li><a href="{{ route('familymember') }}">View Family Members</a></li>
-			                    		@endif
-			                    	</ul>
-			                     </div>
 			                    <!-- Show Personal Info -->
 
 				        	</div>
@@ -69,14 +59,20 @@
 				    	    <div class="with-nav-tabs">
 				                <div class="panel-heading">
 				                        <ul class="nav nav-tabs">
-				                            <li class="active"><a href="#profile" data-toggle="tab">Profile Information</a></li>
-				                            <li><a href="#family" data-toggle="tab">Family Information</a></li>
-				                            <li><a href="#jobportal" data-toggle="tab">Job Portal</a></li>
+				                            <li  id="profile_info" class="active"><a href="#profile" data-toggle="tab">Profile Information</a></li>
+				                            <li id="family_info"><a href="#family" data-toggle="tab">Family Information</a></li>
+				                            <li  id="job_portal"><a href="#jobportal" data-toggle="tab">Job Portal</a></li>
 				                       </ul>
 				                </div>
 				                <div class="panel-body">
 
 									<!-- Add member success message -->
+				                	@if(session('member_email_exist'))
+										<div class="alert alert-success">{{ session('member_email_exist') }}</div>
+
+									@endif
+
+									<!-- If member email is already exist -->
 				                	@if(session('add_member'))
 										<div class="alert alert-success">{{ session('add_member') }}</div>
 									@endif
@@ -110,6 +106,18 @@
 															<div class="alert alert-success">{{ session('extra_status') }}</div>
 															@endif
 															<!-- extra_status -->
+
+														 	<!-- Update member success message -->
+										                	@if(session('update_member'))
+																<div class="alert alert-success">{{ session('update_member') }}</div>
+															@endif
+															<!-- Update member success message -->
+
+														 	<!-- Delete member success message -->
+										                	@if(session('delete_member'))
+																<div class="alert alert-success">{{ session('delete_member') }}</div>
+															@endif
+															<!-- Delete member success message -->
 														</div>
 														<div class="col-md-6">
 											    			<h4>Personal Information</h4>
@@ -469,16 +477,82 @@
 											<!-- Update Extra Info -->
 				                        </div>
 
-
+				                        <div class="row" id="family_add_show_btn">
+					                        <div class="col-md-6">
+					                        	<a class="btn btn-info mb10px" id="addmember">
+													<i class="fa fa-plus" aria-hidden="true"></i> Add Member
+												</a>
+											</div>
+											 <div class="col-md-6 text-right">
+					                        	<a class="btn btn-info mb10px" id="show_family_members">
+													<i class="fa fa-plus" aria-hidden="true"></i> Show Members
+												</a>
+					                        </div>
+				                        </div>
 
 				                        <!-- Family Member -->
 										<div class="tab-pane fade" id="family">
 
-											<a class="btn btn-info mb10px" id="addmember">
-												<i class="fa fa-plus" aria-hidden="true"></i> Add Member
-											</a>
+											
+											<table class="table table-striped">
+											  	<thead>
+												    <tr>
+												      <th>#</th>
+												      <th>First Name</th>
+												      <th>Last Name</th>
+												      <th>Email Id</th>
+												      <th>Phone No.</th>
+												      <th>Action</th>
+												    </tr>
+											  	</thead>
+											  	<tbody>
+												  	@php ($i=1)
+												  	@if(count($familymember)>0)
 
-											<form class="form-inline" method="post" action="{{ route('add_member') }}">
+												  	@foreach($familymember as $family)
+												  	<tr>
+												      	<th scope="row">{{ $i }}</th>
+												      	<td>{{ $family->fname }}</td>
+												      	<td>{{ $family->lname }}</td>
+												      	<td>{{ $family->email }}</td>
+												      	<td>{{ $family->mobile }}</td>
+												      	<td>
+												      		<a href="{{ url('viewfamilymember'.$family->id) }}" class="btn btn-info btn-xs">view</a> 
+												       		<a href="{{ url('deletefamilymember'.$family->id) }}" class="btn btn-danger btn-xs">delete</a>
+											       		</td>
+											     	 </tr>
+											     	 @php $i++ @endphp
+											     	@endforeach
+
+											     	@endif
+										     	</tbody>
+											</table>										
+
+				                        </div>
+
+				                        @if(session('member_email_exist'))
+
+											<script type="text/javascript">
+												$("#profile_info").removeClass('active');
+												$("#family_info").addClass('active');
+												$("#profile").removeClass('active in');
+												$("#family").removeClass('active in');
+												$("#add_member_form_div").addClass('active in');
+												$("#add_member_form_div").css({
+													'display' : 'block'
+												});
+												$("#addmember").show('');
+											</script>
+										@else
+											<script>
+												$('#family_info').removeClass('active');
+										        $('#profile_info').addClass('active');
+										        $('#profile').addClass('active in');
+											</script>
+										@endif
+
+				                        <div class="row" id="add_member_form_div" style="display:none;">
+				                        	<form class="form-inline" method="post" action="{{ route('add_member') }}">
 
 										   		<div class="col-md-12 mb10px member" style="display:none;">
 											    	<div class="form-group ml0px">
@@ -489,7 +563,7 @@
 											    </div>
 
 												<!--MaleMemberForm  -->
-												<div id="MemberMale" style="display:none;" class="user_family">
+												<div id="MemberMale" class="user_family">
 
 													{{ csrf_field() }}
 
@@ -498,13 +572,13 @@
 											   		<div class="col-md-6 mb10px">
 											    		<h4>First name</h4>
 												    	<div class="form-group">
-													      	<input type="text" class="form-control" placeholder="First Name" name="fname">
+													      	<input type="text" class="form-control" placeholder="First Name" name="fname" required="">
 													    </div>
 												    </div>
 												    <div class="col-md-6 mb10px">
 												    	<h4>Last Name</h4>
 													    <div class="form-group">
-													      <input type="text" class="form-control" placeholder="Last Name" name="lname">
+													      <input type="text" class="form-control" placeholder="Last Name" name="lname" required="">
 													    </div>
 												    </div>
 											   		<div class="col-md-6 mb10px">
@@ -526,19 +600,19 @@
 											   		<div class="col-md-6 mb10px">
 												    	<h4>Email Address</h4>
 												    	<div class="form-group">
-													      <input type="email" class="form-control" placeholder="Example@gmail.com" name="email">
+													      <input type="email" class="form-control" placeholder="Example@gmail.com" name="email" required="">
 													    </div>
 												    </div>
 													<div class="col-md-6 mb10px">
 												    	<h4>Mobile Number</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="+91-123456789" name="mobile">
+													      <input type="text" class="form-control" placeholder="+91-123456789" name="mobile" required="">
 													    </div>
 												    </div>
 													<div class="col-md-6 mb10px">
 												    	<h4>Date of Birth</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control" placeholder="20-12-1990" name="dob">
+													      <input type="date" class="form-control" placeholder="20-12-1990" name="dob" required="">
 													    </div>
 												    </div>
 													<div class="col-md-6 mb10px">
@@ -549,33 +623,62 @@
 												    </div>
 
 											   		<div class="col-md-6 mb10px">
-												    	<h4>मांगलिक</h4>
-													    <div class="form-group ml0px">
-													      	<input type="radio" placeholder="First Name" value="1" name="mang" checked="checked">
-													      	&nbsp;&nbsp;Yes
-												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" placeholder="Last Name" name="mang" value="2">
-													      	&nbsp;&nbsp;No
-													    </div>
-												    </div>
-
-											   		<div class="col-md-6 mb10px">
 												    	<h4>Married</h4>
 													    <div class="form-group ml0px">
-													      	<input type="radio" placeholder="First Name" name="married" checked="checked" value="1">
+													      	<input type="radio" class="marry" name="married" checked="checked" value="1">
 													      	&nbsp;&nbsp;Yes
-												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" placeholder="Last Name" name="married" value="2">
+												   			<input type="radio" class="marry" name="married" value="2">
 													      	&nbsp;&nbsp;No
 													    </div>
 												    </div>
 
-											    	<div class="col-md-6 mb10px">
+											    	<div class="col-md-6 mb10px unmarried">
 												    	<h4>विवाह की तिथि </h4>
 												    	<div class="form-group">
 													      <input type="text" class="form-control" placeholder="विवाह की तिथि " name="marriage_date">
 													    </div>
 												    </div>
+
+											    	<div class="col-md-6 mb10px formarried" style="display:none;">
+												    	<h4>Marriageable / विवाह योग्य</h4>
+													    <div class="form-group ml0px">
+													      	<input type="radio" value="1" name="mariageable">
+													      	&nbsp;&nbsp;Yes
+												   			<input type="radio" name="mariageable" value="2" checked="checked">
+													      	&nbsp;&nbsp;No
+													    </div>
+												    </div>
+
+											   		<div class="col-md-6 mb10px">
+												    	<h4>मांगलिक</h4>
+													    <div class="form-group ml0px">
+													      	<input type="radio" value="1" name="mang" checked="checked">
+													      	&nbsp;&nbsp;Yes
+												   			<input type="radio" name="mang" value="2">
+													      	&nbsp;&nbsp;No
+													    </div>
+												    </div>
+
+													<div class="col-md-6 mb10px">
+												    	<h4>P.H.दिव्यांगता </h4>
+													    <div class="form-group ml0px">
+													      	<input type="radio"  value="1" name="ph">
+													      	&nbsp;&nbsp;Yes
+												   			<input type="radio" value="2" name="ph" checked="checked">
+													      	&nbsp;&nbsp;No
+													    </div>
+												    </div>
+
+													<div class="col-md-6 mb10px">
+												    	<h4>Job/Business</h4>
+													    <div class="form-group ml0px">
+													      	<input type="radio" name="job_busi" value="1" checked="checked">
+													      	&nbsp;&nbsp;Job
+												   			<input type="radio" name="job_busi" value="2" >
+													      	&nbsp;&nbsp;Businesss
+													    </div>
+												    </div>
+
 
 													<div class="col-md-6 mb10px">
 													    <h4>Any Exeprience</h4>
@@ -584,38 +687,15 @@
 													    </div>
 												    </div>
 
-											   		<div class="col-md-6 mb10px">
-												    	<h4>P.H.दिव्यांगता </h4>
-													    <div class="form-group ml0px">
-													      	<input type="radio" placeholder="First Name" value="1" name="ph">
-													      	&nbsp;&nbsp;Yes
-												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" placeholder="Last Name" value="2" name="ph" checked="checked">
-													      	&nbsp;&nbsp;No
-													    </div>
-												    </div>
-
-													<div class="col-md-6 mb10px">
-												    	<h4>Job/Business</h4>
-													    <div class="form-group ml0px">
-													      	<input type="radio" placeholder="First Name" name="job_busi" value="1" checked="checked">
-													      	&nbsp;&nbsp;Job
-												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" placeholder="Last Name" name="job_busi" value="2" >
-													      	&nbsp;&nbsp;Businesss
-													    </div>
-												    </div>
-
 													<div class="col-md-12 mb10px">
 													    <div class="form-group ml0px">
-													      	<input type="submit" name="add_member" value="Add Member">
+													      	<input type="submit" name="add_member" class="btn btn-success" value="Add Member">
 													    </div>
 												    </div>
 
 												</div><!--MaleMemberForm  -->
 
 											</form>
-
 				                        </div>
 				                         <!-- Family Member -->
 				                        <div class="tab-pane fade" id="jobportal">Default 3</div>

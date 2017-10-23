@@ -55,6 +55,17 @@
             $('.alert').slideUp();
         }, 3000);
 
+         /*Update Family Member*/
+        $(document).on('click', '.edit_member', function(){
+            $(".view_member_info").removeAttr('readonly');
+            $('.update_member_info').css({
+                'display' : 'block'
+            });
+            $(".radio").attr('disabled', false);
+        });
+
+        /*remove family_info class*/
+       
     });
 
     // Activate Carousel
@@ -91,17 +102,48 @@
         $(document).ready(function(){
 
           $("#addmember").on("click", function(){
-              $(".member").slideDown('slow');
-              $('#MemberMale').slideDown('slow');
+              $("#add_member_form_div").slideDown('slow');
+              $("#family").hide();
+              //$(".member").slideDown('slow');
+              //$('#MemberMale').slideDown('slow');
+
+          });
+
+          $("#show_family_members").on("click", function(){
+              $("#add_member_form_div").hide();
+              $("#family").slideDown('slow');
+              //$(".member").slideDown('slow');
+              //$('#MemberMale').slideDown('slow');
+
           });
 
           $(document).on('click', '.member_type', function() {
 
               var member = $(this).val();
 
+           });
 
-
+        });
+        $(document).ready(function(){
+          $(document).on('click', '.marry', function() {
+            var mar = $(this).val();
+            if(mar==2)
+            {
+              $('.unmarried').css({
+                'display' : 'none',
+              });
+              $('.formarried').css({
+                'display' : 'block'
+              });
+            }
+            else{
+              $('.unmarried').css({
+                'display' : 'block'
+              });
+              $('.formarried').css({
+                'display' : 'none'
+              });
+            }
           });
         });
 </script>
-

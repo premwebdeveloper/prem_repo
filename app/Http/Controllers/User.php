@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
 use Storage;
 use Session;
 
@@ -32,7 +33,7 @@ class User extends Controller
         $extra = DB::table('user_extra_details')->where('user_id', $currentuserid)->first();
 
         #Get Family Member
-        $familymember = DB::table('user_family_details')->where('user_id', $currentuserid)->first();
+        $familymember = DB::table('user_family_details')->where('user_id', $currentuserid)->where('status', 1)->get();
 
         return view('user.profile', array('user' => $user, 'religion' => $religion, 'extra' => $extra, 'familymember' => $familymember));
     }
@@ -47,21 +48,27 @@ class User extends Controller
         $user = DB::table('user_details')->where('user_id', $currentuserid)->first();
 
         #Get Family Member
-        $familymember = DB::table('user_family_details')->where('user_id', $currentuserid)->first();
+        $familymember = DB::table('user_family_details')->where('user_id', $currentuserid)->get();
 
         return view('user.family-member', array('user' => $user, 'familymember' => $familymember));
     }
 
     # view family member
-    public function viewfamilymember()
+    public function viewfamilymember($id)
     {
         #Get User Id
-        $currentuserid = Aurh::user()->id;
+        $currentuserid = Auth::user()->id;
 
         #Get User role
         $user = DB::table('user_details')->where('user_id', $currentuserid)->first();
 
-        #
+        #Get Family Member
+        $familymember = DB::table('user_family_details')->where('user_id', $currentuserid)->first();
+
+        #view family member
+        $view_family_member = DB::table('user_family_details')->where('id', $id)->first();
+
+        return view('user.view-family-member', array('user' => $user, 'viewfamily' => $view_family_member, 'familymember' => $familymember));
 
     }
 
@@ -193,14 +200,36 @@ class User extends Controller
     // Add family member
     public function add_member(Request $request)
     {
+        $email = $request->email;
+       
+        $mobile = $request->mobile;
+
+        $is_available = DB::table('users')->where('email', $email)->first();
+       
+        $is_mobile_available = DB::table('users')->where('phone', $mobile)->first();
+
+        if(!empty($is_available))
+        {
+            $member_email_exist = 'This email is already exist.';
+            return redirect('profile')->with('member_email_exist', $member_email_exist);
+        }
+
+        if(!empty($is_mobile_available))
+        {
+            $member_mobile_exist = 'This mobile no. is already exist.';
+            return redirect('profile')->with('member_email_exist', $member_mobile_exist);
+        }
+        
+
+
         $date = date('Y-m-d H:i:s');
 
         $user_id = $request->user_id;
         $fname = $request->fname;
         $lname = $request->lname;
         $gender = $request->gender;
-        $email = $request->email;
-        $mobile = $request->mobile;
+        
+        //$mobile = $request->mobile;
         $dob = $request->dob;
         $mang = $request->mang;
         $bloodgroup = $request->bloodgroup;
@@ -230,10 +259,13 @@ class User extends Controller
                     'status' => 0
             )
         );
+        
+       $lastInsertId = DB::getPdo()->lastInsertId();
 
         $user_insert = DB::table('user_family_details')->insert(
              array(
                     'user_id' => $user_id,
+                    'f_member_user_id' => $lastInsertId,
                     'fname' => $fname,
                     'lname' => $lname,
                     'email' => $email,
@@ -265,6 +297,111 @@ class User extends Controller
         return redirect('profile')->with('add_member', $status);
 
         exit;
+    }
+
+    // Update family member
+    public function updatefamilymember(Request $request)
+    {
+        $date = date('Y-m-d H:i:s');
+
+        $user_id = $request->user_id;
+        $id = $request->id;
+        $f_member_user_id = $request->f_member_user_id;
+        $fname = $request->fname;
+        $lname = $request->lname;
+        $gender = $request->gender;
+        $email = $request->email;
+        $mobile = $request->mobile;
+        $dob = $request->dob;
+        $mang = $request->mang;
+        $bloodgroup = $request->bloodgroup;
+        $married = $request->married;
+        $marriage_date = $request->marriage_date;
+        $experience = $request->experience;
+        $ph = $request->ph;
+        $job_busi = $request->job_busi;
+
+        # update data user table
+        $user = DB::table('users')->where('id', $user_id)->first();
+
+       # Get password user table
+        $user_password = $user->password;
+
+        # insert data user table
+        $user_table = DB::table('users')->where('id', $f_member_user_id)->update(
+            array(
+                    'name' => $fname,
+                    'family_head_id' => $user_id,
+                    'lastname' => $lname,
+                    'username' => $fname.$lname,
+                    'email' => $email,
+                    'password' => $user_password,
+                    'phone' => $mobile,
+                    'created_at' => $date,
+                    'updated_at' => $date,
+                    'status' => 0
+            )
+        );
+
+        $user_insert = DB::table('user_family_details')->where('id', $id)->update(
+             array(
+                    'user_id' => $user_id,
+                    'fname' => $fname,
+                    'lname' => $lname,
+                    'email' => $email,
+                    'mobile' => $mobile,
+                    'gender' => $gender,
+                    'dob' => $dob,
+                    'blood_group' => $bloodgroup,
+                    'manglik' => $mang,
+                    'married' => $married,
+                    'marriage_date' => $marriage_date,
+                    'experience' => $experience,
+                    'profession' => $job_busi,
+                    'ph_Divyangata' => $ph,
+                    'created_at' => $date,
+                    'updated_at' => $date,
+                    'status' => 1
+             )
+        );
+
+        if($user_insert)
+        {
+            $status = 'Update member successfully.';
+        }
+        else
+        {
+            $status = 'Something went wrong !';
+        }
+
+        return redirect('profile')->with('update_member', $status);
+
+        exit;
+    }
+
+    // Delete family member
+    public function deletefamilymember(Request $request)
+    {
+        $date = date('Y-m-d H:i:s');
+
+        $id = $request->id;
+
+        $delete = DB::table('user_family_details')->where('id', $id)->update(
+            array(
+                    'status' => 0
+            )
+        );
+
+        if($delete)
+        {
+            $status = 'Delete member successfully.';
+        }
+        else
+        {
+            $status = 'Something went wrong !';
+        }
+
+        return redirect('profile')->with('delete_member', $status);
     }
 
 }
