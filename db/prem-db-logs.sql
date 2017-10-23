@@ -94,3 +94,12 @@ ALTER TABLE `users` CHANGE `family_head_id` `family_head_id` VARCHAR(10) CHARACT
 -- ---------------------------Updated Table user_family_details ON 16-10-2017--------------------------
 
 ALTER TABLE `user_family_details` ADD `f_member_user_id` INT NOT NULL AFTER `user_id`;
+
+-- ---------------------------CREATEED Table password_resets ON 23-10-2017--------------------------
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+COMMIT;
