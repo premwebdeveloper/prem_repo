@@ -41,6 +41,10 @@ Route::get('sendEmail', 'EmailController@sendEmail');
 // A user can access after login only these routes//
 /**************************************************/
 
+Route::get('change_password', 'User@change_password_view');
+
+Route::post('change_password', 'User@change_password')->name('change_password');
+
 Route::get('profile', 'User@profile')->name('profile');
 
 Route::post('updateProfileImage', 'User@updateProfileImage')->name('updateProfileImage');
