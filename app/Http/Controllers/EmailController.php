@@ -11,7 +11,7 @@ class EmailController extends Controller
 	{
 		Mail::send(['text'=>'email.sendEmail'],['name','Prem'],function($message){
 			$message->to('amitsharma6681@gmail.com','Amit Sharma')->subject('Test Email');
-			$message->from('amitsharma6681@gmail.com','ASmit Sharma');
+			$message->from('amitsharma6681@gmail.com','Vaish Parivar Sangh');
 		});
 	}
 }
