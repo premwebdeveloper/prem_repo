@@ -71,7 +71,7 @@
 
 										<!-- View Family Member -->
 										<div class="tab-pane fade in active">
-											<form class="form-inline" method="post" action="{{ route('updatefamilymember') }}">
+											<form class="form-inline" method="post" action="{{ route('updatefamilymember') }}" enctype="multipart/form-data">
 												{{ csrf_field() }}
 
 												<input type="hidden" name="user_id" id="user_id" value="{{ $user->user_id }}">

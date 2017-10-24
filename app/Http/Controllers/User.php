@@ -70,7 +70,6 @@ class User extends Controller
         $view_family_member = DB::table('user_family_details')->where('id', $id)->first();
 
         return view('user.view-family-member', array('user' => $user, 'viewfamily' => $view_family_member, 'familymember' => $familymember));
-
     }
 
     # Update Personal Info
@@ -103,7 +102,6 @@ class User extends Controller
         $personal_status = "Personal information updated successfully !";
 
         return redirect('profile')->with('personal_status', $personal_status);
-
     }
 
     # Update Religion Info
@@ -126,7 +124,6 @@ class User extends Controller
         $religion_status = "Religion information updated successfully !";
 
         return redirect('profile')->with('religion_status', $religion_status);
-
     }
 
     # Update Extra Info
@@ -151,7 +148,6 @@ class User extends Controller
         $extra_status = "Extra information updated successfully !";
 
         return redirect('profile')->with('extra_status', $extra_status);
-
     }
 
     # update Profile Image
@@ -166,6 +162,13 @@ class User extends Controller
             $file = $request->file('image');
 
             $filename = $request->image->getClientOriginalName();
+
+            $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+            $filename = substr(md5(microtime()),rand(0,26),6);
+
+            $filename .= '.'.$ext;
+
             $filesize = $request->image->getClientSize();
 
             $destinationPath = config('app.fileDestinationPath').'/'.$filename;
@@ -180,27 +183,44 @@ class User extends Controller
             if($image_update)
             {
                 $status = "Profile image updated successfully !";
-
                 return redirect('profile')->with('status', $status);
-
             }
-
-            //$request->image->storeAs('public/upload', $filename);
         }
         else
         {
             $status = "Please upload any image !";
-
             return redirect('profile')->with('status', $status);
-
         }
-
-        //return redirect('profile');
     }
 
     // Add family member
     public function add_member(Request $request)
     {
+        // If image is uploaded
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+
+            $filename = $request->image->getClientOriginalName();
+
+            $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+            $filename = substr(md5(microtime()),rand(0,26),6);
+
+            $filename .= '.'.$ext;
+
+            $filesize = $request->image->getClientSize();
+
+            $destinationPath = config('app.fileDestinationPath').'/'.$filename;
+            $uploaded = Storage::put($destinationPath, file_get_contents($file->getRealPath()));
+
+            $member_image = $filename;
+        }
+        else    // If image not uploaded then image name will be null
+        {
+            $member_image = null;
+        }
+
         $email = $request->email;
 
         $mobile = $request->mobile;
@@ -220,8 +240,6 @@ class User extends Controller
             $member_mobile_exist = 'This mobile no. is already exist.';
             return redirect('profile')->with('member_email_exist', $member_mobile_exist);
         }
-
-
 
         $date = date('Y-m-d H:i:s');
 
@@ -274,6 +292,7 @@ class User extends Controller
                     'gender' => $gender,
                     'dob' => $dob,
                     'blood_group' => $bloodgroup,
+                    'image' => $member_image,
                     'manglik' => $mang,
                     'married' => $married,
                     'marriage_date' => $marriage_date,
@@ -322,6 +341,33 @@ class User extends Controller
         $ph = $request->ph;
         $job_busi = $request->job_busi;
 
+         // If image is uploaded
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+
+            $filename = $request->image->getClientOriginalName();
+
+            $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+            $filename = substr(md5(microtime()),rand(0,26),6);
+
+            $filename .= '.'.$ext;
+
+            $filesize = $request->image->getClientSize();
+
+            $destinationPath = config('app.fileDestinationPath').'/'.$filename;
+            $uploaded = Storage::put($destinationPath, file_get_contents($file->getRealPath()));
+
+            $member_image = $filename;
+        }
+        else    // If image not uploaded then image name will be null
+        {
+            $member = DB::table('user_family_details')->where('id', $id)->first();
+
+            $member_image = $member->image;;
+        }
+
         # update data user table
         $user = DB::table('users')->where('id', $user_id)->first();
 
@@ -354,6 +400,7 @@ class User extends Controller
                     'gender' => $gender,
                     'dob' => $dob,
                     'blood_group' => $bloodgroup,
+                    'image' => $member_image,
                     'manglik' => $mang,
                     'married' => $married,
                     'marriage_date' => $marriage_date,

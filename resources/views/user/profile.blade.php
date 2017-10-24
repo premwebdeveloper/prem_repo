@@ -13,16 +13,23 @@
 
 								<!-- Image update code -->
 								<div class="col-md-4">
+
 			                    	<img alt="image" class="img-circle img-responsive mt10" src="resources/uploads/profile_images/{{$user->image}}">
-									<input type="submit" name="updateProfileImage" value="Update Profile Image" class="btn btn-info btn-xs mt10 Profie_image">
+
+									<a href="javascript:;" class="btn btn-info btn-xs mt10 Profie_image"> Update profile image </a>
+
 									<form action="{{ route('updateProfileImage') }}" method="post" enctype="multipart/form-data" class="primage" style="display:none">
+
 										{{ csrf_field() }}
+
 										<input type="hidden" name="user_id" id="user_id" value="{{ $user->user_id }}">
 
 										<input type="file" name="image" class="mt10">
 
 										<input type="submit" name="updateProfileImage" value="Update Image" class="btn btn-success btn-xs mt10">
+
 									</form>
+
 								</div>
 			                	<!-- Image update code -->
 
@@ -552,7 +559,7 @@
 										@endif
 
 				                        <div class="row" id="add_member_form_div" style="display:none;">
-				                        	<form class="form-inline" method="post" action="{{ route('add_member') }}">
+				                        	<form class="form-inline" method="post" action="{{ route('add_member') }}" enctype="multipart/form-data">
 
 										   		<div class="col-md-12 mb10px member" style="display:none;">
 											    	<div class="form-group ml0px">
@@ -584,10 +591,10 @@
 											   		<div class="col-md-6 mb10px">
 												    	<h4>Your Gender</h4>
 													    <div class="form-group ml0px">
-													      	<input type="radio" placeholder="First Name" name="gender" value="1" checked="checked">
+													      	<input type="radio" name="gender" value="1" checked="checked">
 													      	&nbsp;&nbsp;Male
 												   			&nbsp;&nbsp;&nbsp;&nbsp;
-													      	<input type="radio" placeholder="Last Name" name="gender" value="2">
+													      	<input type="radio" name="gender" value="2">
 													      	&nbsp;&nbsp;Female
 													    </div>
 												    </div>
