@@ -43,36 +43,13 @@
 			</a>
 		</div>
 
-		@if (Auth::guest())
+		
 		<div class="newskannada-video">
-			<a href="{{ route('register') }}">Join Us</a>
-			<a href="{{ route('login') }}">Login</a>
+			<a href="javascript:;"><i class="fa fa-instagram"></i></a>
+			<a href="javascript:;"><i class="fa fa-twitter"></i></a>
+			<a href="javascript:;"><i class="fa fa-facebook"></i></a>
 		</div>
-		@else
-		<div class="newskannada-log">
-			<div class="dropdown">
-				<button class="dropbtn">{{ Auth::user()->name }} <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
-				</button>
-				<div class="dropdown-content">
-					<a href="{{ route('profile') }}">
-						Profile
-					</a>
-					<a href="{{ route('change_password') }}">
-						Change Password
-					</a>
-					<a href="{{ route('logout') }}"
-						onclick="event.preventDefault();
-								 document.getElementById('logout-form').submit();">
-						Logout
-					</a>
-					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-						{{ csrf_field() }}
-					</form>
-				</div>
 
-			</div>
-		</div>
-		@endif
 	</div>
 
 	<div class="header">
@@ -83,10 +60,10 @@
 			<div class="col-md-2 hidetext">
 				<img src="{{asset('resources/frontend_assets/img/mahalaxmi.png')}}" class="img-responsive" alt="Maha Laxmi" style="height: 115px;">
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-5">
 				<div class="row pt10px">
 					<div class="col-md-12">
-					<h1 class="text-center white">Vaish Parivar Sangh</h1>
+					<h1 class="text-center white">Akhil Bhartiya <br>Vaish Parivar Sangh</h1>
 						<h5 class="text-center white">संगठन में शक्ति है व् शक्ति की पूजा होती है ।<br>
 						(एकता में बल है - Union is Strength)
 						</h5>
@@ -98,6 +75,9 @@
 			</div>
 			<div class="col-md-1 hidetext">
 				<img src="{{asset('resources/frontend_assets/img/Gandhi.png')}}" class="img-responsive" alt="News">
+			</div>			
+			<div class="col-md-1 hidetext">
+				<img src="{{asset('resources/frontend_assets/img/e7487b.png')}}" class="img-responsive" alt="News" style="height: 110px;">
 			</div>
 		</div>
 	</div><!--header-->
@@ -111,12 +91,32 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav ">
 					<li class="active"><a href="{{ url('/') }}" title="Home">Home</a></li>
-					<li><a href="{{ route('aboutus') }}" title="Home">About Us</a></li>
-					<li><a href="{{ route('aims') }}" title="Home">Aims & Objectives</a></li>
-					<li><a href="javascript:;" title="Home">आज के विचार </a></li>
-					<li><a href="javascript:;" title="Home">अब तक के समाचार</a></li>
-					<li><a href="{{ route('suggestion') }}" title="Home">Your Suggestion</a></li>
-					<li><a href="{{ route('problem') }}" title="Home">Submit Your Problem</a></li>
+					<li><a href="{{ route('aboutus') }}" title="Home" class="text-center">संस्था को जानें <br>About Us</a></li>
+					<li><a href="{{ route('aims') }}" title="Home" class="text-center">लक्ष्य और उद्देश्य<br>Aims & Objectives</a></li>
+					<li><a href="javascript:;" title="संस्था सहयोगी कैसे बने" class="text-center">संस्था सहयोगी कैसे बनें<br> How can we help our body</a></li>
+					<li><a href="{{ route('suggestion') }}" class="text-center" title="Your Suggestion">आपके सुझाव<br>Your Suggestion<br></a></li>
+					<li><a href="{{ route('problem') }}" class="text-center" title="Home">आपकी समस्याएं <br>Put Your Problem</a></li>
+					@if (Auth::guest())
+						<li><a href="{{ route('register') }}" class="text-center" title="Home">सदस्य बनें<br>हमसे जुड़ें<br>Join Us</a></li>
+						<li><a href="{{ route('login') }}" class="text-center" title="Home">लॉग इन करें<br>Login</a></li>
+					@else
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#" title="News Section with all the city news" aria-expanded="true">{{ Auth::user()->name }}
+      						<b class="caret"></b>
+          	          		</a>
+							<ul class="dropdown-menu">
+								<li><a href="{{ route('profile') }}" title="Profile">Profile</a></li>
+                               	<li><a href="{{ route('change_password') }}" title="Change Password">Change Password</a></li>
+                               	<li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+												 document.getElementById('logout-form').submit();" title="Logout">Logout</a></li>
+                               	<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+										{{ csrf_field() }}
+								</form>
+                           </ul>
+                      	</li>
+					</div>
+					@endif
+					<!-- <li><a href="" class="text-center" title="Home">मेरा सहयोग <br>Donation</a></li> -->
 				</ul>
 			</div>
 		</div>

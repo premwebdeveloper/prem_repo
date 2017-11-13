@@ -16,6 +16,7 @@
                 'display' : 'block'
             });
             $(".radio").attr('disabled', false);
+            $("#bloodgroup").attr('disabled', false);
         });
         /*Personal Info Update*/
 
@@ -74,7 +75,19 @@
 
         /*remove family_info class*/
 
-    });
+        $("#family_info").on('click', function(){
+          
+          $("#family_add_show_btn").css({
+            'display':'block'
+          });
+        });
+
+        $("#profile").on('click', function(){
+          $("#family_add_show_btn").css({
+            'display':'none'
+          });
+        });
+     });
 
     // Activate Carousel
     $(document).ready(function(){
