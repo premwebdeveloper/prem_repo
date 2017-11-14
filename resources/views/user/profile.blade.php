@@ -38,7 +38,7 @@
 				                    	<!-- Presonal Information -->
 				                        <div class="tab-pane fade in active" id="profile">
 				                        	<!-- Update Personal Info -->
-				                        	
+
 												<div class="row mb10px">
 													<div class="col-md-12">
 														<!-- personal_status -->
@@ -82,6 +82,7 @@
 									    		<div class="row">
 											   		<div class="col-md-4">
 											   			<h4>मुखिया का पूरा नाम</h4>
+
 												    	<div class="form-group" style="margin-bottom: 30px;">
 													      	<input type="text" class="form-control personal_info" placeholder="Full Name" name="fname" id="fname" value="{{$user->name}}" readonly>
 													    </div>
@@ -89,15 +90,12 @@
 												    	<h4>Gender / लिंग </h4>
 													    <div class="form-group ">
 													    	@if($user->gender==2)
-													    		<input type="radio" class="radio" name="gender" value="1">
+													    		<input type="radio" class="radio personal_info" name="gender" value="1">
 												      			&nbsp;&nbsp;Male
-												   				<input type="radio" class="radio" name="gender" value="2" checked="checked">
-													      		&nbsp;&nbsp;Female
+												   				<input type="radio" class="radio personal_info" name="gender" value="2" checked="checked"> &nbsp;&nbsp;Female
 													    	@else
-													    	<input type="radio" class="radio" name="gender" value="1" checked="checked">
-												      			&nbsp;&nbsp;Male
-												   				<input type="radio" class="radio" name="gender" value="2">
-													      		&nbsp;&nbsp;Female
+													    		<input type="radio" class="radio personal_info" name="gender" value="1" checked="checked"> &nbsp;&nbsp;Male
+												   				<input type="radio" class="radio personal_info" name="gender" value="2"> &nbsp;&nbsp;Female
 												   			@endif
 												   		 </div>
 												    </div>
@@ -145,7 +143,7 @@
 													<div class="col-md-4">
 												    	<h4>मत/सम्प्रदाय </h4>
 												    	<div class="form-group">
-												    		<select class="form-control" required="" name="bloodgroup" id="bloodgroup">
+												    		<select class="form-control personal_info" required="" name="bloodgroup" id="bloodgroup">
 												    			<option value="">Select मत/सम्प्रदाय </option>
 												    			<option value="सनातनी">सनातनी</option>
 												    			<option value="जैन">जैन</option>
@@ -161,14 +159,14 @@
 											    	<div class="col-md-4">
 											    		<h4>Cast / जाति </h4>
 												    	<div class="form-group">
-													      	<input type="text" class="form-control religion_info" placeholder="जाति" name="cast" value="" readonly>
+													      	<input type="text" class="form-control personal_info" placeholder="जाति" name="cast" value="" readonly>
 													    </div>
 												    </div>
 
 												    <div class="col-md-4">
 												    	<h4>Sub Cast/उपजाति/घटक</h4>
 													    <div class="form-group">
-													      <input type="text" class="form-control religion_info" placeholder="उपजाति" name="sub_cast" value="" readonly>
+													      <input type="text" class="form-control personal_info" placeholder="उपजाति" name="sub_cast" value="" readonly>
 													    </div>
 												    </div>
 
@@ -176,14 +174,14 @@
 											    	<div class="col-md-4">
 											    		<h4>गौत्र (Gotre)</h4>
 												    	<div class="form-group">
-													      	<input type="text" class="form-control religion_info" placeholder="गौत्र" name="gotra" value="" readonly>
+													      	<input type="text" class="form-control personal_info" placeholder="गौत्र" name="gotra" value="" readonly>
 													    </div>
 												    </div>
 
 												    <div class="col-md-4">
 												    	<h4>बंक </h4>
 													    <div class="form-group">
-													      <input type="text" class="form-control religion_info" placeholder="बंक" name="sub_gotra" value="" readonly>
+													      <input type="text" class="form-control personal_info" placeholder="बंक" name="sub_gotra" value="" readonly>
 													    </div>
 												    </div>
 
@@ -208,15 +206,11 @@
 												    	<h4>Married / शादी-शुदा </h4>
 													    <div class="form-group ">
 													    	@if($user->gender==2)
-													    		<input type="radio" class="radio" name="gender" value="1">
-												      			Yes
-												   				<input type="radio" class="radio" name="gender" value="2" checked="checked">
-													      		No
+													    		<input type="radio" class="radio personal_info" name="gender" value="1"> Yes
+												   				<input type="radio" class="radio personal_info" name="gender" value="2" checked="checked"> No
 													    	@else
-													    	<input type="radio" class="radio" name="gender" value="1" checked="checked">
-												      			Yes
-												   				<input type="radio" class="radio" name="gender" value="2">
-													      		No
+													    		<input type="radio" class="radio personal_info" name="gender" value="1" checked="checked"> Yes
+												   				<input type="radio" class="radio personal_info" name="gender" value="2"> No
 												   			@endif
 												   		 </div>
 												    </div>
@@ -267,15 +261,11 @@
 												    	<h4>सेवा निवृत हैं</h4>
 													    <div class="form-group ">
 													    	@if($user->gender==2)
-													    		<input type="radio" class="radio" name="gender" value="1">
-												      			Yes
-												   				<input type="radio" class="radio" name="gender" value="2" checked="checked">
-													      		No
+													    		<input type="radio" class="radio personal_info" name="gender" value="1"> Yes
+												   				<input type="radio" class="radio personal_info" name="gender" value="2" checked="checked"> No
 													    	@else
-													    	<input type="radio" class="radio" name="gender" value="1" checked="checked">
-												      			Yes
-												   				<input type="radio" class="radio" name="gender" value="2">
-													      		No
+													    	<input type="radio" class="radio personal_info" name="gender" value="1" checked="checked"> Yes
+												   				<input type="radio" class="radio personal_info" name="gender" value="2"> No
 												   			@endif
 												   		 </div>
 												    </div>
@@ -340,15 +330,13 @@
 													    <h4>समाज सेवा हेतु समय दान व रूचि क्षेत्र </h4>
 														<div class="form-group ml0px">
 
-												      		<input type="text" name="donate_body_part" style="width: 10%;">
-													      		&nbsp;&nbsp;&nbsp;घंटे &nbsp;&nbsp;<input type="text" name="donate_body_part" style="width: 50%;">
+												      		<input type="text" name="donate_body_part" class="personal_info" style="width: 10%;">
+													      		&nbsp;&nbsp;&nbsp;घंटे &nbsp;&nbsp;
+													      	<input type="text" name="donate_body_part" class="personal_info" style="width: 50%;">
 													      		&nbsp;&nbsp;&nbsp;<br>
-												      		<input type="radio" name="donate_body_part" class="" value="2">
-													      		Daily
-												      		<input type="radio" name="donate_body_part" class="" value="2">
-													      		Weekly
-												      		<input type="radio" name="donate_body_part" class="" value="2">
-													      		Monthly
+												      		<input type="radio personal_info" name="donate_body_part" class="" value="2"> Daily
+												      		<input type="radio personal_info" name="donate_body_part" class="" value="2"> Weekly
+												      		<input type="radio personal_info" name="donate_body_part" class="" value="2"> Monthly
 													    </div>
 												    </div>
 
@@ -358,10 +346,8 @@
 														<p style="color:blue">(100/- वार्षिक दाता इस संस्था का साधारण/प्रतिनधि/कार्यकारिणी सदस्य व पदाधकारी बन सकता हैं जिसे voting right भी होगा )</p>
 													    <div class="form-group ml0px">
 
-												      		<input type="radio" name="donate_body_part" class="radio" value="1" checked="checked">
-													      		Yes
-												      		<input type="radio" name="donate_body_part" class="radio" value="2">
-													      		No
+												      		<input type="radio" name="donate_body_part" class="radio personal_info" value="1" checked="checked"> Yes
+												      		<input type="radio" name="donate_body_part" class="radio personal_info" value="2"> No
 													    </div>
 												    </div>
 
@@ -401,7 +387,7 @@
 
 												<input type="hidden" name="user_id" id="user_id" value="{{ $user->user_id }}">
 
-								    			<div class="row">							    				
+								    			<div class="row">
 												    <div class="col-md-6">
 												    	<h4>1. Blood Group / रक्त समूह</h4>
 												    	<div class="form-group">
@@ -509,9 +495,7 @@
 												     	<h4>9. अपने समाज की किस संस्था से जुड़े हुए हैं |</h4>
 
 													    <div class="form-group ml0px">
-
-													      	<input type="text" name="donate_body_part" class="form-control" >
-
+													      	<input type="text" name="donate_body_part" class="form-control" readonly>
 													    </div>
 												    </div>
 
@@ -519,9 +503,7 @@
 												     	<h4>10. समाज की किस पत्रिका के सदस्य हो | </h4>
 
 													    <div class="form-group ml0px">
-
-													      	<input type="text" name="donate_body_part" class="form-control" >
-
+													      	<input type="text" name="donate_body_part" class="form-control" readonly>
 													    </div>
 												    </div>
 
@@ -542,10 +524,9 @@
 													    <h4>12. अपना वाहन </h4>
 
 													    <div class="form-group ml0px">
-
-												      		<input type="checkbox" name="donate_body_part" class="" value="1" >
+												      		<input type="checkbox" name="donate_body_part" class="radio" value="1" >
 													      		Two Wheeler
-												      		<input type="checkbox" name="donate_body_part" class="" value="2">
+												      		<input type="checkbox" name="donate_body_part" class="radio" value="2">
 													      		Four Wheeler
 													    </div>
 												    </div>
@@ -555,17 +536,17 @@
 
 													    <div class="form-group ml0px">
 
-												      		<input type="checkbox" name="donate_body_part" class="" value="1" >
+												      		<input type="checkbox" name="donate_body_part" class="radio" value="1" >
 													      		पहचान पत्र
-													      	<input type="checkbox" name="donate_body_part" class="" value="1" >
+													      	<input type="checkbox" name="donate_body_part" class="radio" value="1" >
 													      		वोट कार्ड
-												      		<input type="checkbox" name="donate_body_part" class="" value="2">
+												      		<input type="checkbox" name="donate_body_part" class="radio" value="2">
 													      		राशन कार्ड
-												      		<input type="checkbox" name="donate_body_part" class="" value="2">
+												      		<input type="checkbox" name="donate_body_part" class="radio" value="2">
 													      		हेल्थ कार्ड
-												      		<input type="checkbox" name="donate_body_part" class="" value="2">
+												      		<input type="checkbox" name="donate_body_part" class="radio" value="2">
 													      		वरिष्ठ नागरिक
-												      		<input type="checkbox" name="donate_body_part" class="" value="2">
+												      		<input type="checkbox" name="donate_body_part" class="radio" value="2">
 													      		विधवा पेंशन
 													    </div>
 												    </div>
@@ -587,7 +568,7 @@
 												    <div class="col-md-12 mb10px">
 											    		<h4>16. परिवार की वार्षिक आय</h4>
 												    	<div class="form-group">
-												    		<select class="form-control" required="" name="bloodgroup" id="bloodgroup">
+												    		<select class="form-control radio" required="" name="bloodgroup" id="bloodgroup">
 												    			<option value="">Select Income</option>
 												    			<option value="2 लाख तक">2 लाख तक</option>
 												    			<option value="2 से 10 लाख तक">2 लाख से 10 लाख तक</option>
@@ -1031,7 +1012,7 @@
 												    <div class="col-md-6">
 												    	<h4>1. Blood Group / रक्त समूह</h4>
 												    	<div class="form-group">
-												    		<select class="form-control" required="" name="bloodgroup" id="bloodgroup" disabled="true">
+												    		<select class="form-control bloodgroup" required="" name="bloodgroup" id="" disabled="true">
 												    			@if($user->blood_group)
 												    			<option value="{{$user->blood_group}}">{{$user->blood_group}}</option>
 												    			@endif

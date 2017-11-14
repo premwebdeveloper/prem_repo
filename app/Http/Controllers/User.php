@@ -104,27 +104,6 @@ class User extends Controller
         return redirect('profile')->with('personal_status', $personal_status);
     }
 
-    # Update Religion Info
-    public function updateReligionInfo(Request $request)
-    {
-        $date = date('Y-m-d H:i:s');
-
-        $user_id = $request->user_id;
-        $cast = $request->cast;
-        $sub_cast = $request->sub_cast;
-        $ghatak = $request->ghatak;
-        $sub_ghatak = $request->sub_ghatak;
-        $gotra = $request->gotra;
-        $sub_gotra = $request->sub_gotra;
-
-        $user_religion_update = DB::table('user_religion_details')->where('user_id', $user_id)->update(array('cast' => $cast, 'sub_cast' => $sub_cast, 'ghatak' => $ghatak, 'sub_ghatak' => $sub_ghatak, 'gotra' => $gotra, 'sub_gotra' => $sub_gotra, 'updated_on' => $date));
-
-        $religion = DB::table('user_religion_details')->where('user_id', $user_id)->first();
-
-        $religion_status = "Religion information updated successfully !";
-
-        return redirect('profile')->with('religion_status', $religion_status);
-    }
 
     # Update Extra Info
     public function updateExtraInfo(Request $request)
@@ -490,6 +469,18 @@ class User extends Controller
         }
 
         return redirect('change_password')->with('status', $status);
+    }
+
+    // Update User optional information
+    public function updateOptionalInfo()
+    {
+        # code...
+    }
+
+    // Update User optional information
+    public function updateMemberPersonalInfo()
+    {
+        # code...
     }
 
 }

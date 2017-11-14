@@ -43,6 +43,10 @@ Route::get('sendEmail', 'EmailController@sendEmail');
 
 Route::get('change_password', 'User@change_password_view');
 
+Route::post('updateOptionalInfo', 'User@updateOptionalInfo')->name('updateOptionalInfo');
+
+Route::post('updateMemberPersonalInfo', 'User@updateMemberPersonalInfo')->name('updateMemberPersonalInfo');
+
 Route::post('change_password', 'User@change_password')->name('change_password');
 
 Route::get('profile', 'User@profile')->name('profile');

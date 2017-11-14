@@ -11,12 +11,15 @@
 
         /*Personal Info Update*/
         $(document).on('click', '.edit_profile', function(){
+
             $(".personal_info").removeAttr('readonly');
-            $('.update_per_info').css({
+            $('.update_personal_info').css({
                 'display' : 'block'
             });
             $(".radio").attr('disabled', false);
+            $(".profile").parent(".radio").attr('disabled', false);
             $("#bloodgroup").attr('disabled', false);
+
         });
         /*Personal Info Update*/
 
