@@ -471,8 +471,4 @@ class User extends Controller
         return redirect('change_password')->with('status', $status);
     }
 
-
-
-
-
 }
