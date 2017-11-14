@@ -16,39 +16,47 @@
             $('.update_personal_info').css({
                 'display' : 'block'
             });
-            $(".radio").attr('disabled', false);
-            $(".profile").parent(".radio").attr('disabled', false);
-            $("#bloodgroup").attr('disabled', false);
+            $(".personal_radio").attr('disabled', false);
+            
+            $("#family_add_show_btn").css({
+              'display':'block'
+            });
 
         });
         /*Personal Info Update*/
 
         /*Email Info Update*/
-        $(document).on('click', '.edit_email', function(){
-             $('.email_info').removeAttr('readonly');
-             $('.update_email').css({
+        $(document).on('click', '.edit_optional_information', function(){
+
+            $('.optional_info').removeAttr('readonly');
+            $('.update_optional_info').css({
                 'display' : 'block'
              });
+            $(".radio").attr('disabled', false);
+
+            $("#family_add_show_btn").css({
+              'display':'block'
+            });
         });
         /*Email Info Update*/
 
         /*Religion Info Update*/
-        $(document).on('click', '.edit_religion', function(){
-             $('.religion_info').removeAttr('readonly');
-             $('.update_religion').css({
+        $(document).on('click', '.edit_member_profile', function(){
+           $('.member_profile').removeAttr('readonly');
+            $('.update_member_profile').css({
                 'display' : 'block'
              });
-        });
-        /*Religion Info Update*/
+            $(".member_radio").attr('disabled', false);
+        });       
 
-        /*Extra Info update*/
-        $(document).on('click', '.edit_extra', function(){
-             $('.update_extra').css({
+        /*Religion Info Update*/
+        $(document).on('click', '.edit_member_optional', function(){
+            $('.member_optional').removeAttr('readonly');
+            $('.update_member_optional').css({
                 'display' : 'block'
              });
-             $(".radio").attr('disabled', false);
+            $(".member_optional_radio").attr('disabled', false);
         });
-        /*Extra Info update*/
 
         /*Profile Info image*/
         $(document).on('click', '.Profie_image', function(){
@@ -61,6 +69,9 @@
 
          /* radio disable*/
         $(".radio").attr('disabled', true);
+        $(".personal_radio").attr('disabled', true);
+        $(".member_radio").attr('disabled', true);
+        $(".member_optional_radio").attr('disabled', true);
         //$(".wrap").css('opacity', '.2');
 
        setTimeout(function(){
