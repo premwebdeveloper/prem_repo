@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2017 at 01:47 PM
+-- Generation Time: Nov 14, 2017 at 04:15 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -128,19 +128,41 @@ CREATE TABLE `user_details` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `lastname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `father_husband_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `whatsapp_mobile` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `religion` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sampraday` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cast` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sub_cast` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gotra` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bunk` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `origin_place` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `married` tinyint(1) DEFAULT NULL,
+  `marriage_date` date DEFAULT NULL,
+  `life_partner_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `education` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `special_qualification` text COLLATE utf8mb4_unicode_ci,
+  `experience_field` text COLLATE utf8mb4_unicode_ci,
+  `occupation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seva_nivrat` tinyint(1) DEFAULT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `bio` text COLLATE utf8mb4_unicode_ci,
   `gender` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `dob` date DEFAULT NULL,
-  `blood_group` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` text COLLATE utf8mb4_unicode_ci,
-  `pin_code` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `district` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `country` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `residential_address` text COLLATE utf8mb4_unicode_ci,
+  `residential_pincode` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `residential_district` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `residential_state` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `occupation_address` text COLLATE utf8mb4_unicode_ci,
+  `occupation_pincode` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `occupation_district` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `occupation_state` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `social_hours` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `social_field` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `social_hours_according` tinyint(1) DEFAULT NULL,
+  `donate_hindred` tinyint(1) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0'
@@ -150,11 +172,11 @@ CREATE TABLE `user_details` (
 -- Dumping data for table `user_details`
 --
 
-INSERT INTO `user_details` (`id`, `user_id`, `name`, `lastname`, `email`, `phone`, `image`, `bio`, `gender`, `dob`, `blood_group`, `address`, `pin_code`, `district`, `state`, `country`, `created_at`, `updated_at`, `status`) VALUES
-(6, 7, 'Prem', 'Saini', 'premsaini9602@gmail.com', '9602947878', '7f4e43.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-10-15 04:18:52', '2017-10-24 09:47:04', 1),
-(7, 18, 'kuku', 'Saini', 'premsinghania2402@gmail.com', '9602947878', 'user.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-13 07:35:40', '2017-11-13 07:35:40', 0),
-(8, 20, 'prem', NULL, 'p@g.com', '9602947878', 'user.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-13 08:43:20', '2017-11-13 08:43:20', 0),
-(9, 21, 'prem', NULL, 'p@g.com', '9602947878', 'user.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-13 08:53:52', '2017-11-13 08:53:52', 0);
+INSERT INTO `user_details` (`id`, `user_id`, `name`, `father_husband_name`, `email`, `whatsapp_mobile`, `phone`, `religion`, `sampraday`, `cast`, `sub_cast`, `gotra`, `bunk`, `origin_place`, `married`, `marriage_date`, `life_partner_name`, `education`, `special_qualification`, `experience_field`, `occupation`, `seva_nivrat`, `image`, `bio`, `gender`, `dob`, `residential_address`, `residential_pincode`, `residential_district`, `residential_state`, `occupation_address`, `occupation_pincode`, `occupation_district`, `occupation_state`, `social_hours`, `social_field`, `social_hours_according`, `donate_hindred`, `created_at`, `updated_at`, `status`) VALUES
+(6, 7, 'Prem', NULL, 'premsaini9602@gmail.com', NULL, '9602947878', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '7f4e43.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-10-15 04:18:52', '2017-10-24 09:47:04', 1),
+(7, 18, 'kuku', NULL, 'premsinghania2402@gmail.com', NULL, '9602947878', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'user.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-13 07:35:40', '2017-11-13 07:35:40', 0),
+(8, 20, 'prem', NULL, 'p@g.com', NULL, '9602947878', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'user.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-13 08:43:20', '2017-11-13 08:43:20', 0),
+(9, 21, 'prem', NULL, 'p@g.com', NULL, '9602947878', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'user.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-13 08:53:52', '2017-11-13 08:53:52', 0);
 
 -- --------------------------------------------------------
 
@@ -163,35 +185,50 @@ INSERT INTO `user_details` (`id`, `user_id`, `name`, `lastname`, `email`, `phone
 --
 
 CREATE TABLE `user_family_details` (
-  `id` int(11) NOT NULL,
-  `family_head_id` int(11) NOT NULL,
-  `f_member_user_id` int(11) DEFAULT NULL COMMENT 'family member''s user table auto increment id',
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `mobile` varchar(15) DEFAULT NULL,
-  `gender` int(11) NOT NULL,
-  `dob` date NOT NULL,
-  `blood_group` varchar(15) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `manglik` int(11) DEFAULT NULL,
-  `married` int(11) DEFAULT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
+  `family_head_id` int(11) NOT NULL COMMENT 'family head user id',
+  `f_member_user_id` int(11) DEFAULT NULL COMMENT 'family member''s user table auto increment id ',
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `father_husband_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `relation_to_head_member` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `whatsapp_mobile` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `religion` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sampraday` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cast` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sub_cast` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gotra` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bunk` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `origin_place` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `married` tinyint(1) DEFAULT NULL,
   `marriage_date` date DEFAULT NULL,
-  `experience` varchar(50) DEFAULT NULL,
-  `profession` int(11) DEFAULT NULL,
-  `ph_Divyangata` int(11) DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_family_details`
---
-
-INSERT INTO `user_family_details` (`id`, `family_head_id`, `f_member_user_id`, `fname`, `lname`, `email`, `mobile`, `gender`, `dob`, `blood_group`, `image`, `manglik`, `married`, `marriage_date`, `experience`, `profession`, `ph_Divyangata`, `created_at`, `updated_at`, `status`) VALUES
-(8, 7, 10, 'sumit kumar', 'sharma', 'sumitkumar@gmail.com', '9602947878', 2, '2010-06-23', 'AB+', NULL, 2, 1, '2017-10-25', '6 moths', 1, 1, '2017-10-23 15:01:32', '2017-10-23 15:01:32', 1),
-(9, 7, 11, 'Prem', 'saini', 'kuku@gmail.com', '96278454545', 1, '2017-10-20', NULL, 'bdb67a.PNG', 1, 1, NULL, NULL, 1, 2, '2017-10-24 15:16:39', '2017-10-24 15:16:39', 1);
+  `life_partner_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `education` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `special_qualification` text COLLATE utf8mb4_unicode_ci,
+  `experience_field` text COLLATE utf8mb4_unicode_ci,
+  `occupation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seva_nivrat` tinyint(1) DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bio` text COLLATE utf8mb4_unicode_ci,
+  `gender` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dob` date DEFAULT NULL,
+  `residential_address` text COLLATE utf8mb4_unicode_ci,
+  `residential_pincode` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `residential_district` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `residential_state` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `occupation_address` text COLLATE utf8mb4_unicode_ci,
+  `occupation_pincode` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `occupation_district` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `occupation_state` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `social_hours` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `social_field` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `social_hours_according` tinyint(1) DEFAULT NULL,
+  `donate_hindred` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -200,7 +237,26 @@ INSERT INTO `user_family_details` (`id`, `family_head_id`, `f_member_user_id`, `
 --
 
 CREATE TABLE `user_family_optional_details` (
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `family_head_id` int(11) NOT NULL,
+  `f_member_user_id` int(11) DEFAULT NULL COMMENT 'family member''s user table auto increment id',
+  `blood_group` tinyint(1) DEFAULT NULL,
+  `blood_information` tinyint(1) DEFAULT NULL,
+  `consumer_forum` tinyint(1) DEFAULT NULL,
+  `club_member` tinyint(1) DEFAULT NULL,
+  `abc_club_member` tinyint(1) DEFAULT NULL,
+  `project_community` tinyint(1) DEFAULT NULL,
+  `vaishya_panchayat` tinyint(1) DEFAULT NULL,
+  `donate_body_parts` tinyint(1) DEFAULT NULL,
+  `samaj_sanstha` varchar(255) DEFAULT NULL,
+  `samaj_patrika` varchar(255) DEFAULT NULL,
+  `self_home` tinyint(1) DEFAULT NULL,
+  `vehicle` varchar(10) DEFAULT NULL,
+  `pan_card` varchar(20) DEFAULT NULL,
+  `adhar_card` varchar(20) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -210,7 +266,27 @@ CREATE TABLE `user_family_optional_details` (
 --
 
 CREATE TABLE `user_optional_details` (
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `blood_group` tinyint(1) DEFAULT NULL,
+  `blood_information` tinyint(1) DEFAULT NULL,
+  `consumer_forum` tinyint(1) DEFAULT NULL,
+  `club_member` tinyint(1) DEFAULT NULL,
+  `abc_club_member` tinyint(1) DEFAULT NULL,
+  `project_community` tinyint(1) DEFAULT NULL,
+  `vaishya_panchayat` tinyint(1) DEFAULT NULL,
+  `donate_body_parts` tinyint(1) DEFAULT NULL,
+  `samaj_sanstha` varchar(255) DEFAULT NULL,
+  `samaj_patrika` varchar(255) DEFAULT NULL,
+  `self_home` tinyint(1) DEFAULT NULL,
+  `vehicle` varchar(10) DEFAULT NULL,
+  `family_cards` varchar(20) DEFAULT NULL,
+  `pan_card` varchar(20) DEFAULT NULL,
+  `adhar_card` varchar(20) DEFAULT NULL,
+  `annual_income` varchar(20) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -325,7 +401,7 @@ ALTER TABLE `user_details`
 -- AUTO_INCREMENT for table `user_family_details`
 --
 ALTER TABLE `user_family_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `user_family_optional_details`
 --
