@@ -471,16 +471,8 @@ class User extends Controller
         return redirect('change_password')->with('status', $status);
     }
 
-    // Update User optional information
-    public function updateOptionalInfo()
-    {
-        # code...
-    }
 
-    // Update User optional information
-    public function updateMemberPersonalInfo()
-    {
-        # code...
-    }
+
+
 
 }
