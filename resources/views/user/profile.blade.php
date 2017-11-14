@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-     
+
                 <div class="wrapper wrapper-content mt30px">
 				    <div class="row animated fadeInRight">
 
@@ -17,10 +17,10 @@
 			                	  	<ul class="nav nav-tabs">
 									    <li class="active"><a href="#profile">Profile Information</a></li>
 									    <li><a href="#family">Family Information</a></li>
-									    <li><a href="#jobportal">Job Portal</a></li>
+									    <!-- <li><a href="#jobportal">Job Portal</a></li> -->
 									</ul>
 				              	</div>
-	
+
 				               	<!-- Add member success message -->
 				                	@if(session('member_email_exist'))
 										<div class="alert alert-success">{{ session('member_email_exist') }}</div>
@@ -32,6 +32,9 @@
 									@endif
 
 				                    <div class="tab-content">
+<!-- ############################################################################################################################ -->
+<!-- ############################################################################################################################ -->
+<!-- ############################################################################################################################ -->
 				                    	<!-- Presonal Information -->
 				                        <div class="tab-pane fade in active" id="profile">
 				                        	<!-- Update Personal Info -->
@@ -47,37 +50,26 @@
 														@if(session('personal_status'))
 														<div class="alert alert-success">{{ session('personal_status') }}</div>
 														@endif
-														<!-- personal_status -->
 
 														<!-- religion_status -->
 														@if(session('religion_status'))
 														<div class="alert alert-success">{{ session('religion_status') }}</div>
 														@endif
-														<!-- religion_status -->
-
-														<!-- extra_status -->
-														@if(session('extra_status'))
-														<div class="alert alert-success">{{ session('extra_status') }}</div>
-														@endif
-														<!-- extra_status -->
 
 													 	<!-- Update member success message -->
 									                	@if(session('update_member'))
 															<div class="alert alert-success">{{ session('update_member') }}</div>
 														@endif
-														<!-- Update member success message -->
 
 													 	<!-- Delete member success message -->
 									                	@if(session('delete_member'))
 															<div class="alert alert-success">{{ session('delete_member') }}</div>
 														@endif
-														<!-- Delete member success message -->
 													</div>
 													<div class="col-md-10">
 										    			<h4>Information About Family Head परिवार के मुखिया के बारे में जानकारी </h4>
 										    			<hr>
 										    		</div>
-
 
 										    		<div class="col-md-2 text-right">
 										    			<h4>
@@ -90,7 +82,7 @@
 											   		<div class="col-md-4">
 											   			<h4>मुखिया का पूरा नाम</h4>
 												    	<div class="form-group" style="margin-bottom: 30px;">
-													      	<input type="text" class="form-control personal_info" placeholder="First Name" name="fname" id="fname" value="{{$user->name}}" readonly>
+													      	<input type="text" class="form-control personal_info" placeholder="Full Name" name="fname" id="fname" value="{{$user->name}}" readonly>
 													    </div>
 
 												    	<h4>Gender / लिंग </h4>
@@ -112,7 +104,7 @@
 												    <div class="col-md-4">
 												    	<h4>Father/Husband Name  पिता / पति का नाम </h4>
 													    <div class="form-group" style="margin-bottom: 30px;">
-													      <input type="text" class="form-control personal_info" placeholder="Last Name" name="lname" id="lname" value="{{$user->lastname}}" readonly>
+													      <input type="text" class="form-control personal_info" placeholder="Father / Husband Name" name="lname" id="lname" value="" readonly>
 													    </div>
 		    									    	<h4>Mobile/Whats app No.  मोबाइल नंबर</h4>
 												    	<div class="form-group">
@@ -125,7 +117,7 @@
 
 								                    	<img alt="image" class="img-responsive mt10" src="resources/uploads/profile_images/{{$user->image}}" style="width: 140px;height: 150px;margin-left: 10px;">
 								                    	<p class="text-center">परिवार के मुखिया </p>
-								                    	
+
 													</div>
 
 													<div class="col-md-4">
@@ -133,7 +125,7 @@
 												    	<div class="form-group">
 													      <input type="tel" class="form-control personal_info" placeholder="+91-123456789" name="phone" id="phone" value="{{$user->phone}}" readonly>
 													    </div>
-												    </div>													
+												    </div>
 
 												    <div class="col-md-4">
 												    	<h4>Email Id</h4>
@@ -168,14 +160,14 @@
 											    	<div class="col-md-4">
 											    		<h4>Cast / जाति </h4>
 												    	<div class="form-group">
-													      	<input type="text" class="form-control religion_info" placeholder="जाति" name="cast" value="{{ $religion->cast }}" readonly>
+													      	<input type="text" class="form-control religion_info" placeholder="जाति" name="cast" value="" readonly>
 													    </div>
 												    </div>
 
 												    <div class="col-md-4">
 												    	<h4>Sub Cast/उपजाति/घटक</h4>
 													    <div class="form-group">
-													      <input type="text" class="form-control religion_info" placeholder="उपजाति" name="sub_cast" value="{{ $religion->sub_cast }}" readonly>
+													      <input type="text" class="form-control religion_info" placeholder="उपजाति" name="sub_cast" value="" readonly>
 													    </div>
 												    </div>
 
@@ -183,7 +175,7 @@
 											    	<div class="col-md-4">
 											    		<h4>गौत्र (Gotre)</h4>
 												    	<div class="form-group">
-													      	<input type="text" class="form-control religion_info" placeholder="गौत्र" name="gotra" value="{{ $religion->gotra }}" readonly>
+													      	<input type="text" class="form-control religion_info" placeholder="गौत्र" name="gotra" value="" readonly>
 													    </div>
 												    </div>
 
@@ -239,7 +231,7 @@
 													<div class="col-md-4">
 												    	<h4>Life Partner Name/ जीवन साथी का नाम</h4>
 												    	<div class="form-group">
-													      <input type="text" format="Y-m-d" class="form-control personal_info datepicker" placeholder="20-12-1990" name="dob" id="dob" value="" readonly>
+													      <input type="text" class="form-control personal_info datepicker" placeholder="Life Partner Name" name="life_partner" value="" readonly>
 													    </div>
 												    </div>
 
@@ -345,11 +337,11 @@
 														    </div>
 													    </div>
 												    </div>
-												    
+
 													<div class="col-md-4 mb20px">
 													    <h4>समाज सेवा हेतु समय दान व रूचि क्षेत्र </h4>
 														<div class="form-group ml0px">
-													    	
+
 												      		<input type="text" name="donate_body_part" style="width: 10%;">
 													      		&nbsp;&nbsp;&nbsp;घंटे &nbsp;&nbsp;<input type="text" name="donate_body_part" style="width: 50%;">
 													      		&nbsp;&nbsp;&nbsp;<br>
@@ -360,21 +352,21 @@
 												      		<input type="radio" name="donate_body_part" class="" value="2">
 													      		Monthly
 													    </div>
-												    </div>	
+												    </div>
 
 													<div class="col-md-8 mb20px">
-														
+
 														<h4>प्रतिवर्ष न्यूनतम आर्थिक सहयोग 100/- प्रति प्राणी  के लिए सहमत हो |</h4>
 														<p style="color:blue">(100/- वार्षिक दाता इस संस्था का साधारण/प्रतिनधि/कार्यकारिणी सदस्य व पदाधकारी बन सकता हैं जिसे voting right भी होगा )</p>
 													    <div class="form-group ml0px">
-													    	
+
 												      		<input type="radio" name="donate_body_part" class="radio" value="1" checked="checked">
 													      		Yes
 												      		<input type="radio" name="donate_body_part" class="radio" value="2">
 													      		No
 													    </div>
-												    </div>												    
-													
+												    </div>
+
 													<div class="col-md-12 mb40px">
 														<h4>स्वयं/परिवार/वंश की उल्लेखनीय उपलब्धि यहां लिखें</h4>
 												    	<div class="form-group">
@@ -384,7 +376,7 @@
 												</div>
 											</form>
 
-					
+
 											<div class="row">
 												<div class="col-md-8">
 									    			<h4>Optional Information / ऐच्छिक सूचनाएं </h4>
@@ -397,7 +389,7 @@
 									    			</h4>
 									    		</div>
 								    		</div>
-	
+
 
 								    		<div class="row">
 							    				<form class="form-inline" action="" method="post">
@@ -424,115 +416,72 @@
 												    <div class="col-md-6 mb20px">
 									  					<h4>2. किसी को रक्त की जरूरत पड़ने पर सुचना प्राप्त करना चाहेंगे</h4>
 													    <div class="form-group">
-													    	@if($extra->farm_member==1)
-													      		<input type="radio" name="farm_member" class="radio" value="1" checked="checked">
-													      		Yes
-													      		<input type="radio" name="farm_member" class="radio" value="2">
-													      		No
-												   			@else
-												   				<input type="radio" name="farm_member" class="radio" value="1">
-													      		Yes
-													      		<input type="radio" name="farm_member" class="radio" value="2" checked="checked">
-													      		No
-													      	@endif
+													    	<input type="radio" name="farm_member" class="radio" value="1" checked="checked">
+												      		Yes
+												      		<input type="radio" name="farm_member" class="radio" value="2">
+												      		No
 													  	</div>
 												    </div>
 
 												    <div class="col-md-12 mb10px">
-											   
-														<h4>3. आप उपभोक्ता संघ (Consumer Forum) का सदस्य बनना चाहते हैं 
+
+														<h4>3. आप उपभोक्ता संघ (Consumer Forum) का सदस्य बनना चाहते हैं
 															<a href="javascript:;" style="color:blue;">see link</a>
 														</h4>
 													    <div class="form-group ml0px">
-													    	@if($extra->farm_member==1)
-													      		<input type="radio" name="farm_member" class="radio" value="1" checked="checked">
-													      		Yes
-													      		<input type="radio" name="farm_member" class="radio" value="2">
-													      		No
-												   			@else
-												   				<input type="radio" name="farm_member" class="radio" value="1">
-													      		Yes
-													      		<input type="radio" name="farm_member" class="radio" value="2" checked="checked">
-													      		No
-													      	@endif
+													    	<input type="radio" name="farm_member" class="radio" value="1" checked="checked">
+												      		Yes
+												      		<input type="radio" name="farm_member" class="radio" value="2">
+												      		No
 													  	</div>
 
 												  	</div>
 
 												  	<div class="col-md-12 mb10px">
-												    	<h4>4. May I Help You Club का सदस्य बनना चाहते हैं 
+												    	<h4>4. May I Help You Club का सदस्य बनना चाहते हैं
 												    		<a href="javascript:;" style="color:blue;">see link</a>
 												    	</h4>
 													    <div class="form-group ml0px">
-													    	@if($extra->club_member==1)
-													      		<input type="radio" name="club_member" class="radio" value="1" checked="checked">
-													      		Yes
-													      		<input type="radio" name="club_member" class="radio" value="2">
-													      		No
-													      	@else
-
-													   			<input type="radio" name="club_member" class="radio" value="1">
-														      	Yes
-														      	<input type="radio" name="club_member" class="radio" value="2" checked="checked">
-														      	No
-													      	@endif
+													    	<input type="radio" name="club_member" class="radio" value="1" checked="checked">
+												      		Yes
+												      		<input type="radio" name="club_member" class="radio" value="2">
+												      		No
 													 	</div>
 												 	</div>
 
 												 	<div class="col-md-12 mb10px">
-												    	<h4>5. ABC Club का सदस्य बनना चाहते हैं 
+												    	<h4>5. ABC Club का सदस्य बनना चाहते हैं
 												    		<a href="javascript:;" style="color:blue;">see link</a>
 												    	</h4>
 													    <div class="form-group ml0px">
-													    	@if($extra->abc_club_member==1)
-													      		<input type="radio" name="abc_club_member" class="radio" value="1" checked="checked">
-													      		Yes
-													      		<input type="radio" name="abc_club_member" class="radio" value="2">
-													      		No
-													      	@else
-													      		<input type="radio" name="abc_club_member" class="radio" value="1">
-													      		Yes
-													      	   	<input type="radio" name="abc_club_member" class="radio" value="2" checked="checked">
-													      		No
-													      	@endif
+													    	<input type="radio" name="abc_club_member" class="radio" value="1" checked="checked">
+												      		Yes
+												      		<input type="radio" name="abc_club_member" class="radio" value="2">
+												      		No
 														</div>
 													</div>
 
 													<div class="col-md-12 mb10px">
-												    	<h4>6. किसी प्रोजेक्ट समिति का सदस्य बनना चाहते हैं 
+												    	<h4>6. किसी प्रोजेक्ट समिति का सदस्य बनना चाहते हैं
 												    		<a href="javascript:;" style="color:blue;">see link</a>
 												    	</h4>
 													    <div class="form-group ml0px">
-													    	@if($extra->project_committee==1)
-														      	<input type="radio" name="project_committee" class="radio" value="1" checked="checked">
-														      	Yes
-														      	<input type="radio" name="project_committee" class="radio" value="2">
-														      	No
-													      	@else
-														      	<input type="radio" name="project_committee" class="radio" value="1">
-														      	Yes
-														      	<input type="radio" name="project_committee" class="radio" value="2" checked="checked">
-														      	No
-													      	@endif
+													    	<input type="radio" name="project_committee" class="radio" value="1" checked="checked">
+													      	Yes
+													      	<input type="radio" name="project_committee" class="radio" value="2">
+													      	No
 													   	</div>
 												   	</div>
 
 												   	<div class="col-md-12 mb10px">
-												    	<h4>7. वैश्य पंचायत / वैश्य वाहिनी का सदस्य बनना चाहोगे 
-												    		<a href="javascript:;" style="color:blue;">see link</a>	
+												    	<h4>7. वैश्य पंचायत / वैश्य वाहिनी का सदस्य बनना चाहोगे
+												    		<a href="javascript:;" style="color:blue;">see link</a>
 												    	</h4>
 													    <div class="form-group ml0px">
-													    	@if($extra->vaishya_vahini==1)
-														      	<input type="radio" name="vaishya_vahini" class="radio" value="1" checked="checked">
-														      	Yes
-													      		<input type="radio" name="vaishya_vahini" class="radio" value="2">
-													      		No
-													      	@else
-														      	<input type="radio" name="vaishya_vahini" class="radio" value="1">
-														      	Yes
-														      	<input type="radio" name="vaishya_vahini" class="radio" value="2" checked="checked">
-														      	No
-													      	@endif
+													    	<input type="radio" name="vaishya_vahini" class="radio" value="1" checked="checked">
+													      	Yes
+												      		<input type="radio" name="vaishya_vahini" class="radio" value="2">
+												      		No
 														</div>
 													</div>
 
@@ -540,18 +489,10 @@
 												     	<h4>8. मृत्यु होने पर ऑंखे दान/अंग दान/शरीर दान करना चाहेंगे</h4>
 
 													    <div class="form-group ml0px">
-													    	@if($extra->donate_body_part == 1)
-													      		<input type="radio" name="donate_body_part" class="radio" value="1" checked="checked">
-													      		Yes
-													      		<input type="radio" name="donate_body_part" class="radio" value="2">
-													      		No
-													      	@else
-													      		<input type="radio" name="donate_body_part" class="radio" value="1">
-													      		Yes
-													      		<input type="radio" name="donate_body_part" class="radio" value="2" checked="checked">
-													      		No
-													      	@endif
-
+													    	<input type="radio" name="donate_body_part" class="radio" value="1" checked="checked">
+												      		Yes
+												      		<input type="radio" name="donate_body_part" class="radio" value="2">
+												      		No
 													    </div>
 												    </div>
 
@@ -559,9 +500,9 @@
 												     	<h4>9. अपने समाज की किस संस्था से जुड़े हुए हैं |</h4>
 
 													    <div class="form-group ml0px">
-													    	
+
 													      	<input type="text" name="donate_body_part" class="form-control" >
-													      		
+
 													    </div>
 												    </div>
 
@@ -569,9 +510,9 @@
 												     	<h4>10. समाज की किस पत्रिका के सदस्य हो | </h4>
 
 													    <div class="form-group ml0px">
-													    	
+
 													      	<input type="text" name="donate_body_part" class="form-control" >
-													      		
+
 													    </div>
 												    </div>
 
@@ -580,31 +521,31 @@
 												     	<h4>11. आवास</h4>
 
 													    <div class="form-group ml0px">
-													    	
+
 												      		<input type="radio" name="donate_body_part" class="radio" value="1" checked="checked">
 													      		अपना
 												      		<input type="radio" name="donate_body_part" class="radio" value="2">
 													      		किराये का
-													    </div>											     	
-												    </div>											     	
-													
+													    </div>
+												    </div>
+
 												    <div class="col-md-12 mb10px">
 													    <h4>12. अपना वाहन </h4>
 
 													    <div class="form-group ml0px">
-													    	
+
 												      		<input type="checkbox" name="donate_body_part" class="" value="1" >
 													      		Two Wheeler
 												      		<input type="checkbox" name="donate_body_part" class="" value="2">
 													      		Four Wheeler
 													    </div>
 												    </div>
-												   
+
 												    <div class="col-md-12 mb10px">
 													    <h4>13. परिवार में किसी सदस्य का पहचान पत्र,वोट कार्ड,राशन कार्ड,हेल्थ कार्ड,वरिष्ठ नागरिक कार्ड या विधवा पेंशन बनना है ?</h4>
 
 													    <div class="form-group ml0px">
-													    	
+
 												      		<input type="checkbox" name="donate_body_part" class="" value="1" >
 													      		पहचान पत्र
 													      	<input type="checkbox" name="donate_body_part" class="" value="1" >
@@ -614,9 +555,9 @@
 												      		<input type="checkbox" name="donate_body_part" class="" value="2">
 													      		हेल्थ कार्ड
 												      		<input type="checkbox" name="donate_body_part" class="" value="2">
-													      		वरिष्ठ नागरिक     		
+													      		वरिष्ठ नागरिक
 												      		<input type="checkbox" name="donate_body_part" class="" value="2">
-													      		विधवा पेंशन 
+													      		विधवा पेंशन
 													    </div>
 												    </div>
 
@@ -646,10 +587,10 @@
 												    		</select>
 													    </div>
 												    </div>
-											    	
+
 											    	<div class="col-md-12 mb10px">
 													    <h4>17.<input type="checkbox" placeholder="Aadhar Card No."> उपरोक्त सभी सूचना सही हैं व मैंने अपनी इच्छा से दी हैं |</h4>
-														
+
 														<div class="col-md-12 update_per_info" style="display:none;">
 															<input type="submit" class="btn btn-success personal_info" name="update_personal_info" id="update_personal_info" value="update personal info">
 														</div>
@@ -658,38 +599,24 @@
 												</form>
 											</div>
 										</div>
-<!-- 
-										
-				                        <div class="row" id="family_add_show_btn" style="display:none">
-					                        <div class="col-md-6">
-					                        	<a class="btn btn-info mb10px" id="addmember">
-													<i class="fa fa-plus" aria-hidden="true"></i> Add Member
-												</a>
-											</div>
-											 <div class="col-md-6 text-right">
-					                        	<a class="btn btn-info mb10px" id="show_family_members">
-													<i class="fa fa-plus" aria-hidden="true"></i> Show Members
-												</a>
-					                        </div>
-				                        </div> -->
+
+<!-- ############################################################################################################################ -->
+<!-- ############################################################################################################################ -->
+<!-- ############################################################################################################################ -->
 
 				                        <!-- Family Member -->
-										<div class="tab-pane fade" id="family">
+										<div class="tab-pane fade" id="family" >
 
 											<div class="row" id="family_add_show_btn">
-						                        <div class="col-md-6">
+						                        <div class="col-md-12 text-right">
 						                        	<a class="btn btn-info mb10px" id="addmember">
 														<i class="fa fa-plus" aria-hidden="true"></i> Add Family Member
 													</a>
 												</div>
-												 <div class="col-md-6 text-right">
-						                        	<a class="btn btn-info mb10px show_family_members" id="show_family_members">
-														<i class="fa fa-plus" aria-hidden="true"></i> Show Family Members
-													</a>
-						                        </div>
-					                        </div>
 
-											<table class="table table-striped">
+											</div>
+
+											<table class="table table-striped" id="family_info_trable">
 											  	<thead>
 												    <tr>
 												      <th>#</th>
@@ -701,60 +628,26 @@
 												    </tr>
 											  	</thead>
 											  	<tbody>
-												  	@php ($i=1)
-												  	@if(count($familymember)>0)
 
-												  	@foreach($familymember as $family)
 												  	<tr>
-												      	<th scope="row">{{ $i }}</th>
-												      	<td>{{ $family->fname }}</td>
-												      	<td>{{ $family->lname }}</td>
-												      	<td>{{ $family->email }}</td>
-												      	<td>{{ $family->mobile }}</td>
+												      	<th scope="row"></th>
+												      	<td>qw</td>
+												      	<td>qw</td>
+												      	<td>qw</td>
+												      	<td>qw</td>
 												      	<td>
-												      		<a href="{{ url('viewfamilymember'.$family->id) }}" class="btn btn-info btn-xs">view</a>
-												       		<a href="{{ url('deletefamilymember'.$family->id) }}" class="btn btn-danger btn-xs">delete</a>
+												      		<a href="#" class="btn btn-info btn-xs">view</a>
+												       		<a href="#" class="btn btn-danger btn-xs">delete</a>
 											       		</td>
 											     	 </tr>
-											     	 @php $i++ @endphp
-											     	@endforeach
 
-											     	@endif
 										     	</tbody>
 											</table>
 
-				                        </div>
-
-<!-- 				                        @if(session('member_email_exist'))
-
-											<script type="text/javascript">
-												$("#profile_info").removeClass('active');
-												$("#family_info").addClass('active');
-												$("#profile").removeClass('active in');
-												$("#family").removeClass('active in');
-												$("#add_member_form_div").addClass('active in');
-												$("#add_member_form_div").css({
-													'display' : 'block'
-												});
-												$("#addmember").show('');
-										
-											</script>
-										@else
-											<script>
-												$('#family_info').removeClass('active');
-										        $('#profile_info').addClass('active');
-										        $('#profile').addClass('active in');
-											</script>
-										@endif -->
-
-				                        <div class="row" id="add_member_form_div" style="display:none;">
+											<div class="row" id="add_member_form_div" style="display:none;">
 											<div class="row" id="family_add_show_btn">
-						                        <div class="col-md-6">
-						                        	<a class="btn btn-info mb10px" id="addmember">
-														<i class="fa fa-plus" aria-hidden="true"></i> Add Family Member
-													</a>
-												</div>
-												 <div class="col-md-6 text-right">
+
+												 <div class="col-md-12 text-right">
 						                        	<a class="btn btn-info mb10px show_family_members" id="show_family_members">
 														<i class="fa fa-plus" aria-hidden="true"></i> Show Family Members
 													</a>
@@ -768,36 +661,29 @@
 
 												<div class="row mb10px">
 													<div class="col-md-12">
+
 														<!-- personal_status -->
 														@if(session('personal_status'))
 														<div class="alert alert-success">{{ session('personal_status') }}</div>
 														@endif
-														<!-- personal_status -->
 
 														<!-- religion_status -->
 														@if(session('religion_status'))
 														<div class="alert alert-success">{{ session('religion_status') }}</div>
 														@endif
-														<!-- religion_status -->
-
-														<!-- extra_status -->
-														@if(session('extra_status'))
-														<div class="alert alert-success">{{ session('extra_status') }}</div>
-														@endif
-														<!-- extra_status -->
 
 													 	<!-- Update member success message -->
 									                	@if(session('update_member'))
 															<div class="alert alert-success">{{ session('update_member') }}</div>
 														@endif
-														<!-- Update member success message -->
 
 													 	<!-- Delete member success message -->
 									                	@if(session('delete_member'))
 															<div class="alert alert-success">{{ session('delete_member') }}</div>
 														@endif
-														<!-- Delete member success message -->
+
 													</div>
+
 													<div class="col-md-10">
 										    			<h4>Add Family Members परिवार के सदस्यों को यहां जोड़ें</h4>
 										    			<hr>
@@ -857,7 +743,7 @@
 
 								                    	<img alt="image" class="img-responsive mt10" src="resources/uploads/profile_images/{{$user->image}}" style="width: 140px;height: 150px;margin-left: 10px;">
 								                    	<p class="text-center">परिवार के मुखिया </p>
-								                    	
+
 													</div>
 
 													<div class="col-md-4">
@@ -865,7 +751,7 @@
 												    	<div class="form-group">
 													      <input type="tel" class="form-control personal_info" placeholder="+91-123456789" name="phone" id="phone" value="{{$user->phone}}" readonly>
 													    </div>
-												    </div>													
+												    </div>
 
 												    <div class="col-md-4">
 												    	<h4>Email Id</h4>
@@ -900,14 +786,14 @@
 											    	<div class="col-md-4">
 											    		<h4>Cast / जाति </h4>
 												    	<div class="form-group">
-													      	<input type="text" class="form-control religion_info" placeholder="जाति" name="cast" value="{{ $religion->cast }}" readonly>
+													      	<input type="text" class="form-control religion_info" placeholder="जाति" name="cast" value="" readonly>
 													    </div>
 												    </div>
 
 												    <div class="col-md-4">
 												    	<h4>Sub Cast/उपजाति/घटक</h4>
 													    <div class="form-group">
-													      <input type="text" class="form-control religion_info" placeholder="उपजाति" name="sub_cast" value="{{ $religion->sub_cast }}" readonly>
+													      <input type="text" class="form-control religion_info" placeholder="उपजाति" name="sub_cast" value="" readonly>
 													    </div>
 												    </div>
 
@@ -915,7 +801,7 @@
 											    	<div class="col-md-4">
 											    		<h4>गौत्र (Gotre)</h4>
 												    	<div class="form-group">
-													      	<input type="text" class="form-control religion_info" placeholder="गौत्र" name="gotra" value="{{ $religion->gotra }}" readonly>
+													      	<input type="text" class="form-control religion_info" placeholder="गौत्र" name="gotra" value="" readonly>
 													    </div>
 												    </div>
 
@@ -971,7 +857,7 @@
 													<div class="col-md-4">
 												    	<h4>Life Partner Name/ जीवन साथी का नाम</h4>
 												    	<div class="form-group">
-													      <input type="text" format="Y-m-d" class="form-control personal_info datepicker" placeholder="20-12-1990" name="dob" id="dob" value="" readonly>
+													      <input type="text" class="form-control personal_info" placeholder="Life Partner Name" name="life_partner" id="life_partner" value="" readonly>
 													    </div>
 												    </div>
 
@@ -1077,11 +963,11 @@
 														    </div>
 													    </div>
 												    </div>
-												    
+
 													<div class="col-md-4 mb20px">
 													    <h4>समाज सेवा हेतु समय दान व रूचि क्षेत्र </h4>
 														<div class="form-group ml0px">
-													    	
+
 												      		<input type="text" name="donate_body_part" style="width: 10%;">
 													      		&nbsp;&nbsp;&nbsp;घंटे &nbsp;&nbsp;<input type="text" name="donate_body_part" style="width: 50%;">
 													      		&nbsp;&nbsp;&nbsp;<br>
@@ -1092,21 +978,21 @@
 												      		<input type="radio" name="donate_body_part" class="" value="2">
 													      		Monthly
 													    </div>
-												    </div>	
+												    </div>
 
 													<div class="col-md-8 mb20px">
-														
+
 														<h4>प्रतिवर्ष न्यूनतम आर्थिक सहयोग 100/- प्रति प्राणी  के लिए सहमत हो |</h4>
 														<p style="color:blue">(100/- वार्षिक दाता इस संस्था का साधारण/प्रतिनधि/कार्यकारिणी सदस्य व पदाधकारी बन सकता हैं जिसे voting right भी होगा )</p>
 													    <div class="form-group ml0px">
-													    	
+
 												      		<input type="radio" name="donate_body_part" class="radio" value="1" checked="checked">
 													      		Yes
 												      		<input type="radio" name="donate_body_part" class="radio" value="2">
 													      		No
 													    </div>
-												    </div>												    
-													
+												    </div>
+
 													<div class="col-md-12 mb40px">
 														<h4>स्वयं/परिवार/वंश की उल्लेखनीय उपलब्धि यहां लिखें</h4>
 												    	<div class="form-group">
@@ -1116,7 +1002,7 @@
 												</div>
 											</form>
 
-					
+
 											<div class="row">
 												<div class="col-md-8">
 									    			<h4>Optional Information / ऐच्छिक सूचनाएं </h4>
@@ -1129,7 +1015,7 @@
 									    			</h4>
 									    		</div>
 								    		</div>
-	
+
 
 								    		<div class="row">
 							    				<form class="form-inline" action="" method="post">
@@ -1156,115 +1042,72 @@
 												    <div class="col-md-6 mb20px">
 									  					<h4>2. किसी को रक्त की जरूरत पड़ने पर सुचना प्राप्त करना चाहेंगे</h4>
 													    <div class="form-group">
-													    	@if($extra->farm_member==1)
-													      		<input type="radio" name="farm_member" class="radio" value="1" checked="checked">
-													      		Yes
-													      		<input type="radio" name="farm_member" class="radio" value="2">
-													      		No
-												   			@else
-												   				<input type="radio" name="farm_member" class="radio" value="1">
-													      		Yes
-													      		<input type="radio" name="farm_member" class="radio" value="2" checked="checked">
-													      		No
-													      	@endif
+													    	<input type="radio" name="farm_member" class="radio" value="1" checked="checked">
+												      		Yes
+												      		<input type="radio" name="farm_member" class="radio" value="2">
+												      		No
 													  	</div>
 												    </div>
 
 												    <div class="col-md-12 mb10px">
-											   
-														<h4>3. आप उपभोक्ता संघ (Consumer Forum) का सदस्य बनना चाहते हैं 
+
+														<h4>3. आप उपभोक्ता संघ (Consumer Forum) का सदस्य बनना चाहते हैं
 															<a href="javascript:;" style="color:blue;">see link</a>
 														</h4>
 													    <div class="form-group ml0px">
-													    	@if($extra->farm_member==1)
-													      		<input type="radio" name="farm_member" class="radio" value="1" checked="checked">
-													      		Yes
-													      		<input type="radio" name="farm_member" class="radio" value="2">
-													      		No
-												   			@else
-												   				<input type="radio" name="farm_member" class="radio" value="1">
-													      		Yes
-													      		<input type="radio" name="farm_member" class="radio" value="2" checked="checked">
-													      		No
-													      	@endif
+													    	<input type="radio" name="farm_member" class="radio" value="1" checked="checked">
+												      		Yes
+												      		<input type="radio" name="farm_member" class="radio" value="2">
+												      		No
 													  	</div>
 
 												  	</div>
 
 												  	<div class="col-md-12 mb10px">
-												    	<h4>4. May I Help You Club का सदस्य बनना चाहते हैं 
+												    	<h4>4. May I Help You Club का सदस्य बनना चाहते हैं
 												    		<a href="javascript:;" style="color:blue;">see link</a>
 												    	</h4>
 													    <div class="form-group ml0px">
-													    	@if($extra->club_member==1)
-													      		<input type="radio" name="club_member" class="radio" value="1" checked="checked">
-													      		Yes
-													      		<input type="radio" name="club_member" class="radio" value="2">
-													      		No
-													      	@else
-
-													   			<input type="radio" name="club_member" class="radio" value="1">
-														      	Yes
-														      	<input type="radio" name="club_member" class="radio" value="2" checked="checked">
-														      	No
-													      	@endif
+													    	<input type="radio" name="club_member" class="radio" value="1" checked="checked">
+												      		Yes
+												      		<input type="radio" name="club_member" class="radio" value="2">
+												      		No
 													 	</div>
 												 	</div>
 
 												 	<div class="col-md-12 mb10px">
-												    	<h4>5. ABC Club का सदस्य बनना चाहते हैं 
+												    	<h4>5. ABC Club का सदस्य बनना चाहते हैं
 												    		<a href="javascript:;" style="color:blue;">see link</a>
 												    	</h4>
 													    <div class="form-group ml0px">
-													    	@if($extra->abc_club_member==1)
-													      		<input type="radio" name="abc_club_member" class="radio" value="1" checked="checked">
-													      		Yes
-													      		<input type="radio" name="abc_club_member" class="radio" value="2">
-													      		No
-													      	@else
-													      		<input type="radio" name="abc_club_member" class="radio" value="1">
-													      		Yes
-													      	   	<input type="radio" name="abc_club_member" class="radio" value="2" checked="checked">
-													      		No
-													      	@endif
+													    	<input type="radio" name="abc_club_member" class="radio" value="1" checked="checked">
+												      		Yes
+												      		<input type="radio" name="abc_club_member" class="radio" value="2">
+												      		No
 														</div>
 													</div>
 
 													<div class="col-md-12 mb10px">
-												    	<h4>6. किसी प्रोजेक्ट समिति का सदस्य बनना चाहते हैं 
+												    	<h4>6. किसी प्रोजेक्ट समिति का सदस्य बनना चाहते हैं
 												    		<a href="javascript:;" style="color:blue;">see link</a>
 												    	</h4>
 													    <div class="form-group ml0px">
-													    	@if($extra->project_committee==1)
-														      	<input type="radio" name="project_committee" class="radio" value="1" checked="checked">
-														      	Yes
-														      	<input type="radio" name="project_committee" class="radio" value="2">
-														      	No
-													      	@else
-														      	<input type="radio" name="project_committee" class="radio" value="1">
-														      	Yes
-														      	<input type="radio" name="project_committee" class="radio" value="2" checked="checked">
-														      	No
-													      	@endif
+													    	<input type="radio" name="project_committee" class="radio" value="1" checked="checked">
+													      	Yes
+													      	<input type="radio" name="project_committee" class="radio" value="2">
+													      	No
 													   	</div>
 												   	</div>
 
 												   	<div class="col-md-12 mb10px">
-												    	<h4>7. वैश्य पंचायत / वैश्य वाहिनी का सदस्य बनना चाहोगे 
-												    		<a href="javascript:;" style="color:blue;">see link</a>	
+												    	<h4>7. वैश्य पंचायत / वैश्य वाहिनी का सदस्य बनना चाहोगे
+												    		<a href="javascript:;" style="color:blue;">see link</a>
 												    	</h4>
 													    <div class="form-group ml0px">
-													    	@if($extra->vaishya_vahini==1)
-														      	<input type="radio" name="vaishya_vahini" class="radio" value="1" checked="checked">
-														      	Yes
-													      		<input type="radio" name="vaishya_vahini" class="radio" value="2">
-													      		No
-													      	@else
-														      	<input type="radio" name="vaishya_vahini" class="radio" value="1">
-														      	Yes
-														      	<input type="radio" name="vaishya_vahini" class="radio" value="2" checked="checked">
-														      	No
-													      	@endif
+													    	<input type="radio" name="vaishya_vahini" class="radio" value="1" checked="checked">
+													      	Yes
+												      		<input type="radio" name="vaishya_vahini" class="radio" value="2">
+												      		No
 														</div>
 													</div>
 
@@ -1272,17 +1115,10 @@
 												     	<h4>8. मृत्यु होने पर ऑंखे दान/अंग दान/शरीर दान करना चाहेंगे</h4>
 
 													    <div class="form-group ml0px">
-													    	@if($extra->donate_body_part == 1)
-													      		<input type="radio" name="donate_body_part" class="radio" value="1" checked="checked">
-													      		Yes
-													      		<input type="radio" name="donate_body_part" class="radio" value="2">
-													      		No
-													      	@else
-													      		<input type="radio" name="donate_body_part" class="radio" value="1">
-													      		Yes
-													      		<input type="radio" name="donate_body_part" class="radio" value="2" checked="checked">
-													      		No
-													      	@endif
+													    	<input type="radio" name="donate_body_part" class="radio" value="1" checked="checked">
+												      		Yes
+												      		<input type="radio" name="donate_body_part" class="radio" value="2">
+												      		No
 
 													    </div>
 												    </div>
@@ -1291,9 +1127,9 @@
 												     	<h4>9. अपने समाज की किस संस्था से जुड़े हुए हैं |</h4>
 
 													    <div class="form-group ml0px">
-													    	
+
 													      	<input type="text" name="donate_body_part" class="form-control" >
-													      		
+
 													    </div>
 												    </div>
 
@@ -1301,9 +1137,9 @@
 												     	<h4>10. समाज की किस पत्रिका के सदस्य हो | </h4>
 
 													    <div class="form-group ml0px">
-													    	
+
 													      	<input type="text" name="donate_body_part" class="form-control" >
-													      		
+
 													    </div>
 												    </div>
 
@@ -1312,31 +1148,31 @@
 												     	<h4>11. आवास</h4>
 
 													    <div class="form-group ml0px">
-													    	
+
 												      		<input type="radio" name="donate_body_part" class="radio" value="1" checked="checked">
 													      		अपना
 												      		<input type="radio" name="donate_body_part" class="radio" value="2">
 													      		किराये का
-													    </div>											     	
-												    </div>											     	
-													
+													    </div>
+												    </div>
+
 												    <div class="col-md-12 mb10px">
 													    <h4>12. अपना वाहन </h4>
 
 													    <div class="form-group ml0px">
-													    	
+
 												      		<input type="checkbox" name="donate_body_part" class="" value="1" >
 													      		Two Wheeler
 												      		<input type="checkbox" name="donate_body_part" class="" value="2">
 													      		Four Wheeler
 													    </div>
 												    </div>
-												   
+
 												    <div class="col-md-12 mb10px">
 													    <h4>13. परिवार में किसी सदस्य का पहचान पत्र,वोट कार्ड,राशन कार्ड,हेल्थ कार्ड,वरिष्ठ नागरिक कार्ड या विधवा पेंशन बनना है ?</h4>
 
 													    <div class="form-group ml0px">
-													    	
+
 												      		<input type="checkbox" name="donate_body_part" class="" value="1" >
 													      		पहचान पत्र
 													      	<input type="checkbox" name="donate_body_part" class="" value="1" >
@@ -1346,9 +1182,9 @@
 												      		<input type="checkbox" name="donate_body_part" class="" value="2">
 													      		हेल्थ कार्ड
 												      		<input type="checkbox" name="donate_body_part" class="" value="2">
-													      		वरिष्ठ नागरिक     		
+													      		वरिष्ठ नागरिक
 												      		<input type="checkbox" name="donate_body_part" class="" value="2">
-													      		विधवा पेंशन 
+													      		विधवा पेंशन
 													    </div>
 												    </div>
 
@@ -1378,19 +1214,22 @@
 												    		</select>
 													    </div>
 												    </div>
-											    	
+
 											    	<div class="col-md-12 mb10px">
 													    <h4>17.<input type="checkbox" placeholder="Aadhar Card No."> उपरोक्त सभी सूचना सही हैं व मैंने अपनी इच्छा से दी हैं |</h4>
-														
+
 														<div class="col-md-12 update_per_info" style="display:none;">
 															<input type="submit" class="btn btn-success personal_info" name="update_personal_info" id="update_personal_info" value="update personal info">
 														</div>
 													</div>
 
 												</form>
+				                        	</div>
+
 				                        </div>
+
+
 				                         <!-- Family Member -->
-				                        <div class="tab-pane fade" id="jobportal">Default 3</div>
 
 				                     </div>
 				       			</div>
@@ -1402,18 +1241,19 @@
         </div>
     </div>
 </div>
+
 <script>
 $(document).ready(function(){
     $(".nav-tabs a").click(function(){
         $(this).tab('show');
     });
     $(".show_family_members").on('click', function(){
-    	$("#family").css({
+    	/*$("#family").css({
     		'display':'block'
     	});
     	$("#add_member_form_div").css({
     		'display':'none'
-    	});
+    	});*/
     });
 });
 </script>

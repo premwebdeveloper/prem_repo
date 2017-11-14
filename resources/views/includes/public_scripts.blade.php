@@ -76,7 +76,7 @@
         /*remove family_info class*/
 
         $("#family_info").on('click', function(){
-          
+
           $("#family_add_show_btn").css({
             'display':'block'
           });
@@ -124,24 +124,20 @@
 
           $("#addmember").on("click", function(){
               $("#add_member_form_div").slideDown('slow');
-              $("#family").hide();
-              //$(".member").slideDown('slow');
-              //$('#MemberMale').slideDown('slow');
-
+              //$("#family").hide();
+              $("#family_info_trable").hide();
+              $("#family_add_show_btn").hide();
           });
 
           $("#show_family_members").on("click", function(){
               $("#add_member_form_div").hide();
               $("#family").slideDown('slow');
-              //$(".member").slideDown('slow');
-              //$('#MemberMale').slideDown('slow');
-
+              $("#family_info_trable").show();
+              $("#family_add_show_btn").show();
           });
 
           $(document).on('click', '.member_type', function() {
-
               var member = $(this).val();
-
            });
 
         });
