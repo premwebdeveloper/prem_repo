@@ -392,9 +392,7 @@
 												    	<h4>1. Blood Group / रक्त समूह</h4>
 												    	<div class="form-group">
 												    		<select class="form-control radio" required="" name="bloodgroup" id="bloodgroup">
-												    			@if($user->blood_group)
-												    			<option value="{{$user->blood_group}}">{{$user->blood_group}}</option>
-												    			@endif
+
 												    			<option value="">Select Blood Group</option>
 												    			<option value="A+">A+</option>
 												    			<option value="A-">A-</option>
@@ -720,7 +718,7 @@
 												    <div class="col-md-4">
 												    	<h4>Father/Husband Name  पिता / पति का नाम </h4>
 													    <div class="form-group" style="margin-bottom: 30px;">
-													      <input type="text" class="form-control member_profile" placeholder="Last Name" name="lname" id="lname" value="{{$user->lastname}}" readonly>
+													      <input type="text" class="form-control member_profile" placeholder="Last Name" name="lname" id="lname" value="" readonly>
 													    </div>
 		    									    	<h4>Mobile/Whats app No.  मोबाइल नंबर</h4>
 												    	<div class="form-group">
@@ -1017,9 +1015,7 @@
 												    	<h4>1. Blood Group / रक्त समूह</h4>
 												    	<div class="form-group">
 												    		<select class="form-control member_optional_radio" required="" name="bloodgroup">
-												    		<!-- 	@if($user->blood_group)
-												    			<option value="{{$user->blood_group}}">{{$user->blood_group}}</option>
-												    			@endif -->
+
 												    			<option value="">Select Blood Group</option>
 												    			<option value="A+">A+</option>
 												    			<option value="A-">A-</option>
