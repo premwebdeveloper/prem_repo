@@ -38,12 +38,7 @@
 				                    	<!-- Presonal Information -->
 				                        <div class="tab-pane fade in active" id="profile">
 				                        	<!-- Update Personal Info -->
-				                        	<form class="form-inline" action="{{ route('updatePersonalInfo') }}" method="post">
-
-												{{ csrf_field() }}
-
-												<input type="hidden" name="user_id" id="user_id" value="{{ $user->user_id }}">
-
+				                        	
 												<div class="row mb10px">
 													<div class="col-md-12">
 														<!-- personal_status -->
@@ -77,6 +72,12 @@
 										    			</h4>
 										    		</div>
 									    		</div>
+
+									    	<form class="form-inline" action="{{ route('updatePersonalInfo') }}" method="post">
+
+												{{ csrf_field() }}
+
+												<input type="hidden" name="user_id" id="user_id" value="{{ $user->user_id }}">
 
 									    		<div class="row">
 											   		<div class="col-md-4">
@@ -220,7 +221,6 @@
 												   		 </div>
 												    </div>
 
-
 													<div class="col-md-4">
 												    	<h4>Marriage Date/ शादी की तारीख</h4>
 												    	<div class="form-group">
@@ -234,7 +234,6 @@
 													      <input type="text" class="form-control personal_info datepicker" placeholder="Life Partner Name" name="life_partner" value="" readonly>
 													    </div>
 												    </div>
-
 
 												    <div class="col-md-4">
 													    <h4>Education/शिक्षा </h4>
@@ -263,7 +262,6 @@
 													      <input type="text" class="form-control personal_info" placeholder="Occupation(काम-धंधा या व्यवसाय)" name="country" id="country" value="" readonly>
 													    </div>
 												    </div>
-
 
 													<div class="col-md-4 mb20px">
 												    	<h4>सेवा निवृत हैं</h4>
@@ -373,6 +371,10 @@
 										      			<textarea class="form-control personal_info" rows="5" placeholder="स्वयं/परिवार/वंश की उल्लेखनीय उपलब्धि यहां लिखें" name="address" id="address" readonly></textarea>
 													    </div>
 												    </div>
+
+												    <div class="col-md-12 update_personal_info text-right" style="display:none;">
+														<input type="submit" class="btn btn-success personal_info" name="update_personal_info" id="update_personal_info" value="update personal info">
+													</div>
 												</div>
 											</form>
 
@@ -385,14 +387,21 @@
 
 									    		<div class="col-md-4 text-right">
 									    			<h4>
-							    					<a href="javascript:;" id="edit_email" class="edit_email">Edit</a>
+								    					<a href="javascript:;" id="edit_optional_information" class="edit_optional_information">
+								    						Edit Optional Information
+								    					</a>
 									    			</h4>
 									    		</div>
 								    		</div>
 
 
-								    		<div class="row">
-							    				<form class="form-inline" action="" method="post">
+								    		<form class="form-inline" action="{{ route('updateOptionalInfo') }}" method="post">
+
+												{{ csrf_field() }}
+
+												<input type="hidden" name="user_id" id="user_id" value="{{ $user->user_id }}">
+
+								    			<div class="row">							    				
 												    <div class="col-md-6">
 												    	<h4>1. Blood Group / रक्त समूह</h4>
 												    	<div class="form-group">
@@ -591,8 +600,8 @@
 											    	<div class="col-md-12 mb10px">
 													    <h4>17.<input type="checkbox" placeholder="Aadhar Card No."> उपरोक्त सभी सूचना सही हैं व मैंने अपनी इच्छा से दी हैं |</h4>
 
-														<div class="col-md-12 update_per_info" style="display:none;">
-															<input type="submit" class="btn btn-success personal_info" name="update_personal_info" id="update_personal_info" value="update personal info">
+														<div class="col-md-12 optional_info text-right" style="display:none;">
+															<input type="submit" class="btn btn-success update_optional_info" name="update_optional_info" id="update_optional_info" value="update optional info">
 														</div>
 													</div>
 
@@ -653,7 +662,7 @@
 													</a>
 						                        </div>
 					                        </div>
-				                        	<form class="form-inline" action="{{ route('updatePersonalInfo') }}" method="post">
+				                        	<form class="form-inline" action="{{ route('updateMemberPersonalInfo') }}" method="post">
 
 												{{ csrf_field() }}
 
@@ -692,7 +701,7 @@
 
 										    		<div class="col-md-2 text-right">
 										    			<h4>
-										    				<a href="javascript:;" id="edit_profile" class="edit_profile">Edit Profile</a>
+										    				<a href="javascript:;" id="edit_member_profile" class="edit_member_profile">Edit Member Profile</a>
 										    			</h4>
 										    		</div>
 									    		</div>
