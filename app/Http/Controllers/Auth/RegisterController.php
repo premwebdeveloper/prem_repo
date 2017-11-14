@@ -72,8 +72,9 @@ class RegisterController extends Controller
         $user = User::create([
             'family_head_id ' => null,
             'name' => $data['name'],
-            'lastname' => $data['lastname'],
-            'username' => $data['name'].$data['lastname'],
+            //'lastname' => $data['lastname'],
+            //'username' => $data['name'].$data['lastname'],
+            'username' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'phone' => $data['phone'],
@@ -100,7 +101,7 @@ class RegisterController extends Controller
              array(
                     'user_id' => $user_id,
                     'name' => $data['name'],
-                    'lastname' => $data['lastname'],
+                    //'lastname' => $data['lastname'],
                     'email' => $data['email'],
                     'phone' => $data['phone'],
                     'image' => 'user.png',
@@ -110,22 +111,22 @@ class RegisterController extends Controller
         );
 
         #user insert in user_religion_details table
-        $user_religion = DB::table('user_religion_details')->insert(
+        /*$user_religion = DB::table('user_religion_details')->insert(
              array(
                     'user_id' => $user_id,
                     'created_on' => $date,
                     'updated_on' => $date
              )
-        );
+        );*/
 
         #user insert in user_extra_details table
-        $user_extra = DB::table('user_extra_details')->insert(
+        /*$user_extra = DB::table('user_extra_details')->insert(
              array(
                     'user_id' => $user_id,
                     'created_on' => $date,
                     'updated_on' => $date
              )
-        );
+        );*/
 
         if($user_insert)
         {

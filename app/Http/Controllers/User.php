@@ -28,15 +28,15 @@ class User extends Controller
         $user = DB::table('user_details')->where('user_id', $currentuserid)->first();
 
         # Get User Religion
-        $religion = DB::table('user_religion_details')->where('user_id', $currentuserid)->first();
+        //$religion = DB::table('user_religion_details')->where('user_id', $currentuserid)->first();
 
         # Get User Extra Info
-        $extra = DB::table('user_extra_details')->where('user_id', $currentuserid)->first();
+       // $extra = DB::table('user_extra_details')->where('user_id', $currentuserid)->first();
 
         #Get Family Member
-        $familymember = DB::table('user_family_details')->where('family_head_id', $currentuserid)->where('status', 1)->get();
+        //$familymember = DB::table('user_family_details')->where('family_head_id', $currentuserid)->where('status', 1)->get();
 
-        return view('user.profile', array('user' => $user, 'religion' => $religion, 'extra' => $extra, 'familymember' => $familymember));
+        return view('user.profile', array('user' => $user));
     }
 
     #family member view
