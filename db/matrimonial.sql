@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2017 at 04:15 PM
+-- Generation Time: Nov 15, 2017 at 03:24 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -111,12 +111,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `family_head_id`, `name`, `lastname`, `username`, `email`, `password`, `remember_token`, `verify_token`, `phone`, `created_at`, `updated_at`, `status`) VALUES
 (1, '', 'Admin', 'istrator', 'administrator', 'admin@admin.com', '$2y$10$6BPkrI9Op4gET1PlpMWHtu99uPXhL2ViLC9Ep6hJjpvtB8FFbuPQy', 'jnoBcSP8faSAS4bAgMHgA6p4z4h1p4Bo7dxI2rRE6DqHOvoeDDmpmV3cf83D', NULL, '9602947878', '2017-10-02 18:30:00', '2017-10-02 18:30:00', 1),
-(7, '7', 'prem', 'saini', 'Prem Saini', 'premsaini9602@gmail.com', '$2y$10$.Y7YULhhGKDjv9vOMh5vfuf7doKWVoV50Odhj46wFM5BTrkfifd42', '7RWcW9UKpjt5mK3RLvQSITvvz8TfWc6fODYBJPf5J4rN0H3wmG0qbeixN5sM', NULL, '80039475602', '2017-10-23 09:24:59', '2017-10-24 08:52:20', 1),
-(10, '7', 'sumit kumar', 'sharma', 'sumit kumarsharma', 'sumitkumar@gmail.com', '$2y$10$0F1nmJR/nfakSNbcHivdHeZ8jONOSOR13K8BnFzyXrdMZdcSCGFzu', NULL, NULL, '9602947878', '2017-10-23 09:31:32', '2017-10-23 09:31:32', 0),
-(11, '7', 'Prem', 'saini', 'Premsaini', 'kuku@gmail.com', '$2y$10$.Y7YULhhGKDjv9vOMh5vfuf7doKWVoV50Odhj46wFM5BTrkfifd42', NULL, NULL, '96278454545', '2017-10-24 09:46:39', '2017-10-24 09:46:39', 0),
-(12, NULL, 'akshay', 'jangid', 'akshayjangid', 'akshayjangid9309@gmail.com', '$2y$10$awMmqSAs3Qh8L/PxiqiAseQFWin6oZgoXLpMWflPqmcTqqi2TS2OO', NULL, '5GbVo3w5LMNeBZn2OPrPfQgNw2XJ0NCv7SdHdvaj', '7690016967', '2017-10-26 06:21:41', '2017-10-26 06:21:41', 0),
-(18, NULL, 'kuku', 'Saini', 'kukuSaini', 'premsinghania2402@gmail.com', '$2y$10$jHMDJmcUnUoE5Nh40ZgCTuldKPunY9I0ehREqWtdPhZjolokbaiAm', NULL, 'mzG9TxpxMsWa6GyFF77CyEB05tuQZwdWvkPUAZAn', '9602947878', '2017-11-13 07:35:36', '2017-11-13 07:35:36', 0),
-(21, NULL, 'prem', NULL, 'prem', 'p@g.com', '$2y$10$K/A/HdzPVT9zaWkDHJEni.STSEU/pW5ILiHjY.axAi6Kh28LLGz9W', NULL, 'JoVyXZ2sW2BQxLzlg6GhQ3aRqalVlIHIpm6MxdLB', '9602947878', '2017-11-13 08:53:52', '2017-11-13 08:53:52', 0);
+(2, NULL, 'Prem', NULL, 'Prem', 'premsaini9602@gmail.com', '$2y$10$8LhPNFGJSjzFhkJq.0cjsuQT9vk1FvJg2bVWebfb29zgKbT5BFBvi', NULL, NULL, '9602947878', '2017-11-15 07:10:05', '2017-11-15 07:10:17', 1),
+(3, NULL, 'Prem', NULL, 'Prem', 'prem_saini@hotmail.com', '$2y$10$Xy64m2xv5qeDjHnpIjjGrugSEDnnpWphwYB.sh0Ck4mJkGIbWJWKy', NULL, NULL, '8005609866', '2017-11-15 07:10:44', '2017-11-15 07:11:15', 1);
 
 -- --------------------------------------------------------
 
@@ -132,7 +128,6 @@ CREATE TABLE `user_details` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `whatsapp_mobile` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `religion` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sampraday` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cast` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sub_cast` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -162,9 +157,9 @@ CREATE TABLE `user_details` (
   `social_hours` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `social_field` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `social_hours_according` tinyint(1) DEFAULT NULL,
-  `donate_hindred` tinyint(1) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `donate_hundred` tinyint(1) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -172,11 +167,9 @@ CREATE TABLE `user_details` (
 -- Dumping data for table `user_details`
 --
 
-INSERT INTO `user_details` (`id`, `user_id`, `name`, `father_husband_name`, `email`, `whatsapp_mobile`, `phone`, `religion`, `sampraday`, `cast`, `sub_cast`, `gotra`, `bunk`, `origin_place`, `married`, `marriage_date`, `life_partner_name`, `education`, `special_qualification`, `experience_field`, `occupation`, `seva_nivrat`, `image`, `bio`, `gender`, `dob`, `residential_address`, `residential_pincode`, `residential_district`, `residential_state`, `occupation_address`, `occupation_pincode`, `occupation_district`, `occupation_state`, `social_hours`, `social_field`, `social_hours_according`, `donate_hindred`, `created_at`, `updated_at`, `status`) VALUES
-(6, 7, 'Prem', NULL, 'premsaini9602@gmail.com', NULL, '9602947878', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '7f4e43.PNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-10-15 04:18:52', '2017-10-24 09:47:04', 1),
-(7, 18, 'kuku', NULL, 'premsinghania2402@gmail.com', NULL, '9602947878', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'user.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-13 07:35:40', '2017-11-13 07:35:40', 0),
-(8, 20, 'prem', NULL, 'p@g.com', NULL, '9602947878', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'user.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-13 08:43:20', '2017-11-13 08:43:20', 0),
-(9, 21, 'prem', NULL, 'p@g.com', NULL, '9602947878', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'user.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-13 08:53:52', '2017-11-13 08:53:52', 0);
+INSERT INTO `user_details` (`id`, `user_id`, `name`, `father_husband_name`, `email`, `whatsapp_mobile`, `phone`, `sampraday`, `cast`, `sub_cast`, `gotra`, `bunk`, `origin_place`, `married`, `marriage_date`, `life_partner_name`, `education`, `special_qualification`, `experience_field`, `occupation`, `seva_nivrat`, `image`, `bio`, `gender`, `dob`, `residential_address`, `residential_pincode`, `residential_district`, `residential_state`, `occupation_address`, `occupation_pincode`, `occupation_district`, `occupation_state`, `social_hours`, `social_field`, `social_hours_according`, `donate_hundred`, `created_at`, `updated_at`, `status`) VALUES
+(1, 2, 'Prem', 'pitaji', 'premsaini9602@gmail.com', '8003947560', '9602947878', 'राधास्वामी', 'mali', 'saini', 'tundwal', 'singhania', 'khetri nagar', 1, '2017-02-18', 'komal', 'b.tech', 'engineer', 'development', 'job', 1, 'user.png', 'My Bio', '1', '1989-02-24', 'khetri nagar', '333504', 'jhunjhunu', 'raj', 'unnati tower', '302039', 'jaipur', 'rajasthan', '2', 'jhunjhunu', 2, 2, '2017-11-15 12:40:05', '2017-11-15 14:23:23', 1),
+(2, 3, 'Prem', NULL, 'prem_saini@hotmail.com', NULL, '8005609866', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'user.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-15 12:40:44', '2017-11-15 12:41:15', 1);
 
 -- --------------------------------------------------------
 
@@ -319,7 +312,9 @@ INSERT INTO `user_roles` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`
 (9, 2, 18, '2017-11-13 07:35:40', '2017-11-13 07:35:40'),
 (10, 2, 19, '2017-11-13 08:39:30', '2017-11-13 08:39:30'),
 (11, 2, 20, '2017-11-13 08:43:20', '2017-11-13 08:43:20'),
-(12, 2, 21, '2017-11-13 08:53:52', '2017-11-13 08:53:52');
+(12, 2, 21, '2017-11-13 08:53:52', '2017-11-13 08:53:52'),
+(13, 2, 2, '2017-11-15 07:10:05', '2017-11-15 07:10:05'),
+(14, 2, 3, '2017-11-15 07:10:44', '2017-11-15 07:10:44');
 
 --
 -- Indexes for dumped tables
@@ -391,12 +386,12 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `user_family_details`
 --
@@ -416,7 +411,7 @@ ALTER TABLE `user_optional_details`
 -- AUTO_INCREMENT for table `user_roles`
 --
 ALTER TABLE `user_roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;COMMIT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
