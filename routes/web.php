@@ -43,6 +43,8 @@ Route::get('sendEmail', 'EmailController@sendEmail');
 
 Route::get('change_password', 'User@change_password_view');
 
+Route::post('updatePersonalInfo', 'Familyhead@updatePersonalInfo')->name('updatePersonalInfo');
+
 Route::post('updateOptionalInfo', 'Familyhead@updateOptionalInfo')->name('updateOptionalInfo');
 
 Route::post('updateMemberPersonalInfo', 'Familymember@updateMemberPersonalInfo')->name('updateMemberPersonalInfo');
@@ -53,7 +55,7 @@ Route::get('profile', 'User@profile')->name('profile');
 
 Route::post('updateProfileImage', 'User@updateProfileImage')->name('updateProfileImage');
 
-Route::post('updatePersonalInfo', 'User@updatePersonalInfo')->name('updatePersonalInfo');
+
 
 Route::post('updateReligionInfo', 'User@updateReligionInfo')->name('updateReligionInfo');
 

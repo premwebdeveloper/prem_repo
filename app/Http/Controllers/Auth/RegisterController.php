@@ -72,14 +72,11 @@ class RegisterController extends Controller
         $user = User::create([
             'family_head_id ' => null,
             'name' => $data['name'],
-            //'lastname' => $data['lastname'],
-            //'username' => $data['name'].$data['lastname'],
-            'username' => $data['name'],
+            'username' => $data['email'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'phone' => $data['phone'],
-            'verify_token' => Str::random(40),
-
+            'verify_token' => Str::random(40)
         ]);
 
         $user_id = $user->id;
@@ -89,10 +86,10 @@ class RegisterController extends Controller
         # Create user role
         $user_role = DB::table('user_roles')->insert(
              array(
-                    'role_id' => '2',
-                    'user_id' => $user_id,
-                    'created_at' => $date,
-                    'updated_at' => $date
+                'role_id' => '2',
+                'user_id' => $user_id,
+                'created_at' => $date,
+                'updated_at' => $date
              )
         );
 
@@ -101,7 +98,6 @@ class RegisterController extends Controller
              array(
                     'user_id' => $user_id,
                     'name' => $data['name'],
-                    //'lastname' => $data['lastname'],
                     'email' => $data['email'],
                     'phone' => $data['phone'],
                     'image' => 'user.png',
@@ -109,24 +105,6 @@ class RegisterController extends Controller
                     'updated_at' => $date
              )
         );
-
-        #user insert in user_religion_details table
-        /*$user_religion = DB::table('user_religion_details')->insert(
-             array(
-                    'user_id' => $user_id,
-                    'created_on' => $date,
-                    'updated_on' => $date
-             )
-        );*/
-
-        #user insert in user_extra_details table
-        /*$user_extra = DB::table('user_extra_details')->insert(
-             array(
-                    'user_id' => $user_id,
-                    'created_on' => $date,
-                    'updated_on' => $date
-             )
-        );*/
 
         if($user_insert)
         {

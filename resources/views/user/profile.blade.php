@@ -84,7 +84,7 @@
 											   			<h4>मुखिया का पूरा नाम</h4>
 
 												    	<div class="form-group" style="margin-bottom: 30px;">
-													      	<input type="text" class="form-control personal_info" placeholder="Full Name" name="fname" id="fname" value="{{$user->name}}" readonly>
+													      	<input type="text" class="form-control personal_info" placeholder="Full Name" name="name" id="name" value="{{$user->name}}" readonly>
 													    </div>
 
 												    	<h4>Gender / लिंग </h4>
@@ -103,20 +103,18 @@
 												    <div class="col-md-4">
 												    	<h4>Father/Husband Name  पिता / पति का नाम </h4>
 													    <div class="form-group" style="margin-bottom: 30px;">
-													      <input type="text" class="form-control personal_info" placeholder="Father / Husband Name" name="lname" id="lname" value="" readonly>
+													      <input type="text" class="form-control personal_info" placeholder="Father / Husband Name" name="father_husband_name" id="father_husband_name" value="{{$user->father_husband_name}}" readonly>
 													    </div>
+
 		    									    	<h4>Mobile/Whats app No.  मोबाइल नंबर</h4>
 												    	<div class="form-group">
-													      <input type="tel" class="form-control personal_info" placeholder="+91-123456789" name="phone" id="phone" value="{{$user->phone}}" readonly>
+													      <input type="tel" class="form-control personal_info" placeholder="+91-123456789" name="whatsapp" id="whatsapp" value="{{$user->whatsapp_mobile}}" readonly>
 													    </div>
 												    </div>
 
-
 				    								<div class="col-md-2">
-
 								                    	<img alt="image" class="img-responsive mt10" src="resources/uploads/profile_images/{{$user->image}}" style="width: 140px;height: 150px;margin-left: 10px;">
 								                    	<p class="text-center">परिवार के मुखिया </p>
-
 													</div>
 
 													<div class="col-md-4">
@@ -129,21 +127,26 @@
 												    <div class="col-md-4">
 												    	<h4>Email Id</h4>
 												    	<div class="form-group">
-													      <input type="email" class="form-control personal_info" placeholder="+91-123456789" name="email" id="phone" value="{{$user->email}}" readonly>
+													      <input type="email" class="form-control" placeholder="+91-123456789" name="email" id="email" value="{{$user->email}}" readonly>
 													    </div>
 												    </div>
 
 												    <div class="col-md-4">
 												    	<h4>Religion/धर्म</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control personal_info" name="email" id="phone" value="हिन्दू" disabled>
+													      <input type="text" class="form-control personal_info" name="religion" id="religion" value="हिन्दू" disabled>
 													    </div>
 												    </div>
 
 													<div class="col-md-4">
 												    	<h4>मत/सम्प्रदाय </h4>
 												    	<div class="form-group">
-												    		<select class="form-control personal_radio personal_info" required="" name="bloodgroup" id="bloodgroup">
+												    		<select class="form-control personal_radio personal_info" required="" name="sampraday" id="sampraday">
+
+												    			@if($user->sampraday)
+																	<option value="{{$user->sampraday}}" selected>{{$user->sampraday}}</option>
+												    			@endif
+
 												    			<option value="">Select मत/सम्प्रदाय </option>
 												    			<option value="सनातनी">सनातनी</option>
 												    			<option value="जैन">जैन</option>
@@ -159,40 +162,37 @@
 											    	<div class="col-md-4">
 											    		<h4>Cast / जाति </h4>
 												    	<div class="form-group">
-													      	<input type="text" class="form-control personal_info" placeholder="जाति" name="cast" value="" readonly>
+													      	<input type="text" class="form-control personal_info" placeholder="जाति" name="cast" id="cast" value="{{$user->cast}}" readonly>
 													    </div>
 												    </div>
 
 												    <div class="col-md-4">
 												    	<h4>Sub Cast/उपजाति/घटक</h4>
 													    <div class="form-group">
-													      <input type="text" class="form-control personal_info" placeholder="उपजाति" name="sub_cast" value="" readonly>
+													      <input type="text" class="form-control personal_info" placeholder="उपजाति" name="sub_cast" id="sub_cast" value="{{$user->sub_cast}}" readonly>
 													    </div>
 												    </div>
-
 
 											    	<div class="col-md-4">
 											    		<h4>गौत्र (Gotre)</h4>
 												    	<div class="form-group">
-													      	<input type="text" class="form-control personal_info" placeholder="गौत्र" name="gotra" value="" readonly>
+													      	<input type="text" class="form-control personal_info" placeholder="गौत्र" name="gotra" id="gotra" value="{{$user->gotra}}" readonly>
 													    </div>
 												    </div>
 
 												    <div class="col-md-4">
 												    	<h4>बंक </h4>
 													    <div class="form-group">
-													      <input type="text" class="form-control personal_info" placeholder="बंक" name="sub_gotra" value="" readonly>
+													      <input type="text" class="form-control personal_info" placeholder="बंक" name="bunk" id="bunk" value="{{$user->bunk}}" readonly>
 													    </div>
 												    </div>
-
 
 													<div class="col-md-4 mb10px">
 														<h4>मूल निवासी (Origin Place)</h4>
 												    	<div class="form-group">
-										      			<textarea class="form-control personal_info" rows="1" placeholder="मूल निवासी(स्थान का नाम , जिला, राज्य दें) " name="address" id="address" readonly></textarea>
+										      			<textarea class="form-control personal_info" rows="1" placeholder="मूल निवासी(स्थान का नाम , जिला, राज्य दें) " name="origin_place" id="origin_place" readonly>{{$user->origin_place}}</textarea>
 													    </div>
 												    </div>
-
 
 													<div class="col-md-4">
 												    	<h4>Date of Birth / जन्म की तारीख</h4>
@@ -201,16 +201,15 @@
 													    </div>
 												    </div>
 
-
 											   		<div class="col-md-4">
 												    	<h4>Married / शादी-शुदा </h4>
 													    <div class="form-group ">
-													    	@if($user->gender==2)
-													    		<input type="radio" class="personal_radio personal_info" name="gender" value="1"> Yes
-												   				<input type="radio" class="personal_radio personal_info" name="gender" value="2" checked="checked"> No
+													    	@if($user->married==2)
+													    		<input type="radio" class="personal_radio personal_info" name="married" value="1"> Yes
+												   				<input type="radio" class="personal_radio personal_info" name="married" value="2" checked="checked"> No
 													    	@else
-													    		<input type="radio" class="personal_radio personal_info" name="gender" value="1" checked="checked"> Yes
-												   				<input type="radio" class="personal_radio personal_info" name="gender" value="2"> No
+													    		<input type="radio" class="personal_radio personal_info" name="married" value="1" checked="checked"> Yes
+												   				<input type="radio" class="personal_radio personal_info" name="married" value="2"> No
 												   			@endif
 												   		 </div>
 												    </div>
@@ -218,54 +217,54 @@
 													<div class="col-md-4">
 												    	<h4>Marriage Date/ शादी की तारीख</h4>
 												    	<div class="form-group">
-													      <input type="text" format="Y-m-d" class="form-control personal_info datepicker" placeholder="20-12-1990" name="dob" id="dob" value="" readonly>
+													      <input type="text" format="Y-m-d" class="form-control personal_info datepicker" placeholder="20-12-1990" name="marriage_date" id="marriage_date" value="{{$user->marriage_date}}" readonly>
 													    </div>
 												    </div>
 
 													<div class="col-md-4">
 												    	<h4>Life Partner Name/ जीवन साथी का नाम</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control personal_info datepicker" placeholder="Life Partner Name" name="life_partner" value="" readonly>
+													      <input type="text" class="form-control personal_info" placeholder="Life Partner Name" name="life_partner" id="life_partner" value="{{$user->life_partner_name}}" readonly>
 													    </div>
 												    </div>
 
 												    <div class="col-md-4">
 													    <h4>Education/शिक्षा </h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control personal_info" placeholder="Education/शिक्षा " name="country" id="country" value="" readonly>
+													      <input type="text" class="form-control personal_info" placeholder="Education/शिक्षा " name="education" id="education" value="{{$user->education}}" readonly>
 													    </div>
 												    </div>
 
 												    <div class="col-md-4">
 													    <h4>विशेष योग्यता(Special Qualification)</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control personal_info" placeholder="विशेष योग्यता" name="country" id="country" value="" readonly>
+													      <input type="text" class="form-control personal_info" placeholder="विशेष योग्यता" name="special_qualification" id="special_qualification" value="{{$user->special_qualification}}" readonly>
 													    </div>
 												    </div>
 
 												    <div class="col-md-4">
 													    <h4>अनुभव क्षेत्र(Experience Field)</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control personal_info" placeholder="अनुभव क्षेत्र" name="country" id="country" value="" readonly>
+													      <input type="text" class="form-control personal_info" placeholder="अनुभव क्षेत्र" name="experience_field" id="experience_field" value="{{$user->experience_field}}" readonly>
 													    </div>
 												    </div>
 
 												    <div class="col-md-4">
 													    <h4>Occupation(काम-धंधा या व्यवसाय)</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control personal_info" placeholder="Occupation(काम-धंधा या व्यवसाय)" name="country" id="country" value="" readonly>
+													      <input type="text" class="form-control personal_info" placeholder="Occupation(काम-धंधा या व्यवसाय)" name="occupation" id="occupation" value="{{$user->occupation}}" readonly>
 													    </div>
 												    </div>
 
 													<div class="col-md-4 mb20px">
 												    	<h4>सेवा निवृत हैं</h4>
 													    <div class="form-group ">
-													    	@if($user->gender==2)
-													    		<input type="radio" class="personal_radio personal_info" name="gender" value="1"> Yes
-												   				<input type="radio" class="personal_radio personal_info" name="gender" value="2" checked="checked"> No
+													    	@if($user->seva_nivrat==2)
+													    		<input type="radio" class="personal_radio personal_info" name="seva_nivrat" value="1"> Yes
+												   				<input type="radio" class="personal_radio personal_info" name="seva_nivrat" value="2" checked="checked"> No
 													    	@else
-													    	<input type="radio" class="personal_radio personal_info" name="gender" value="1" checked="checked"> Yes
-												   				<input type="radio" class="personal_radio personal_info" name="gender" value="2"> No
+													    	<input type="radio" class="personal_radio personal_info" name="seva_nivrat" value="1" checked="checked"> Yes
+												   				<input type="radio" class="personal_radio personal_info" name="seva_nivrat" value="2"> No
 												   			@endif
 												   		 </div>
 												    </div>
@@ -273,27 +272,27 @@
 													<div class="col-md-6 mb20px">
 														<h4>कार्यालय/व्यापार/व्यवसाय का पता</h4>
 												    	<div class="form-group">
-										      			<textarea class="form-control personal_info" rows="1" placeholder="कार्यालय/व्यापार/व्यवसाय का पता " name="address" id="address" readonly></textarea>
+										      			<textarea class="form-control personal_info" rows="1" placeholder="कार्यालय/व्यापार/व्यवसाय का पता " name="occupation_address" id="occupation_address" readonly>{{$user->occupation_address}}</textarea>
 													    </div>
 
 														<div class="col-md-4">
 													    	<h4>पिन कोड</h4>
 													    	<div class="form-group">
-														      <input type="text" class="form-control personal_info" placeholder="पिन कोड" name="district" id="district" value="" readonly>
+														      <input type="text" class="form-control personal_info" placeholder="पिन कोड" name="occupation_pincode" id="occupation_pincode" value="{{$user->occupation_pincode}}" readonly>
 														    </div>
 													    </div>
 
 														<div class="col-md-4">
 													    	<h4>जिला</h4>
 													    	<div class="form-group">
-														      <input type="text" class="form-control personal_info" placeholder="जिला" name="district" id="district" value="" readonly>
+														      <input type="text" class="form-control personal_info" placeholder="जिला" name="occupation_district" id="occupation_district" value="{{$user->occupation_district}}" readonly>
 														    </div>
 													    </div>
 
 														<div class="col-md-4">
 														    <h4>राज्य</h4>
 													    	<div class="form-group">
-														      <input type="text" class="form-control personal_info" placeholder="राज्य" name="state" id="state" value="" readonly>
+														      <input type="text" class="form-control personal_info" placeholder="राज्य" name="occupation_state" id="occupation_state" value="{{$user->occupation_state}}" readonly>
 														    </div>
 													    </div>
 												    </div>
@@ -301,27 +300,27 @@
 													<div class="col-md-6 mb20px">
 														<h4>निवास का पता (Residential Address)</h4>
 												    	<div class="form-group">
-										      			<textarea class="form-control personal_info" rows="1" placeholder="निवास का पता" name="address" id="address" readonly></textarea>
+										      			<textarea class="form-control personal_info" rows="1" placeholder="निवास का पता" name="residential_address" id="residential_address" readonly>{{$user->residential_address}}</textarea>
 													    </div>
 
 														<div class="col-md-4">
 													    	<h4>पिन कोड</h4>
 													    	<div class="form-group">
-														      <input type="text" class="form-control personal_info" placeholder="पिन कोड" name="district" id="district" value="" readonly>
+														      <input type="text" class="form-control personal_info" placeholder="पिन कोड" name="residential_pincode" id="residential_pincode" value="{{$user->residential_pincode}}" readonly>
 														    </div>
 													    </div>
 
 														<div class="col-md-4">
 													    	<h4>जिला</h4>
 													    	<div class="form-group">
-														      <input type="text" class="form-control personal_info" placeholder="जिला" name="district" id="district" value="" readonly>
+														      <input type="text" class="form-control personal_info" placeholder="जिला" name="residential_district" id="residential_district" value="{{$user->residential_district}}" readonly>
 														    </div>
 													    </div>
 
 														<div class="col-md-4">
 														    <h4>राज्य</h4>
 													    	<div class="form-group">
-														      <input type="text" class="form-control personal_info" placeholder="राज्य" name="state" id="state" value="" readonly>
+														      <input type="text" class="form-control personal_info" placeholder="राज्य" name="residential_state" id="residential_state" value="{{$user->residential_state}}" readonly>
 														    </div>
 													    </div>
 												    </div>
@@ -329,32 +328,52 @@
 													<div class="col-md-4 mb20px">
 													    <h4>समाज सेवा हेतु समय दान व रूचि क्षेत्र </h4>
 														<div class="form-group ml0px">
-
-												      		<input type="text" name="donate_body_part" class="personal_info form-control" style="width: 10%;" readonly>
+												      		<input type="text" name="social_hours" id="social_hours" class="personal_info form-control" style="width: 10%;" value="{{$user->social_hours}}" readonly>
 													      		&nbsp;&nbsp;&nbsp;घंटे &nbsp;&nbsp;
-													      	<input type="text" name="donate_body_part" class="personal_info form-control" style="width: 50%;" readonly>
+
+													      	<input type="text" name="social_field" id="social_field" class="personal_info form-control" style="width: 50%;" value="{{$user->social_field}}" readonly>
 													      		&nbsp;&nbsp;&nbsp;<br>
-												      		<input type="radio" name="donate_body_part" class="personal_radio personal_info " value="2"> Daily
-												      		<input type="radio" name="donate_body_part" class="personal_radio personal_info" value="2"> Weekly
-												      		<input type="radio" name="donate_body_part" class="personal_radio personal_info" value="2"> Monthly
+
+															@if($user->social_hours_according==2)
+													    		<input type="radio" name="social_hours_according" class="personal_radio personal_info" value="1"> Daily
+													      		<input type="radio" name="social_hours_according" class="personal_radio personal_info" value="2" checked="checked"> Weekly
+													      		<input type="radio" name="social_hours_according" class="personal_radio personal_info" value="3"> Monthly
+													    	@elseif($user->social_hours_according==3)
+													    		<input type="radio" name="social_hours_according" class="personal_radio personal_info" value="1"> Daily
+													      		<input type="radio" name="social_hours_according" class="personal_radio personal_info" value="2"> Weekly
+													      		<input type="radio" name="social_hours_according" class="personal_radio personal_info" value="3" checked="checked"> Monthly
+												   			@else
+												   				<input type="radio" name="social_hours_according" class="personal_radio personal_info" value="1" checked="checked"> Daily
+													      		<input type="radio" name="social_hours_according" class="personal_radio personal_info" value="2"> Weekly
+													      		<input type="radio" name="social_hours_according" class="personal_radio personal_info" value="3"> Monthly
+												   			@endif
+
 													    </div>
 												    </div>
 
 													<div class="col-md-8 mb20px">
 
-														<h4>प्रतिवर्ष न्यूनतम आर्थिक सहयोग 100/- प्रति प्राणी  के लिए सहमत हो |</h4>
-														<p style="color:blue">(100/- वार्षिक दाता इस संस्था का साधारण/प्रतिनधि/कार्यकारिणी सदस्य व पदाधकारी बन सकता हैं जिसे voting right भी होगा )</p>
+													<h4>प्रतिवर्ष न्यूनतम आर्थिक सहयोग 100/- प्रति प्राणी  के लिए सहमत हो |</h4>
+													<p style="color:blue">(100/- वार्षिक दाता इस संस्था का साधारण/प्रतिनधि/कार्यकारिणी सदस्य व पदाधकारी बन सकता हैं जिसे voting right भी होगा )</p>
+
 													    <div class="form-group ml0px">
 
-												      		<input type="radio" name="donate_body_part" class="personal_radio personal_info" value="1" checked="checked"> Yes
-												      		<input type="radio" name="donate_body_part" class="personal_radio personal_info" value="2"> No
+													    	@if($user->donate_hundred==2)
+													    		<input type="radio" name="donate_hundred" class="personal_radio personal_info" value="1"> Yes
+												      			<input type="radio" name="donate_hundred" class="personal_radio personal_info" value="2" checked="checked"> No
+												   			@else
+												   				<input type="radio" name="donate_hundred" class="personal_radio personal_info" value="1" checked="checked"> Yes
+												      			<input type="radio" name="donate_hundred" class="personal_radio personal_info" value="2"> No
+												   			@endif
+
 													    </div>
+
 												    </div>
 
 													<div class="col-md-12 mb40px">
 														<h4>स्वयं/परिवार/वंश की उल्लेखनीय उपलब्धि यहां लिखें</h4>
 												    	<div class="form-group">
-										      			<textarea class="form-control personal_info" rows="5" placeholder="स्वयं/परिवार/वंश की उल्लेखनीय उपलब्धि यहां लिखें" name="address" id="address" readonly></textarea>
+										      				<textarea class="form-control personal_info" rows="5" placeholder="स्वयं/परिवार/वंश की उल्लेखनीय उपलब्धि यहां लिखें" name="bio" id="bio" readonly>{{$user->bio}}</textarea>
 													    </div>
 												    </div>
 
@@ -363,7 +382,6 @@
 													</div>
 												</div>
 											</form>
-
 
 											<div class="row">
 												<div class="col-md-8">
@@ -379,7 +397,6 @@
 									    			</h4>
 									    		</div>
 								    		</div>
-
 
 								    		<form class="form-inline" action="{{ route('updateOptionalInfo') }}" method="post">
 
@@ -701,14 +718,14 @@
 													    	<h4>Gender / लिंग </h4>
 														    <div class="form-group ">
 														    	@if($user->gender==2)
-														    		<input type="radio" class="member_radio" name="gender" value="1">
+														    		<input type="radio" class="member_radio" name="m_gender" value="1">
 													      			&nbsp;&nbsp;Male
-													   				<input type="radio" class="member_radio" name="gender" value="2" checked="checked">
+													   				<input type="radio" class="member_radio" name="m_gender" value="2" checked="checked">
 														      		&nbsp;&nbsp;Female
 														    	@else
-														    	<input type="radio" class="member_radio" name="gender" value="1" checked="checked">
+														    	<input type="radio" class="member_radio" name="m_gender" value="1" checked="checked">
 													      			&nbsp;&nbsp;Male
-													   				<input type="radio" class="member_radio" name="gender" value="2">
+													   				<input type="radio" class="member_radio" name="m_gender" value="2">
 														      		&nbsp;&nbsp;Female
 													   			@endif
 													   		 </div>
@@ -820,15 +837,15 @@
 											   		<div class="col-md-4">
 												    	<h4>Married / शादी-शुदा </h4>
 													    <div class="form-group ">
-													    	@if($user->gender==2)
-													    		<input type="radio" class="member_radio" name="gender" value="1">
+													    	@if($user->married==2)
+													    		<input type="radio" class="member_radio" name="married" value="1">
 												      			Yes
-												   				<input type="radio" class="member_radio" name="gender" value="2" checked="checked">
+												   				<input type="radio" class="member_radio" name="married" value="2" checked="checked">
 													      		No
 													    	@else
-													    	<input type="radio" class="member_radio" name="gender" value="1" checked="checked">
+													    	<input type="radio" class="member_radio" name="married" value="1" checked="checked">
 												      			Yes
-												   				<input type="radio" class="member_radio" name="gender" value="2">
+												   				<input type="radio" class="member_radio" name="married" value="2">
 													      		No
 												   			@endif
 												   		 </div>
@@ -882,15 +899,15 @@
 													<div class="col-md-4 mb20px">
 												    	<h4>सेवा निवृत हैं</h4>
 													    <div class="form-group ">
-													    	@if($user->gender==2)
-													    		<input type="radio" class="member_radio" name="gender" value="1">
+													    	@if($user->seva_nivrat==2)
+													    		<input type="radio" class="member_radio" name="seva_nivrat" value="1">
 												      			Yes
-												   				<input type="radio" class="member_radio" name="gender" value="2" checked="checked">
+												   				<input type="radio" class="member_radio" name="seva_nivrat" value="2" checked="checked">
 													      		No
 													    	@else
-													    	<input type="radio" class="member_radio" name="gender" value="1" checked="checked">
+													    	<input type="radio" class="member_radio" name="seva_nivrat" value="1" checked="checked">
 												      			Yes
-												   				<input type="radio" class="member_radio" name="gender" value="2">
+												   				<input type="radio" class="member_radio" name="seva_nivrat" value="2">
 													      		No
 												   			@endif
 												   		 </div>
