@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2017 at 03:24 PM
+-- Generation Time: Nov 16, 2017 at 02:20 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -261,7 +261,7 @@ CREATE TABLE `user_family_optional_details` (
 CREATE TABLE `user_optional_details` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `blood_group` tinyint(1) DEFAULT NULL,
+  `blood_group` varchar(20) DEFAULT NULL,
   `blood_information` tinyint(1) DEFAULT NULL,
   `consumer_forum` tinyint(1) DEFAULT NULL,
   `club_member` tinyint(1) DEFAULT NULL,
@@ -272,15 +272,22 @@ CREATE TABLE `user_optional_details` (
   `samaj_sanstha` varchar(255) DEFAULT NULL,
   `samaj_patrika` varchar(255) DEFAULT NULL,
   `self_home` tinyint(1) DEFAULT NULL,
-  `vehicle` varchar(10) DEFAULT NULL,
-  `family_cards` varchar(20) DEFAULT NULL,
+  `vehicle` varchar(100) DEFAULT NULL,
+  `family_cards` varchar(100) DEFAULT NULL,
   `pan_card` varchar(20) DEFAULT NULL,
   `adhar_card` varchar(20) DEFAULT NULL,
-  `annual_income` varchar(20) DEFAULT NULL,
+  `annual_income` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_optional_details`
+--
+
+INSERT INTO `user_optional_details` (`id`, `user_id`, `blood_group`, `blood_information`, `consumer_forum`, `club_member`, `abc_club_member`, `project_community`, `vaishya_panchayat`, `donate_body_parts`, `samaj_sanstha`, `samaj_patrika`, `self_home`, `vehicle`, `family_cards`, `pan_card`, `adhar_card`, `annual_income`, `created_at`, `updated_at`, `status`) VALUES
+(1, 2, 'O+', 1, 2, 1, 2, 1, 2, 1, 'prem', 'saini', 1, '2', '2-3-4-5', '9602947878', '8005609866', '2', '2017-11-15 00:00:00', '2017-11-16 13:18:59', 1);
 
 -- --------------------------------------------------------
 
@@ -406,7 +413,7 @@ ALTER TABLE `user_family_optional_details`
 -- AUTO_INCREMENT for table `user_optional_details`
 --
 ALTER TABLE `user_optional_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `user_roles`
 --

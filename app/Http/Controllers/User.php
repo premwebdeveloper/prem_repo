@@ -28,7 +28,7 @@ class User extends Controller
         $user = DB::table('user_details')->where('user_id', $currentuserid)->first();
 
         # Get User Religion
-        //$religion = DB::table('user_religion_details')->where('user_id', $currentuserid)->first();
+        $user_optional_details = DB::table('user_optional_details')->where('user_id', $currentuserid)->first();
 
         # Get User Extra Info
        // $extra = DB::table('user_extra_details')->where('user_id', $currentuserid)->first();
@@ -36,7 +36,7 @@ class User extends Controller
         #Get Family Member
         //$familymember = DB::table('user_family_details')->where('family_head_id', $currentuserid)->where('status', 1)->get();
 
-        return view('user.profile', array('user' => $user));
+        return view('user.profile', array('user' => $user, 'user_optional_details'=> $user_optional_details));
     }
 
     #family member view

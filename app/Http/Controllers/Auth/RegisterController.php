@@ -106,6 +106,15 @@ class RegisterController extends Controller
              )
         );
 
+        #user insert in user optional table
+        $user_insert = DB::table('user_optional_details')->insert(
+             array(
+                    'user_id' => $user_id,
+                    'created_at' => $date,
+                    'updated_at' => $date
+             )
+        );
+
         if($user_insert)
         {
             $status = "Registration Successfully.";

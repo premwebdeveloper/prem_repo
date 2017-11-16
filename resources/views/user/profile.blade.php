@@ -383,6 +383,10 @@
 												</div>
 											</form>
 
+
+<!-- ############################################################################################################################ -->
+<!-- ############################################################################################################################ -->
+
 											<div class="row">
 												<div class="col-md-8">
 									    			<h4>Optional Information / ऐच्छिक सूचनाएं </h4>
@@ -410,6 +414,10 @@
 												    	<div class="form-group">
 												    		<select class="form-control radio" required="" name="bloodgroup" id="bloodgroup">
 
+												    			@if($user_optional_details->blood_group)
+																	<option value="{{$user_optional_details->blood_group}}" selected>{{$user_optional_details->blood_group}}</option>
+												    			@endif
+
 												    			<option value="">Select Blood Group</option>
 												    			<option value="A+">A+</option>
 												    			<option value="A-">A-</option>
@@ -426,10 +434,19 @@
 												    <div class="col-md-6 mb20px">
 									  					<h4>2. किसी को रक्त की जरूरत पड़ने पर सुचना प्राप्त करना चाहेंगे</h4>
 													    <div class="form-group">
-													    	<input type="radio" name="farm_member" class="radio" value="1" checked="checked">
-												      		Yes
-												      		<input type="radio" name="farm_member" class="radio" value="2">
-												      		No
+
+													    	@if($user_optional_details->blood_information==2)
+													    		<input type="radio" name="blood_information" class="radio" value="1">
+													      		Yes
+													      		<input type="radio" name="blood_information" class="radio" value="2" checked="checked">
+													      		No
+												   			@else
+												   				<input type="radio" name="blood_information" class="radio" value="1" checked="checked">
+													      		Yes
+													      		<input type="radio" name="blood_information" class="radio" value="2">
+													      		No
+												   			@endif
+
 													  	</div>
 												    </div>
 
@@ -439,10 +456,19 @@
 															<a href="javascript:;" style="color:blue;">see link</a>
 														</h4>
 													    <div class="form-group ml0px">
-													    	<input type="radio" name="farm_member" class="radio" value="1" checked="checked">
-												      		Yes
-												      		<input type="radio" name="farm_member" class="radio" value="2">
-												      		No
+
+													    	@if($user_optional_details->consumer_forum==2)
+													    		<input type="radio" name="consumer_forum" class="radio" value="1">
+													      		Yes
+													      		<input type="radio" name="consumer_forum" class="radio" value="2" checked="checked">
+													      		No
+												   			@else
+												   				<input type="radio" name="consumer_forum" class="radio" value="1" checked="checked">
+													      		Yes
+													      		<input type="radio" name="consumer_forum" class="radio" value="2">
+													      		No
+												   			@endif
+
 													  	</div>
 
 												  	</div>
@@ -452,10 +478,19 @@
 												    		<a href="javascript:;" style="color:blue;">see link</a>
 												    	</h4>
 													    <div class="form-group ml0px">
-													    	<input type="radio" name="club_member" class="radio" value="1" checked="checked">
-												      		Yes
-												      		<input type="radio" name="club_member" class="radio" value="2">
-												      		No
+
+													    	@if($user_optional_details->club_member==2)
+													    		<input type="radio" name="club_member" class="radio" value="1">
+													      		Yes
+													      		<input type="radio" name="club_member" class="radio" value="2" checked="checked">
+													      		No
+												   			@else
+												   				<input type="radio" name="club_member" class="radio" value="1" checked="checked">
+													      		Yes
+													      		<input type="radio" name="club_member" class="radio" value="2">
+													      		No
+												   			@endif
+
 													 	</div>
 												 	</div>
 
@@ -464,10 +499,19 @@
 												    		<a href="javascript:;" style="color:blue;">see link</a>
 												    	</h4>
 													    <div class="form-group ml0px">
-													    	<input type="radio" name="abc_club_member" class="radio" value="1" checked="checked">
-												      		Yes
-												      		<input type="radio" name="abc_club_member" class="radio" value="2">
-												      		No
+
+													    	@if($user_optional_details->abc_club_member==2)
+													    		<input type="radio" name="abc_club_member" class="radio" value="1">
+													      		Yes
+													      		<input type="radio" name="abc_club_member" class="radio" value="2" checked="checked">
+													      		No
+												   			@else
+												   				<input type="radio" name="abc_club_member" class="radio" value="1" checked="checked">
+													      		Yes
+													      		<input type="radio" name="abc_club_member" class="radio" value="2">
+													      		No
+												   			@endif
+
 														</div>
 													</div>
 
@@ -476,10 +520,19 @@
 												    		<a href="javascript:;" style="color:blue;">see link</a>
 												    	</h4>
 													    <div class="form-group ml0px">
-													    	<input type="radio" name="project_committee" class="radio" value="1" checked="checked">
-													      	Yes
-													      	<input type="radio" name="project_committee" class="radio" value="2">
-													      	No
+
+													    	@if($user_optional_details->project_community==2)
+													    		<input type="radio" name="project_community" class="radio" value="1">
+														      	Yes
+														      	<input type="radio" name="project_community" class="radio" value="2" checked="checked">
+														      	No
+												   			@else
+												   				<input type="radio" name="project_community" class="radio" value="1" checked="checked">
+														      	Yes
+														      	<input type="radio" name="project_community" class="radio" value="2">
+														      	No
+												   			@endif
+
 													   	</div>
 												   	</div>
 
@@ -488,10 +541,19 @@
 												    		<a href="javascript:;" style="color:blue;">see link</a>
 												    	</h4>
 													    <div class="form-group ml0px">
-													    	<input type="radio" name="vaishya_vahini" class="radio" value="1" checked="checked">
-													      	Yes
-												      		<input type="radio" name="vaishya_vahini" class="radio" value="2">
-												      		No
+
+													    	@if($user_optional_details->vaishya_panchayat==2)
+													    		<input type="radio" name="vaishya_panchayat" class="radio" value="1">
+														      	Yes
+													      		<input type="radio" name="vaishya_panchayat" class="radio" value="2" checked="checked">
+													      		No
+												   			@else
+												   				<input type="radio" name="vaishya_panchayat" class="radio" value="1" checked="checked">
+														      	Yes
+													      		<input type="radio" name="vaishya_panchayat" class="radio" value="2">
+													      		No
+												   			@endif
+
 														</div>
 													</div>
 
@@ -499,10 +561,19 @@
 												     	<h4>8. मृत्यु होने पर ऑंखे दान/अंग दान/शरीर दान करना चाहेंगे</h4>
 
 													    <div class="form-group ml0px">
-													    	<input type="radio" name="donate_body" class="radio" value="1">
-												      		Yes
-												      		<input type="radio" name="donate_body" class="radio" value="2" checked="checked">
-												      		No
+
+													    	@if($user_optional_details->donate_body_parts==2)
+													    		<input type="radio" name="donate_body_parts" class="radio" value="1">
+													      		Yes
+													      		<input type="radio" name="donate_body_parts" class="radio" value="2" checked="checked">
+													      		No
+												   			@else
+												   				<input type="radio" name="donate_body_parts" class="radio" value="1" checked="checked">
+													      		Yes
+													      		<input type="radio" name="donate_body_parts" class="radio" value="2">
+													      		No
+												   			@endif
+
 													    </div>
 												    </div>
 
@@ -510,7 +581,7 @@
 												     	<h4>9. अपने समाज की किस संस्था से जुड़े हुए हैं |</h4>
 
 													    <div class="form-group ml0px">
-													      	<input type="text" name="donate_body_part" class="form-control optional_info" readonly>
+													      	<input type="text" name="samaj_sanstha" value="{{$user_optional_details->samaj_sanstha}}" class="form-control optional_info" readonly>
 													    </div>
 												    </div>
 
@@ -518,7 +589,7 @@
 												     	<h4>10. समाज की किस पत्रिका के सदस्य हो | </h4>
 
 													    <div class="form-group ml0px">
-													      	<input type="text" name="donate_body_part" class="form-control optional_info" readonly>
+													      	<input type="text" name="samaj_patrika" value="{{$user_optional_details->samaj_patrika}}" class="form-control optional_info" readonly>
 													    </div>
 												    </div>
 
@@ -528,10 +599,14 @@
 
 													    <div class="form-group ml0px">
 
-												      		<input type="radio" name="donate_body_part" class="radio" value="1" checked="checked">
-													      		अपना
-												      		<input type="radio" name="donate_body_part" class="radio" value="2">
-													      		किराये का
+													    	@if($user_optional_details->self_home==2)
+													    		<input type="radio" name="self_home" class="radio" value="1""> अपना
+												      			<input type="radio" name="self_home" class="radio" value="2" checked="checked"> किराये का
+												   			@else
+												   				<input type="radio" name="self_home" class="radio" value="1" checked="checked"> अपना
+												      			<input type="radio" name="self_home" class="radio" value="2"> किराये का
+												   			@endif
+
 													    </div>
 												    </div>
 
@@ -539,11 +614,27 @@
 													    <h4>12. अपना वाहन </h4>
 
 													    <div class="form-group ml0px">
-												      		<input type="checkbox" name="donate_body_part" class="radio" value="1" >
+															<?php
+															$vehicle = $user_optional_details->vehicle;
+													    	$vehicle = explode("-", $vehicle);
+													    	$vehicle1 = '';
+													    	$vehicle2 = '';
+													    	if(in_array('1', $vehicle))
+													    	{
+													    		$vehicle1 = 'checked="checked"';
+													    	}
+													    	if(in_array('2', $vehicle))
+													    	{
+													    		$vehicle2 = 'checked="checked"';
+													    	}
+													    	?>
+												      		<input type="checkbox" name="vehicle[]" class="radio" value="1" <?= $vehicle1; ?>>
 													      		Two Wheeler
-												      		<input type="checkbox" name="donate_body_part" class="radio" value="2">
+												      		<input type="checkbox" name="vehicle[]" class="radio" value="2" <?= $vehicle2; ?>>
 													      		Four Wheeler
+
 													    </div>
+
 												    </div>
 
 												    <div class="col-md-12 mb10px">
@@ -551,17 +642,52 @@
 
 													    <div class="form-group ml0px">
 
-												      		<input type="checkbox" name="donate_body_part" class="radio" value="1" >
+													    	<?php
+													    	$cards = $user_optional_details->family_cards;
+													    	$cards = explode("-", $cards);
+													    	$card1 = '';
+													    	$card2 = '';
+													    	$card3 = '';
+													    	$card4 = '';
+													    	$card5 = '';
+													    	$card6 = '';
+													    	if(in_array('1', $cards))
+													    	{
+													    		$card1 = 'checked="checked"';
+													    	}
+													    	if(in_array('2', $cards))
+													    	{
+													    		$card2 = 'checked="checked"';
+													    	}
+													    	if(in_array('3', $cards))
+													    	{
+													    		$card3 = 'checked="checked"';
+													    	}
+													    	if(in_array('4', $cards))
+													    	{
+													    		$card4 = 'checked="checked"';
+													    	}
+													    	if(in_array('5', $cards))
+													    	{
+													    		$card5 = 'checked="checked"';
+													    	}
+													    	if(in_array('6', $cards))
+													    	{
+													    		$card6 = 'checked="checked"';
+													    	}
+													    	?>
+
+												      		<input type="checkbox" name="family_cards[]" class="radio" value="1" <?= $card1; ?>>
 													      		पहचान पत्र
-													      	<input type="checkbox" name="donate_body_part" class="radio" value="1" >
+													      	<input type="checkbox" name="family_cards[]" class="radio" value="2" <?= $card2; ?>>
 													      		वोट कार्ड
-												      		<input type="checkbox" name="donate_body_part" class="radio" value="2">
+												      		<input type="checkbox" name="family_cards[]" class="radio" value="3" <?= $card3; ?>>
 													      		राशन कार्ड
-												      		<input type="checkbox" name="donate_body_part" class="radio" value="2">
+												      		<input type="checkbox" name="family_cards[]" class="radio" value="4" <?= $card4; ?>>
 													      		हेल्थ कार्ड
-												      		<input type="checkbox" name="donate_body_part" class="radio" value="2">
+												      		<input type="checkbox" name="family_cards[]" class="radio" value="5" <?= $card5; ?>>
 													      		वरिष्ठ नागरिक
-												      		<input type="checkbox" name="donate_body_part" class="radio" value="2">
+												      		<input type="checkbox" name="family_cards[]" class="radio" value="6" <?= $card6; ?>>
 													      		विधवा पेंशन
 													    </div>
 												    </div>
@@ -569,32 +695,59 @@
 												    <div class="col-md-12 mb10px">
 													    <h4>14. PAN Card No.</h4>
 												    	<div class="form-group">
-													      	<input type="text" class="form-control optional_info" placeholder="Pan Card No" name="country" id="country" value="" readonly>
+													      	<input type="text" class="form-control optional_info" placeholder="Pan Card No" name="pan_card" id="pan_card" value="{{$user_optional_details->pan_card}}" readonly>
 													    </div>
 												    </div>
 
 												    <div class="col-md-12 mb10px">
 													    <h4>15. Aadhar Card No.</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control optional_info" placeholder="Aadhar Card No." name="country" id="country" value="" readonly>
+													      <input type="text" class="form-control optional_info" placeholder="Aadhar Card No." name="adhar_card" id="adhar_card" value="{{$user_optional_details->adhar_card}}" readonly>
 													    </div>
 												    </div>
 
 												    <div class="col-md-12 mb10px">
 											    		<h4>16. परिवार की वार्षिक आय</h4>
 												    	<div class="form-group">
-												    		<select class="form-control radio" required="" name="bloodgroup">
+
+															<?php
+
+												    		if($user_optional_details->annual_income == '2')
+												    		{
+																$income = '2 लाख तक';
+												    		}
+											    			if($user_optional_details->annual_income == '2-10')
+											    			{
+																$income = '2 लाख से 10 लाख तक';
+											    			}
+											    			if($user_optional_details->annual_income == '10-50')
+											    			{
+																$income = '10 लाख से 50 लाख तक';
+											    			}
+											    			if($user_optional_details->annual_income == '50up')
+											    			{
+																$income = '50 लाख से ऊपर';
+											    			}
+
+											    			?>
+
+												    		<select class="form-control radio" required="" name="annual_income">
+
+																@if($user_optional_details->annual_income)
+																	<option value="{{$user_optional_details->annual_income}}" selected>{{$income}}</option>
+											    				@endif
+
 												    			<option value="">Select Income</option>
-												    			<option value="2 लाख तक">2 लाख तक</option>
-												    			<option value="2 से 10 लाख तक">2 लाख से 10 लाख तक</option>
-												    			<option value="10 से 50 लाख तक">10 लाख से 50 लाख तक</option>
-												    			<option value="50 से ऊपर">50 लाख से ऊपर</option>
+												    			<option value="2">2 लाख तक</option>
+												    			<option value="2-10">2 लाख से 10 लाख तक</option>
+												    			<option value="10-50">10 लाख से 50 लाख तक</option>
+												    			<option value="50up">50 लाख से ऊपर</option>
 												    		</select>
 													    </div>
 												    </div>
 
 											    	<div class="col-md-12 mb10px">
-													    <h4>17.<input type="checkbox" placeholder="Aadhar Card No." class="radio"> उपरोक्त सभी सूचना सही हैं व मैंने अपनी इच्छा से दी हैं |</h4>
+													    <h4>17.<input type="checkbox" placeholder="Aadhar Card No." class="radio" name="agree"> उपरोक्त सभी सूचना सही हैं व मैंने अपनी इच्छा से दी हैं |</h4>
 
 														<div class="col-md-12 update_optional_info text-right" style="display:none;">
 															<input type="submit" class="btn btn-success" name="update_optional_info" id="update_optional_info" value="update optional info">
@@ -662,7 +815,7 @@
 
 												{{ csrf_field() }}
 
-												<input type="hidden" name="user_id" id="user_id" value="{{ $user->user_id }}">
+												<input type="hidden" name="user_optional_details_id" id="user_id" value="{{ $user->user_id }}">
 
 												<div class="row mb10px">
 													<div class="col-md-12">
