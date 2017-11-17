@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2017 at 02:20 PM
+-- Generation Time: Nov 17, 2017 at 02:18 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -112,7 +112,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `family_head_id`, `name`, `lastname`, `username`, `email`, `password`, `remember_token`, `verify_token`, `phone`, `created_at`, `updated_at`, `status`) VALUES
 (1, '', 'Admin', 'istrator', 'administrator', 'admin@admin.com', '$2y$10$6BPkrI9Op4gET1PlpMWHtu99uPXhL2ViLC9Ep6hJjpvtB8FFbuPQy', 'jnoBcSP8faSAS4bAgMHgA6p4z4h1p4Bo7dxI2rRE6DqHOvoeDDmpmV3cf83D', NULL, '9602947878', '2017-10-02 18:30:00', '2017-10-02 18:30:00', 1),
 (2, NULL, 'Prem', NULL, 'Prem', 'premsaini9602@gmail.com', '$2y$10$8LhPNFGJSjzFhkJq.0cjsuQT9vk1FvJg2bVWebfb29zgKbT5BFBvi', NULL, NULL, '9602947878', '2017-11-15 07:10:05', '2017-11-15 07:10:17', 1),
-(3, NULL, 'Prem', NULL, 'Prem', 'prem_saini@hotmail.com', '$2y$10$Xy64m2xv5qeDjHnpIjjGrugSEDnnpWphwYB.sh0Ck4mJkGIbWJWKy', NULL, NULL, '8005609866', '2017-11-15 07:10:44', '2017-11-15 07:11:15', 1);
+(3, NULL, 'Prem', NULL, 'Prem', 'prem_saini@hotmail.com', '$2y$10$Xy64m2xv5qeDjHnpIjjGrugSEDnnpWphwYB.sh0Ck4mJkGIbWJWKy', NULL, NULL, '8005609866', '2017-11-15 07:10:44', '2017-11-15 07:11:15', 1),
+(10, '2', 'prem', NULL, 'p@g.com', 'p@g.com', '$2y$10$8LhPNFGJSjzFhkJq.0cjsuQT9vk1FvJg2bVWebfb29zgKbT5BFBvi', NULL, NULL, '3265988754', '2017-11-17 07:38:11', NULL, 0),
+(11, '2', 'ab', NULL, 'a@g.com', 'a@g.com', '$2y$10$8LhPNFGJSjzFhkJq.0cjsuQT9vk1FvJg2bVWebfb29zgKbT5BFBvi', NULL, NULL, '58585858585858', '2017-11-17 07:45:32', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -168,7 +170,7 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`id`, `user_id`, `name`, `father_husband_name`, `email`, `whatsapp_mobile`, `phone`, `sampraday`, `cast`, `sub_cast`, `gotra`, `bunk`, `origin_place`, `married`, `marriage_date`, `life_partner_name`, `education`, `special_qualification`, `experience_field`, `occupation`, `seva_nivrat`, `image`, `bio`, `gender`, `dob`, `residential_address`, `residential_pincode`, `residential_district`, `residential_state`, `occupation_address`, `occupation_pincode`, `occupation_district`, `occupation_state`, `social_hours`, `social_field`, `social_hours_according`, `donate_hundred`, `created_at`, `updated_at`, `status`) VALUES
-(1, 2, 'Prem', 'pitaji', 'premsaini9602@gmail.com', '8003947560', '9602947878', 'राधास्वामी', 'mali', 'saini', 'tundwal', 'singhania', 'khetri nagar', 1, '2017-02-18', 'komal', 'b.tech', 'engineer', 'development', 'job', 1, 'user.png', 'My Bio', '1', '1989-02-24', 'khetri nagar', '333504', 'jhunjhunu', 'raj', 'unnati tower', '302039', 'jaipur', 'rajasthan', '2', 'jhunjhunu', 2, 2, '2017-11-15 12:40:05', '2017-11-15 14:23:23', 1),
+(1, 2, 'Prem', 'pitaji', 'premsaini9602@gmail.com', '8003947560', '9602947878', 'राधास्वामी', 'mali', 'saini', 'tundwal', 'singhania', 'khetri nagar', 1, '2017-02-18', 'komal', 'b.tech', 'engineer', 'development', 'job', 1, '7f4e43.PNG', 'My Bio', '1', '1989-02-24', 'khetri nagar', '333504', 'jhunjhunu', 'raj', 'unnati tower', '302039', 'jaipur', 'rajasthan', '2', 'jhunjhunu', 2, 2, '2017-11-15 12:40:05', '2017-11-16 13:54:26', 1),
 (2, 3, 'Prem', NULL, 'prem_saini@hotmail.com', NULL, '8005609866', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'user.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-15 12:40:44', '2017-11-15 12:41:15', 1);
 
 -- --------------------------------------------------------
@@ -187,7 +189,6 @@ CREATE TABLE `user_family_details` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `whatsapp_mobile` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `religion` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sampraday` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cast` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sub_cast` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -217,11 +218,19 @@ CREATE TABLE `user_family_details` (
   `social_hours` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `social_field` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `social_hours_according` tinyint(1) DEFAULT NULL,
-  `donate_hindred` tinyint(1) DEFAULT NULL,
+  `donate_hundred` tinyint(1) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user_family_details`
+--
+
+INSERT INTO `user_family_details` (`id`, `family_head_id`, `f_member_user_id`, `name`, `father_husband_name`, `relation_to_head_member`, `email`, `whatsapp_mobile`, `phone`, `sampraday`, `cast`, `sub_cast`, `gotra`, `bunk`, `origin_place`, `married`, `marriage_date`, `life_partner_name`, `education`, `special_qualification`, `experience_field`, `occupation`, `seva_nivrat`, `image`, `bio`, `gender`, `dob`, `residential_address`, `residential_pincode`, `residential_district`, `residential_state`, `occupation_address`, `occupation_pincode`, `occupation_district`, `occupation_state`, `social_hours`, `social_field`, `social_hours_according`, `donate_hundred`, `created_at`, `updated_at`, `status`) VALUES
+(3, 2, 10, 'prem', 'father', 'son', 'p@g.com', '1245788956', '3265988754', 'जैन', 'mali', 'saini', 'tundwal', 'singhania', 'khetri nagar', 2, '2017-11-18', 'kuku', 'b.tech', 'engineer', 'development', 'job', 2, NULL, 'bio0', '1', '2017-11-24', 'khetri anagr', '333504', 'jhunjhunu', 'raj', 'unnati', '302039', 'jaipur', 'rajasthan', '2', 'jhunjhunu', 2, NULL, '2017-11-17 07:38:11', '2017-11-17 07:38:11', 1),
+(4, 2, 11, 'ab', 'pitaji', 'brother', 'a@g.com', '85858585858', '58585858585858', 'सिख', 'brahman', 'sharma', 'baneti', 'singhania', 'singhana', 1, '2017-11-25', 'sarita', 'b.tech', 'engineer', 'development', 'job', 1, NULL, 'amit dev', '2', '2017-11-28', 'singhana', '333504', 'jhunjhunu', 'raj', 'unnatit ower', '302039', 'jaipur', 'rajasthan', '3', 'jaipur', 3, NULL, '2017-11-17 07:45:32', '2017-11-17 07:45:32', 1);
 
 -- --------------------------------------------------------
 
@@ -233,7 +242,7 @@ CREATE TABLE `user_family_optional_details` (
   `id` int(11) NOT NULL,
   `family_head_id` int(11) NOT NULL,
   `f_member_user_id` int(11) DEFAULT NULL COMMENT 'family member''s user table auto increment id',
-  `blood_group` tinyint(1) DEFAULT NULL,
+  `blood_group` varchar(20) DEFAULT NULL,
   `blood_information` tinyint(1) DEFAULT NULL,
   `consumer_forum` tinyint(1) DEFAULT NULL,
   `club_member` tinyint(1) DEFAULT NULL,
@@ -251,6 +260,14 @@ CREATE TABLE `user_family_optional_details` (
   `updated_at` datetime DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_family_optional_details`
+--
+
+INSERT INTO `user_family_optional_details` (`id`, `family_head_id`, `f_member_user_id`, `blood_group`, `blood_information`, `consumer_forum`, `club_member`, `abc_club_member`, `project_community`, `vaishya_panchayat`, `donate_body_parts`, `samaj_sanstha`, `samaj_patrika`, `self_home`, `vehicle`, `pan_card`, `adhar_card`, `created_at`, `updated_at`, `status`) VALUES
+(1, 2, 10, 'A-', 2, 1, 2, 1, 2, 1, 2, 'na', 'na', 1, '1-2', '1234567890', '9876543210', '2017-11-17 13:08:11', '2017-11-17 13:08:11', 1),
+(2, 2, 11, 'A+', 1, 1, 1, 1, 1, 1, 1, 'prem', 'saini', 2, '2', '989898989898', '6565656565656', '2017-11-17 13:15:32', '2017-11-17 13:15:32', 1);
 
 -- --------------------------------------------------------
 
@@ -393,7 +410,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `user_details`
 --
@@ -403,12 +420,12 @@ ALTER TABLE `user_details`
 -- AUTO_INCREMENT for table `user_family_details`
 --
 ALTER TABLE `user_family_details`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `user_family_optional_details`
 --
 ALTER TABLE `user_family_optional_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `user_optional_details`
 --
