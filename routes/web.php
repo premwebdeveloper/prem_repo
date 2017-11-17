@@ -55,13 +55,11 @@ Route::get('profile', 'User@profile')->name('profile');
 
 Route::post('updateProfileImage', 'User@updateProfileImage')->name('updateProfileImage');
 
-
-
 Route::post('updateReligionInfo', 'User@updateReligionInfo')->name('updateReligionInfo');
 
 Route::post('updateExtraInfo', 'User@updateExtraInfo')->name('updateExtraInfo');
 
-Route::post('add_member', 'User@add_member')->name('add_member');
+Route::post('add_member', 'Familymember@add_member')->name('add_member');
 
 Route::get('familymember', 'User@familymember')->name('familymember');
 

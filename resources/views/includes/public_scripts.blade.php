@@ -13,11 +13,12 @@
         $(document).on('click', '.edit_profile', function(){
 
             $(".personal_info").removeAttr('readonly');
+            $(".personal_info").removeAttr('disabled');
             $('.update_personal_info').css({
                 'display' : 'block'
             });
             $(".personal_radio").attr('disabled', false);
-            
+
             $("#family_add_show_btn").css({
               'display':'block'
             });
@@ -47,7 +48,7 @@
                 'display' : 'block'
              });
             $(".member_radio").attr('disabled', false);
-        });       
+        });
 
         /*Religion Info Update*/
         $(document).on('click', '.edit_member_optional', function(){

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Storage;
 
 class Familyhead extends Controller
 {
@@ -11,6 +12,31 @@ class Familyhead extends Controller
     public function updatePersonalInfo(Request $request)
     {
         $user_id = $request->user_id;
+
+        /*$userData = DB::table('user_details')->where('user_id', $user_id)->first();
+
+        $filename = $userData->image;
+
+        if($request->hasFile('image'))
+        {
+
+            $file = $request->file('image');
+
+            $filename = $request->image->getClientOriginalName();
+
+            $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+            $filename = substr(md5(microtime()),rand(0,26),6);
+
+            $filename .= '.'.$ext;
+
+            $filesize = $request->image->getClientSize();
+
+            $destinationPath = config('app.fileDestinationPath').'/'.$filename;
+            $uploaded = Storage::put($destinationPath, file_get_contents($file->getRealPath()));
+        }*/
+
+
         $name = $request->name;
         $gender = $request->gender;
         $father_husband_name = $request->father_husband_name;
@@ -50,7 +76,7 @@ class Familyhead extends Controller
 
         $user_update = DB::table('users')->where('id', $user_id)->update(array('name' => $name, 'phone' => $phone));
 
-        $user_details_update = DB::table('user_details')->where('user_id', $user_id)->update(array('name' => $name, 'father_husband_name' => $father_husband_name, 'whatsapp_mobile' => $whatsapp, 'phone' => $phone, 'sampraday' => $sampraday, 'cast' => $cast, 'sub_cast' => $sub_cast, 'gotra' => $gotra, 'bunk' => $bunk, 'origin_place' => $origin_place, 'married' => $married, 'marriage_date' => $marriage_date, 'life_partner_name' => $life_partner, 'education' => $education, 'special_qualification' => $special_qualification, 'experience_field' => $experience_field, 'occupation' => $occupation, 'seva_nivrat' => $seva_nivrat, 'gender' => $gender, 'dob' => $dob, 'residential_address' => $residential_address, 'residential_pincode' => $residential_pincode, 'residential_district' => $residential_district, 'residential_state' => $residential_state, 'occupation_address' => $occupation_address, 'occupation_pincode' => $occupation_pincode, 'occupation_district' => $occupation_district, 'occupation_state' => $occupation_state, 'social_hours' => $social_hours, 'social_field' => $social_field, 'social_hours_according' => $social_hours_according, 'donate_hundred' => $donate_hundred, 'updated_at' => $updated_at, 'bio' => $bio));
+        $user_details_update = DB::table('user_details')->where('user_id', $user_id)->update(array('name' => $name, 'father_husband_name' => $father_husband_name, 'whatsapp_mobile' => $whatsapp, 'phone' => $phone, 'sampraday' => $sampraday, 'cast' => $cast, 'sub_cast' => $sub_cast, 'gotra' => $gotra, 'bunk' => $bunk, 'origin_place' => $origin_place, 'married' => $married, 'marriage_date' => $marriage_date, 'life_partner_name' => $life_partner, 'education' => $education, 'special_qualification' => $special_qualification, 'experience_field' => $experience_field, 'occupation' => $occupation, 'seva_nivrat' => $seva_nivrat, 'image' => $filename, 'gender' => $gender, 'dob' => $dob, 'residential_address' => $residential_address, 'residential_pincode' => $residential_pincode, 'residential_district' => $residential_district, 'residential_state' => $residential_state, 'occupation_address' => $occupation_address, 'occupation_pincode' => $occupation_pincode, 'occupation_district' => $occupation_district, 'occupation_state' => $occupation_state, 'social_hours' => $social_hours, 'social_field' => $social_field, 'social_hours_according' => $social_hours_according, 'donate_hundred' => $donate_hundred, 'updated_at' => $updated_at, 'bio' => $bio));
 
         $personal_status = "Personal information updated successfully !";
 

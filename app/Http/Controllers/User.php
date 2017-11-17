@@ -103,7 +103,7 @@ class User extends Controller
 
         $date = date('Y-m-d H:i:s');
 
-        if($request->hasFile('image'))
+        if($request->hasFile('file'))
         {
             $file = $request->file('image');
 
