@@ -30,13 +30,13 @@ class User extends Controller
         # Get User Religion
         $user_optional_details = DB::table('user_optional_details')->where('user_id', $currentuserid)->first();
 
-        # Get User Extra Info
-       // $extra = DB::table('user_extra_details')->where('user_id', $currentuserid)->first();
+        #Get Family Member
+        $familymember = DB::table('user_family_details')->where('family_head_id', $currentuserid)->where('status', 1)->get();
 
         #Get Family Member
-        //$familymember = DB::table('user_family_details')->where('family_head_id', $currentuserid)->where('status', 1)->get();
+        $familyOptionalDetails = DB::table('user_family_optional_details')->where('family_head_id', $currentuserid)->where('status', 1)->get();
 
-        return view('user.profile', array('user' => $user, 'user_optional_details'=> $user_optional_details));
+        return view('user.profile', array('user' => $user, 'user_optional_details'=> $user_optional_details, 'familymember'=> $familymember, 'familyOptionalDetails'=> $familyOptionalDetails));
     }
 
     #family member view
@@ -70,30 +70,6 @@ class User extends Controller
         $view_family_member = DB::table('user_family_details')->where('id', $id)->first();
 
         return view('user.view-family-member', array('user' => $user, 'viewfamily' => $view_family_member, 'familymember' => $familymember));
-    }
-
-    # Update Extra Info
-    public function updateExtraInfo(Request $request)
-    {
-        $date = date('Y-m-d H:i:s');
-
-        $user_id = $request->user_id;
-        $donate_body_part = $request->donate_body_part;
-        $farm_member = $request->farm_member;
-        $club_member = $request->club_member;
-        $abc_club_member = $request->abc_club_member;
-        $project_committee = $request->project_committee;
-        $blood_donate = $request->blood_donate;
-        $vaishya_vahini = $request->vaishya_vahini;
-        $year_calendar = $request->year_calendar;
-
-        $user_extra_info = DB::table('user_extra_details')->where('user_id', $user_id)->update(array('donate_body_part' => $donate_body_part, 'farm_member' => $farm_member, 'club_member' => $club_member, 'abc_club_member' => $abc_club_member, 'project_committee' => $project_committee, 'blood_donate' => $blood_donate, 'vaishya_vahini' => $vaishya_vahini, 'year_calendar' => $year_calendar, 'updated_on' => $date));
-
-        $extra = DB::table('user_extra_details')->where('user_id', $user_id)->first();
-
-        $extra_status = "Extra information updated successfully !";
-
-        return redirect('profile')->with('extra_status', $extra_status);
     }
 
     # update Profile Image
@@ -140,7 +116,7 @@ class User extends Controller
     }
 
     // Add family member
-    public function add_member(Request $request)
+    /*public function add_member(Request $request)
     {
         // If image is uploaded
         if($request->hasFile('image'))
@@ -263,7 +239,7 @@ class User extends Controller
         return redirect('profile')->with('add_member', $status);
 
         exit;
-    }
+    }*/
 
     // Update family member
     public function updatefamilymember(Request $request)

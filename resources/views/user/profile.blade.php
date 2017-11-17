@@ -139,7 +139,7 @@
 												    <div class="col-md-4">
 												    	<h4>Religion/धर्म</h4>
 												    	<div class="form-group">
-													      <input type="text" class="form-control personal_info" name="religion" id="religion" value="हिन्दू" disabled>
+													      <input type="text" class="form-control" name="religion" id="religion" value="हिन्दू" disabled>
 													    </div>
 												    </div>
 
@@ -782,26 +782,27 @@
 											<table class="table table-striped" id="family_info_trable">
 											  	<thead>
 												    <tr>
-												      <th>#</th>
-												      <th>First Name</th>
-												      <th>Last Name</th>
-												      <th>Email Id</th>
-												      <th>Phone No.</th>
+												      <th>Full Name</th>
+												      <th>Email</th>
+												      <th>Phone</th>
+												      <th>Relation With Family Head</th>
 												      <th>Action</th>
 												    </tr>
 											  	</thead>
 											  	<tbody>
+													@foreach($familymember as $member)
 												  	<tr>
-												      	<th scope="row"></th>
-												      	<td>qw</td>
-												      	<td>qw</td>
-												      	<td>qw</td>
-												      	<td>qw</td>
+												      	<td>{{$member->name}}</td>
+												      	<td>{{$member->email}}</td>
+												      	<td>{{$member->phone}}</td>
+												      	<td>{{$member->relation_to_head_member}}</td>
 												      	<td>
-												      		<a href="#" class="btn btn-info btn-xs">view</a>
-												       		<a href="#" class="btn btn-danger btn-xs">delete</a>
+												      		<a href="{{viewfamilymember}}" class="btn btn-info btn-xs">view</a>
+												       		<a href="javascript:;" class="btn btn-danger btn-xs">delete</a>
 											       		</td>
 											     	 </tr>
+											     	 @endforeach
+
 										     	</tbody>
 											</table>
 
