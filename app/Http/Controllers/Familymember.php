@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use DB;
 use Storage;
 
@@ -242,8 +243,138 @@ class Familymember extends Controller
         return redirect('profile')->with('add_member', $status);
     }
 
+    # view family member
+    public function viewfamilymember($id)
+    {
+        #Get User Id
+        $currentuserid = Auth::user()->id;
+
+        #Get User role
+        $user = DB::table('user_details')->where('user_id', $currentuserid)->first();
+
+        #Get Family Member
+        $familymember = DB::table('user_family_details')->where('family_head_id', $currentuserid)->first();
+
+        #view family member
+        $view_family_member = DB::table('user_family_details')->where('id', $id)->first();
+
+        $f_member_user_id = $view_family_member->f_member_user_id;
+
+        $family_member_optional = DB::table('user_family_optional_details')->where('f_member_user_id', $f_member_user_id)->first();
+
+        return view('user.view-family-member', array('user' => $user, 'viewfamily' => $view_family_member, 'family_member_optional' => $family_member_optional, 'familymember' => $familymember));
+    }
+
+    // Update family member
+    public function updateMemberPersonalInfo(Request $request)
+    {
+        $date = date('Y-m-d H:i:s');
+
+        $user_id = $request->user_id;
+        $id = $request->id;
+        $f_member_user_id = $request->f_member_user_id;
+        $fname = $request->fname;
+        $lname = $request->lname;
+        $gender = $request->gender;
+        $email = $request->email;
+        $mobile = $request->mobile;
+        $dob = $request->dob;
+        $mang = $request->mang;
+        $bloodgroup = $request->bloodgroup;
+        $married = $request->married;
+        $marriage_date = $request->marriage_date;
+        $experience = $request->experience;
+        $ph = $request->ph;
+        $job_busi = $request->job_busi;
+
+         // If image is uploaded
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+
+            $filename = $request->image->getClientOriginalName();
+
+            $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+            $filename = substr(md5(microtime()),rand(0,26),6);
+
+            $filename .= '.'.$ext;
+
+            $filesize = $request->image->getClientSize();
+
+            $destinationPath = config('app.fileDestinationPath').'/'.$filename;
+            $uploaded = Storage::put($destinationPath, file_get_contents($file->getRealPath()));
+
+            $member_image = $filename;
+        }
+        else    // If image not uploaded then image name will be null
+        {
+            $member = DB::table('user_family_details')->where('id', $id)->first();
+
+            $member_image = $member->image;;
+        }
+
+        # update data user table
+        $user = DB::table('users')->where('id', $user_id)->first();
+
+       # Get password user table
+        $user_password = $user->password;
+
+        # insert data user table
+        $user_table = DB::table('users')->where('id', $f_member_user_id)->update(
+            array(
+                    'name' => $fname,
+                    'family_head_id' => $user_id,
+                    'lastname' => $lname,
+                    'username' => $fname.$lname,
+                    'email' => $email,
+                    'password' => $user_password,
+                    'phone' => $mobile,
+                    'created_at' => $date,
+                    'updated_at' => $date,
+                    'status' => 0
+            )
+        );
+
+        $user_insert = DB::table('user_family_details')->where('id', $id)->update(
+             array(
+                    'family_head_id' => $user_id,
+                    'fname' => $fname,
+                    'lname' => $lname,
+                    'email' => $email,
+                    'mobile' => $mobile,
+                    'gender' => $gender,
+                    'dob' => $dob,
+                    'blood_group' => $bloodgroup,
+                    'image' => $member_image,
+                    'manglik' => $mang,
+                    'married' => $married,
+                    'marriage_date' => $marriage_date,
+                    'experience' => $experience,
+                    'profession' => $job_busi,
+                    'ph_Divyangata' => $ph,
+                    'created_at' => $date,
+                    'updated_at' => $date,
+                    'status' => 1
+             )
+        );
+
+        if($user_insert)
+        {
+            $status = 'Update member successfully.';
+        }
+        else
+        {
+            $status = 'Something went wrong !';
+        }
+
+        return redirect('profile')->with('update_member', $status);
+
+        exit;
+    }
+
     // Update User optional information
-    public function updateMemberPersonalInfo()
+    public function updateMemberOptionalInfo()
     {
         # code...
     }

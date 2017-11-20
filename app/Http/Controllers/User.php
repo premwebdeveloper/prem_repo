@@ -54,7 +54,7 @@ class User extends Controller
         return view('user.family-member', array('user' => $user, 'familymember' => $familymember));
     }
 
-    # view family member
+    /*# view family member
     public function viewfamilymember($id)
     {
         #Get User Id
@@ -69,8 +69,12 @@ class User extends Controller
         #view family member
         $view_family_member = DB::table('user_family_details')->where('id', $id)->first();
 
-        return view('user.view-family-member', array('user' => $user, 'viewfamily' => $view_family_member, 'familymember' => $familymember));
-    }
+        $f_member_user_id = $view_family_member->f_member_user_id;
+
+        $family_member_optional = DB::table('user_family_optional_details')->where('f_member_user_id', $f_member_user_id)->first();
+
+        return view('user.view-family-member', array('user' => $user, 'viewfamily' => $view_family_member, 'family_member_optional' => $family_member_optional, 'familymember' => $familymember));
+    }*/
 
     # update Profile Image
     public function updateProfileImage(Request $request)
@@ -242,7 +246,7 @@ class User extends Controller
     }*/
 
     // Update family member
-    public function updatefamilymember(Request $request)
+    public function updateMemberPersonalInfo(Request $request)
     {
         $date = date('Y-m-d H:i:s');
 

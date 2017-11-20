@@ -797,7 +797,7 @@
 												      	<td>{{$member->phone}}</td>
 												      	<td>{{$member->relation_to_head_member}}</td>
 												      	<td>
-												      		<a href="{{viewfamilymember}}" class="btn btn-info btn-xs">view</a>
+												      		<a href="{{route('viewfamilymember', ['id' => $member->id])}}" class="btn btn-info btn-xs">view</a>
 												       		<a href="javascript:;" class="btn btn-danger btn-xs">delete</a>
 											       		</td>
 											     	 </tr>

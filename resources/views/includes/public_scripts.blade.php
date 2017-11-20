@@ -42,8 +42,8 @@
         /*Email Info Update*/
 
         /*Religion Info Update*/
-        $(document).on('click', '.edit_member_profile', function(){
-           $('.member_profile').removeAttr('readonly');
+        $(document).on('click', '#edit_member_profile', function(){
+          $('.member_profile').removeAttr('readonly');
             $('.update_member_profile').css({
                 'display' : 'block'
              });
@@ -51,7 +51,7 @@
         });
 
         /*Religion Info Update*/
-        $(document).on('click', '.edit_member_optional', function(){
+        $(document).on('click', '#edit_member_optional', function(){
             $('.member_optional').removeAttr('readonly');
             $('.update_member_optional').css({
                 'display' : 'block'
@@ -73,6 +73,13 @@
         $(".personal_radio").attr('disabled', true);
         $(".member_radio").attr('disabled', true);
         $(".member_optional_radio").attr('disabled', true);
+        //$('.member_profile').attr('readonly');
+        $('.update_member_profile').css({
+            'display':'none'
+        });
+        $('.update_member_optional').css({
+            'display':'none'
+        });
         //$(".wrap").css('opacity', '.2');
 
        setTimeout(function(){

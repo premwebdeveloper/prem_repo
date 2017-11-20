@@ -63,9 +63,11 @@ Route::post('add_member', 'Familymember@add_member')->name('add_member');
 
 Route::get('familymember', 'User@familymember')->name('familymember');
 
-Route::get('viewfamilymember{id}', 'User@viewfamilymember')->name('viewfamilymember');
+Route::get('viewfamilymember{id}', 'Familymember@viewfamilymember')->name('viewfamilymember');
 
-Route::Post('updatefamilymember', 'User@updatefamilymember')->name('updatefamilymember');
+Route::Post('updateMemberPersonalInfo', 'Familymember@updateMemberPersonalInfo')->name('updateMemberPersonalInfo');
+
+Route::Post('updateMemberOptionalInfo', 'Familymember@updateMemberOptionalInfo')->name('updateMemberOptionalInfo');
 
 Route::get('deletefamilymember{id}', 'User@deletefamilymember')->name('deletefamilymember');
 
