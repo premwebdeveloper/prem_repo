@@ -85,6 +85,13 @@ Route::group(['middleware' => 'App\Http\Middleware\Admin'], function()
     Route::get('dashboard', 'Dashboard@admin')->name('dashboard');
 
     Route::get('users', 'AdminUser@index')->name('users');
+
+    // Disable user by Admin
+    Route::get('disableUser{id}', 'AdminUser@disableUser')->name('disableUser');
+
+    // User view by Admin
+    Route::get('userView{id}', 'AdminUser@userView')->name('userView');
+
     Route::get('user_profile', 'AdminUser@user_profile')->name('user_profile');
 });
 

@@ -34,12 +34,11 @@
                 </div>
             </li>
 
-
-            <li>
-                <a href="{{ route('dashboard') }}"><i class="fa fa-diamond"></i> <span class="nav-label">Dashboard</span></a>
+            <li class="special_link">
+                <a href="{{ route('dashboard') }}"><i class="fa fa-database"></i> <span class="nav-label">Dashboard</span></a>
             </li>
 
-            <li class="special_link">
+            <li>
                 <a href="{{ route('users') }}"><i class="fa fa-database"></i> <span class="nav-label">Users</span></a>
             </li>
 

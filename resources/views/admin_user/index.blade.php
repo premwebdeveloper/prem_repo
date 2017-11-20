@@ -33,12 +33,15 @@
             </div>
             <div class="ibox-content">
 
+                @if(session('disable_user'))
+                   <div class="alert alert-success">{{ session('disable_user') }}</div>
+                @endif
+
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover dataTables-example" >
                         <thead>
                             <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
+                                <th>Full Name</th>
                                 <th>Email</th>
                                 <th>Mobile</th>
                                 <th>Action</th>
@@ -50,12 +53,13 @@
 
                                 <tr class="gradeX">
                                     <td>{{ $user->name }}</td>
-                                    <td>{{ $user->lastname }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->phone }}</td>
                                     <td>
-                                        <a href="">View</a>
-                                        <a href="">Disable</a>
+                                        <a class="btn btn-success" href="{{ route('userView', ['id' => $user->user_id]) }}">View</a>
+                                        <a class="btn btn-success" href="{{ route('disableUser', ['id' => $user->user_id]) }}">
+                                            Disable
+                                        </a>
                                     </td>
                                 </tr>
 
