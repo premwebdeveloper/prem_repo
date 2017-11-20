@@ -41,7 +41,8 @@
 
 									{{ csrf_field() }}
 
-									<input type="hidden" name="user_id" value="{{ $user->user_id }}">
+									<input type="hidden" name="member_id" value="{{ $viewfamily->id }}">
+									<input type="hidden" name="f_member_user_id" value="{{ $viewfamily->f_member_user_id }}">
 
 						    		<div class="row">
 								   		<div class="col-md-4">
@@ -72,7 +73,7 @@
 									    <div class="col-md-4">
 									    	<h4>Father/Husband Name  पिता / पति का नाम </h4>
 										    <div class="form-group" style="margin-bottom: 30px;">
-										      <input type="text" class="form-control member_profile" placeholder="Last Name" name="father_husband_name" id="father_husband_name" readonly value="{{ $viewfamily->father_husband_name }}">
+										      <input type="text" class="form-control member_profile" placeholder="Father / Husband Name" name="father_husband_name" id="father_husband_name" readonly value="{{ $viewfamily->father_husband_name }}">
 										    </div>
 
 									    	<h4>Mobile/Whats app No.  मोबाइल नंबर</h4>
@@ -359,6 +360,10 @@
 
 								<form class="form-inline" action="{{ route('updateMemberOptionalInfo') }}" method="post">
 
+									{{ csrf_field() }}
+
+									<input type="hidden" name="member_optional_id" value="{{ $family_member_optional->id }}">>
+
 									<div class="row">
 							    		<div class="col-md-6">
 						    				<h4>Member Optional Information / ऐच्छिक सूचनाएं </h4>
@@ -377,6 +382,10 @@
 									    	<div class="form-group">
 									    		<select class="form-control member_optional_radio" required="" name="blood_group">
 
+													@if($family_member_optional->blood_group)
+														<option value="{{$family_member_optional->blood_group}}" selected>{{$family_member_optional->blood_group}}</option>
+									    			@endif
+
 									    			<option value="">Select Blood Group</option>
 									    			<option value="A+">A+</option>
 									    			<option value="A-">A-</option>
@@ -393,8 +402,17 @@
 									    <div class="col-md-6 mb20px">
 						  					<h4>2. किसी को रक्त की जरूरत पड़ने पर सुचना प्राप्त करना चाहेंगे</h4>
 										    <div class="form-group">
-										    	<input type="radio" name="blood_information" class="member_optional_radio" value="1">Yes
-									      		<input type="radio" name="blood_information" class="member_optional_radio" value="2">No
+										    	@if($family_member_optional->blood_information==2)
+										    		<input type="radio" name="blood_information" class="member_optional_radio" value="1">
+										      		Yes
+										      		<input type="radio" name="blood_information" class="member_optional_radio" value="2" checked="checked">
+										      		No
+									   			@else
+									   				<input type="radio" name="blood_information" class="member_optional_radio" value="1" checked="checked">
+										      		Yes
+										      		<input type="radio" name="blood_information" class="member_optional_radio" value="2">
+										      		No
+									   			@endif
 										  	</div>
 									    </div>
 
@@ -403,8 +421,19 @@
 												<a href="javascript:;" style="color:blue;">see link</a>
 											</h4>
 										    <div class="form-group ml0px">
-										    	<input type="radio" name="consumer_forum" class="member_optional_radio" value="1">Yes
-									      		<input type="radio" name="consumer_forum" class="member_optional_radio" value="2">No
+
+										    	@if($family_member_optional->consumer_forum==2)
+										    		<input type="radio" name="consumer_forum" class="member_optional_radio" value="1">
+										      		Yes
+										      		<input type="radio" name="consumer_forum" class="member_optional_radio" value="2" checked="checked">
+										      		No
+									   			@else
+									   				<input type="radio" name="consumer_forum" class="member_optional_radio" value="1" checked="checked">
+										      		Yes
+										      		<input type="radio" name="consumer_forum" class="member_optional_radio" value="2">
+										      		No
+									   			@endif
+
 										  	</div>
 									  	</div>
 
@@ -413,8 +442,18 @@
 									    		<a href="javascript:;" style="color:blue;">see link</a>
 									    	</h4>
 										    <div class="form-group ml0px">
-										    	<input type="radio" name="club_member" class="member_optional_radio" value="1">Yes
-									      		<input type="radio" name="club_member" class="member_optional_radio" value="2">No
+										    	@if($family_member_optional->club_member==2)
+										    		<input type="radio" name="club_member" class="member_optional_radio" value="1">
+										      		Yes
+										      		<input type="radio" name="club_member" class="member_optional_radio" value="2" checked="checked">
+										      		No
+									   			@else
+									   				<input type="radio" name="club_member" class="member_optional_radio" value="1" checked="checked">
+										      		Yes
+										      		<input type="radio" name="club_member" class="member_optional_radio" value="2">
+										      		No
+									   			@endif
+
 										 	</div>
 									 	</div>
 
@@ -423,8 +462,18 @@
 									    		<a href="javascript:;" style="color:blue;">see link</a>
 									    	</h4>
 										    <div class="form-group ml0px">
-										    	<input type="radio" name="abc_club_member" class="member_optional_radio" value="1">Yes
-									      		<input type="radio" name="abc_club_member" class="member_optional_radio" value="2">No
+										    	@if($family_member_optional->abc_club_member==2)
+										    		<input type="radio" name="abc_club_member" class="member_optional_radio" value="1">
+										      		Yes
+										      		<input type="radio" name="abc_club_member" class="member_optional_radio" value="2" checked="checked">
+										      		No
+									   			@else
+									   				<input type="radio" name="abc_club_member" class="member_optional_radio" value="1" checked="checked">
+										      		Yes
+										      		<input type="radio" name="abc_club_member" class="member_optional_radio" value="2">
+										      		No
+									   			@endif
+
 											</div>
 										</div>
 
@@ -433,8 +482,18 @@
 									    		<a href="javascript:;" style="color:blue;">see link</a>
 									    	</h4>
 										    <div class="form-group ml0px">
-										    	<input type="radio" name="project_community" class="member_optional_radio" value="1">Yes
-										      	<input type="radio" name="project_community" class="member_optional_radio" value="2">No
+										    	@if($family_member_optional->project_community==2)
+										    		<input type="radio" name="project_community" class="member_optional_radio" value="1">
+											      	Yes
+											      	<input type="radio" name="project_community" class="member_optional_radio" value="2" checked="checked">
+											      	No
+									   			@else
+									   				<input type="radio" name="project_community" class="member_optional_radio" value="1" checked="checked">
+											      	Yes
+											      	<input type="radio" name="project_community" class="member_optional_radio" value="2">
+											      	No
+									   			@endif
+
 										   	</div>
 									   	</div>
 
@@ -443,16 +502,35 @@
 									    		<a href="javascript:;" style="color:blue;">see link</a>
 									    	</h4>
 										    <div class="form-group ml0px">
-										    	<input type="radio" name="vaishya_panchayat" class="member_optional_radio" value="1">Yes
-									      		<input type="radio" name="vaishya_panchayat" class="member_optional_radio" value="2">No
+										    	@if($family_member_optional->vaishya_panchayat==2)
+										    		<input type="radio" name="vaishya_panchayat" class="member_optional_radio" value="1">
+											      	Yes
+										      		<input type="radio" name="vaishya_panchayat" class="member_optional_radio" value="2" checked="checked">
+										      		No
+									   			@else
+									   				<input type="radio" name="vaishya_panchayat" class="member_optional_radio" value="1" checked="checked">
+											      	Yes
+										      		<input type="radio" name="vaishya_panchayat" class="member_optional_radio" value="2">
+										      		No
+									   			@endif
+
 											</div>
 										</div>
 
 										<div class="col-md-12 mb10px">
 									     	<h4>8. मृत्यु होने पर ऑंखे दान/अंग दान/शरीर दान करना चाहेंगे</h4>
 										    <div class="form-group ml0px">
-										    	<input type="radio" name="donate_body_parts" class="member_optional_radio" value="1">Yes
-									      		<input type="radio" name="donate_body_parts" class="member_optional_radio" value="2">No
+										    	@if($family_member_optional->donate_body_parts==2)
+										    		<input type="radio" name="donate_body_parts" class="member_optional_radio" value="1">
+										      		Yes
+										      		<input type="radio" name="donate_body_parts" class="member_optional_radio" value="2" checked="checked">
+										      		No
+									   			@else
+									   				<input type="radio" name="donate_body_parts" class="member_optional_radio" value="1" checked="checked">
+										      		Yes
+										      		<input type="radio" name="donate_body_parts" class="member_optional_radio" value="2">
+										      		No
+									   			@endif
 										    </div>
 									    </div>
 
@@ -473,16 +551,38 @@
 									    <div class="col-md-12 mb10px">
 									     	<h4>11. आवास</h4>
 										    <div class="form-group ml0px">
-									      		<input type="radio" name="self_home" class="member_optional_radio" value="1">अपना
-									      		<input type="radio" name="self_home" class="member_optional_radio" value="2">किराये का
+										    	@if($family_member_optional->self_home==2)
+										    		<input type="radio" name="self_home" class="member_optional_radio" value="1""> अपना
+									      			<input type="radio" name="self_home" class="member_optional_radio" value="2" checked="checked"> किराये का
+									   			@else
+									   				<input type="radio" name="self_home" class="member_optional_radio" value="1" checked="checked"> अपना
+									      			<input type="radio" name="self_home" class="member_optional_radio" value="2"> किराये का
+									   			@endif
 										    </div>
 									    </div>
 
 									    <div class="col-md-12 mb10px">
 										    <h4>12. अपना वाहन </h4>
 										    <div class="form-group ml0px">
-									      		<input type="checkbox" name="vehicle[]" class="member_optional_radio" value="1" >Two Wheeler
-									      		<input type="checkbox" name="vehicle[]" class="member_optional_radio" value="2">Four Wheeler
+										    	<?php
+													$vehicle = $family_member_optional->vehicle;
+											    	$vehicle = explode("-", $vehicle);
+											    	$vehicle1 = '';
+											    	$vehicle2 = '';
+											    	if(in_array('1', $vehicle))
+											    	{
+											    		$vehicle1 = 'checked="checked"';
+											    	}
+											    	if(in_array('2', $vehicle))
+											    	{
+											    		$vehicle2 = 'checked="checked"';
+											    	}
+										    	?>
+									      		<input type="checkbox" name="vehicle[]" class="member_optional_radio" value="1" <?= $vehicle1; ?>>
+										      		Two Wheeler
+									      		<input type="checkbox" name="vehicle[]" class="member_optional_radio" value="2" <?= $vehicle2; ?>>
+										      		Four Wheeler
+
 										    </div>
 									    </div>
 

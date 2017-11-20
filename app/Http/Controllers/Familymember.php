@@ -270,25 +270,47 @@ class Familymember extends Controller
     {
         $date = date('Y-m-d H:i:s');
 
-        $user_id = $request->user_id;
-        $id = $request->id;
+        $member_id = $request->member_id;
         $f_member_user_id = $request->f_member_user_id;
-        $fname = $request->fname;
-        $lname = $request->lname;
-        $gender = $request->gender;
+
+        $name = $request->name;
+        $relation_to_head_member = $request->relation_to_head_member;
+        $gender = $request->m_gender;
+        $father_husband_name = $request->father_husband_name;
+        $whatsapp_mobile = $request->whatsapp_mobile;
         $email = $request->email;
-        $mobile = $request->mobile;
+        $phone = $request->phone;
+        $sampraday = $request->sampraday;
+        $cast = $request->cast;
+        $sub_cast = $request->sub_cast;
+        $gotra = $request->gotra;
+        $bunk = $request->bunk;
+        $origin_place = $request->origin_place;
         $dob = $request->dob;
-        $mang = $request->mang;
-        $bloodgroup = $request->bloodgroup;
         $married = $request->married;
         $marriage_date = $request->marriage_date;
-        $experience = $request->experience;
-        $ph = $request->ph;
-        $job_busi = $request->job_busi;
+        $life_partner_name = $request->life_partner_name;
+        $education = $request->education;
+        $special_qualification = $request->special_qualification;
+        $experience_field = $request->experience_field;
+        $occupation = $request->occupation;
+        $seva_nivrat = $request->seva_nivrat;
+        $occupation_address = $request->occupation_address;
+        $occupation_pincode = $request->occupation_pincode;
+        $occupation_district = $request->occupation_district;
+        $occupation_state = $request->occupation_state;
+        $residential_address = $request->residential_address;
+        $residential_pincode = $request->residential_pincode;
+        $residential_district = $request->residential_district;
+        $residential_state = $request->residential_state;
+        $social_hours = $request->social_hours;
+        $social_field = $request->social_field;
+        $social_hours_according = $request->social_hours_according;
+        $donate_hundred = $request->donate_hundred;
+        $bio = $request->bio;
 
          // If image is uploaded
-        if($request->hasFile('image'))
+        /*if($request->hasFile('image'))
         {
             $file = $request->file('image');
 
@@ -309,13 +331,13 @@ class Familymember extends Controller
         }
         else    // If image not uploaded then image name will be null
         {
-            $member = DB::table('user_family_details')->where('id', $id)->first();
+            $member = DB::table('user_family_details')->where('id', $member_id)->first();
 
             $member_image = $member->image;;
-        }
+        }*/
 
         # update data user table
-        $user = DB::table('users')->where('id', $user_id)->first();
+        $user = DB::table('users')->where('id', $f_member_user_id)->first();
 
        # Get password user table
         $user_password = $user->password;
@@ -323,43 +345,61 @@ class Familymember extends Controller
         # insert data user table
         $user_table = DB::table('users')->where('id', $f_member_user_id)->update(
             array(
-                    'name' => $fname,
-                    'family_head_id' => $user_id,
-                    'lastname' => $lname,
-                    'username' => $fname.$lname,
+                    'name' => $name,
+                    'username' => $email,
                     'email' => $email,
                     'password' => $user_password,
-                    'phone' => $mobile,
+                    'phone' => $phone,
                     'created_at' => $date,
                     'updated_at' => $date,
                     'status' => 0
             )
         );
 
-        $user_insert = DB::table('user_family_details')->where('id', $id)->update(
+        $member_update = DB::table('user_family_details')->where('id', $member_id)->update(
              array(
-                    'family_head_id' => $user_id,
-                    'fname' => $fname,
-                    'lname' => $lname,
+                    'name' => $name,
+                    'father_husband_name' => $father_husband_name,
+                    'relation_to_head_member' => $relation_to_head_member,
                     'email' => $email,
-                    'mobile' => $mobile,
-                    'gender' => $gender,
-                    'dob' => $dob,
-                    'blood_group' => $bloodgroup,
-                    'image' => $member_image,
-                    'manglik' => $mang,
+                    'whatsapp_mobile' => $whatsapp_mobile,
+                    'phone' => $phone,
+                    'sampraday' => $sampraday,
+                    'cast' => $cast,
+                    'sub_cast' => $sub_cast,
+                    'gotra' => $gotra,
+                    'bunk' => $bunk,
+                    'origin_place' => $origin_place,
                     'married' => $married,
                     'marriage_date' => $marriage_date,
-                    'experience' => $experience,
-                    'profession' => $job_busi,
-                    'ph_Divyangata' => $ph,
+                    'life_partner_name' => $life_partner_name,
+                    'education' => $education,
+                    'special_qualification' => $special_qualification,
+                    'experience_field' => $experience_field,
+                    'occupation' => $occupation,
+                    'seva_nivrat' => $seva_nivrat,
+                    'bio' => $bio,
+                    'gender' => $gender,
+                    'dob' => $dob,
+                    'residential_address' => $residential_address,
+                    'residential_pincode' => $residential_pincode,
+                    'residential_district' => $residential_district,
+                    'residential_state' => $residential_state,
+                    'occupation_address' => $occupation_address,
+                    'occupation_pincode' => $occupation_pincode,
+                    'occupation_district' => $occupation_district,
+                    'occupation_state' => $occupation_state,
+                    'social_hours' => $social_hours,
+                    'social_field' => $social_field,
+                    'social_hours_according' => $social_hours_according,
+                    'donate_hundred' => $donate_hundred,
                     'created_at' => $date,
                     'updated_at' => $date,
                     'status' => 1
              )
         );
 
-        if($user_insert)
+        if($member_update)
         {
             $status = 'Update member successfully.';
         }
@@ -374,8 +414,111 @@ class Familymember extends Controller
     }
 
     // Update User optional information
-    public function updateMemberOptionalInfo()
+    public function updateMemberOptionalInfo(Request $request)
     {
-        # code...
+        $date = date('Y-m-d H:i:s');
+
+        $member_optional_id = $request->member_optional_id;
+
+        $blood_group = $request->blood_group;
+        $blood_information = $request->blood_information;
+        $consumer_forum = $request->consumer_forum;
+        $club_member = $request->club_member;
+        $abc_club_member = $request->abc_club_member;
+        $project_community = $request->project_community;
+        $vaishya_panchayat = $request->vaishya_panchayat;
+        $donate_body_parts = $request->donate_body_parts;
+        $samaj_sanstha = $request->samaj_sanstha;
+        $samaj_patrika = $request->samaj_patrika;
+        $self_home = $request->self_home;
+
+        $vehicle = $request->vehicle;
+
+        if(!empty($vehicle))
+        {
+            $vehicle = implode("-", $vehicle);
+        }
+        else
+        {
+            $vehicle = '';
+        }
+
+        $pan_card = $request->pan_card;
+        $adhar_card = $request->adhar_card;
+
+        $agree = $request->agree;
+
+        if($agree == 'on')
+        {
+            $member_update = DB::table('user_family_optional_details')->where('id', $member_optional_id)->update(
+                array(
+                        'blood_group' => $blood_group,
+                        'blood_information' => $blood_information,
+                        'consumer_forum' => $consumer_forum,
+                        'club_member' => $club_member,
+                        'abc_club_member' => $abc_club_member,
+                        'project_community' => $project_community,
+                        'vaishya_panchayat' => $vaishya_panchayat,
+                        'donate_body_parts' => $donate_body_parts,
+                        'samaj_sanstha' => $samaj_sanstha,
+                        'samaj_patrika' => $samaj_patrika,
+                        'self_home' => $self_home,
+                        'vehicle' => $vehicle,
+                        'pan_card' => $pan_card,
+                        'adhar_card' => $adhar_card,
+                        'created_at' => $date,
+                        'updated_at' => $date,
+                        'status' => 1
+                 )
+            );
+        }
+
+        if($member_update)
+        {
+            $status = 'Update member optional information successfully.';
+        }
+        else
+        {
+            $status = 'Something went wrong !';
+        }
+
+        return redirect('profile')->with('update_member', $status);
+
+    }
+
+    // Delete family member
+    public function deletefamilymember(Request $request)
+    {
+        $date = date('Y-m-d H:i:s');
+
+        $id = $request->id;
+
+        // Get family member details
+        $member_details = DB::table('user_family_details')->where('id', $id)->first();
+
+        $member_user_id = $member_details->f_member_user_id;
+
+        //  Delete from 'users ' table
+        DB::table('users')->where('id', $member_user_id)->delete();
+
+        // Delete from 'user_family_details' table
+        $delete = DB::table('user_family_details')->where('id', $id)->delete();
+
+        /*$delete = DB::table('user_family_details')->where('id', $id)->update(
+            array(
+                    'status' => 0
+            )
+        );*/
+
+        if($delete)
+        {
+            $status = 'Delete member successfully.';
+        }
+        else
+        {
+            $status = 'Something went wrong !';
+        }
+
+        return redirect('profile')->with('delete_member', $status);
     }
 }

@@ -798,7 +798,7 @@
 												      	<td>{{$member->relation_to_head_member}}</td>
 												      	<td>
 												      		<a href="{{route('viewfamilymember', ['id' => $member->id])}}" class="btn btn-info btn-xs">view</a>
-												       		<a href="javascript:;" class="btn btn-danger btn-xs">delete</a>
+												       		<a href="{{route('deletefamilymember', ['id' => $member->id])}}" class="btn btn-danger btn-xs">delete</a>
 											       		</td>
 											     	 </tr>
 											     	 @endforeach
@@ -1258,7 +1258,7 @@
 													    <h4>17.<input type="checkbox" placeholder="Aadhar Card No." class="	" name="agree"> उपरोक्त सभी सूचना सही हैं व मैंने अपनी इच्छा से दी हैं |</h4>
 													</div>
 
-													<div class="col-md-12 update_member_optional text-right">
+													<div class="col-md-12 text-right">
 														<input type="submit" class="btn btn-success" name="add_member" id="add_member" value="Add Member">
 													</div>
 												</form>

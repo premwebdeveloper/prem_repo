@@ -354,7 +354,7 @@ class User extends Controller
     }
 
     // Delete family member
-    public function deletefamilymember(Request $request)
+    /*public function deletefamilymember(Request $request)
     {
         $date = date('Y-m-d H:i:s');
 
@@ -376,7 +376,7 @@ class User extends Controller
         }
 
         return redirect('profile')->with('delete_member', $status);
-    }
+    }*/
 
     // Change user password
     public function change_password_view()

@@ -65,11 +65,11 @@ Route::get('familymember', 'User@familymember')->name('familymember');
 
 Route::get('viewfamilymember{id}', 'Familymember@viewfamilymember')->name('viewfamilymember');
 
-Route::Post('updateMemberPersonalInfo', 'Familymember@updateMemberPersonalInfo')->name('updateMemberPersonalInfo');
+//Route::Post('updateMemberPersonalInfo', 'Familymember@updateMemberPersonalInfo')->name('updateMemberPersonalInfo');
 
 Route::Post('updateMemberOptionalInfo', 'Familymember@updateMemberOptionalInfo')->name('updateMemberOptionalInfo');
 
-Route::get('deletefamilymember{id}', 'User@deletefamilymember')->name('deletefamilymember');
+Route::get('deletefamilymember{id}', 'Familymember@deletefamilymember')->name('deletefamilymember');
 
 /**************************************************/
 // A user can access after login only these routes//
