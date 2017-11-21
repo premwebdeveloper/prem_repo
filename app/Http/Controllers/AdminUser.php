@@ -56,10 +56,13 @@ class AdminUser extends Controller
         // Get User Detail
         $userDetail = DB::table('user_details')->where('user_id', $id)->first();
 
+        // Get User Optional Detail
+        $userOptionalDetail = DB::table('user_optional_details')->where('user_id', $id)->first();
+
         // Get User's family members detail
         $userFamilyMembers = DB::table('user_family_details')->where('family_head_id', $id)->get();
 
-        return view('admin_user.user_profile', array('userDetail' => $userDetail, 'userFamilyMembers' => $userFamilyMembers));
+        return view('admin_user.user_profile', array('userDetail' => $userDetail, 'userOptionalDetail' => $userOptionalDetail, 'userFamilyMembers' => $userFamilyMembers));
     }
 
     // Family member view
