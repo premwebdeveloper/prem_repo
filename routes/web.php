@@ -101,6 +101,8 @@ Route::group(['middleware' => 'App\Http\Middleware\Admin'], function()
 
     Route::get('problems', 'problems@index')->name('problems');
 
+    Route::get('web_page_edit{id}', 'websitePages@edit_page')->name('web_page_edit');
+
 });
 
 /**************************************************/
