@@ -94,6 +94,13 @@ Route::group(['middleware' => 'App\Http\Middleware\Admin'], function()
 
     Route::get('familyMemberView{id}', 'AdminUser@familyMemberView')->name('familyMemberView');
 
+
+    Route::get('website_pages', 'websitePages@index')->name('website_pages');
+
+    Route::get('suggestions', 'suggestions@index')->name('suggestions');
+
+    Route::get('problems', 'problems@index')->name('problems');
+
 });
 
 /**************************************************/
