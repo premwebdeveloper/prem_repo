@@ -128,3 +128,58 @@ ALTER TABLE `family_member_marriagable_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
 
 ALTER TABLE `user_family_details` ADD `f_member_user_id` INT NULL COMMENT 'family member\'s user table auto increment id' AFTER `family_head_id`;
+
+
+-- ---------------------------CREATEED Table 'website_pages' ON 23-10-2017--------------------------
+CREATE TABLE `website_pages` (
+  `id` int(11) NOT NULL,
+  `page_title` varchar(255) NOT NULL,
+  `page_description` text NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `website_pages` (`id`, `page_title`, `page_description`, `created_at`, `updated_at`, `status`) VALUES
+(1, 'About Us', 'About Us', '2017-11-21 00:00:00', '2017-11-21 00:00:00', 1),
+(2, 'Aims And Objectives', 'Aims And Objectives', '2017-11-21 00:00:00', '2017-11-21 00:00:00', 1),
+(3, 'Help Our Body', 'Help Our Body', '2017-11-21 00:00:00', '2017-11-21 00:00:00', 1),
+(4, 'Join Us', 'Join Us', '2017-11-21 00:00:00', '2017-11-21 00:00:00', 1);
+
+ALTER TABLE `website_pages`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `website_pages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;COMMIT;
+
+-- ---------------------------CREATEED Table 'suggestions' ON 23-10-2017--------------------------
+CREATE TABLE `suggestions` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `mobile` varchar(15) NOT NULL,
+  `suggestion` text NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `suggestions`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `suggestions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+
+-- ---------------------------CREATEED Table 'problems' ON 23-10-2017--------------------------
+CREATE TABLE `problems` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `mobile` varchar(15) NOT NULL,
+  `problem` text NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `problems`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `problems`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;

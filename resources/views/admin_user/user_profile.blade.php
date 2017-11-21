@@ -94,6 +94,7 @@
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <th>Relation</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -104,6 +105,9 @@
                                             <td>{{ $member->email }}</td>
                                             <td>{{ $member->phone }}</td>
                                             <td>{{ $member->relation_to_head_member }}</td>
+                                            <td>
+                                                <a href="{{route('familyMemberView', ['id' => $member->f_member_user_id])}}" class="btn btn-info btn-xs">view</a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

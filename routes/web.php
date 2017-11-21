@@ -92,7 +92,8 @@ Route::group(['middleware' => 'App\Http\Middleware\Admin'], function()
     // User view by Admin
     Route::get('userView{id}', 'AdminUser@userView')->name('userView');
 
-    Route::get('user_profile', 'AdminUser@user_profile')->name('user_profile');
+    Route::get('familyMemberView{id}', 'AdminUser@familyMemberView')->name('familyMemberView');
+
 });
 
 /**************************************************/

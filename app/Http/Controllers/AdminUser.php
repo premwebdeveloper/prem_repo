@@ -51,8 +51,6 @@ class AdminUser extends Controller
     // User profile ( User details view )
     public function userView(Request $request)
     {
-        $date = date('Y-m-d H:i:s');
-
         $id = $request->id;
 
         // Get User Detail
@@ -62,5 +60,20 @@ class AdminUser extends Controller
         $userFamilyMembers = DB::table('user_family_details')->where('family_head_id', $id)->get();
 
         return view('admin_user.user_profile', array('userDetail' => $userDetail, 'userFamilyMembers' => $userFamilyMembers));
+    }
+
+    // Family member view
+    public function familyMemberView(Request $request)
+    {
+        $id = $request->id;
+
+        // Get User Detail
+        $memberView = DB::table('user_family_details')->where('f_member_user_id', $id)->first();
+
+        /*echo '<pre>';
+        print_r($memberView);
+        exit;*/
+
+        return view('admin_user.familyMemberView', array('memberView' => $memberView));
     }
 }
