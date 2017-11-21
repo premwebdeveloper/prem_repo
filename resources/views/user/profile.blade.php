@@ -752,7 +752,7 @@
 												    </div>
 
 											    	<div class="col-md-12 mb10px">
-													    <h4>17.<input type="checkbox" placeholder="Aadhar Card No." class="radio" name="agree"> उपरोक्त सभी सूचना सही हैं व मैंने अपनी इच्छा से दी हैं |</h4>
+													    <h4>17.<input type="checkbox" placeholder="Aadhar Card No." class="radio" name="agree" required=""> उपरोक्त सभी सूचना सही हैं व मैंने अपनी इच्छा से दी हैं |</h4>
 
 														<div class="col-md-12 update_optional_info text-right" style="display:none;">
 															<input type="submit" class="btn btn-success" name="update_optional_info" id="update_optional_info" value="update optional info">
@@ -1255,7 +1255,7 @@
 												    </div>
 
 											    	<div class="col-md-12 mb10px">
-													    <h4>17.<input type="checkbox" placeholder="Aadhar Card No." class="	" name="agree"> उपरोक्त सभी सूचना सही हैं व मैंने अपनी इच्छा से दी हैं |</h4>
+													    <h4>17.<input type="checkbox" placeholder="Aadhar Card No." class="	" name="agree" required=""> उपरोक्त सभी सूचना सही हैं व मैंने अपनी इच्छा से दी हैं |</h4>
 													</div>
 
 													<div class="col-md-12 text-right">

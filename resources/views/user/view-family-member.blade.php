@@ -362,7 +362,7 @@
 
 									{{ csrf_field() }}
 
-									<input type="hidden" name="member_optional_id" value="{{ $family_member_optional->id }}">>
+									<input type="hidden" name="member_optional_id" value="{{ $family_member_optional->id }}">
 
 									<div class="row">
 							    		<div class="col-md-6">
@@ -601,7 +601,7 @@
 									    </div>
 
 								    	<div class="col-md-12 mb10px">
-										    <h4>17.<input type="checkbox" placeholder="Aadhar Card No." class="member_optional_radio" name="agree"> उपरोक्त सभी सूचना सही हैं व मैंने अपनी इच्छा से दी हैं |</h4>
+										    <h4>17.<input type="checkbox" placeholder="Aadhar Card No." class="member_optional_radio" name="agree" required=""> उपरोक्त सभी सूचना सही हैं व मैंने अपनी इच्छा से दी हैं |</h4>
 										</div>
 
 										<div class="col-md-12 update_member_optional text-right">
