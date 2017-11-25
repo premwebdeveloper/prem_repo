@@ -65,8 +65,6 @@ Route::get('familymember', 'User@familymember')->name('familymember');
 
 Route::get('viewfamilymember{id}', 'Familymember@viewfamilymember')->name('viewfamilymember');
 
-//Route::Post('updateMemberPersonalInfo', 'Familymember@updateMemberPersonalInfo')->name('updateMemberPersonalInfo');
-
 Route::Post('updateMemberOptionalInfo', 'Familymember@updateMemberOptionalInfo')->name('updateMemberOptionalInfo');
 
 Route::get('deletefamilymember{id}', 'Familymember@deletefamilymember')->name('deletefamilymember');
@@ -101,8 +99,9 @@ Route::group(['middleware' => 'App\Http\Middleware\Admin'], function()
 
     Route::get('problems', 'problems@index')->name('problems');
 
-    Route::get('web_page_edit{id}', 'websitePages@edit_page')->name('web_page_edit');
+    Route::get('search_users', 'SearchUsers@index')->name('search_users');
 
+    Route::get('web_page_edit{id}', 'websitePages@edit_page')->name('web_page_edit');
 });
 
 /**************************************************/
