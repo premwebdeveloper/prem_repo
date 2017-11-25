@@ -101,7 +101,7 @@
                                                     <td><b> Education </b></td><td> {{$userDetail->education}} </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><b> NamSpecial Qualificatione </b></td><td> {{$userDetail->special_qualification}} </td>
+                                                    <td><b> Special Qualification </b></td><td> {{$userDetail->special_qualification}} </td>
                                                     <td><b> Experience </b></td><td> {{$userDetail->experience_field}} </td>
                                                 </tr>
                                                 <tr>

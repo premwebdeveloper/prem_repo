@@ -50,6 +50,9 @@
             <li>
                 <a href="{{ route('problems') }}"><i class="fa fa-database"></i> <span class="nav-label">Problems</span></a>
             </li>
+            <li>
+                <a href="{{ route('search_users') }}"><i class="fa fa-database"></i> <span class="nav-label">Search Users</span></a>
+            </li>
 
         </ul>
     </div>

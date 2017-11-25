@@ -70,13 +70,17 @@ class AdminUser extends Controller
     {
         $id = $request->id;
 
-        // Get User Detail
+        // Get Member Detail
         $memberView = DB::table('user_family_details')->where('f_member_user_id', $id)->first();
+
+        // Get member optional details
+        $memberOptionalView = DB::table('user_family_optional_details')->where('f_member_user_id', $id)->first();
 
         /*echo '<pre>';
         print_r($memberView);
+        print_r($memberOptionalView);
         exit;*/
 
-        return view('admin_user.familyMemberView', array('memberView' => $memberView));
+        return view('admin_user.familyMemberView', array('memberView' => $memberView, 'memberOptionalView' => $memberOptionalView));
     }
 }

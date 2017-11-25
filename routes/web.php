@@ -92,14 +92,17 @@ Route::group(['middleware' => 'App\Http\Middleware\Admin'], function()
 
     Route::get('familyMemberView{id}', 'AdminUser@familyMemberView')->name('familyMemberView');
 
-
     Route::get('website_pages', 'websitePages@index')->name('website_pages');
 
     Route::get('suggestions', 'suggestions@index')->name('suggestions');
 
     Route::get('problems', 'problems@index')->name('problems');
 
+    // Search users form view
     Route::get('search_users', 'SearchUsers@index')->name('search_users');
+
+    // Search users
+    Route::post('searchUsers', 'SearchUsers@searchUsers')->name('searchUsers');
 
     Route::get('web_page_edit{id}', 'websitePages@edit_page')->name('web_page_edit');
 });
