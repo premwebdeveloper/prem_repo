@@ -8,12 +8,8 @@ use DB;
 
 class AjaxController extends Controller
 {
+
     public function index(Request $request){
-
-
-        /*$data = $request->all(); // This will get all the request data.
-
-        dd($data);*/ // This will dump and die
 
         $email = $request->email;
 
@@ -29,4 +25,11 @@ class AjaxController extends Controller
                 "head_email" => $head_email
             ]);
    }
+
+    // Get district bu states
+    public function getDistrictByState()
+    {
+       echo 'prem saini';
+       exit;
+    }
 }

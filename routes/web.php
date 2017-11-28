@@ -105,6 +105,8 @@ Route::group(['middleware' => 'App\Http\Middleware\Admin'], function()
     Route::post('searchUsers', 'SearchUsers@searchUsers')->name('searchUsers');
 
     Route::get('web_page_edit{id}', 'websitePages@edit_page')->name('web_page_edit');
+
+    Route::post('/getDistrictByState','AjaxController@getDistrictByState');
 });
 
 /**************************************************/

@@ -43,7 +43,7 @@
 			</a>
 		</div>
 
-		
+
 		<div class="newskannada-video">
 			<a href="javascript:;"><i class="fa fa-instagram"></i></a>
 			<a href="javascript:;"><i class="fa fa-twitter"></i></a>
@@ -75,7 +75,7 @@
 			</div>
 			<div class="col-md-1 hidetext">
 				<img src="{{asset('resources/frontend_assets/img/Gandhi.png')}}" class="img-responsive" alt="News">
-			</div>			
+			</div>
 			<div class="col-md-1 hidetext">
 				<img src="{{asset('resources/frontend_assets/img/e7487b.png')}}" class="img-responsive" alt="News" style="height: 110px;">
 			</div>

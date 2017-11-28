@@ -50,11 +50,11 @@ class Familymember extends Controller
             return redirect('profile')->with('member_email_exist', $member_email_exist);
         }
 
-        if(!empty($is_mobile_available))
+        /*if(!empty($is_mobile_available))
         {
             $member_mobile_exist = 'This mobile no. is already exist.';
             return redirect('profile')->with('member_email_exist', $member_mobile_exist);
-        }
+        }*/
 
         $date = date('Y-m-d H:i:s');
 
