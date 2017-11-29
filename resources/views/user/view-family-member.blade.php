@@ -37,7 +37,7 @@
 
 					    		<hr>
 
-								<form class="form-inline" action="{{ route('updateMemberPersonalInfo') }}" method="post">
+								<form class="form-inline" action="{{ route('updateMemberPersonalInfo') }}" method="post" enctype="multipart/form-data">
 
 									{{ csrf_field() }}
 
@@ -82,9 +82,10 @@
 										    </div>
 									    </div>
 
-	    								<div class="col-md-2">
-					                    	<img alt="image" class="img-responsive mt10" src="resources/uploads/profile_images/{{$user->image}}" style="width: 140px;height: 150px;margin-left: 10px;">
-					                    	<p class="text-center">परिवार के मुखिया </p>
+	    								<div class="col-md-4">
+					                    	<img alt="image" class="img-responsive mt10" src="resources/uploads/profile_images/{{$viewfamily->image}}" style="width: 140px;height: 115px;margin-left: 10px;">
+					                    	<p>&nbsp;</p>
+					                    	<input type="file" name="image" class="form-control personal_info member_radio">
 										</div>
 
 										<div class="col-md-4">

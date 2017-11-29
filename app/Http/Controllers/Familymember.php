@@ -13,7 +13,8 @@ class Familymember extends Controller
     public function add_member(Request $request)
     {
         // If image is uploaded
-        /*if($request->hasFile('image'))
+        $filename = '';
+        if($request->hasFile('image'))
         {
             $file = $request->file('image');
 
@@ -29,13 +30,7 @@ class Familymember extends Controller
 
             $destinationPath = config('app.fileDestinationPath').'/'.$filename;
             $uploaded = Storage::put($destinationPath, file_get_contents($file->getRealPath()));
-
-            $member_image = $filename;
         }
-        else    // If image not uploaded then image name will be null
-        {
-            $member_image = null;
-        }*/
 
         $email = $request->email;
         $phone = $request->phone;
@@ -171,7 +166,7 @@ class Familymember extends Controller
                     'experience_field' => $experience_field,
                     'occupation' => $occupation,
                     'seva_nivrat' => $seva_nivrat,
-                    //'image' => $image,
+                    'image' => $filename,
                     'bio' => $bio,
                     'gender' => $gender,
                     'dob' => $dob,
@@ -272,6 +267,26 @@ class Familymember extends Controller
 
         $member_id = $request->member_id;
         $f_member_user_id = $request->f_member_user_id;
+
+        $memberData = DB::table('user_family_details')->where('f_member_user_id', $f_member_user_id)->first();
+        $filename = $memberData->image;
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+
+            $filename = $request->image->getClientOriginalName();
+
+            $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+            $filename = substr(md5(microtime()),rand(0,26),6);
+
+            $filename .= '.'.$ext;
+
+            $filesize = $request->image->getClientSize();
+
+            $destinationPath = config('app.fileDestinationPath').'/'.$filename;
+            $uploaded = Storage::put($destinationPath, file_get_contents($file->getRealPath()));
+        }
 
         $name = $request->name;
         $relation_to_head_member = $request->relation_to_head_member;
@@ -378,6 +393,7 @@ class Familymember extends Controller
                     'experience_field' => $experience_field,
                     'occupation' => $occupation,
                     'seva_nivrat' => $seva_nivrat,
+                    'image' => $filename,
                     'bio' => $bio,
                     'gender' => $gender,
                     'dob' => $dob,
