@@ -73,7 +73,7 @@
 										    		</div>
 									    		</div>
 
-									    	<form class="form-inline" action="{{ route('updatePersonalInfo') }}" method="post">
+									    	<form class="form-inline" action="{{ route('updatePersonalInfo') }}" method="post" enctype="multipart/form-data">
 
 												{{ csrf_field() }}
 
