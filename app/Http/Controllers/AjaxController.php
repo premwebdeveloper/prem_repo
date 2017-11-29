@@ -34,13 +34,6 @@ class AjaxController extends Controller
         // Get all districts of this state
         $cities = DB::table('cities')->where('state_id', $state)->get();
 
-        /*$html = '';
-        foreach($cities as $city)
-        {
-            $html .= '<option value="'.$city->id.'">'.$city->name.'</option>';
-        }*/
-
         return response()->json($cities);
-
     }
 }
