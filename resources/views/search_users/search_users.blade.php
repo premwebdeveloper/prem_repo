@@ -102,30 +102,35 @@
                 	$(document).on("change", "#state", function(){
                 		var state = $('#state').val();
 
-	                    $.ajax({
-	                        url : 'getDistrictByState',
-	                        type:'POST',
-	                        dataType: 'json',
-	                        headers: {
-	                            'X-CSRF-TOKEN': _token,
-	                        },
-	                        data:{state: state},
-	                        success:function(response){
+                		if(state == '')
+                		{
+                			$("#district").html('');
+                			$("#district").html('<option value="">Select District</option>');
+                			$("#district").attr('disabled', 'disabled');
+                		}
+                		else
+                		{
+                			$.ajax({
+							    method: 'post',
+							    url: 'getDistrictByState',
+							    data: {"_token": "{{ csrf_token() }}", 'state' : state},
+							    async: true,
+							    success: function(response){
+							        var cities = '';
+							        $.each(response, function(i, item) {
+									    cities += '<option value="'+item.id+'">'+item.name+'</option>';
+									})
 
-	                        	console.log(response);
-	                            // Access the JSON response //
-	                            /*var head_email = response.head_email;
-	                            var temp = head_email.split('@');
-	                            var email_first = temp[0];
-	                            var email_second = temp[1];
+									$("#district").html('');
+									$("#district").html(cities);
+									$("#district").removeAttr('disabled');
+							    },
+							    error: function(data){
+							        console.log(data);
+							    },
+							});
+                		}
 
-	                            var email_start_chars = email_first.substr(0,4);
-
-	                            var display_email = email_start_chars+'******@'+email_second;
-
-	                            $('#head_email').text('This email is already registered with '+display_email);*/
-	                        }
-	                    });
                 	});
                 });
             </script>

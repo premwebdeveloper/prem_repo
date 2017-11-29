@@ -27,9 +27,20 @@ class AjaxController extends Controller
    }
 
     // Get district bu states
-    public function getDistrictByState()
+    public function getDistrictByState(Request $request)
     {
-       echo 'prem saini';
-       exit;
+        $state = $request->state;
+
+        // Get all districts of this state
+        $cities = DB::table('cities')->where('state_id', $state)->get();
+
+        /*$html = '';
+        foreach($cities as $city)
+        {
+            $html .= '<option value="'.$city->id.'">'.$city->name.'</option>';
+        }*/
+
+        return response()->json($cities);
+
     }
 }
