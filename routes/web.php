@@ -43,6 +43,8 @@ Route::get('sendEmail', 'EmailController@sendEmail');
 
 Route::get('change_password', 'User@change_password_view');
 
+Route::post('getDistrictByStateForUser', 'User@getDistrictByStateForUser')->name('getDistrictByStateForUser');
+
 Route::post('updatePersonalInfo', 'Familyhead@updatePersonalInfo')->name('updatePersonalInfo');
 
 Route::post('updateOptionalInfo', 'Familyhead@updateOptionalInfo')->name('updateOptionalInfo');

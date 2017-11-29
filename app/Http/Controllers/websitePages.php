@@ -46,6 +46,7 @@ class websitePages extends Controller
         {
             $status = 'Something went wrong !';
         }
-        return redirect('index')->with('update_web_page', $status);
+        $web_pages = DB::table('website_pages')->where('status',1)->get();
+        return view('website_pages.index', array('web_pages' => $web_pages));
     }
 }

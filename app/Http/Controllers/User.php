@@ -27,6 +27,12 @@ class User extends Controller
         # Get User role
         $user = DB::table('user_details')->where('user_id', $currentuserid)->first();
 
+        $state_id = $user->residential_state;
+        $city_id = $user->residential_district;
+
+        $state_details = DB::table('states')->where('id', $state_id)->first();
+        $city_details = DB::table('cities')->where('id', $city_id)->first();
+
         # Get User Religion
         $user_optional_details = DB::table('user_optional_details')->where('user_id', $currentuserid)->first();
 
@@ -36,7 +42,10 @@ class User extends Controller
         #Get Family Member
         $familyOptionalDetails = DB::table('user_family_optional_details')->where('family_head_id', $currentuserid)->where('status', 1)->get();
 
-        return view('user.profile', array('user' => $user, 'user_optional_details'=> $user_optional_details, 'familymember'=> $familymember, 'familyOptionalDetails'=> $familyOptionalDetails));
+        #Get States
+        $states = DB::table('states')->where(['country_id' => 101])->get();
+
+        return view('user.profile', array('user' => $user, 'user_optional_details'=> $user_optional_details, 'familymember'=> $familymember, 'familyOptionalDetails'=> $familyOptionalDetails, 'states'=> $states, 'state_details'=> $state_details, 'city_details'=> $city_details));
     }
 
     #family member view
@@ -416,6 +425,16 @@ class User extends Controller
         }
 
         return redirect('change_password')->with('status', $status);
+    }
+
+    public function getDistrictByStateForUser(Request $request)
+    {
+        $state = $request->state;
+
+        // Get all districts of this state
+        $cities = DB::table('cities')->where('state_id', $state)->get();
+
+        return response()->json($cities);
     }
 
 }
