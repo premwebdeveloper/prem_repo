@@ -106,7 +106,13 @@ Route::group(['middleware' => 'App\Http\Middleware\Admin'], function()
 
     Route::get('web_page_edit{id}', 'websitePages@edit_page')->name('web_page_edit');
 
+
+    Route::post('web_page_update', 'websitePages@update_page')->name('web_page_update');
+
+
     Route::post('/getDistrictByState','AjaxController@getDistrictByState');
+
+
 });
 
 /**************************************************/

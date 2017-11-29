@@ -46,7 +46,11 @@
 
                   	<div class="ibox-content">
 
-                        <form method="post" class="form-horizontal" enctype="multipart/form-data">
+                        <form action="{{ route('web_page_update') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+                            
+                            {{ csrf_field() }}
+
+                            <input type="hidden" value="{{ $edit_web_page->id }}" name="id">
 
                             <div class="form-group">
 
@@ -66,7 +70,7 @@
 
 								<div class="col-sm-10">
 
-									<textarea placeholder="description" class="form-control summernote" name="Aneg">{{ $edit_web_page->page_description }}</textarea>
+									<textarea placeholder="description" class="form-control summernote" name="content">{{ $edit_web_page->page_description }}</textarea>
                                  
 
 								</div>

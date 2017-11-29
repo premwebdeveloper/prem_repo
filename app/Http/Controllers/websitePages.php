@@ -24,4 +24,28 @@ class websitePages extends Controller
     	return view('website_pages.edit', array('edit_web_page' => $edit_web_page));
     	
     }
+
+    public function update_page(Request $request)
+    {
+        $id = $request->id;
+        $content = $request->content;
+
+        $web_page_update = DB::table('website_pages')->where('id', $id)->update(
+
+            array(
+
+                'page_description' => $content
+            )
+        );
+
+        if($web_page_update)
+        {
+            $status = "successfully Update.";
+        }
+        else
+        {
+            $status = 'Something went wrong !';
+        }
+        return redirect('index')->with('update_web_page', $status);
+    }
 }
