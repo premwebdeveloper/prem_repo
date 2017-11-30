@@ -117,7 +117,7 @@
 							    async: true,
 							    success: function(response){
 
-							        var cities = '';
+							        var cities = '<option value="">Select District</option>';
 
 							        $.each(response, function(i, item) {
 									    cities += '<option value="'+item.id+'">'+item.name+'</option>';

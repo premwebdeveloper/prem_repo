@@ -20,7 +20,13 @@ Route::get('home', 'HomeController@index')->name('home');
 Route::get('aboutus', 'HomeController@aboutus')->name('aboutus');
 Route::get('aims', 'HomeController@aims')->name('aims');
 Route::get('member', 'HomeController@member')->name('member');
+
 Route::get('suggestion', 'HomeController@suggestion')->name('suggestion');
+
+Route::post('addSuggestion', 'HomeController@addSuggestion')->name('addSuggestion');
+
+Route::post('addProblem', 'HomeController@addProblem')->name('addProblem');
+
 Route::get('problem', 'HomeController@problem')->name('problem');
 
 // If email already exist in users table then show error with their parent email
@@ -33,7 +39,9 @@ Route::post('/get_exist_user_details','AjaxController@index');
 Auth::routes();
 
 Route::get('verifyEmailFirst', 'Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
+
 Route::get('verify/{email}/{verifyToken}', 'Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
+
 Route::get('sendEmail', 'EmailController@sendEmail');
 
 
@@ -108,9 +116,11 @@ Route::group(['middleware' => 'App\Http\Middleware\Admin'], function()
 
     Route::get('web_page_edit{id}', 'websitePages@edit_page')->name('web_page_edit');
 
-
     Route::post('web_page_update', 'websitePages@update_page')->name('web_page_update');
 
+    Route::post('suggestions', 'suggestions@suggestions')->name('suggestions');
+
+    Route::post('problems', 'problems@problems')->name('problems');
 
     Route::post('/getDistrictByState','AjaxController@getDistrictByState')->name('getDistrictByState');
 

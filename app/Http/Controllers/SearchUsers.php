@@ -116,7 +116,7 @@ class SearchUsers extends Controller
                 }
             }
         }
-        elseif(!is_null($state) && !is_null($district) && is_null($blood_group) && !is_null($search_by)) // state, district & search by
+        elseif(!is_null($state) && !is_null($district) && is_null($blood_group) && !is_null($search_by)) // state, district &search by
         {
             if($search_by == 1)
             {
@@ -463,7 +463,7 @@ class SearchUsers extends Controller
             $head_users = DB::table('user_details as ud')
                     ->join('user_optional_details as uod', 'ud.user_id', '=', 'uod.user_id')
                     ->where([
-                                ['ufd.residential_state', '=', $state],
+                                ['ud.residential_state', '=', $state],
                                 ['uod.blood_group', '=', $blood_group],
                              ])
                     ->select('ud.*', 'uod.blood_group')
