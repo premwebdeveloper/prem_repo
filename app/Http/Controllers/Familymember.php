@@ -254,10 +254,19 @@ class Familymember extends Controller
         $view_family_member = DB::table('user_family_details')->where('id', $id)->first();
 
         $f_member_user_id = $view_family_member->f_member_user_id;
+        #Get Satet
+        $state_id = $view_family_member->residential_state;
+        $city_id = $view_family_member->residential_district;
+
+        $state_details = DB::table('states')->where('id', $state_id)->first();
+        $city_details = DB::table('cities')->where('id', $city_id)->first();
 
         $family_member_optional = DB::table('user_family_optional_details')->where('f_member_user_id', $f_member_user_id)->first();
 
-        return view('user.view-family-member', array('user' => $user, 'viewfamily' => $view_family_member, 'family_member_optional' => $family_member_optional, 'familymember' => $familymember));
+        #Get States
+        $states = DB::table('states')->where(['country_id' => 101])->get();
+
+        return view('user.view-family-member', array('user' => $user, 'viewfamily' => $view_family_member, 'family_member_optional' => $family_member_optional, 'familymember' => $familymember, 'states'=> $states, 'state_details'=> $state_details, 'city_details'=> $city_details));
     }
 
     // Update family member

@@ -274,24 +274,43 @@
 							      			<textarea class="form-control member_profile" rows="1" placeholder="निवास का पता" name="residential_address" id="residential_address" readonly> {{ $viewfamily->residential_address }}</textarea>
 										    </div>
 
+			    	                        <div class="col-lg-4">
+					                            <div class="form-group">
+					                                <h4>State</h4>
+					                                <select id="state" name="residential_state" class="form-control required personal_info" >
+					                                	@if(!empty($state_details->id))
+					                                		<option value="{{$state_details->id}}">{{$state_details->name}}</option>
+			                                		  		<option value="">Select State</option>
+						                                	@foreach($states as $state)
+						                                		<option value="{{ $state->id }}">{{ $state->name }}</option>
+						                                	@endforeach
+					                                	@else
+					                                		<option value="">Select State</option>
+					                                	@foreach($states as $state)
+					                                		<option value="{{ $state->id }}">{{ $state->name }}</option>
+					                                	@endforeach
+					                                	@endif
+					                                </select>
+					                            </div>
+					                        </div>
+					                        
+                	                        <div class="col-lg-4">
+					                            <div class="form-group">
+					                                <h4>District</h4>
+					                                <select id="district" name="residential_district" class="form-control required" disabled="disabled">
+					                                	@if(!empty($city_details->id))
+					                                	<option value="{{$city_details->id}}">{{$city_details->name}}</option>
+					                                	@else
+					                                	<option value="">Select District</option>
+					                                	@endif
+					                                </select>
+					                            </div>
+					                        </div>
+
 											<div class="col-md-4">
 										    	<h4>पिन कोड</h4>
 										    	<div class="form-group">
 											      <input type="text" class="form-control member_profile" placeholder="पिन कोड" name="residential_pincode" id="residential_pincode" readonly value="{{ $viewfamily->residential_pincode }}">
-											    </div>
-										    </div>
-
-											<div class="col-md-4">
-										    	<h4>जिला</h4>
-										    	<div class="form-group">
-											      <input type="text" class="form-control member_profile" placeholder="जिला" name="residential_district" id="residential_district" readonly value="{{ $viewfamily->residential_district }}">
-											    </div>
-										    </div>
-
-											<div class="col-md-4">
-											    <h4>राज्य</h4>
-										    	<div class="form-group">
-											      <input type="text" class="form-control member_profile" placeholder="राज्य" name="residential_state" id="residential_state" readonly value="{{ $viewfamily->residential_state }}">
 											    </div>
 										    </div>
 									    </div>
@@ -620,5 +639,59 @@
         </div>
     </div>
 </div>
+<script>
+$(document).ready(function(){
+    $(".nav-tabs a").click(function(){
+        $(this).tab('show');
+    });
+    $(".show_family_members").on('click', function(){
+    	/*$("#family").css({
+    		'display':'block'
+    	});
+    	$("#add_member_form_div").css({
+    		'display':'none'
+    	});*/
+    });
+});
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+    	$(document).on("change", "#state", function(){
+    		var state = $('#state').val();
 
+    		if(state == '')
+    		{
+    			$("#district").html('');
+    			$("#district").html('<option value="">Select District</option>');
+    			$("#district").attr('disabled', 'disabled');
+    		}
+    		else
+    		{
+    			$.ajax({
+				    method: 'post',
+				    url: 'getDistrictByStateForUser',
+				    data: {"_token": "{{ csrf_token() }}", 'state' : state},
+				    async: true,
+				    success: function(response){
+
+				    	console.log(response);
+
+				        var cities = '';
+				        $.each(response, function(i, item) {
+						    cities += '<option value="'+item.id+'">'+item.name+'</option>';
+						})
+
+						$("#district").html('');
+						$("#district").html(cities);
+						$("#district").removeAttr('disabled');
+				    },
+				    error: function(data){
+				        console.log(data);
+				    },
+				});
+    		}
+
+    	});
+    });
+</script>
 @endsection

@@ -1082,26 +1082,31 @@
 												    	<div class="form-group">
 										      			<textarea class="form-control" rows="1" placeholder="निवास का पता" name="residential_address" id="residential_address"></textarea>
 													    </div>
+
 						    	                        <div class="col-lg-4">
 								                            <div class="form-group">
 								                                <h4>State</h4>
-								                                <select id="state" name="residential_state" class="form-control required">
-
+								                                <select id="state1" name="residential_state" class="form-control required personal_info" >
+								         
 								                                	<option value="">Select State</option>
 								                                	@foreach($states as $state)
 								                                		<option value="{{ $state->id }}">{{ $state->name }}</option>
 								                                	@endforeach
+								                                	
 								                                </select>
 								                            </div>
 								                        </div>
 	                        	                        <div class="col-lg-4">
 								                            <div class="form-group">
 								                                <h4>District</h4>
-								                                <select id="district" name="residential_district" class="form-control required" disabled="disabled">
+								                                <select id="district1" name="residential_district" class="form-control required" disabled="disabled">
+								                           
 								                                	<option value="">Select District</option>
+								                                	
 								                                </select>
 								                            </div>
 								                        </div>
+
 														<div class="col-md-4">
 													    	<h4>पिन कोड</h4>
 													    	<div class="form-group">
@@ -1350,6 +1355,46 @@ $(document).ready(function(){
 						$("#district").html('');
 						$("#district").html(cities);
 						$("#district").removeAttr('disabled');
+				    },
+				    error: function(data){
+				        console.log(data);
+				    },
+				});
+    		}
+
+    	});
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+    	$(document).on("change", "#state1", function(){
+    		var state = $('#state1').val();
+
+    		if(state == '')
+    		{
+    			$("#district1").html('');
+    			$("#district1").html('<option value="">Select District</option>');
+    			$("#district1").attr('disabled', 'disabled');
+    		}
+    		else
+    		{
+    			$.ajax({
+				    method: 'post',
+				    url: 'getDistrictByStateForUser',
+				    data: {"_token": "{{ csrf_token() }}", 'state' : state},
+				    async: true,
+				    success: function(response){
+
+				    	console.log(response);
+
+				        var cities = '';
+				        $.each(response, function(i, item) {
+						    cities += '<option value="'+item.id+'">'+item.name+'</option>';
+						})
+
+						$("#district1").html('');
+						$("#district1").html(cities);
+						$("#district1").removeAttr('disabled');
 				    },
 				    error: function(data){
 				        console.log(data);
