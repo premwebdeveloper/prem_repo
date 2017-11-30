@@ -33,20 +33,19 @@
 		                                <th>Name</th>
 		                                <th>Email</th>
 		                                <th>Mobile</th>
-		                                <th>Address</th>
-		                                <th>Cast</th>
-		                                <th>Action</th>
+		                                <th>Problems</th>
 		                            </tr>
 		                        </thead>
 		                        <tbody>
 
+		                        	@foreach($problems as $problem)
 									<tr class="gradeX">
-										<td>jk</td>
-										<td>jk</td>
-										<td>hj</td>
-										<td>hj</td>
-										<td>hj</td>
+										<td>{{$problem->name}}</td>
+										<td>{{$problem->email}}</td>
+										<td>{{$problem->mobile}}</td>
+										<td>{{$problem->problem}}</td>
 									</tr>
+									@endforeach
 
 		                        </tbody>
 		                    </table>

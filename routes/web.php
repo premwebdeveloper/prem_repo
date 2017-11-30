@@ -104,9 +104,9 @@ Route::group(['middleware' => 'App\Http\Middleware\Admin'], function()
 
     Route::get('website_pages', 'websitePages@index')->name('website_pages');
 
-    Route::get('suggestions', 'suggestions@index')->name('suggestions');
+   // Route::get('suggestions', 'suggestions@index')->name('suggestions');
 
-    Route::get('problems', 'problems@index')->name('problems');
+    //Route::get('problems', 'problems@index')->name('problems');
 
     // Search users form view
     Route::get('search_users', 'SearchUsers@index')->name('search_users');
@@ -118,9 +118,9 @@ Route::group(['middleware' => 'App\Http\Middleware\Admin'], function()
 
     Route::post('web_page_update', 'websitePages@update_page')->name('web_page_update');
 
-    Route::post('suggestions', 'suggestions@suggestions')->name('suggestions');
+    Route::get('suggestions', 'suggestions@suggestions')->name('suggestions');
 
-    Route::post('problems', 'problems@problems')->name('problems');
+    Route::get('problems', 'problems@problems')->name('problems');
 
     Route::post('/getDistrictByState','AjaxController@getDistrictByState')->name('getDistrictByState');
 

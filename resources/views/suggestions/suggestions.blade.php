@@ -27,27 +27,24 @@
 				<div class="ibox">
 		            <div class="ibox-content">
 						<div class="table-responsive">
-		                    <table class="table table-striped table-bordered table-hover dataTables-example" >
+		                    <table class="table table-striped table-bordered table-hover dataTables-example">
 		                        <thead>
 		                            <tr>
 		                                <th>Name</th>
 		                                <th>Email</th>
 		                                <th>Mobile</th>
-		                                <th>Address</th>
-		                                <th>Cast</th>
-		                                <th>Action</th>
+		                                <th>Suggestion</th>
 		                            </tr>
 		                        </thead>
 		                        <tbody>
-
+		                        	@foreach($suggestions as $sugges)
 									<tr class="gradeX">
-										<td>jk</td>
-										<td>jk</td>
-										<td>hj</td>
-										<td>hj</td>
-										<td>hj</td>
+										<td>{{$sugges->name}}</td>
+										<td>{{$sugges->email}}</td>
+										<td>{{$sugges->mobile}}</td>
+										<td>{{$sugges->suggestion}}</td>
 									</tr>
-
+									@endforeach
 		                        </tbody>
 		                    </table>
 		                </div>
