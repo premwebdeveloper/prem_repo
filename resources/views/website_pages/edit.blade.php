@@ -73,7 +73,7 @@
 
 								<div class="col-sm-10">
 
-									<textarea placeholder="description" class="form-control summernote" name="content">{{ $edit_web_page->page_description }}</textarea>
+									<textarea placeholder="description" class="form-control" name="content">{{ $edit_web_page->page_description }}</textarea>
 
 
 								</div>
