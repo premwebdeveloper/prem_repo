@@ -35,7 +35,7 @@
                 </div>
                 <div>
                     <div class="ibox-content no-padding border-left-right">
-                        <img alt="image" class="img-responsive" src="resources/assets/img/profile_big.jpg">
+                        <img alt="image" class="img-responsive" src="resources/uploads/profile_images/{{$memberView->image}}">
                     </div>
                     <div class="ibox-content profile-content">
                         <h4><strong>{{$memberView->name}}</strong></h4>
