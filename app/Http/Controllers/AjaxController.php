@@ -34,10 +34,6 @@ class AjaxController extends Controller
         // Get all districts of this state
         $cities = DB::table('cities')->where('state_id', $state)->get();
 
-        echo '<pre>';
-        print_r($cities);
-        exit;
-
         return response()->json($cities);
     }
 }

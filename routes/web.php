@@ -112,7 +112,7 @@ Route::group(['middleware' => 'App\Http\Middleware\Admin'], function()
     Route::post('web_page_update', 'websitePages@update_page')->name('web_page_update');
 
 
-    Route::post('/getDistrictByState','AjaxController@getDistrictByState');
+    Route::post('/getDistrictByState','AjaxController@getDistrictByState')->name('getDistrictByState');
 
 
 });

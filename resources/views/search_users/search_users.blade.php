@@ -110,16 +110,18 @@
                 		}
                 		else
                 		{
-                			$.ajax({
+                			$.getJSON({
 							    method: 'post',
 							    url: 'getDistrictByState',
 							    data: {"_token": "{{ csrf_token() }}", 'state' : state},
 							    async: true,
 							    success: function(response){
+
 							        var cities = '';
+
 							        $.each(response, function(i, item) {
 									    cities += '<option value="'+item.id+'">'+item.name+'</option>';
-									})
+									});
 
 									$("#district").html('');
 									$("#district").html(cities);

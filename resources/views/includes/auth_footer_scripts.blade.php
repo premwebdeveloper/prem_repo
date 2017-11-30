@@ -1,7 +1,6 @@
 <!-- Mainly scripts -->
-    <script src="{{ asset('resources/assets/js/jquery-3.1.1.min.js') }}"></script>
 
-   <!--  <script src="{{ asset('resources/assets/js/bootstrap.min.js') }}"></script> -->
+    <script src="{{ asset('resources/assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('resources/assets/js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
 
     <script src="{{ asset('resources/assets/js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
@@ -18,9 +17,7 @@
     <script src="{{ asset('resources/assets/js/plugins/dataTables/datatables.min.js') }}"></script>
     <script src="{{ asset('resources/assets/js/inspinia.js') }}"></script>
     <script src="{{ asset('resources/assets/js/plugins/pace/pace.min.js') }}"></script>
-   
-    <script src="{{ asset('resources/assets/js/plugins/summernote/summernote.min.js') }}"></script>
-   
+
     <script src="{{ asset('resources/assets/js/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('resources/assets/js/plugins/gritter/jquery.gritter.min.js') }}"></script>
     <script src="{{ asset('resources/assets/js/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
@@ -28,19 +25,7 @@
     <script src="{{ asset('resources/assets/js/plugins/chartJs/Chart.min.js') }}"></script>
     <script src="{{ asset('resources/assets/js/plugins/toastr/toastr.min.js') }}"></script>
 
-    <script>
 
-        $(document).ready(function(){
-
-            $('.summernote').summernote({
-
-                minHeight: 200
-
-            });
-
-        });
-
-    </script>
 
     @include('includes.auth_scripts')
 

@@ -2,6 +2,9 @@
 
 @section('content')
 
+<link href="{{ asset('resources/assets/css/plugins/summernote/summernote.css') }}" rel="stylesheet">
+<link href="{{ asset('resources/assets/css/plugins/summernote/summernote-bs3.css') }}" rel="stylesheet">
+
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
         <h2>Website Pages</h2>
@@ -47,7 +50,7 @@
                   	<div class="ibox-content">
 
                         <form action="{{ route('web_page_update') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
-                            
+
                             {{ csrf_field() }}
 
                             <input type="hidden" value="{{ $edit_web_page->id }}" name="id">
@@ -71,13 +74,13 @@
 								<div class="col-sm-10">
 
 									<textarea placeholder="description" class="form-control summernote" name="content">{{ $edit_web_page->page_description }}</textarea>
-                                 
+
 
 								</div>
 
                             </div>
 
-    
+
 
                             <div class="form-group">
 
@@ -107,5 +110,14 @@
     </div>
 </div>
 
+<script>
+    $(document).ready(function(){
+        $('.summernote').summernote({
+            minHeight: 200
+        });
+    });
+</script>
+
+<script src="{{ asset('resources/assets/js/plugins/summernote/summernote.min.js') }}"></script>
 
 @endsection

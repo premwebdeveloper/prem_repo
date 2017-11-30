@@ -13,8 +13,7 @@
     	<link href="{{ asset('resources/assets/css/plugins/dataTables/datatables.min.css') }}" rel="stylesheet">
     	<link href="{{ asset('resources/assets/css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
     	<link href="{{ asset('resources/assets/js/plugins/gritter/jquery.gritter.css') }}" rel="stylesheet">
-        <link href="{{ asset('resources/assets/css/plugins/summernote/summernote.css') }}" rel="stylesheet">
-        <link href="{{ asset('resources/assets/css/plugins/summernote/summernote-bs3.css') }}" rel="stylesheet">
+
         <link href="{{ asset('resources/assets/css/animate.css') }}" rel="stylesheet">
         <link href="{{ asset('resources/assets/css/style.css') }}" rel="stylesheet">
     </head>
