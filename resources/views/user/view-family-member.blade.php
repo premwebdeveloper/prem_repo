@@ -133,7 +133,7 @@
 								    	<div class="col-md-4">
 								    		<h4>Cast / जाति </h4>
 									    	<div class="form-group">
-										      	<input type="text" class="form-control member_profile" placeholder="जाति" name="cast" readonly value="{{ $viewfamily->name }}">
+										      	<input type="text" class="form-control member_profile" placeholder="जाति" name="cast" readonly value="{{ $viewfamily->cast }}">
 										    </div>
 									    </div>
 
@@ -293,7 +293,7 @@
 					                                </select>
 					                            </div>
 					                        </div>
-					                        
+
                 	                        <div class="col-lg-4">
 					                            <div class="form-group">
 					                                <h4>District</h4>

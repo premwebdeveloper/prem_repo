@@ -90,7 +90,7 @@ Route::get('deletefamilymember{id}', 'Familymember@deletefamilymember')->name('d
 
 Route::group(['middleware' => 'App\Http\Middleware\Admin'], function()
 {
-    Route::get('dashboard', 'Dashboard@admin')->name('dashboard');
+    Route::get('dashboard', 'dashboard@admin')->name('dashboard');
 
     Route::get('users', 'AdminUser@index')->name('users');
 
