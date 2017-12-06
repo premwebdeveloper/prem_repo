@@ -77,7 +77,7 @@ Route::get('viewfamilymember{id}', 'Familymember@viewfamilymember')->name('viewf
 
 Route::Post('updateMemberOptionalInfo', 'Familymember@updateMemberOptionalInfo')->name('updateMemberOptionalInfo');
 
-Route::get('deletefamilymember{id}', 'Familymember@deletefamilymember')->name('deletefamilymember');
+Route::post('deletefamilymember', 'Familymember@deletefamilymember')->name('deletefamilymember');
 
 /**************************************************/
 // A user can access after login only these routes//

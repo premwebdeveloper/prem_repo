@@ -516,26 +516,20 @@ class Familymember extends Controller
     {
         $date = date('Y-m-d H:i:s');
 
-        $id = $request->id;
+        $member_id = $request->delete_family_member;
 
         // Get family member details
-        $member_details = DB::table('user_family_details')->where('id', $id)->first();
+        $member_details = DB::table('user_family_details')->where('id', $member_id)->first();
 
         $member_user_id = $member_details->f_member_user_id;
 
         //  Delete from 'users ' table
-        DB::table('users')->where('id', $member_user_id)->delete();
+        $delete_member_user = DB::table('users')->where('id', $member_user_id)->delete();
 
         // Delete from 'user_family_details' table
-        $delete = DB::table('user_family_details')->where('id', $id)->delete();
+        $delete_member = DB::table('user_family_details')->where('id', $member_id)->delete();
 
-        /*$delete = DB::table('user_family_details')->where('id', $id)->update(
-            array(
-                    'status' => 0
-            )
-        );*/
-
-        if($delete)
+        if($delete_member)
         {
             $status = 'Delete member successfully.';
         }

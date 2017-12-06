@@ -828,7 +828,7 @@
 												      		<a href="{{route('viewfamilymember', ['id' => $member->id])}}" class="btn btn-info btn-xs">view</a>
 												       		<a href="#{{$member->id}}" class="btn btn-danger btn-xs" data-toggle="modal">delete</a>
 											       		</td>
-											     	 </tr>
+											     	</tr>
 	 												<div id="{{$member->id}}" class="modal fade" role="dialog">
 														<div class="modal-dialog">
 
@@ -840,10 +840,14 @@
 															  </div>
 															  <div class="modal-body">
 																<p>Are you sure you want to Delete ?</p>
-																<input type="hidden" id="delt" value="{{$member->id}}"> 
 															  </div>
 															  <div class="modal-footer">
-																<form method="post" action="{{route('deletefamilymember', ['id' => $member->id])}}">
+																<form method="post" action="{{route('deletefamilymember')}}">
+
+																	{{ csrf_field() }}
+
+																	<input type="hidden" id="delt" name="delete_family_member" value="{{$member->id}}">
+
 																	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 																	<button class="btn btn-danger" type="submit" name="delete" value="{{$member->id}}">Delete</button>
 																</form>
@@ -1120,12 +1124,12 @@
 								                            <div class="form-group">
 								                                <h4>State</h4>
 								                                <select id="state1" name="residential_state" class="form-control required personal_info" >
-								         
+
 								                                	<option value="">Select State</option>
 								                                	@foreach($states as $state)
 								                                		<option value="{{ $state->id }}">{{ $state->name }}</option>
 								                                	@endforeach
-								                                	
+
 								                                </select>
 								                            </div>
 								                        </div>
@@ -1133,9 +1137,9 @@
 								                            <div class="form-group">
 								                                <h4>District</h4>
 								                                <select id="district1" name="residential_district" class="form-control required" disabled="disabled">
-								                           
+
 								                                	<option value="">Select District</option>
-								                                	
+
 								                                </select>
 								                            </div>
 								                        </div>
