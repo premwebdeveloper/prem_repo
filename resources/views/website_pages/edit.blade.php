@@ -2,8 +2,14 @@
 
 @section('content')
 
-<link href="{{ asset('resources/assets/css/plugins/summernote/summernote.css') }}" rel="stylesheet">
-<link href="{{ asset('resources/assets/css/plugins/summernote/summernote-bs3.css') }}" rel="stylesheet">
+<!-- <link href="{{ asset('resources/assets/css/plugins/summernote/summernote.css') }}" rel="stylesheet">
+<link href="{{ asset('resources/assets/css/plugins/summernote/summernote-bs3.css') }}" rel="stylesheet"> -->
+
+<script src="{{ asset('resources/assets/ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('resources/assets/ckeditor/samples/js/sample.js') }}"></script>
+
+<link href="{{ asset('resources/assets/ckeditor/samples/css/samples.css') }}" rel="stylesheet">
+<link href="{{ asset('resources/assets/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}" rel="stylesheet">
 
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
@@ -41,74 +47,53 @@
                    <div class="alert alert-success">{{ session('disable_user') }}</div>
                 @endif
 
-<div class="row">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                          	<div class="ibox-content">
+                                <form action="{{ route('web_page_update') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
 
-            <div class="col-lg-12">
+                                    {{ csrf_field() }}
 
-                <div class="ibox float-e-margins">
+                                    <input type="hidden" value="{{ $edit_web_page->id }}" name="id">
 
-                  	<div class="ibox-content">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Page Name</label>
+        								<div class="col-sm-10">
+                                            <input type="text" name="name" value="{{ $edit_web_page->page_title }}" class="form-control" readonly>
+                                        </div>
+                                    </div>
 
-                        <form action="{{ route('web_page_update') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+                                    <div class="hr-line-dashed"></div>
 
-                            {{ csrf_field() }}
+                                    <div class="form-group"><label class="col-sm-2 control-label">Description</label>
+        								<div class="col-sm-10">
+        									<textarea placeholder="description" id="editor" class="form-control" name="content">{{ $edit_web_page->page_description }}</textarea>
+        								</div>
+                                    </div>
 
-                            <input type="hidden" value="{{ $edit_web_page->id }}" name="id">
 
-                            <div class="form-group">
-
-                                <label class="col-sm-2 control-label">Page Name</label>
-
-								<div class="col-sm-10">
-
-                                    <input type="text" name="name" value="{{ $edit_web_page->page_title }}" class="form-control" readonly>
-
-                                </div>
-
+                                    <div class="form-group">
+                                        <div class="col-sm-4 col-sm-offset-2">
+                                            <button class="btn btn-white" type="submit">Cancel</button>
+                                            <input type="submit" value="Save changes" name="submit" class="btn btn-primary">
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-
-                            <div class="hr-line-dashed"></div>
-
-                            <div class="form-group"><label class="col-sm-2 control-label">Description</label>
-
-								<div class="col-sm-10">
-
-									<textarea placeholder="description" class="form-control" name="content">{{ $edit_web_page->page_description }}</textarea>
-
-
-								</div>
-
-                            </div>
-
-
-
-                            <div class="form-group">
-
-                                <div class="col-sm-4 col-sm-offset-2">
-
-                                    <button class="btn btn-white" type="submit">Cancel</button>
-
-                                    <input type="submit" value="Save changes" name="submit" class="btn btn-primary">
-
-                                </div>
-
-                            </div>
-
-                        </form>
-
+                        </div>
                     </div>
-
                 </div>
-
-            </div>
-
-        </div>
 
             </div>
         </div>
     </div>
     </div>
 </div>
+
+<script>
+    initSample();
+</script>
 
 <script>
     $(document).ready(function(){

@@ -183,3 +183,6 @@ ALTER TABLE `problems`
 
 ALTER TABLE `problems`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+
+-- ---------------------------Updated Table 'website_pages' ON 06-12-2017--------------------------
+ALTER TABLE `website_pages` CHANGE `created_at` `created_at` DATETIME NULL, CHANGE `updated_at` `updated_at` DATETIME NULL;

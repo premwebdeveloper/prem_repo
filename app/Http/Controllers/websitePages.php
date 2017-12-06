@@ -27,16 +27,14 @@ class websitePages extends Controller
 
     public function update_page(Request $request)
     {
+        $date = date('Y-m-d H:i:s');
+
         $id = $request->id;
         $content = $request->content;
 
-        $web_page_update = DB::table('website_pages')->where('id', $id)->update(
+        //$web_page_update = DB::table('website_pages')->where('id', $id)->update({'page_description' => $content});
 
-            array(
-
-                'page_description' => $content
-            )
-        );
+        $web_page_update = DB::table('website_pages')->where('id', $id)->update(['page_description' => $content, 'updated_at' => $date]);
 
         if($web_page_update)
         {
