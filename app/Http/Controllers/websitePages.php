@@ -16,13 +16,13 @@ class websitePages extends Controller
 
     public function edit_page(Request $request)
 
-    {	
+    {
     	$id = $request->id;
 
     	$edit_web_page = DB::table('website_pages')->where('id', $id)->first();
 
     	return view('website_pages.edit', array('edit_web_page' => $edit_web_page));
-    	
+
     }
 
     public function update_page(Request $request)

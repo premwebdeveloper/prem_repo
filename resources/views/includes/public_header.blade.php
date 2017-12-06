@@ -45,16 +45,22 @@
 
 
 		<div class="newskannada-video">
+
 			<a href="javascript:;"><i class="fa fa-instagram"></i></a>
 			<a href="javascript:;"><i class="fa fa-twitter"></i></a>
 			<a href="javascript:;"><i class="fa fa-facebook"></i></a>
+			<a href="javascript:;"><img src="resources/frontend_assets/img/donate-button.gif" alt="Donate Now" class="img-responsive"></a>
 		</div>
 
 	</div>
 
 	<div class="header">
 		<div class="row">
-			<div class="col-md-1 hidetext">
+			<div class="col-md-12">
+				<img src="{{asset('resources/frontend_assets/img/homebanner.gif')}}" class="img-responsive" alt="Home Banner">
+			</div>
+
+<!-- 			<div class="col-md-1 hidetext">
 				<img src="{{asset('resources/frontend_assets/img/maharaja-agrasen.png')}}" class="img-responsive" alt="News Karnataka">
 			</div>
 			<div class="col-md-2 hidetext">
@@ -78,7 +84,7 @@
 			</div>
 			<div class="col-md-1 hidetext">
 				<img src="{{asset('resources/frontend_assets/img/e7487b.png')}}" class="img-responsive" alt="News" style="height: 110px;">
-			</div>
+			</div> -->
 		</div>
 	</div><!--header-->
 

@@ -68,7 +68,7 @@
 
 										    		<div class="col-md-2 text-right">
 										    			<h4>
-										    				<a href="javascript:;" id="edit_profile" class="edit_profile">Edit Profile</a>
+										    				<a href="javascript:;" id="edit_profile" class="edit_profile btn btn-info">Edit Profile</a>
 										    			</h4>
 										    		</div>
 									    		</div>
@@ -255,7 +255,7 @@
 												    </div>
 
 												    <div class="col-md-4">
-													    <h4>Occupation(काम-धंधा या व्यवसाय)</h4>
+													    <h4>Occupation/Profession(काम-धंधा या व्यवसाय)</h4>
 												    	<div class="form-group">
 													      <input type="text" class="form-control personal_info" placeholder="Occupation(काम-धंधा या व्यवसाय)" name="occupation" id="occupation" value="{{$user->occupation}}" readonly>
 													    </div>
@@ -400,7 +400,7 @@
 													    </div>
 												    </div>
 
-												    <div class="col-md-12 update_personal_info text-right" style="display:none;">
+												    <div class="col-md-12 update_personal_info text-left" style="display:none;">
 														<input type="submit" class="btn btn-success personal_info" name="update_personal_info" id="update_personal_info" value="update personal info">
 													</div>
 												</div>
@@ -418,7 +418,7 @@
 
 									    		<div class="col-md-4 text-right">
 									    			<h4>
-								    					<a href="javascript:;" id="edit_optional_information" class="edit_optional_information">
+								    					<a href="javascript:;" id="edit_optional_information" class="edit_optional_information btn btn-info">
 								    						Edit Optional Information
 								    					</a>
 									    			</h4>
@@ -435,7 +435,7 @@
 												    <div class="col-md-6">
 												    	<h4>1. Blood Group / रक्त समूह</h4>
 												    	<div class="form-group">
-												    		<select class="form-control radio" required="" name="bloodgroup" id="bloodgroup">
+												    		<select class="form-control radio" name="bloodgroup" id="bloodgroup">
 
 												    			@if($user_optional_details->blood_group)
 																	<option value="{{$user_optional_details->blood_group}}" selected>{{$user_optional_details->blood_group}}</option>
@@ -464,9 +464,9 @@
 													      		<input type="radio" name="blood_information" class="radio" value="2" checked="checked">
 													      		No
 												   			@else
-												   				<input type="radio" name="blood_information" class="radio" value="1" checked="checked">
+												   				<input type="radio" name="blood_information" class="radio" value="1">
 													      		Yes
-													      		<input type="radio" name="blood_information" class="radio" value="2">
+													      		<input type="radio" name="blood_information" class="radio" value="2" checked="checked">
 													      		No
 												   			@endif
 
@@ -486,9 +486,9 @@
 													      		<input type="radio" name="consumer_forum" class="radio" value="2" checked="checked">
 													      		No
 												   			@else
-												   				<input type="radio" name="consumer_forum" class="radio" value="1" checked="checked">
+												   				<input type="radio" name="consumer_forum" class="radio" value="1">
 													      		Yes
-													      		<input type="radio" name="consumer_forum" class="radio" value="2">
+													      		<input type="radio" name="consumer_forum" class="radio" value="2" checked="checked">
 													      		No
 												   			@endif
 
@@ -508,9 +508,9 @@
 													      		<input type="radio" name="club_member" class="radio" value="2" checked="checked">
 													      		No
 												   			@else
-												   				<input type="radio" name="club_member" class="radio" value="1" checked="checked">
+												   				<input type="radio" name="club_member" class="radio" value="1">
 													      		Yes
-													      		<input type="radio" name="club_member" class="radio" value="2">
+													      		<input type="radio" name="club_member" class="radio" value="2" checked="checked">
 													      		No
 												   			@endif
 
@@ -529,9 +529,9 @@
 													      		<input type="radio" name="abc_club_member" class="radio" value="2" checked="checked">
 													      		No
 												   			@else
-												   				<input type="radio" name="abc_club_member" class="radio" value="1" checked="checked">
+												   				<input type="radio" name="abc_club_member" class="radio" value="1">
 													      		Yes
-													      		<input type="radio" name="abc_club_member" class="radio" value="2">
+													      		<input type="radio" name="abc_club_member" class="radio" value="2" checked="checked">
 													      		No
 												   			@endif
 
@@ -550,9 +550,9 @@
 														      	<input type="radio" name="project_community" class="radio" value="2" checked="checked">
 														      	No
 												   			@else
-												   				<input type="radio" name="project_community" class="radio" value="1" checked="checked">
+												   				<input type="radio" name="project_community" class="radio" value="1">
 														      	Yes
-														      	<input type="radio" name="project_community" class="radio" value="2">
+														      	<input type="radio" name="project_community" class="radio" value="2" checked="checked">
 														      	No
 												   			@endif
 
@@ -571,9 +571,9 @@
 													      		<input type="radio" name="vaishya_panchayat" class="radio" value="2" checked="checked">
 													      		No
 												   			@else
-												   				<input type="radio" name="vaishya_panchayat" class="radio" value="1" checked="checked">
+												   				<input type="radio" name="vaishya_panchayat" class="radio" value="1">
 														      	Yes
-													      		<input type="radio" name="vaishya_panchayat" class="radio" value="2">
+													      		<input type="radio" name="vaishya_panchayat" class="radio" value="2" checked="checked">
 													      		No
 												   			@endif
 
@@ -591,9 +591,9 @@
 													      		<input type="radio" name="donate_body_parts" class="radio" value="2" checked="checked">
 													      		No
 												   			@else
-												   				<input type="radio" name="donate_body_parts" class="radio" value="1" checked="checked">
+												   				<input type="radio" name="donate_body_parts" class="radio" value="1">
 													      		Yes
-													      		<input type="radio" name="donate_body_parts" class="radio" value="2">
+													      		<input type="radio" name="donate_body_parts" class="radio" value="2" checked="checked">
 													      		No
 												   			@endif
 
@@ -729,7 +729,7 @@
 													    </div>
 												    </div>
 
-												    <div class="col-md-12 mb10px">
+												    <div class="col-md-4 mb10px">
 											    		<h4>16. परिवार की वार्षिक आय</h4>
 												    	<div class="form-group">
 
@@ -754,7 +754,7 @@
 
 											    			?>
 
-												    		<select class="form-control radio" required="" name="annual_income">
+												    		<select class="form-control radio" name="annual_income">
 
 																@if($user_optional_details->annual_income)
 																	<option value="{{$user_optional_details->annual_income}}" selected>{{$income}}</option>
@@ -770,9 +770,9 @@
 												    </div>
 
 											    	<div class="col-md-12 mb10px">
-													    <h4>17.<input type="checkbox" placeholder="Aadhar Card No." class="radio" name="agree" required=""> उपरोक्त सभी सूचना सही हैं व मैंने अपनी इच्छा से दी हैं |</h4>
+													    <h4>17. उपरोक्त सभी सूचना सही हैं व मैंने अपनी इच्छा से दी हैं | <input type="checkbox" placeholder="Aadhar Card No." class="radio" name="agree" required=""> <i class="fa fa-check" aria-hidden="true"></i> in the box</h4>
 
-														<div class="col-md-12 update_optional_info text-right" style="display:none;">
+														<div class="col-md-12 update_optional_info text-left" style="display:none;">
 															<input type="submit" class="btn btn-success" name="update_optional_info" id="update_optional_info" value="update optional info">
 														</div>
 													</div>
@@ -808,6 +808,16 @@
 												    </tr>
 											  	</thead>
 											  	<tbody>
+												  	<tr>
+												      	<td>{{$user->name}}</td>
+												      	<td>{{$user->email}}</td>
+												      	<td>{{$user->phone}}</td>
+												      	<td>परिवार के मुखिया</td>
+												      	<td>
+												      		<a href="javascript:;" class="btn btn-info btn-xs">view</a>
+												       		<a href="javascript:;" class="btn btn-danger btn-xs">delete</a>
+											       		</td>
+											     	 </tr>
 													@foreach($familymember as $member)
 												  	<tr>
 												      	<td>{{$member->name}}</td>
@@ -816,9 +826,32 @@
 												      	<td>{{$member->relation_to_head_member}}</td>
 												      	<td>
 												      		<a href="{{route('viewfamilymember', ['id' => $member->id])}}" class="btn btn-info btn-xs">view</a>
-												       		<a href="{{route('deletefamilymember', ['id' => $member->id])}}" class="btn btn-danger btn-xs">delete</a>
+												       		<a href="#{{$member->id}}" class="btn btn-danger btn-xs" data-toggle="modal">delete</a>
 											       		</td>
 											     	 </tr>
+	 												<div id="{{$member->id}}" class="modal fade" role="dialog">
+														<div class="modal-dialog">
+
+															<!-- Modal content-->
+															<div class="modal-content">
+															  <div class="modal-header">
+																<button type="button" class="close" data-dismiss="modal">&times;</button>
+																<h4 class="modal-title"><i class="fa fa-trash"></i> Delete Category</h4>
+															  </div>
+															  <div class="modal-body">
+																<p>Are you sure you want to Delete ?</p>
+																<input type="hidden" id="delt" value="{{$member->id}}"> 
+															  </div>
+															  <div class="modal-footer">
+																<form method="post" action="{{route('deletefamilymember', ['id' => $member->id])}}">
+																	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+																	<button class="btn btn-danger" type="submit" name="delete" value="{{$member->id}}">Delete</button>
+																</form>
+															  </div>
+															</div>
+
+														</div>
+													</div>
 											     	 @endforeach
 
 										     	</tbody>
@@ -1034,7 +1067,7 @@
 												    </div>
 
 												    <div class="col-md-4">
-													    <h4>Occupation(काम-धंधा या व्यवसाय)</h4>
+													    <h4>Occupation/Profession(काम-धंधा या व्यवसाय)</h4>
 												    	<div class="form-group">
 													      	<input type="text" class="form-control" placeholder="Occupation(काम-धंधा या व्यवसाय)" name="occupation" id="occupation">
 													    </div>
