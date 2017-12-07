@@ -40,7 +40,8 @@ class HomeController extends Controller
     //  Suggestion view page
     public function suggestion(Request $request)
     {
-        return view('home.suggestion');
+        $suggestion = DB::table('website_pages')->where('id', 26)->first();
+        return view('home.suggestion', array('suggestion' => $suggestion));
     }
 
     // Add suggestion
@@ -70,7 +71,8 @@ class HomeController extends Controller
 
     public function problem()
     {
-        return view('home.problem');
+        $problem = DB::table('website_pages')->where('id', 26)->first();
+        return view('home.problem', array('problem' => $problem));
     }
 
     // Add problem

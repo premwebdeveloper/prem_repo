@@ -8,12 +8,18 @@
 <div class="container">
 
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col-md-12">
 			<div class="buffer_reduce">
 				<div class="row ads mt30px">
 					@if(session('status'))
 						<div class="alert alert-success">{{ session('status') }}</div>
 					@endif
+
+					<div class="tab-content">
+						<div class="tab-pane fade in active" id="hindi">
+							<?= $problem->page_description; ?>
+						</div>
+					</div>
 
 			  		<form id="form" method="post" action="{{ route('addProblem') }}" class="wizard-big">
 
@@ -50,28 +56,6 @@
 					    </div>
 				  	</form>
 				</div>
-			</div>
-		</div>
-
-		<!-- special section -->
-		<div class="col-md-3">
-			<h2 class="section_head"><span>विज्ञापन</span></h2>
-			<div class="row row-grid">
-			<div class="col-md-12 col-sm-12">
-				<div class="sidebarnews mainnews">
-					<a href="javascript:;" title="Henry D’Silva’s Konkani Film ‘Nashibaso Khel’ breaks new ground">
-						<div class="author_nameinner">
-							<img width="19" height="16" src="resources/frontend_assets/images/comment.png" alt="comment" class="comment_tag floatright"><a href="javascript:;" title="" class="comment_here"></a></span>
-						</div>
-					</a>
-					<a href="javascript:;" title="">
-						<img src="resources/frontend_assets/uploads/features/Nashinbasho_newsk_87744503.jpg" width="360px" height="" class="img-responsive" alt="">
-					</a>
-				<h3 class="special"><a href="javascript:;" title="Henry D’Silva’s Konkani Film ‘Nashibaso Khel’ breaks new ground"> Henry D’Silva’s Konkani Film ‘Nashibaso Khel’ breaks new ground </a></h3>
-			  </div>
-
-			</div>
-			<!-- ads end -->
 			</div>
 		</div>
 	</div>
