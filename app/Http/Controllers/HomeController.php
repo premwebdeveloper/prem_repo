@@ -25,16 +25,12 @@ class HomeController extends Controller
     public function aboutus()
     {
         $about = DB::table('website_pages')->where('id', 1)->first();
-
-        /*echo '<pre>';
-        print_r($about);
-        exit;*/
-
         return view('home.aboutus', array('about' => $about));
     }
     public function aims()
     {
-        return view('home.aims');
+        $aims = DB::table('website_pages')->where('id', 2)->first();
+        return view('home.aims', array('aims' => $aims));
     }
     public function member()
     {
