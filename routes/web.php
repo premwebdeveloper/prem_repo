@@ -29,6 +29,28 @@ Route::post('addProblem', 'HomeController@addProblem')->name('addProblem');
 
 Route::get('problem', 'HomeController@problem')->name('problem');
 
+Route::get('news_exchange', 'HomeController@news_exchange')->name('news_exchange');
+
+Route::get('employee_services', 'HomeController@employee_services')->name('employee_services');
+
+Route::get('motivational_article', 'HomeController@motivational_article')->name('motivational_article');
+
+Route::get('moa_registration', 'HomeController@moa_registration')->name('moa_registration');
+
+Route::get('annual_action_plan', 'HomeController@annual_action_plan')->name('annual_action_plan');
+
+Route::get('five_year_central_action_plan', 'HomeController@five_year_central_action_plan')->name('five_year_central_action_plan');
+
+Route::get('renowned_persons', 'HomeController@renowned_persons')->name('renowned_persons');
+
+Route::get('history_motivational_story', 'HomeController@history_motivational_story')->name('history_motivational_story');
+
+Route::get('heritage_cultural_festival', 'HomeController@heritage_cultural_festival')->name('heritage_cultural_festival');
+
+Route::get('dharmshala', 'HomeController@dharmshala')->name('dharmshala');
+
+Route::get('working_social_religious_units', 'HomeController@working_social_religious_units')->name('working_social_religious_units');
+
 // If email already exist in users table then show error with their parent email
 Route::get('ajax',function(){
    return view('message');

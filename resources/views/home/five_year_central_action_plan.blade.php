@@ -24,7 +24,7 @@
 </style>
 <!--First Row-->
 <section>
-		<h2>About Us</h2>
+		<h2> 5 Year Central Action Plan </h2>
 </section>
 <div class="container">
 
@@ -36,7 +36,7 @@
 				     	<div class="panel-body">
 				            <div class="tab-content">
 								<div class="tab-pane fade in active" id="hindi">
-									<?= $about->page_description; ?>
+									<?= $five_year_central_action_plan->page_description; ?>
 								</div>
 							</div>
 						</div>
