@@ -21,6 +21,26 @@ Route::get('aboutus', 'HomeController@aboutus')->name('aboutus');
 Route::get('aims', 'HomeController@aims')->name('aims');
 Route::get('member', 'HomeController@member')->name('member');
 
+Route::get('car_pooling', 'HomeController@car_pooling')->name('car_pooling');
+
+Route::get('tolet_services', 'HomeController@tolet_services')->name('tolet_services');
+
+Route::get('karya_pranali', 'HomeController@karya_pranali')->name('karya_pranali');
+
+Route::get('sangthan_pranali', 'HomeController@sangthan_pranali')->name('sangthan_pranali');
+
+Route::get('membership', 'HomeController@membership')->name('membership');
+
+Route::get('representative_member', 'HomeController@representative_member')->name('representative_member');
+
+Route::get('new_calendar', 'HomeController@new_calendar')->name('new_calendar');
+
+Route::get('abc_club', 'HomeController@abc_club')->name('abc_club');
+
+Route::get('vaish_panchayat', 'HomeController@vaish_panchayat')->name('vaish_panchayat');
+
+Route::get('may_i_help_you', 'HomeController@may_i_help_you')->name('may_i_help_you');
+
 Route::get('suggestion', 'HomeController@suggestion')->name('suggestion');
 
 Route::post('addSuggestion', 'HomeController@addSuggestion')->name('addSuggestion');
