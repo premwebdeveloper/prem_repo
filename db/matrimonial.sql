@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2017 at 03:11 PM
+-- Generation Time: Dec 07, 2017 at 04:12 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -5836,13 +5836,6 @@ CREATE TABLE `password_resets` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `password_resets`
---
-
-INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
-('premsaini9602@gmail.com', '$2y$10$f/uoEJ/fH2Yl.cIAuyeU/e9Q9F49iXp3Wwen4tg4WzCxhzSMBNv8a', '2017-11-13 07:23:44');
-
 -- --------------------------------------------------------
 
 --
@@ -5857,6 +5850,13 @@ CREATE TABLE `problems` (
   `problem` text NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `problems`
+--
+
+INSERT INTO `problems` (`id`, `name`, `email`, `mobile`, `problem`, `created_at`) VALUES
+(1, 'kuku', 'premsaini9602@gmail.com', '32152465132', 'problem', '2017-11-30 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -5953,6 +5953,15 @@ CREATE TABLE `suggestions` (
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `suggestions`
+--
+
+INSERT INTO `suggestions` (`id`, `name`, `email`, `mobile`, `suggestion`, `created_at`) VALUES
+(1, 'prem', 'premsaini9602@gmail.com', '96278454545', 'prem', '2017-11-30 00:00:00'),
+(2, 'Prem', 'premsaini9602@gmail.com', '9602947878', 'Suggestions', '2017-11-30 00:00:00'),
+(3, 'Prem', 'premsaini9602@gmail.com', '9602947878', '132', '2017-11-30 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -5980,11 +5989,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `family_head_id`, `name`, `lastname`, `username`, `email`, `password`, `remember_token`, `verify_token`, `phone`, `created_at`, `updated_at`, `status`) VALUES
-(1, '', 'Admin', 'istrator', 'administrator', 'admin@admin.com', '$2y$10$6BPkrI9Op4gET1PlpMWHtu99uPXhL2ViLC9Ep6hJjpvtB8FFbuPQy', 'jpOZUYBmGGul8ZizDiLUyz4ApvUWu87bfsZjRfNR5RDtlNBCSBurdp2q3czT', NULL, '9602947878', '2017-10-02 18:30:00', '2017-10-02 18:30:00', 1),
-(2, NULL, 'Prem', NULL, 'premsaini9602@gmail.com', 'premsaini9602@gmail.com', '$2y$10$1Tqc3DGkV/eSwHXyvyE54O4Gqnd.kXgJKGG21hBlg00tA2CEHBnPq', 'BB3EPWfFxhhx3CH4apty2uGHPc8g7593qKvTjSVGJU09PLWQ2rejFgvDViz6', NULL, '9602947878', '2017-11-28 07:15:25', '2017-11-28 07:16:02', 1),
+(1, '', 'Admin', 'istrator', 'administrator', 'admin@admin.com', '$2y$10$6BPkrI9Op4gET1PlpMWHtu99uPXhL2ViLC9Ep6hJjpvtB8FFbuPQy', 'nfu3c8iFLyKsCPT5YxCHPV461tsVUx5K8V5fhrwlLk6pwoM1Rj6QehWoZCLU', NULL, '9602947878', '2017-10-02 18:30:00', '2017-10-02 18:30:00', 1),
+(2, NULL, 'Prem', NULL, 'premsaini9602@gmail.com', 'premsaini9602@gmail.com', '$2y$10$I7T6VTziP5cwd3QVFCWBc.E3KRPFs9G8tf389ys5nwG4hJqc3/BVa', 'kc239E1mpZg9XuywcOMMi4riW3GU7pjajPYSVMgXVvKi4I5EnRYut4si5gdo', NULL, '9602947878', '2017-11-28 07:15:25', '2017-11-30 09:55:01', 1),
 (3, NULL, 'prem singhania', NULL, 'premsinghania2402@gmail.com', 'premsinghania2402@gmail.com', '$2y$10$ii6dPEPG5l48PHIKYCr2jeVMe29HB7oRhzA3S9adL4mdE2QJ0FGE.', NULL, NULL, '8005609866', '2017-11-28 07:15:57', '2017-11-28 07:16:13', 1),
-(4, NULL, 'Prem Saini', NULL, 'prem_saini@hotmail.com', 'prem_saini@hotmail.com', '$2y$10$jbSaEDpfZBv3iW35v5SUkeslu3AavZE7.8DZLyVOAH2kQyNLZL8Wm', 'wlJUMkLcdbgOARadf0Z5NoEGYFwCtiSV78UHQGdtdqIP301BhASjS7dQGgj6', NULL, '9602947878', '2017-11-28 07:17:07', '2017-11-28 07:17:28', 1),
-(5, '2', 'vivaan', NULL, 'vivaan@gmail.com', 'vivaan@gmail.com', '$2y$10$1Tqc3DGkV/eSwHXyvyE54O4Gqnd.kXgJKGG21hBlg00tA2CEHBnPq', NULL, NULL, '9982222752', '2017-11-28 07:22:49', NULL, 0),
+(4, NULL, 'Prem Saini', NULL, 'prem_saini@hotmail.com', 'prem_saini@hotmail.com', '$2y$10$jbSaEDpfZBv3iW35v5SUkeslu3AavZE7.8DZLyVOAH2kQyNLZL8Wm', 'DrzvlLuXc2GIHhj4EHdZfD7M4UiUmZqAjWQoHY5JpBZybHIr5StzieqA72sp', NULL, '9602947878', '2017-11-28 07:17:07', '2017-11-28 07:17:28', 1),
+(5, '2', 'vivaan', NULL, 'vivaan@gmail.com', 'vivaan@gmail.com', '$2y$10$1Tqc3DGkV/eSwHXyvyE54O4Gqnd.kXgJKGG21hBlg00tA2CEHBnPq', NULL, NULL, '9982222752', '2017-11-30 09:22:24', '2017-11-30 09:22:24', 0),
 (6, '2', 'hridya saini', NULL, 'hridya@gmail.com', 'hridya@gmail.com', '$2y$10$1Tqc3DGkV/eSwHXyvyE54O4Gqnd.kXgJKGG21hBlg00tA2CEHBnPq', NULL, NULL, '8005609866', '2017-11-28 07:29:09', NULL, 0),
 (7, '4', 'ishika saini', NULL, 'ishika@gmail.com', 'ishika@gmail.com', '$2y$10$jbSaEDpfZBv3iW35v5SUkeslu3AavZE7.8DZLyVOAH2kQyNLZL8Wm', NULL, NULL, '8005609866', '2017-11-28 07:31:06', NULL, 0),
 (8, '4', 'tanvi saini', NULL, 'tanvi@gmail.com', 'tanvi@gmail.com', '$2y$10$jbSaEDpfZBv3iW35v5SUkeslu3AavZE7.8DZLyVOAH2kQyNLZL8Wm', NULL, NULL, '8005609866', '2017-11-28 07:31:59', NULL, 0);
@@ -6043,9 +6052,9 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`id`, `user_id`, `name`, `father_husband_name`, `email`, `whatsapp_mobile`, `phone`, `sampraday`, `cast`, `sub_cast`, `gotra`, `bunk`, `origin_place`, `married`, `marriage_date`, `life_partner_name`, `education`, `special_qualification`, `experience_field`, `occupation`, `seva_nivrat`, `image`, `bio`, `gender`, `dob`, `residential_address`, `residential_pincode`, `residential_district`, `residential_state`, `occupation_address`, `occupation_pincode`, `occupation_district`, `occupation_state`, `social_hours`, `social_field`, `social_hours_according`, `donate_hundred`, `created_at`, `updated_at`, `status`) VALUES
-(1, 2, 'Prem', 'Father', 'premsaini9602@gmail.com', '8005609866', '9602947878', 'सनातनी', 'mali', 'saini', 'tundwal', 'singhania', 'khetri nagar', 2, NULL, 'kuku', 'b.tech', 'engineer', 'development', 'job', 2, 'user.png', 'Web developer', '1', '2017-11-24', 'khetri nagar', '333504', 'jhunjhunu', 'rajasthan', 'unnati tower', '302039', 'jaipur', 'rajasthan', '1', 'khetri nagar', 3, 2, '2017-11-28 12:45:25', '2017-11-28 12:49:24', 1),
+(1, 2, 'Prem', 'Father', 'premsaini9602@gmail.com', '8005609866', '9602947878', 'सनातनी', 'mali', 'saini', 'tundwal', 'singhania', 'khetri nagar', 2, NULL, 'kuku', 'b.tech', 'engineer', 'development', 'job', 2, '9ccb7c.jpg', 'Web developer', '1', '2017-11-24', 'khetri nagar', '333504', NULL, '12', 'unnati tower', '302039', 'jaipur', 'rajasthan', '5', 'khetri nagar', 3, 2, '2017-11-28 12:45:25', '2017-12-07 13:45:13', 1),
 (2, 3, 'prem singhania', NULL, 'premsinghania2402@gmail.com', NULL, '8005609866', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'user.png', NULL, NULL, NULL, NULL, NULL, NULL, 'gujrat', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-28 12:45:57', '2017-11-28 12:46:13', 1),
-(3, 4, 'Prem Saini', NULL, 'prem_saini@hotmail.com', NULL, '9602947878', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'user.png', NULL, NULL, NULL, NULL, NULL, NULL, 'rajasthan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-28 12:47:07', '2017-11-28 12:47:28', 1);
+(3, 4, 'Prem Saini', NULL, 'prem_saini@hotmail.com', NULL, '9602947878', 'सिख', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1, '141c37.png', NULL, '1', NULL, NULL, NULL, '3385', '33', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2017-11-28 12:47:07', '2017-11-30 13:50:31', 1);
 
 -- --------------------------------------------------------
 
@@ -6103,7 +6112,7 @@ CREATE TABLE `user_family_details` (
 --
 
 INSERT INTO `user_family_details` (`id`, `family_head_id`, `f_member_user_id`, `name`, `father_husband_name`, `relation_to_head_member`, `email`, `whatsapp_mobile`, `phone`, `sampraday`, `cast`, `sub_cast`, `gotra`, `bunk`, `origin_place`, `married`, `marriage_date`, `life_partner_name`, `education`, `special_qualification`, `experience_field`, `occupation`, `seva_nivrat`, `image`, `bio`, `gender`, `dob`, `residential_address`, `residential_pincode`, `residential_district`, `residential_state`, `occupation_address`, `occupation_pincode`, `occupation_district`, `occupation_state`, `social_hours`, `social_field`, `social_hours_according`, `donate_hundred`, `created_at`, `updated_at`, `status`) VALUES
-(1, 2, 5, 'vivaan', 'prem saini', 'son', 'vivaan@gmail.com', '9982222752', '9982222752', 'जैन', 'mali', 'saini', 'tundwal', 'singhania', 'khetri nagar', 2, NULL, NULL, 'graduate', 'special', 'development', 'job', 2, NULL, NULL, '1', '2017-11-05', 'dadi ka fatak', '302039', 'jaipur', 'rajasthan', NULL, NULL, NULL, NULL, '2', 'jaipur', 2, 2, '2017-11-28 07:22:49', '2017-11-28 07:22:49', 1),
+(1, 2, 5, 'vivaan', 'prem saini', 'son', 'vivaan@gmail.com', '9982222752', '9982222752', 'जैन', 'vivaan', 'saini', 'tundwal', 'singhania', 'khetri nagar', 2, NULL, NULL, 'graduate', 'special', 'development', 'job', 2, '4f9aa9.jpg', NULL, '1', '2017-11-05', 'dadi ka fatak', '302039', NULL, NULL, NULL, NULL, NULL, NULL, '2', 'jaipur', 2, 2, '2017-11-30 09:22:24', '2017-11-30 09:22:24', 1),
 (2, 2, 6, 'hridya saini', 'rajesh saini', 'brother', 'hridya@gmail.com', '8005609866', '8005609866', 'सनातनी', 'mali', 'saini', 'tundwal', 'singhania', NULL, 1, NULL, NULL, 'b.tech', 'engineer', 'development', 'job', 2, NULL, NULL, '1', NULL, NULL, NULL, 'jhunjhunu', 'rajasthan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-28 07:29:09', '2017-11-28 07:29:09', 1),
 (3, 4, 7, 'ishika saini', 'prem saini', 'daughter', 'ishika@gmail.com', '9602947878', '8005609866', 'सनातनी', 'mali', 'saini', 'tundwal', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2', NULL, NULL, NULL, 'ahmedabad', 'gujrat', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-28 07:31:06', '2017-11-28 07:31:06', 1),
 (4, 4, 8, 'tanvi saini', 'mukesh saini', 'daughter', 'tanvi@gmail.com', '8005609866', '8005609866', 'सनातनी', NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, '2', NULL, NULL, NULL, 'ahmedabad', 'gujrat', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-28 07:31:59', '2017-11-28 07:31:59', 1);
@@ -6145,7 +6154,9 @@ INSERT INTO `user_family_optional_details` (`id`, `family_head_id`, `f_member_us
 (1, 2, 5, 'A-', 1, 1, 1, 1, 1, 1, 1, 'no', 'no', 2, '2', '12345', '98765', '2017-11-28 12:52:49', '2017-11-28 12:52:49', 1),
 (2, 2, 6, 'B-', 2, 1, 2, 1, 2, 1, 2, NULL, NULL, 1, '1', NULL, NULL, '2017-11-28 12:59:09', '2017-11-28 12:59:09', 1),
 (3, 4, 7, 'O-', 1, 1, 1, 1, 1, 1, 1, NULL, NULL, 1, '1-2', '123456789', '3216548970', '2017-11-28 13:01:06', '2017-11-28 13:01:06', 1),
-(4, 4, 8, 'AB-', 1, 1, 1, 1, 1, 1, 1, NULL, NULL, 1, '2', NULL, NULL, '2017-11-28 13:01:59', '2017-11-28 13:01:59', 1);
+(4, 4, 8, 'AB-', 1, 1, 1, 1, 1, 1, 1, NULL, NULL, 1, '2', NULL, NULL, '2017-11-28 13:01:59', '2017-11-28 13:01:59', 1),
+(5, 2, 9, 'AB+', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, '2017-11-29 15:17:55', '2017-11-29 15:17:55', 1),
+(6, 2, 10, 'A-', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, '2017-11-29 15:31:00', '2017-11-29 15:31:00', 1);
 
 -- --------------------------------------------------------
 
@@ -6232,9 +6243,9 @@ INSERT INTO `user_roles` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`
 CREATE TABLE `website_pages` (
   `id` int(11) NOT NULL,
   `page_title` varchar(255) NOT NULL,
-  `page_description` text NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
+  `page_description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -6243,10 +6254,35 @@ CREATE TABLE `website_pages` (
 --
 
 INSERT INTO `website_pages` (`id`, `page_title`, `page_description`, `created_at`, `updated_at`, `status`) VALUES
-(1, 'About Us', 'About Us', '2017-11-21 00:00:00', '2017-11-21 00:00:00', 1),
+(1, 'About Us', '<font face=\"Arial Black\"><span style=\"font-size: 14px;\">sdasdas</span></font>', '2017-11-21 00:00:00', '2017-11-21 00:00:00', 1),
 (2, 'Aims And Objectives', 'Aims And Objectives', '2017-11-21 00:00:00', '2017-11-21 00:00:00', 1),
 (3, 'Help Our Body', 'Help Our Body', '2017-11-21 00:00:00', '2017-11-21 00:00:00', 1),
-(4, 'Join Us', 'Join Us', '2017-11-21 00:00:00', '2017-11-21 00:00:00', 1);
+(4, 'Join Us', 'Join Us', '2017-11-21 00:00:00', '2017-11-21 00:00:00', 1),
+(5, 'abc_club', '<p>ABC Club....</p>', NULL, '2017-12-07 14:51:09', 1),
+(6, 'annual_action_plan', NULL, NULL, NULL, 1),
+(7, 'dharmshala', NULL, NULL, NULL, 1),
+(8, 'digital_directory', NULL, NULL, NULL, 1),
+(9, 'employee_services', NULL, NULL, NULL, 1),
+(10, 'five_year_central_action_plan', NULL, NULL, NULL, 1),
+(11, 'car_pooling', '<p>car_pooling</p>', NULL, '2017-12-07 15:08:26', 1),
+(12, 'heritage_cultural_festival', NULL, NULL, NULL, 1),
+(13, 'history_motivational_story', NULL, NULL, NULL, 1),
+(14, 'karya_pranali', '<p>संस्था की कार्यप्रणाली</p>', NULL, '2017-12-07 15:05:02', 1),
+(15, 'may_help_you_club', '<p>Mai help you club..</p>', NULL, '2017-12-07 14:45:13', 1),
+(16, 'member', NULL, NULL, NULL, 1),
+(17, 'membership', '<p>membership</p>', NULL, '2017-12-07 15:00:00', 1),
+(18, 'moa_registration', NULL, NULL, NULL, 1),
+(19, 'motivational_article', NULL, NULL, NULL, 1),
+(20, 'new_calendar', '<p>New calendar with progress report</p>', NULL, '2017-12-07 14:54:09', 1),
+(21, 'news_exchange', NULL, NULL, NULL, 1),
+(22, 'problem', '<p><span style=\"background-color:#ffffff; color:#333333; font-family:&quot;Roboto Slab&quot;,serif; font-size:16px\">कर भला हो भला ( Do Good and Find Good) इस क्लब के गठन का मूल मन्त्र है l &ldquo;मैं आप की क्या सहायता कर सकता हूँ&rdquo; नाम के इस क्लब का गठनआपसी प्रेम, भ्रातृभाव, सद्भाव, परोपकारव मानवता के आधार पर किया जाएगा l इसमें जरूरत पड़ने पर सभी एक दुसरे के काम आयेंगे</span></p>', NULL, '2017-12-07 14:33:30', 1),
+(23, 'renowned_persons', NULL, NULL, NULL, 1),
+(24, 'representative_members', '<p>Representative members</p>', NULL, '2017-12-07 14:56:54', 1),
+(25, 'sangthan_pranali', '<p>संस्था की संगठन प्रणाली</p>', NULL, '2017-12-07 15:02:50', 1),
+(26, 'suggestion', '<ol>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:16px\">कर भला हो भला ( Do Good and Find Good) इस क्लब के गठन का मूल मन्त्र है l &ldquo;मैं आप की क्या सहायता कर सकता हूँ&rdquo; नाम के इस क्लब का गठनआपसी प्रेम, भ्रातृभाव, सद्भाव, परोपकारव मानवता के आधार पर किया जाएगा l इसमें जरूरत पड़ने पर सभी एक दुसरे के काम आयेंगे l</span></li>\r\n</ol>', NULL, '2017-12-07 14:31:50', 1),
+(27, 'tolet_services', '<p>tolet_services</p>', NULL, '2017-12-07 15:06:44', 1),
+(28, 'vaish_panchayat', '<p>vaish panchayat&nbsp; and vaish vahini</p>', NULL, '2017-12-07 14:48:36', 1),
+(29, 'working_social_religious_units', NULL, NULL, NULL, 1);
 
 --
 -- Indexes for dumped tables
@@ -6359,7 +6395,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `problems`
 --
 ALTER TABLE `problems`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `roles`
 --
@@ -6374,7 +6410,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `suggestions`
 --
 ALTER TABLE `suggestions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -6394,7 +6430,7 @@ ALTER TABLE `user_family_details`
 -- AUTO_INCREMENT for table `user_family_optional_details`
 --
 ALTER TABLE `user_family_optional_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `user_optional_details`
 --
@@ -6409,7 +6445,7 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT for table `website_pages`
 --
 ALTER TABLE `website_pages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
