@@ -88,12 +88,12 @@
         </div>
 
     </div>
-    <div id="small-chat">
+    <!-- <div id="small-chat">
 
         <span class="badge badge-warning pull-right">5</span>
         <a class="open-small-chat">
             <i class="fa fa-comments"></i>
 
         </a>
-    </div>
+    </div> -->
 </div>

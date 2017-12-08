@@ -111,7 +111,9 @@
       						<b class="caret"></b>
           	          		</a>
 							<ul class="dropdown-menu">
-								<li><a href="{{ route('profile') }}" title="Profile">Profile</a></li>
+								@if(Auth::user()->id != 1)
+									<li><a href="{{ route('profile') }}" title="Profile">Profile</a></li>
+								@endif
                                	<li><a href="{{ route('change_password') }}" title="Change Password">Change Password</a></li>
                                	<li><a href="{{ route('logout') }}" onclick="event.preventDefault();
 												 document.getElementById('logout-form').submit();" title="Logout">Logout</a></li>

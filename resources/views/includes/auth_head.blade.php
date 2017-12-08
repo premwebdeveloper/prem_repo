@@ -1,16 +1,16 @@
 <div id="page-wrapper" class="gray-bg dashbard-1">
 <div class="row border-bottom">
 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-<div class="navbar-header">
+<!-- <div class="navbar-header">
     <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
     <form role="search" class="navbar-form-custom" action="">
         <div class="form-group">
             <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
         </div>
     </form>
-</div>
+</div> -->
     <ul class="nav navbar-top-links navbar-right">
-        <li class="dropdown">
+        <!-- <li class="dropdown">
             <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                 <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
             </a>
@@ -62,8 +62,8 @@
                     </div>
                 </li>
             </ul>
-        </li>
-        <li class="dropdown">
+        </li> -->
+        <!-- <li class="dropdown">
             <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                 <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
             </a>
@@ -104,7 +104,7 @@
                     </div>
                 </li>
             </ul>
-        </li>
+        </li> -->
 
         <li>
             <a href="{{ route('logout') }}" onclick="event.preventDefault();

@@ -51,9 +51,11 @@
 
                             @foreach($web_pages as $web)
 
+                                <?php $value = str_limit($web->page_description, 200); ?>
+
                                 <tr class="gradeX">
                                     <td>{{ $web->page_title }}</td>
-                                    <td>{{ $web->page_description }}</td>
+                                    <td>{{ $value }}</td>
                                     <td>{{ $web->updated_at }}</td>
                                     <td>
                                         <a class="btn btn-success" href="{{ route('web_page_edit', ['id' => $web->id]) }}">

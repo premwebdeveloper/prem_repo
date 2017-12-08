@@ -34,7 +34,9 @@
 						<h4 class="brdr"><span class="numbox">1.</span> आज और कल की महत्वपूर्ण सूचनाएं<br>Tomorrow is Last Date<br>Today is Last Day</h4>
 					</div>
 					<div class="col-md-6">
-						<h4 class="brdr"><span class="numbox">2.</span> समाचारों का आदान-प्रदान <br><br> News&nbsp;&nbsp; Exchange</h4>
+						<a href="{{ route('news_exchange') }}" class="ad">
+							<h4 class="brdr"><span class="numbox">2.</span> समाचारों का आदान-प्रदान <br><br> News&nbsp;&nbsp; Exchange</h4>
+						</a>
 					</div>
 					<div class="col-md-6">
 						<h4 class="brdr"><span class="numbox">3.</span> परिचय&nbsp;&nbsp; सेवा <br> <br> Matrimonial&nbsp; Service</h4>
@@ -81,28 +83,28 @@
 					</div>
 					<div class="col-md-3">
 						<div class=" hidetext">
-						<a href="javascript:;" title="10 व् 5 वर्षीय केंद्रीय कार्य योजना" class="ad">
+						<a href="{{ route('five_year_central_action_plan') }}" title="10 व् 5 वर्षीय केंद्रीय कार्य योजना" class="ad">
 							<h3 class="hcolor"><span class="numbox">10.</span>5 वर्षीय&nbsp;&nbsp; केंद्रीय कार्य योजना <br> 5 Year&nbsp;&nbsp; Central Action Plan</h3>
 						</a>
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class=" hidetext">
-						<a href="javascript:;" title="वैश्य महापुरुष" class="ad">
+						<a href="{{ route('renowned_persons') }}" title="वैश्य महापुरुष" class="ad">
 							<h3 class="hcolor1"><span class="numbox">11.</span>वैश्य महापुरुष <br><br>Renowned Persons</h3>
 						</a>
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class=" hidetext">
-						<a href="javascript:;" title="2018 की उपलब्धि" class="ad">
+						<a href="{{ route('history_motivational_story') }}" title="2018 की उपलब्धि" class="ad">
 							<h3 class="hcolor1"><span class="numbox">12.</span>इतिहास पुस्तकें, अग्रकाव्य, प्रेरक प्रसंग  <br>History Books, Songs, Motivational Story</h3>
 						</a>
 					   </div>
 					</div>
 					<div class="col-md-3">
 						<div class=" hidetext">
-						<a href="javascript:;" title="अपने स्मारक/धरोहर, तीर्थ स्थान, त्यौहार" class="ad">
+						<a href="{{ route('heritage_cultural_festival') }}" title="अपने स्मारक/धरोहर, तीर्थ स्थान, त्यौहार" class="ad">
 							<h3 class="hcolor1"><span class="numbox">13.</span>अपने स्मारक/धरोहर, &nbsp;&nbsp;तीर्थ स्थान, त्यौहार <br>Heritage/Dham Culture, Festivals</h3>
 						</a>
 						</div>
@@ -116,7 +118,7 @@
 					</div>
 					<div class="col-md-3">
 						<div class=" hidetext">
-						<a href="javascript:;" title="वर्ष 2018 की वार्षिक कार्य योजना" class="ad">
+						<a href="{{ route('dharmshala') }}" title="वर्ष 2018 की वार्षिक कार्य योजना" class="ad">
 							<h3 class="hcolor2"><span class="numbox">15.</span>अपनी धर्मशाला, होटल, फार्म हाउस,&nbsp; हॉस्टल <br>Dharmshala, Hotel, Bhawan,&nbsp;&nbsp; P.G.</h3>
 						</a>
 						</div>

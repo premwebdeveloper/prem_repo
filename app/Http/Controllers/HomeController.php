@@ -29,6 +29,12 @@ class HomeController extends Controller
         return view('home.aboutus', array('about' => $about));
     }
 
+    public function renowned_persons()
+    {
+        $renowned_persons = DB::table('website_pages')->where('id', 23)->first();
+        return view('home.renowned_persons', array('renowned_persons' => $renowned_persons));
+    }
+
     public function car_pooling()
     {
         $car_pooling = DB::table('website_pages')->where('id', 11)->first();
@@ -163,77 +169,71 @@ class HomeController extends Controller
         return redirect('problem')->with('status', $status);
     }
 
-    
+
     public function news_exchange()
     {
         $news_exchange = DB::table('website_pages')->where('id', 21)->first();
         return view('home.news_exchange', array('news_exchange' => $news_exchange));
-    } 
+    }
 
     public function employee_services()
     {
         $employee_services = DB::table('website_pages')->where('id', 9)->first();
         return view('home.employee_services', array('employee_services' => $employee_services));
-    }  
+    }
 
     public function motivational_article()
     {
         $motivational_article = DB::table('website_pages')->where('id', 19)->first();
         return view('home.motivational_article', array('motivational_article' => $motivational_article));
-    }  
+    }
 
     public function digital_directory()
     {
         $digital_directory = DB::table('website_pages')->where('id', 8)->first();
         return view('home.digital_directory', array('digital_directory' => $digital_directory));
-    }  
+    }
 
     public function moa_registration()
     {
         $moa_registration = DB::table('website_pages')->where('id', 18)->first();
         return view('home.moa_registration', array('moa_registration' => $moa_registration));
-    }  
+    }
 
     public function annual_action_plan()
     {
         $annual_action_plan = DB::table('website_pages')->where('id', 6)->first();
         return view('home.annual_action_plan', array('annual_action_plan' => $annual_action_plan));
-    }  
+    }
 
     public function five_year_central_action_plan()
     {
         $five_year_central_action_plan = DB::table('website_pages')->where('id', 10)->first();
         return view('home.five_year_central_action_plan', array('five_year_central_action_plan' => $five_year_central_action_plan));
-    }   
-
-    public function renowned_persons()
-    {
-        $renowned_persons = DB::table('website_pages')->where('id', 23)->first();
-        return view('home.renowned_persons', array('renowned_persons' => $renowned_persons));
-    }  
+    }
 
     public function history_motivational_story()
     {
         $history_motivational_story = DB::table('website_pages')->where('id', 13)->first();
         return view('home.history_motivational_story', array('history_motivational_story' => $history_motivational_story));
-    }   
+    }
 
     public function heritage_cultural_festival()
     {
         $heritage_cultural_festival = DB::table('website_pages')->where('id', 12)->first();
         return view('home.heritage_cultural_festival', array('heritage_cultural_festival' => $heritage_cultural_festival));
-    }  
+    }
 
     public function dharmshala()
     {
-        $dharmshala = DB::table('website_pages')->where('id', 6)->first();
+        $dharmshala = DB::table('website_pages')->where('id', 7)->first();
         return view('home.dharmshala', array('dharmshala' => $dharmshala));
-    }  
+    }
 
     public function working_social_religious_units()
     {
         $working_social_religious_units = DB::table('website_pages')->where('id', 29)->first();
         return view('home.working_social_religious_units', array('working_social_religious_units' => $working_social_religious_units));
-    }    
+    }
 
 }
