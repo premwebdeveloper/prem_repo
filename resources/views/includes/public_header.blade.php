@@ -49,7 +49,7 @@
 			<a href="javascript:;"><i class="fa fa-instagram"></i></a>
 			<a href="javascript:;"><i class="fa fa-twitter"></i></a>
 			<a href="javascript:;"><i class="fa fa-facebook"></i></a>
-			<a href="javascript:;"><img src="resources/frontend_assets/img/donate-button.gif" alt="Donate Now" class="img-responsive"></a>
+			<a href="{{ route('donate') }}"><img src="resources/frontend_assets/img/donate-button.gif" alt="Donate Now" class="img-responsive"></a>
 		</div>
 
 	</div>

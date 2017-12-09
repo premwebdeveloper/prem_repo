@@ -42,7 +42,9 @@
 						<h4 class="brdr"><span class="numbox">3.</span> परिचय&nbsp;&nbsp; सेवा <br> <br> Matrimonial&nbsp; Service</h4>
 					</div>
 					<div class="col-md-6">
-						<h4 class="brdr"><span class="numbox">4.</span> रोजगार&nbsp;&nbsp; सेवा <br> <br> Employment&nbsp; Service</h4>
+						<a href="{{ route('employee_services') }}" class="ad">
+							<h4 class="brdr"><span class="numbox">4.</span> रोजगार&nbsp;&nbsp; सेवा <br> <br> Employment&nbsp; Service</h4>
+						</a>
 					</div>
 					<div class="col-md-6">
 						<h4 class="brdr"><span class="numbox">5.</span> प्रेरक लेख, मन की बात, विचार मंच <br><br>Motivational Article</h4>
@@ -69,14 +71,14 @@
 					</div>
 					<div class="col-md-3">
 						<div class=" hidetext">
-						<a href="javascript:;" title="वर्ष 2018 की वार्षिक कार्य योजना" class="ad">
+						<a href="{{ route('moa_registration') }}" title="वर्ष 2018 की वार्षिक कार्य योजना" class="ad">
 							<h3 class="hcolor"><span class="numbox">8.</span>संस्था का सविधान, पंजीकरण व दान प्रमाण पत्र<br>MOA Registration, 80-G Certificate</h3>
 						</a>
 					   </div>
 					</div>
 					<div class="col-md-3">
 						<div class=" hidetext">
-						<a href="javascript:;" title="कार्यकर्ता  नेटवर्क" class="ad">
+						<a href="{{ route('annual_action_plan') }}" title="कार्यकर्ता  नेटवर्क" class="ad">
 							<h3 class="hcolor"><span class="numbox">9.</span>वर्ष 2018-19 की वार्षिक कार्य योजना, उपलब्धि<br>Annual Action Plan & &nbsp; Achievements</h3>
 						</a>
 						</div>

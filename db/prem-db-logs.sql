@@ -186,3 +186,6 @@ ALTER TABLE `problems`
 
 -- ---------------------------Updated Table 'website_pages' ON 06-12-2017--------------------------
 ALTER TABLE `website_pages` CHANGE `created_at` `created_at` DATETIME NULL, CHANGE `updated_at` `updated_at` DATETIME NULL;
+
+-- ---------------------------Updated Table 'website_pages' ON 09-12-2017--------------------------
+INSERT INTO `website_pages` (`id`, `page_title`, `page_description`, `created_at`, `updated_at`, `status`) VALUES (NULL, 'donate', 'donate', '2017-12-09 01:03:08', '2017-12-09 02:04:06', '1');
