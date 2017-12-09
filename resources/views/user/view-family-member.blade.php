@@ -26,7 +26,7 @@
 									</div>
 
 									<div class="col-md-6">
-					    				<h4>Family Member View</h4>
+					    				<h2 class="red">Family Member View</h2>
 					    			</div>
 
 									<div class="col-md-6 text-right">
@@ -386,7 +386,7 @@
 
 									<div class="row">
 							    		<div class="col-md-6">
-						    				<h4>Member Optional Information / ऐच्छिक सूचनाएं </h4>
+						    				<h2 class="red">Member Optional Information / ऐच्छिक सूचनाएं </h2>
 						    			</div>
 
 										<div class="col-md-6 text-right">
