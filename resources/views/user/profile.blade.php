@@ -62,7 +62,7 @@
 														@endif
 													</div>
 													<div class="col-md-10">
-										    			<h4>Information About Family Head परिवार के मुखिया के बारे में जानकारी </h4>
+										    		<h2 class="red">Information About Family Head परिवार के मुखिया के बारे में जानकारी </h2>
 										    			<hr>
 										    		</div>
 
@@ -351,7 +351,7 @@
 													<div class="col-md-4 mb20px">
 													    <h4>समाज सेवा हेतु समय दान व रूचि क्षेत्र </h4>
 														<div class="form-group ml0px">
-												      		<input type="text" name="social_hours" id="social_hours" class="personal_info form-control" style="width: 10%;" value="{{$user->social_hours}}" readonly>
+												      		<input type="text" name="social_hours" id="social_hours" class="personal_info form-control" style="width: 20%;" value="{{$user->social_hours}}" readonly>
 													      		&nbsp;&nbsp;&nbsp;घंटे &nbsp;&nbsp;
 
 													      	<input type="text" name="social_field" id="social_field" class="personal_info form-control" style="width: 50%;" value="{{$user->social_field}}" readonly>
@@ -412,7 +412,7 @@
 
 											<div class="row">
 												<div class="col-md-8">
-									    			<h4>Optional Information / ऐच्छिक सूचनाएं </h4>
+									    			<h2 class="red">Optional Information / ऐच्छिक सूचनाएं </h2>
 									    			<hr>
 									    		</div>
 
@@ -900,7 +900,7 @@
 													</div>
 
 													<div class="col-md-12">
-										    			<h4>Add Family Members परिवार के सदस्यों को यहां जोड़ें</h4>
+										    			<h2 class="red">Add Family Members परिवार के सदस्यों को यहां जोड़ें</h2>
 										    			<hr>
 										    		</div>
 
@@ -1191,7 +1191,7 @@
 
 												<div class="row">
 													<div class="col-md-8">
-										    			<h4>Member Optional Information / ऐच्छिक सूचनाएं </h4>
+										    			<h2 class="red">Member Optional Information / ऐच्छिक सूचनाएं </h2>
 										    			<hr>
 										    		</div>
 									    		</div>
