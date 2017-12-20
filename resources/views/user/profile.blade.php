@@ -122,28 +122,28 @@
 														</div>
 													</div>
 
-													<div class="col-md-4">
+													<div class="col-md-3">
 												    	<h4>Mobile No.  मोबाइल नंबर(2)</h4>
 												    	<div class="form-group">
 													      <input type="tel" class="form-control personal_info" placeholder="+91-123456789" name="phone" id="phone" value="{{$user->phone}}" readonly required="required">
 													    </div>
 												    </div>
 
-												    <div class="col-md-4">
+												    <div class="col-md-3">
 												    	<h4>Email Id</h4>
 												    	<div class="form-group">
 													      <input type="email" class="form-control" placeholder="+91-123456789" name="email" id="email" value="{{$user->email}}" readonly>
 													    </div>
 												    </div>
 
-												    <div class="col-md-4">
+												    <div class="col-md-3">
 												    	<h4>Religion/धर्म</h4>
 												    	<div class="form-group">
 													      <input type="text" class="form-control" name="religion" id="religion" value="हिन्दू" disabled>
 													    </div>
 												    </div>
 
-													<div class="col-md-4">
+													<div class="col-md-3">
 												    	<h4>मत/सम्प्रदाय </h4>
 												    	<div class="form-group">
 												    		<select class="form-control personal_radio personal_info" required="" name="sampraday" id="sampraday">
@@ -164,49 +164,49 @@
 													    </div>
 												    </div>
 
-											    	<div class="col-md-4">
+											    	<div class="col-md-3">
 											    		<h4>Cast / जाति </h4>
 												    	<div class="form-group">
 													      	<input type="text" class="form-control personal_info" placeholder="जाति" name="cast" id="cast" value="{{$user->cast}}" readonly>
 													    </div>
 												    </div>
 
-												    <div class="col-md-4">
+												    <div class="col-md-3">
 												    	<h4>Sub Cast/उपजाति/घटक</h4>
 													    <div class="form-group">
 													      <input type="text" class="form-control personal_info" placeholder="उपजाति" name="sub_cast" id="sub_cast" value="{{$user->sub_cast}}" readonly>
 													    </div>
 												    </div>
 
-											    	<div class="col-md-4">
+											    	<div class="col-md-3">
 											    		<h4>गौत्र (Gotre)</h4>
 												    	<div class="form-group">
 													      	<input type="text" class="form-control personal_info" placeholder="गौत्र" name="gotra" id="gotra" value="{{$user->gotra}}" readonly>
 													    </div>
 												    </div>
 
-												    <div class="col-md-4">
+												    <div class="col-md-3">
 												    	<h4>बंक </h4>
 													    <div class="form-group">
 													      <input type="text" class="form-control personal_info" placeholder="बंक" name="bunk" id="bunk" value="{{$user->bunk}}" readonly>
 													    </div>
 												    </div>
 
-													<div class="col-md-4 mb10px">
+													<div class="col-md-3 mb10px">
 														<h4>मूल निवासी (Origin Place)</h4>
 												    	<div class="form-group">
 										      			<textarea class="form-control personal_info" rows="1" placeholder="मूल निवासी(स्थान का नाम , जिला, राज्य दें) " name="origin_place" id="origin_place" readonly>{{$user->origin_place}}</textarea>
 													    </div>
 												    </div>
 
-													<div class="col-md-4">
+													<div class="col-md-3">
 												    	<h4>Date of Birth / जन्म की तारीख</h4>
 												    	<div class="form-group">
 													      <input type="text" format="Y-m-d" class="form-control personal_info datepicker" placeholder="20-12-1990" name="dob" id="dob" value="{{$user->dob}}" readonly>
 													    </div>
 												    </div>
 
-											   		<div class="col-md-4">
+											   		<div class="col-md-3">
 												    	<h4>Married / शादी-शुदा </h4>
 													    <div class="form-group ">
 													    	@if($user->married==2)
@@ -219,35 +219,35 @@
 												   		 </div>
 												    </div>
 
-													<div class="col-md-4">
+													<div class="col-md-3">
 												    	<h4>Marriage Date/ शादी की तारीख</h4>
 												    	<div class="form-group">
 													      <input type="text" format="Y-m-d" class="form-control personal_info datepicker" placeholder="20-12-1990" name="marriage_date" id="marriage_date" value="{{$user->marriage_date}}" readonly>
 													    </div>
 												    </div>
 
-													<div class="col-md-4">
+													<div class="col-md-3">
 												    	<h4>Life Partner Name/ जीवन साथी का नाम</h4>
 												    	<div class="form-group">
 													      <input type="text" class="form-control personal_info" placeholder="Life Partner Name" name="life_partner" id="life_partner" value="{{$user->life_partner_name}}" readonly>
 													    </div>
 												    </div>
 
-												    <div class="col-md-4">
+												    <div class="col-md-3">
 													    <h4>Education/शिक्षा </h4>
 												    	<div class="form-group">
 													      <input type="text" class="form-control personal_info" placeholder="Education/शिक्षा " name="education" id="education" value="{{$user->education}}" readonly>
 													    </div>
 												    </div>
 
-												    <div class="col-md-4">
+												    <div class="col-md-3">
 													    <h4>विशेष योग्यता(Special Qualification)</h4>
 												    	<div class="form-group">
 													      <input type="text" class="form-control personal_info" placeholder="विशेष योग्यता" name="special_qualification" id="special_qualification" value="{{$user->special_qualification}}" readonly>
 													    </div>
 												    </div>
 
-												    <div class="col-md-4">
+												    <div class="col-md-3">
 													    <h4>अनुभव क्षेत्र(Experience Field)</h4>
 												    	<div class="form-group">
 													      <input type="text" class="form-control personal_info" placeholder="अनुभव क्षेत्र" name="experience_field" id="experience_field" value="{{$user->experience_field}}" readonly>
@@ -432,7 +432,7 @@
 												<input type="hidden" name="user_id" id="user_id" value="{{ $user->user_id }}">
 
 								    			<div class="row">
-												    <div class="col-md-6">
+												    <div class="col-md-12">
 												    	<h4>1. Blood Group / रक्त समूह</h4>
 												    	<div class="form-group">
 												    		<select class="form-control radio" name="bloodgroup" id="bloodgroup">
@@ -473,7 +473,7 @@
 													  	</div>
 												    </div>
 
-												    <div class="col-md-12 mb10px">
+												    <div class="col-md-6 mb10px">
 
 														<h4>3. आप उपभोक्ता संघ (Consumer Forum) का सदस्य बनना चाहते हैं
 															<a href="javascript:;" style="color:blue;">see link</a>
@@ -496,7 +496,7 @@
 
 												  	</div>
 
-												  	<div class="col-md-12 mb10px">
+												  	<div class="col-md-6 mb10px">
 												    	<h4>4. May I Help You Club का सदस्य बनना चाहते हैं
 												    		<a href="javascript:;" style="color:blue;">see link</a>
 												    	</h4>
@@ -517,7 +517,7 @@
 													 	</div>
 												 	</div>
 
-												 	<div class="col-md-12 mb10px">
+												 	<div class="col-md-6 mb10px">
 												    	<h4>5. ABC Club का सदस्य बनना चाहते हैं
 												    		<a href="javascript:;" style="color:blue;">see link</a>
 												    	</h4>
@@ -538,7 +538,7 @@
 														</div>
 													</div>
 
-													<div class="col-md-12 mb10px">
+													<div class="col-md-6 mb10px">
 												    	<h4>6. किसी प्रोजेक्ट समिति का सदस्य बनना चाहते हैं
 												    		<a href="javascript:;" style="color:blue;">see link</a>
 												    	</h4>
@@ -559,7 +559,7 @@
 													   	</div>
 												   	</div>
 
-												   	<div class="col-md-12 mb10px">
+												   	<div class="col-md-6 mb10px">
 												    	<h4>7. वैश्य पंचायत / वैश्य वाहिनी का सदस्य बनना चाहोगे
 												    		<a href="javascript:;" style="color:blue;">see link</a>
 												    	</h4>
@@ -600,7 +600,7 @@
 													    </div>
 												    </div>
 
-												    <div class="col-md-12 mb10px">
+												    <div class="col-md-6 mb10px">
 												     	<h4>9. अपने समाज की किस संस्था से जुड़े हुए हैं |</h4>
 
 													    <div class="form-group ml0px">
@@ -608,7 +608,7 @@
 													    </div>
 												    </div>
 
-												    <div class="col-md-12 mb10px">
+												    <div class="col-md-6 mb10px">
 												     	<h4>10. समाज की किस पत्रिका के सदस्य हो | </h4>
 
 													    <div class="form-group ml0px">
@@ -617,7 +617,7 @@
 												    </div>
 
 
-												    <div class="col-md-12 mb10px">
+												    <div class="col-md-4 mb10px">
 												     	<h4>11. आवास</h4>
 
 													    <div class="form-group ml0px">
@@ -633,7 +633,7 @@
 													    </div>
 												    </div>
 
-												    <div class="col-md-12 mb10px">
+												    <div class="col-md-4 mb10px">
 													    <h4>12. अपना वाहन </h4>
 
 													    <div class="form-group ml0px">
@@ -715,14 +715,14 @@
 													    </div>
 												    </div>
 
-												    <div class="col-md-12 mb10px">
+												    <div class="col-md-4 mb10px">
 													    <h4>14. PAN Card No.</h4>
 												    	<div class="form-group">
 													      	<input type="text" class="form-control optional_info" placeholder="Pan Card No" name="pan_card" id="pan_card" value="{{$user_optional_details->pan_card}}" readonly>
 													    </div>
 												    </div>
 
-												    <div class="col-md-12 mb10px">
+												    <div class="col-md-4 mb10px">
 													    <h4>15. Aadhar Card No.</h4>
 												    	<div class="form-group">
 													      <input type="text" class="form-control optional_info" placeholder="Aadhar Card No." name="adhar_card" id="adhar_card" value="{{$user_optional_details->adhar_card}}" readonly>
