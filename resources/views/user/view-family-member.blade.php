@@ -102,19 +102,19 @@
 										    </div>
 									    </div>
 
-									    <div class="col-md-4">
+									    <!-- <div class="col-md-4">
 									    	<h4>Religion/धर्म</h4>
 									    	<div class="form-group">
-										      <input type="text" class="form-control" name="religion" id="religion" value="हिन्दू" disabled>
-										    </div>
+									    										      <input type="text" class="form-control" name="religion" id="religion" value="हिन्दू" disabled>
+									    										    </div>
 									    </div>
 
-										<div class="col-md-4">
+									    										<div class="col-md-4">
 									    	<h4>मत/सम्प्रदाय </h4>
 									    	<div class="form-group">
 									    		<select class="form-control member_radio" required="" name="sampraday" id="sampraday">
 
-													@if($viewfamily->sampraday != '')
+									    													@if($viewfamily->sampraday != '')
 									    				<option value="{{ $viewfamily->sampraday }}" selected="selected">{{ $viewfamily->sampraday }}</option>
 									    			@endif
 
@@ -127,30 +127,30 @@
 									    			<option value="राधास्वामी">राधास्वामी</option>
 									    			<option value="अन्य ">अन्य </option>
 									    		</select>
-										    </div>
+									    										    </div>
 									    </div>
 
-								    	<div class="col-md-4">
-								    		<h4>Cast / जाति </h4>
+									    <div class="col-md-4">
+									    	<h4>Cast / जाति </h4>
 									    	<div class="form-group">
-										      	<input type="text" class="form-control member_profile" placeholder="जाति" name="cast" readonly value="{{ $viewfamily->cast }}">
-										    </div>
+									    		<input type="text" class="form-control member_profile" placeholder="जाति" name="cast" readonly value="{{ $viewfamily->cast }}">
+									    	</div>
 									    </div>
 
 									    <div class="col-md-4">
 									    	<h4>Sub Cast/उपजाति/घटक</h4>
-										    <div class="form-group">
-										      <input type="text" class="form-control member_profile" placeholder="उपजाति" name="sub_cast" readonly value="{{ $viewfamily->sub_cast }}">
-										    </div>
+									    	<div class="form-group">
+									    		<input type="text" class="form-control member_profile" placeholder="उपजाति" name="sub_cast" readonly value="{{ $viewfamily->sub_cast }}">
+									    	</div>
 									    </div>
 
 								    	<div class="col-md-4">
 								    		<h4>गौत्र (Gotre)</h4>
 									    	<div class="form-group">
-										      	<input type="text" class="form-control member_profile" placeholder="गौत्र" name="gotra" readonly value="{{ $viewfamily->gotra }}">
-										    </div>
+									      	<input type="text" class="form-control member_profile" placeholder="गौत्र" name="gotra" readonly value="{{ $viewfamily->gotra }}">
 									    </div>
-
+									    </div>
+									     -->
 									    <div class="col-md-4">
 									    	<h4>बंक </h4>
 										    <div class="form-group">
@@ -158,12 +158,12 @@
 										    </div>
 									    </div>
 
-										<div class="col-md-4 mb10px">
+										<!-- <div class="col-md-4 mb10px">
 											<h4>मूल निवासी (Origin Place)</h4>
 									    	<div class="form-group">
 							      			<textarea class="form-control member_profile" rows="1" placeholder="मूल निवासी(स्थान का नाम , जिला, राज्य दें) " name="origin_place" id="origin_place" readonly>{{ $viewfamily->origin_place }}</textarea>
 										    </div>
-									    </div>
+										 </div> -->
 
 										<div class="col-md-4">
 									    	<h4>Date of Birth / जन्म की तारीख</h4>
@@ -378,25 +378,25 @@
 
 								</form>
 
-								<form class="form-inline" action="{{ route('updateMemberOptionalInfo') }}" method="post">
+								<!-- <form class="form-inline" action="{{ route('updateMemberOptionalInfo') }}" method="post">
 
 									{{ csrf_field() }}
 
 									<input type="hidden" name="member_optional_id" value="{{ $family_member_optional->id }}">
 
 									<div class="row">
-							    		<div class="col-md-6">
-						    				<h2 class="red">Member Optional Information / ऐच्छिक सूचनाएं </h2>
-						    			</div>
+						    		<div class="col-md-6">
+					    				<h2 class="red">Member Optional Information / ऐच्छिक सूचनाएं </h2>
+					    			</div>
 
 										<div class="col-md-6 text-right">
-						    				<h4><a href="javascript:;" id="edit_member_optional">Edit Optional Info</a></h4>
-						    			</div>
-						    		</div>
+					    				<h4><a href="javascript:;" id="edit_member_optional">Edit Optional Info</a></h4>
+					    			</div>
+					    		</div>
 
-						    		<hr>
+					    		<hr>
 
-					    			<div class="row">
+													    			<div class="row">
 									    <div class="col-md-6">
 									    	<h4>1. Blood Group / रक्त समूह</h4>
 									    	<div class="form-group">
@@ -420,7 +420,7 @@
 									    </div>
 
 									    <div class="col-md-6 mb20px">
-						  					<h4>2. किसी को रक्त की जरूरत पड़ने पर सुचना प्राप्त करना चाहेंगे</h4>
+											<h4>2. किसी को रक्त की जरूरत पड़ने पर सुचना प्राप्त करना चाहेंगे</h4>
 										    <div class="form-group">
 										    	@if($family_member_optional->blood_information==2)
 										    		<input type="radio" name="blood_information" class="member_optional_radio" value="1">
@@ -585,7 +585,7 @@
 										    <h4>12. अपना वाहन </h4>
 										    <div class="form-group ml0px">
 										    	<?php
-													$vehicle = $family_member_optional->vehicle;
+													/*$vehicle = $family_member_optional->vehicle;
 											    	$vehicle = explode("-", $vehicle);
 											    	$vehicle1 = '';
 											    	$vehicle2 = '';
@@ -596,11 +596,11 @@
 											    	if(in_array('2', $vehicle))
 											    	{
 											    		$vehicle2 = 'checked="checked"';
-											    	}
+											    	}*/
 										    	?>
-									      		<input type="checkbox" name="vehicle[]" class="member_optional_radio" value="1" <?= $vehicle1; ?>>
+									      		<input type="checkbox" name="vehicle[]" class="member_optional_radio" value="1" <?php //echo $vehicle1; ?>>
 										      		Two Wheeler
-									      		<input type="checkbox" name="vehicle[]" class="member_optional_radio" value="2" <?= $vehicle2; ?>>
+									      		<input type="checkbox" name="vehicle[]" class="member_optional_radio" value="2" <?php //echo $vehicle2; ?>>
 										      		Four Wheeler
 
 										    </div>
@@ -628,7 +628,7 @@
 											<input type="submit" class="btn btn-success" name="update_member_optional_information" id="update_member_optional_information" value="Update Optional Information">
 										</div>
 
-									</form>
+									</form> -->
 
 				        		</div>
 				        	</div>

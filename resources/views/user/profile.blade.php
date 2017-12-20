@@ -962,14 +962,14 @@
 													    </div>
 												    </div>
 
-												    <div class="col-md-4">
+												    <!-- <div class="col-md-4">
 												    	<h4>Religion/धर्म</h4>
 												    	<div class="form-group">
 													      <input type="text" class="form-control" name="religion" id="religion" value="हिन्दू" disabled>
 													    </div>
-												    </div>
+												    </div> -->
 
-													<div class="col-md-4">
+													<!-- <div class="col-md-4">
 												    	<h4>मत/सम्प्रदाय </h4>
 												    	<div class="form-group">
 												    		<select class="form-control" required="" name="sampraday" id="sampraday">
@@ -983,28 +983,28 @@
 												    			<option value="अन्य ">अन्य </option>
 												    		</select>
 													    </div>
-												    </div>
+																									    </div> -->
 
-											    	<div class="col-md-4">
+											    	<!-- <div class="col-md-4">
 											    		<h4>Cast / जाति </h4>
 												    	<div class="form-group">
 													      	<input type="text" class="form-control" placeholder="जाति" name="cast">
 													    </div>
-												    </div>
+												    </div> -->
 
-												    <div class="col-md-4">
+												    <!-- <div class="col-md-4">
 												    	<h4>Sub Cast/उपजाति/घटक</h4>
 													    <div class="form-group">
 													      <input type="text" class="form-control" placeholder="उपजाति" name="sub_cast">
 													    </div>
 												    </div>
 
-											    	<div class="col-md-4">
-											    		<h4>गौत्र (Gotre)</h4>
+												    <div class="col-md-4">
+												    	<h4>गौत्र (Gotre)</h4>
 												    	<div class="form-group">
-													      	<input type="text" class="form-control" placeholder="गौत्र" name="gotra">
-													    </div>
+												      	<input type="text" class="form-control" placeholder="गौत्र" name="gotra">
 												    </div>
+												    </div> -->
 
 												    <div class="col-md-4">
 												    	<h4>बंक </h4>
@@ -1013,12 +1013,12 @@
 													    </div>
 												    </div>
 
-													<div class="col-md-4 mb10px">
+													<!-- <div class="col-md-4 mb10px">
 														<h4>मूल निवासी (Origin Place)</h4>
-												    	<div class="form-group">
-										      			<textarea class="form-control" rows="1" placeholder="मूल निवासी(स्थान का नाम , जिला, राज्य दें) " name="origin_place" id="origin_place"></textarea>
-													    </div>
-												    </div>
+													    	<div class="form-group">
+											      			<textarea class="form-control" rows="1" placeholder="मूल निवासी(स्थान का नाम , जिला, राज्य दें) " name="origin_place" id="origin_place"></textarea>
+	    												</div>
+													    </div> -->
 
 													<div class="col-md-4">
 												    	<h4>Date of Birth / जन्म की तारीख</h4>
@@ -1189,7 +1189,7 @@
 
 												</div>
 
-												<div class="row">
+										<!-- <div class="row">
 													<div class="col-md-8">
 										    			<h2 class="red">Member Optional Information / ऐच्छिक सूचनाएं </h2>
 										    			<hr>
@@ -1215,7 +1215,7 @@
 												    </div>
 
 												    <div class="col-md-6 mb20px">
-									  					<h4>2. किसी को रक्त की जरूरत पड़ने पर सुचना प्राप्त करना चाहेंगे</h4>
+														<h4>2. किसी को रक्त की जरूरत पड़ने पर सुचना प्राप्त करना चाहेंगे</h4>
 													    <div class="form-group">
 													    	<input type="radio" name="blood_information" class="" value="1">Yes
 												      		<input type="radio" name="blood_information" class="" value="2">No
@@ -1322,9 +1322,9 @@
 												    	<div class="form-group">
 													      <input type="text" class="form-control" placeholder="Aadhar Card No." name="adhar_card" id="adhar_card">
 													    </div>
-												    </div>
+												    </div>-->
 
-											    	<div class="col-md-12 mb10px">
+													<div class="col-md-12 mb10px">
 													    <h4>17.<input type="checkbox" placeholder="Aadhar Card No." class="	" name="agree" required=""> उपरोक्त सभी सूचना सही हैं व मैंने अपनी इच्छा से दी हैं |</h4>
 													</div>
 

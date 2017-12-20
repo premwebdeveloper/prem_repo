@@ -17,7 +17,7 @@ class verifyEmail extends Mailable
      *
      * @return void
      */
-    public $user; 
+    public $user;
 
     public function __construct(User $user)
     {
