@@ -21,6 +21,8 @@ Route::get('aboutus', 'HomeController@aboutus')->name('aboutus');
 Route::get('aims', 'HomeController@aims')->name('aims');
 Route::get('member', 'HomeController@member')->name('member');
 
+Route::get('how_can_help', 'HomeController@how_can_help')->name('how_can_help');
+
 Route::get('donate', 'HomeController@donate')->name('donate');
 
 Route::get('car_pooling', 'HomeController@car_pooling')->name('car_pooling');

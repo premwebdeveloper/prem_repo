@@ -23,6 +23,12 @@ class HomeController extends Controller
         return view('welcome');
     }
 
+    public function how_can_help()
+    {
+        $how_can_help = DB::table('website_pages')->where('id', 31)->first();
+        return view('home.how_can_help', array('how_can_help' => $how_can_help));
+    }
+
     public function donate()
     {
         $donate = DB::table('website_pages')->where('id', 30)->first();

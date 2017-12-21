@@ -189,3 +189,6 @@ ALTER TABLE `website_pages` CHANGE `created_at` `created_at` DATETIME NULL, CHAN
 
 -- ---------------------------Updated Table 'website_pages' ON 09-12-2017--------------------------
 INSERT INTO `website_pages` (`id`, `page_title`, `page_description`, `created_at`, `updated_at`, `status`) VALUES (NULL, 'donate', 'donate', '2017-12-09 01:03:08', '2017-12-09 02:04:06', '1');
+
+-- ---------------------------Updated Table 'website_pages' ON 21-12-2017--------------------------
+INSERT INTO `website_pages` (`id`, `page_title`, `page_description`, `created_at`, `updated_at`, `status`) VALUES (NULL, 'how_can_help', 'how_can_help', NULL, NULL, '1');

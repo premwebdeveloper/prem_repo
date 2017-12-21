@@ -99,7 +99,7 @@
 					<li class="active"><a href="{{ url('/') }}" title="Home">Home</a></li>
 					<li><a href="{{ route('aboutus') }}" title="Home" class="text-center">संस्था को जानें <br>About Us</a></li>
 					<li><a href="{{ route('aims') }}" title="Home" class="text-center">लक्ष्य और उद्देश्य<br>Aims & Objectives</a></li>
-					<li><a href="javascript:;" title="संस्था सहयोगी कैसे बने" class="text-center">संस्था सहयोगी कैसे बनें<br> How can we help our body</a></li>
+					<li><a href="{{ route('how_can_help') }}" title="संस्था सहयोगी कैसे बने" class="text-center">संस्था सहयोगी कैसे बनें<br> How can we help our body</a></li>
 					<li><a href="{{ route('suggestion') }}" class="text-center" title="Your Suggestion">आपके सुझाव<br>Your Suggestion<br></a></li>
 					<li><a href="{{ route('problem') }}" class="text-center" title="Home">आपकी समस्याएं <br>Put Your Problem</a></li>
 					@if (Auth::guest())
