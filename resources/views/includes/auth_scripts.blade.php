@@ -36,7 +36,7 @@
                 showMethod: 'slideDown',
                 timeOut: 4000
             };
-            toastr.success('Welcome to Matrimonial');
+            toastr.success('Welcome to VaishParivarSangh');
 
         }, 1300);
 
