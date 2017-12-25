@@ -24,7 +24,7 @@
 </style>
 <!--First Row-->
 <section>
-		<h2>Representative Members</h2>
+		<h2>Representative Members  प्रतिनिधि सदस्यों की सूची</h2>
 </section>
 <div class="container">
 

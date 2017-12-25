@@ -24,7 +24,7 @@
 </style>
 <!--First Row-->
 <section>
-		<h2>Membership</h2>
+		<h2>Membership  सदस्यता</h2>
 </section>
 <div class="container">
 

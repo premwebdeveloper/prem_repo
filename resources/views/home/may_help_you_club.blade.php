@@ -24,7 +24,7 @@
 </style>
 <!--First Row-->
 <section>
-		<h2>How May I Help You .?</h2>
+		<h2>How May I Help You .?  सहायता&nbsp;&nbsp; क्लब</h2>
 </section>
 <div class="container">
 

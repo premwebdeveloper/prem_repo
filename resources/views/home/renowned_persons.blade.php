@@ -24,7 +24,7 @@
 </style>
 <!--First Row-->
 <section>
-		<h2>Renowned Persons</h2>
+		<h2>Renowned Persons वैश्य महापुरुष</h2>
 </section>
 <div class="container">
 

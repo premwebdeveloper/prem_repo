@@ -24,7 +24,7 @@
 </style>
 <!--First Row-->
 <section>
-		<h2>Vaish Panchayat And Vaish Vahini</h2>
+		<h2>Vaish Panchayat And Vaish Vahini  वैश्य पंचायत व  वैश्य वाहिनी</h2>
 </section>
 <div class="container">
 

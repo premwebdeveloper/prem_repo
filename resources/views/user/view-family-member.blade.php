@@ -8,6 +8,14 @@
 }
 </style>
 
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(document).on('click', '#back_to_members', function(){
+			window.location = "http://localhost/matrimonial/trunk/profile#family";
+		});
+	});
+</script>
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -35,7 +43,11 @@
 					    				<h2 class="red">Family Member View</h2>
 					    			</div>
 
-									<div class="col-md-6 text-right">
+									<div class="col-md-4 text-right">
+					    				<button class="btn btn-primary" id="back_to_members">Back </button>
+					    			</div>
+
+									<div class="col-md-2 text-right">
 					    				<h4><a href="javascript:;" id="edit_member_profile">Edit Personal Info</a></h4>
 					    			</div>
 
@@ -235,8 +247,10 @@
 									    </div>
 
 									    <div class="col-md-12 update_member_profile text-left">
-											<input type="submit" class="btn btn-success " name="update_member_personal_information" id="update_member_personal_information" value="Update Personal Information">
+											<input type="submit" class="btn btn-danger btn-block " name="update_member_personal_information" id="update_member_personal_information" value="Update Personal Information">
 										</div>
+
+										<div class="col-md-12"> &nbsp; </div>
 
 									</div>
 

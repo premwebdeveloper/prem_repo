@@ -11,6 +11,9 @@
 	    padding-left: 5px;
 	    padding-right: 5px;
 	}
+	.hidetext h3:hover {
+    	text-decoration: underline;
+    }
 </style>
 <div class="container shadow">
 
@@ -396,14 +399,14 @@
 					<div class="col-md-3">
 						<div class=" hidetext">
 						<a href="{{ route('tolet_services') }}" title="Tolet Services " class="ad">
-							<h3 class="hcolor10"><span class="numbox">54.</span><br><br> Tolet Services</h3>
+							<h3 class="hcolor10"><span class="numbox">54.</span><br><br> Tolet Services  टोलेट सर्विसेस</h3>
 						</a>
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class=" hidetext">
 						<a href="{{ route('car_pooling') }}" title="Car Pooling " class="ad">
-							<h3 class="hcolor10"><span class="numbox">55.</span><br><br> Car Pooling</h3>
+							<h3 class="hcolor10"><span class="numbox">55.</span><br><br> Car Pooling कार पूलिंग</h3>
 						</a>
 						</div>
 					</div>

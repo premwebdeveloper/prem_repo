@@ -24,7 +24,7 @@
 </style>
 <!--First Row-->
 <section>
-		<h2>Heritage/Dham Culture, Festivals</h2>
+		<h2>Heritage/Dham Culture, Festivals  अपने स्मारक/धरोहर, &nbsp;&nbsp;तीर्थ स्थान, त्यौहार</h2>
 </section>
 <div class="container">
 

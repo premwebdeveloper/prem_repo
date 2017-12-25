@@ -5,6 +5,7 @@ namespace Illuminate\Foundation\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
+use DB;
 
 trait RegistersUsers
 {
@@ -17,7 +18,9 @@ trait RegistersUsers
      */
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        $join_us_content = DB::table('website_pages')->where('id', 4)->first();
+
+        return view('auth.register', array('join_us_content' => $join_us_content));
     }
 
     /**

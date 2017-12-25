@@ -24,7 +24,7 @@
 </style>
 <!--First Row-->
 <section>
-		<h2>ABC Club</h2>
+		<h2>ABC Club  आपसी भाईचारा क्लब </h2>
 </section>
 <div class="container">
 

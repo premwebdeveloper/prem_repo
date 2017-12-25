@@ -24,7 +24,7 @@
 </style>
 <!--First Row-->
 <section>
-		<h2>Dharmshala, Hotel, Bhawan, P.G.</h2>
+		<h2>Dharmshala, Hotel, Bhawan, P.G. अपनी धर्मशाला, होटल, फार्म हाउस,&nbsp; हॉस्टल </h2>
 </section>
 <div class="container">
 

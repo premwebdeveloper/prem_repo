@@ -24,7 +24,7 @@
 </style>
 <!--First Row-->
 <section>
-		<h2>MOA Registration, 80-G Certificate</h2>
+		<h2>MOA Registration, 80-G Certificate  संस्था का सविधान, पंजीकरण व दान प्रमाण पत्र</h2>
 </section>
 <div class="container">
 

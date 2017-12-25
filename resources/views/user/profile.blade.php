@@ -8,6 +8,24 @@
 }
 </style>
 
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		var page_url = window.location.href;
+
+		var temp_param = page_url.split('#');
+		var param = temp_param[1];
+
+		if(param == 'family')
+		{
+			$('#head_member_tab').removeClass('active');
+			$('#family_member_tab').addClass('active');
+			$('#profile').removeClass('in active');
+			$('#family').addClass('in active');
+		}
+	});
+</script>
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -21,8 +39,12 @@
 				    	    <div class="with-nav-tabs">
 				                <div class="panel-heading">
 			                	  	<ul class="nav nav-tabs">
-									    <li class="active"><a href="#profile"><h1>Profile Information</h1></a></li>
-									    <li><a href="#family"><h1>Family Information</h1></a></li>
+									    <li class="active" id="head_member_tab">
+									    	<a href="#profile"><h1>Profile Information</h1></a>
+									    </li>
+									    <li id="family_member_tab">
+									    	<a href="#family"><h1>Family Information</h1></a>
+									    </li>
 									    <!-- <li><a href="#jobportal">Job Portal</a></li> -->
 									</ul>
 				              	</div>
@@ -342,7 +364,7 @@
 												    </div>
 
 												    <div class="col-md-12 update_personal_info text-left" style="display:none;">
-														<input type="submit" class="btn btn-success personal_info" name="update_personal_info" id="update_personal_info" value="update personal info">
+														<input type="submit" class="btn btn-danger btn-block personal_info" name="update_personal_info" id="update_personal_info" value="update personal info">
 													</div>
 												</div>
 											</form>
@@ -398,7 +420,7 @@
 
 												  	<div class="col-md-6 mb10px">
 												    	<h4>2. May I Help You Club का सदस्य बनना चाहते हैं
-												    		<a href="javascript:;" style="color:blue;">see link</a>
+												    		<a href="{{ route('may_i_help_you') }}" target="_blank" style="color:blue;">see link</a>
 												    	</h4>
 													    <div class="form-group ml0px">
 
@@ -419,7 +441,7 @@
 
 												 	<div class="col-md-3 mb10px">
 												    	<h4>3. ABC Club का सदस्य बनना चाहते हैं
-												    		<a href="javascript:;" style="color:blue;">see link</a>
+												    		<a href="{{ route('abc_club') }}" target="_blank" style="color:blue;">see link</a>
 												    	</h4>
 													    <div class="form-group ml0px">
 
@@ -440,7 +462,7 @@
 
 												   	<div class="col-md-6 mb10px">
 												    	<h4>4. वैश्य पंचायत / वैश्य वाहिनी का सदस्य बनना चाहोगे
-												    		<a href="javascript:;" style="color:blue;">see link</a>
+												    		<a href="{{ route('vaish_panchayat') }}" target="_blank" style="color:blue;">see link</a>
 												    	</h4>
 													    <div class="form-group ml0px">
 
@@ -624,7 +646,7 @@
 													    	<i class="fa fa-check" aria-hidden="true"></i> in the box</h4>
 
 														<div class="col-md-12 update_optional_info text-left" style="display:none;">
-															<input type="submit" class="btn btn-success" name="update_optional_info" id="update_optional_info" value="update optional info">
+															<input type="submit" class="btn btn-danger btn-block" name="update_optional_info" id="update_optional_info" value="update optional info">
 														</div>
 													</div>
 
@@ -665,8 +687,7 @@
 												      	<td>{{$user->phone}}</td>
 												      	<td>परिवार के मुखिया</td>
 												      	<td>
-												      		<a href="javascript:;" class="btn btn-info btn-xs">view</a>
-												       		<a href="javascript:;" class="btn btn-danger btn-xs">delete</a>
+												      		<a href="{{ route ('profile') }}" class="btn btn-info btn-xs">view</a>
 											       		</td>
 											     	 </tr>
 													@foreach($familymember as $member)
@@ -677,6 +698,7 @@
 												      	<td>{{$member->relation_to_head_member}}</td>
 												      	<td>
 												      		<a href="{{route('viewfamilymember', ['id' => $member->id])}}" class="btn btn-info btn-xs">view</a>
+
 												       		<a href="#{{$member->id}}" class="btn btn-danger btn-xs" data-toggle="modal">delete</a>
 											       		</td>
 											     	</tr>
@@ -807,6 +829,8 @@
 													    </div>
 												    </div>
 
+
+
 												    <div class="col-md-6 mb20px">
 												    	<div class="form-group">
 										      				<textarea class="form-control" rows="3" placeholder="कार्यालय/व्यापार/व्यवसाय का पता " name="occupation_address" id="occupation_address"></textarea>
@@ -874,14 +898,21 @@
 													    </div>
 												    </div>
 
+												    <div class="col-md-6">
+												    	<div class="form-group">
+												      		<input type="text" class="form-control" placeholder="Education/Experience " name="education" id="education">
+												    	</div>
+												    </div>
+
 												</div>
 
 													<div class="col-md-6 mb10px">
-													    <h4>17.<input type="checkbox" placeholder="Aadhar Card No." class="	" name="agree" required=""> उपरोक्त सभी सूचना सही हैं व मैंने अपनी इच्छा से दी हैं |</h4>
+													    <h4>17. उपरोक्त सभी सूचना सही हैं व मैंने अपनी इच्छा से दी हैं |<input type="checkbox" placeholder="Aadhar Card No." class="" name="agree" required="required" style="width: 25px;height: 25px;margin-bottom: 0px;vertical-align: middle;"> <i class="fa fa-check" aria-hidden="true"></i> in the box
+													    </h4>
 													</div>
 
 													<div class="col-md-6 text-right">
-														<input type="submit" class="btn btn-success" name="add_member" id="add_member" value="Add Member">
+														<input type="submit" class="btn btn-danger btn-block" name="add_member" id="add_member" value="Add Member">
 													</div>
 												</form>
 				                        	</div>
