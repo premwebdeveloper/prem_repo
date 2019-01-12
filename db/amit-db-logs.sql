@@ -76,3 +76,12 @@ ALTER TABLE `website_pages`
 --
 ALTER TABLE `website_pages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+
+-- ---------------------------ALTER TABLE `user_details` ADD ON 12-01-2019--------------------------
+ALTER TABLE `user_details` ADD `antim_pad` VARCHAR(255) NOT NULL AFTER `donate_hundred`, ADD `vibhag` VARCHAR(255) NOT NULL AFTER `antim_pad`, ADD `pad` VARCHAR(255) NOT NULL AFTER `vibhag`;
+
+-- ---------------------------ALTER TABLE `user_details` CHANGE ON 12-01-2019--------------------------
+ALTER TABLE `user_details` CHANGE `antim_pad` `antim_pad` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL, CHANGE `vibhag` `vibhag` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL, CHANGE `pad` `pad` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL;
+
+-- ---------------------------ALTER TABLE `user_family_details` CHANGE ON 12-01-2019--------------------------
+ALTER TABLE `user_family_details` CHANGE `email` `email` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL, CHANGE `phone` `phone` VARCHAR(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL;
