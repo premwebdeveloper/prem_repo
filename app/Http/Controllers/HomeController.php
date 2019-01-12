@@ -2,8 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\User;
+use App\user_details;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use DB;
+use Mail;
+use App\Mail\verifyEmail;
+use Session;
 
 class HomeController extends Controller
 {
@@ -111,6 +120,96 @@ class HomeController extends Controller
     {
         $aims = DB::table('website_pages')->where('id', 2)->first();
         return view('home.aims', array('aims' => $aims));
+    }
+
+    public function today_tomorrow_news()
+    {
+        $today_tomorrow_news = DB::table('website_pages')->where('id', 8)->first();
+        return view('home.today_tomorrow_news', array('today_tomorrow_news' => $today_tomorrow_news));
+    }
+
+    public function matrimonial_services()
+    {
+        $matrimonial_services = DB::table('website_pages')->where('id', 32)->first();
+        return view('home.matrimonial_services', array('matrimonial_services' => $matrimonial_services));
+    }
+
+    public function maharaja_agrasen_agroha_dham()
+    {
+        $maharaja_agrasen_agroha_dham = DB::table('website_pages')->where('id', 34)->first();
+        return view('home.maharaja_agrasen_agroha_dham', array('maharaja_agrasen_agroha_dham' => $maharaja_agrasen_agroha_dham));
+    }
+
+    public function our_big_industries()
+    {
+        $our_big_industries = DB::table('website_pages')->where('id', 35)->first();
+        return view('home.our_big_industries', array('our_big_industries' => $our_big_industries));
+    }
+
+    public function school_college_eng_medical__industries()
+    {
+        $school_college_eng_medical__industries = DB::table('website_pages')->where('id', 36)->first();
+        return view('home.school_college_eng_medical__industries', array('school_college_eng_medical__industries' => $school_college_eng_medical__industries));
+    }
+
+    public function our_clinic_hospital()
+    {
+        $our_clinic_hospital = DB::table('website_pages')->where('id', 37)->first();
+        return view('home.our_clinic_hospital', array('our_clinic_hospital' => $our_clinic_hospital));
+    }
+
+    public function working_social_religious_units()
+    {
+        $working_social_religious_units = DB::table('website_pages')->where('id', 29)->first();
+        return view('home.working_social_religious_units', array('working_social_religious_units' => $working_social_religious_units));
+    }
+
+    public function blood_donors()
+    {
+        $blood_donors = DB::table('website_pages')->where('id', 42)->first();
+        return view('home.blood_donors', array('blood_donors' => $blood_donors));
+    }
+
+    public function video_documentary_film()
+    {
+        $video_documentary_film = DB::table('website_pages')->where('id', 45)->first();
+        return view('home.video_documentary_film', array('video_documentary_film' => $video_documentary_film));
+    }
+
+    public function brilliant_children()
+    {
+        $brilliant_children = DB::table('website_pages')->where('id', 64)->first();
+        return view('home.brilliant_children', array('brilliant_children' => $brilliant_children));
+    }
+
+    public function player_persons()
+    {
+        $player_persons = DB::table('website_pages')->where('id', 49)->first();
+        return view('home.player_persons', array('player_persons' => $player_persons));
+    }
+    
+    public function master_other_arts()
+    {
+        $master_other_arts = DB::table('website_pages')->where('id', 50)->first();
+        return view('home.master_other_arts', array('master_other_arts' => $master_other_arts));
+    }    
+
+    public function other_religious_bodies()
+    {
+        $other_religious_bodies = DB::table('website_pages')->where('id', 51)->first();
+        return view('home.other_religious_bodies', array('other_religious_bodies' => $other_religious_bodies));
+    }
+
+    public function useful_information()
+    {
+        $useful_information = DB::table('website_pages')->where('id', 53)->first();
+        return view('home.useful_information', array('useful_information' => $useful_information));
+    }
+
+    public function trade_directory()
+    {
+        $trade_directory = DB::table('website_pages')->where('id', 40)->first();
+        return view('home.trade_directory', array('trade_directory' => $trade_directory));
     }
 
     public function member()
@@ -242,10 +341,112 @@ class HomeController extends Controller
         return view('home.dharmshala', array('dharmshala' => $dharmshala));
     }
 
-    public function working_social_religious_units()
-    {
-        $working_social_religious_units = DB::table('website_pages')->where('id', 29)->first();
-        return view('home.working_social_religious_units', array('working_social_religious_units' => $working_social_religious_units));
+    // send register otp function
+    public function verifyRegisterOtp(Request $request){
+
+        //dd($request);
+        $phone = $request->phone;
+        $name = $request->name;
+        
+        # Set validation for
+        $this->validate($request, [
+            'phone' => 'required|numeric|digits:10',
+        ]);
+
+        $is_mobile_available = DB::table('users')->where('phone', $phone)->first();
+
+        if(!empty($is_mobile_available))
+        {
+            $mobile_exist = 'This mobile no. is already exist.';
+            return redirect('register')->with('mobile_exist', $mobile_exist);
+        }
+
+        if(empty($is_mobile_available))
+        {
+            /*echo "amit";
+            exit;*/
+            $password = "123456";
+
+            $otp = rand(100000, 999999);
+            
+            $user = User::create([
+                //'family_head_id ' => null,
+                'name' => $name,
+                //'username' => $data['email'],
+                'otp' => $otp,
+                'password' => bcrypt($password),
+                'phone' => $phone,
+                'status' => 1
+                //'verify_token' => Str::random(40)
+            ]);
+
+            $user_id = $user->id;
+            
+            $date = date("Y-m-d H:i:s");
+
+            # Create user role
+            $user_role = DB::table('user_roles')->insert(
+                 array(
+                    'role_id' => '2',
+                    'user_id' => $user_id,
+                    'created_at' => $date,
+                    'updated_at' => $date
+                 )
+            );
+
+            #user insert in user details table
+            $user_insert = DB::table('user_details')->insert(
+                 array(
+                        'user_id' => $user_id,
+                        'name' => $name,
+                        //'email' => $data['email'],
+                        'phone' => $phone,
+                        'image' => 'user.png',
+                        'status' => 1,
+                        'created_at' => $date,
+                        'updated_at' => $date
+                 )
+            );
+
+            #user insert in user optional table
+            $user_insert = DB::table('user_optional_details')->insert(
+                 array(
+                        'user_id' => $user_id,
+                        'status' => 1,
+                        'created_at' => $date,
+                        'updated_at' => $date
+                 )
+            );
+
+            if($user_insert)
+            {
+
+                // send otp on mobile number using curl
+                $url = "http://bulksms.dexusmedia.com/sendsms.jsp";                    
+                //$mobiles = implode(",", $mobilesArr);
+                $sms = 'Verify your mobile to register ABVPSR with OTP - '.$otp;
+
+                $params = array(
+                            "user" => "abvpsr",
+                            "password" => "452311821aXX",
+                            "senderid" => "ABVPSR",
+                            "mobiles" => $phone,
+                            "sms" => $sms
+                            );
+
+                $params = http_build_query($params);            
+
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+                curl_setopt($ch, CURLOPT_POST, 1);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                $result = curl_exec($ch);
+                
+                return view('auth.register', array('otp' => $otp, 'exist_phone' => $phone ));
+            }
+        }
     }
 
 }

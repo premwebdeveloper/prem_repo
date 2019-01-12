@@ -38,6 +38,11 @@ class LoginController extends Controller
         # Get user id
         $currentuserid = Auth::user()->id;
 
+        # empty otp for this user if successfully logged iN
+        $user = DB::table('users')->where('id', $currentuserid)->update([
+            'otp' => null
+        ]);
+
         # Get User role
         $user = DB::table('user_roles')->where('user_id', $currentuserid)->first();
 
@@ -50,7 +55,7 @@ class LoginController extends Controller
         }
         else
         {
-            return redirect(route('/'));
+            return redirect(route('user_home'));
         }
 
         /*return $this->authenticated($request, $this->guard()->user())

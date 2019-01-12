@@ -75,6 +75,37 @@ Route::get('dharmshala', 'HomeController@dharmshala')->name('dharmshala');
 
 Route::get('working_social_religious_units', 'HomeController@working_social_religious_units')->name('working_social_religious_units');
 
+Route::get('today_tomorrow_news', 'HomeController@today_tomorrow_news')->name('today_tomorrow_news');
+
+Route::get('matrimonial_services', 'HomeController@matrimonial_services')->name('matrimonial_services');
+
+Route::get('motivational_article', 'HomeController@motivational_article')->name('motivational_article');
+
+Route::get('maharaja_agrasen_agroha_dham', 'HomeController@maharaja_agrasen_agroha_dham')->name('maharaja_agrasen_agroha_dham');
+
+Route::get('our_big_industries', 'HomeController@our_big_industries')->name('our_big_industries');
+
+Route::get('school_college_eng_medical__industries', 'HomeController@school_college_eng_medical__industries')->name('school_college_eng_medical__industries');
+
+Route::get('our_clinic_hospital', 'HomeController@our_clinic_hospital')->name('our_clinic_hospital');
+
+Route::get('blood_donors', 'HomeController@blood_donors')->name('blood_donors');
+
+Route::get('video_documentary_film', 'HomeController@video_documentary_film')->name('video_documentary_film');
+
+Route::get('brilliant_children', 'HomeController@brilliant_children')->name('brilliant_children');
+
+Route::get('player_persons', 'HomeController@player_persons')->name('player_persons');
+
+Route::get('master_other_arts', 'HomeController@master_other_arts')->name('master_other_arts');
+
+Route::get('other_religious_bodies', 'HomeController@other_religious_bodies')->name('other_religious_bodies');
+
+Route::get('useful_information', 'HomeController@useful_information')->name('useful_information');
+
+Route::get('trade_directory', 'HomeController@trade_directory')->name('trade_directory');
+
+
 // If email already exist in users table then show error with their parent email
 Route::get('ajax',function(){
    return view('message');
@@ -90,6 +121,11 @@ Route::get('verify/{email}/{verifyToken}', 'Auth\RegisterController@sendEmailDon
 
 Route::get('sendEmail', 'EmailController@sendEmail');
 
+// Register OTP
+Route::any('verifyRegisterOtp/', 'HomeController@verifyRegisterOtp')->name('verifyRegisterOtp');
+
+// OTP Verification
+Route::post('/otpVerification', 'AjaxController@otpVerification')->name('otpVerification');
 
 /**************************************************/
 // A user can access after login only these routes//
@@ -108,6 +144,14 @@ Route::post('updateMemberPersonalInfo', 'Familymember@updateMemberPersonalInfo')
 Route::post('change_password', 'User@change_password')->name('change_password');
 
 Route::get('profile', 'User@profile')->name('profile');
+
+Route::get('user_home', 'User@user_home')->name('user_home');
+
+Route::get('vivah', 'User@vivah')->name('vivah');
+
+Route::get('rojgar', 'User@rojgar')->name('rojgar');
+
+Route::get('vacancy', 'User@vacancy')->name('vacancy');
 
 Route::post('updateProfileImage', 'User@updateProfileImage')->name('updateProfileImage');
 

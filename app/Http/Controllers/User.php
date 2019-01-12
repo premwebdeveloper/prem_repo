@@ -63,6 +63,30 @@ class User extends Controller
         return view('user.family-member', array('user' => $user, 'familymember' => $familymember));
     }
 
+    # user home page
+    public function user_home()
+    {
+        return view('user.home');
+    }
+
+    # user vivah page
+    public function vivah()
+    {
+        return view('user.vivah_biodata');
+    }
+
+    # user rojgar page
+    public function rojgar()
+    {
+        return view('user.rojgar_biodata');
+    }
+
+    # user vacancy page
+    public function vacancy()
+    {
+        return view('user.vacancies');
+    }
+
     /*# view family member
     public function viewfamilymember($id)
     {
