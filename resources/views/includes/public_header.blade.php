@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,13 +29,12 @@
 
 	<link href="{{ asset('resources/frontend_assets/css/custom.css') }}" rel="stylesheet">
 
-
 </head>
 
 <body class="lazy">
 
 	<div class="top">
-		<div class="newskannada-vaish">
+		<div class="col-lg-6 col-xs-12 newskannada-vaish">
 			<a href="tel:+91-9871495195" title="Video">
 				<i class="fa fa-phone"></i> +91-9871495195
 			</a>
@@ -44,12 +44,12 @@
 		</div>
 
 
-		<div class="newskannada-video">
+		<div class="col-lg-6 col-xs-12 newskannada-video">
 
 			<a href="javascript:;"><i class="fa fa-instagram"></i></a>
 			<a href="javascript:;"><i class="fa fa-twitter"></i></a>
 			<a href="javascript:;"><i class="fa fa-facebook"></i></a>
-			<a href="{{ route('donate') }}"><img src="resources/frontend_assets/img/donate-button.gif" alt="Donate Now" class="img-responsive"></a>
+			<!-- <a href="{{ route('donate') }}"><img src="resources/frontend_assets/img/donate-button.gif" alt="Donate Now" class="img-responsive"></a> -->
 		</div>
 
 	</div>
@@ -96,22 +96,23 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav ">
-					<li class="active"><a href="{{ url('/') }}" title="Home">Home</a></li>
-					<li><a href="{{ route('aboutus') }}" title="Home" class="text-center">संस्था को जानें <br>About Us</a></li>
-					<li><a href="{{ route('aims') }}" title="Home" class="text-center">लक्ष्य और उद्देश्य<br>Aims & Objectives</a></li>
-					<li><a href="{{ route('how_can_help') }}" title="संस्था सहयोगी कैसे बने" class="text-center">संस्था सहयोगी कैसे बनें<br> How can we help our body</a></li>
-					<li><a href="{{ route('suggestion') }}" class="text-center" title="Your Suggestion">आपके सुझाव<br>Your Suggestion<br></a></li>
-					<li><a href="{{ route('problem') }}" class="text-center" title="Home">आपकी समस्याएं <br>Put Your Problem</a></li>
+					<li class="{{ Request::path() == '/' ? 'active' : 'blue' }}"><a href="{{ url('/') }}" title="Home">होम<br>Home</a></li>
+					<li class="{{ Request::path() == 'aboutus' ? 'active' : 'lighgreen' }}"><a href="{{ route('aboutus') }}" title="Home" class="text-center">संस्था को जानें <br>About Us</a></li>
+					<li class="{{ Request::path() == 'aims' ? 'active' : 'magento' }}"><a href="{{ route('aims') }}" title="Home" class="text-center">लक्ष्य और उद्देश्य<br>Aims & Objectives</a></li>
+					<li class="{{ Request::path() == 'how_can_help' ? 'active' : 'yellow' }}"><a href="{{ route('how_can_help') }}" title="संस्था सहयोगी कैसे बने" class="text-center">संस्था सहयोगी कैसे बनें<br> How can we help our body</a></li>
+					<li class="{{ Request::path() == 'suggestion' ? 'active' : 'red1' }}"><a href="{{ route('suggestion') }}" class="text-center" title="Your Suggestion">आपके सुझाव<br>Your Suggestion<br></a></li>
+					<li class="{{ Request::path() == 'problem' ? 'active' : 'blueviolet' }}"><a href="{{ route('problem') }}" class="text-center" title="Home">आपकी समस्याएं <br>Put Your Problem</a></li>
 					@if (Auth::guest())
-						<li><a href="{{ route('register') }}" class="text-center" title="Home">सदस्य बनें<br>हमसे जुड़ें<br>Join Us</a></li>
-						<li><a href="{{ route('login') }}" class="text-center" title="Home">लॉग इन करें<br>Login</a></li>
+						<li class="{{ Request::path() == 'register' ? 'active' : 'darkcyan' }}"><a href="{{ route('register') }}" class="text-center" title="Home">नि:शुल्क सदस्य बनें<br>Join Us</a></li>
+						<li class="{{ Request::path() == 'login' ? 'active' : 'darkmagenta' }}"><a href="{{ route('login') }}" class="text-center" title="Home">लॉग इन करें<br>Login</a></li>
 					@else
-						<li class="dropdown">
+						<li class="dropdown active">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#" title="News Section with all the city news" aria-expanded="true">{{ Auth::user()->name }}
       						<b class="caret"></b>
           	          		</a>
 							<ul class="dropdown-menu">
 								@if(Auth::user()->id != 1)
+                                    <li><a href="{{ route('user_home') }}" title="User Dashboard">User Dashboard</a></li>
 									<li><a href="{{ route('profile') }}" title="Profile">Profile</a></li>
 								@endif
                                	<li><a href="{{ route('change_password') }}" title="Change Password">Change Password</a></li>

@@ -6,7 +6,7 @@ h1.logo{background-repeat:no-repeat;text-indent:-9999px;width:100%;}
 .hidetxt{display:none;}
 .pt10px{padding-top: 10px;}
 .pb20px{padding-bottom: 20px;}
-.top{padding: 0px 10px 0px 10px;background: #000;height: 70px;}
+.top{padding: 0px 10px 0px 10px;background: #000;height: 40px;}
 .white{color:#fff;}
 .mb20px{padding-bottom: 5px;}
 .brdr{border: 1px dotted #eaeaea;text-align: center;background: #b60c31;color: #fff;min-height: 100px;}
@@ -20,7 +20,7 @@ h1.logo{background-repeat:no-repeat;text-indent:-9999px;width:100%;}
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover{background-color:#b60c31;color:#fff!important;}
 .newskannada a{color:#ffffff;float:right;padding:3px;}
 .newskannada-video a{color:#ffffff;float:right;padding:12px;position: relative;right:40px;}
-.newskannada-vaish a{color:#ffffff;float:left;padding:20px;position: relative;}
+.newskannada-vaish a{color:#ffffff;float:left;padding:10px 20px;position: relative;}
 .newskannada-log{color:#ffffff;float:right;padding:7.5px;position: relative;right:120px;}
 .shadow{border-left:2px solid #c7c7c7;border-right:2px solid #c7c7c7;margin-top:-20px;padding-bottom:13px;padding-top:13px;}
 .carousel{position:relative;}
@@ -293,6 +293,15 @@ ul.cntitms{width:100%;}
   .margin-bottom-spl{
   margin-bottom: 0;
 }
+}
+
+@media (max-width:767px) {
+    .top{
+        height: 140px;
+    }
+    .newskannada-video a{
+        left: -160px;
+    }
 }
 
 

@@ -1,38 +1,108 @@
 .p0{
+
     padding: 0px;
+
 }
+
 .p10{
+
     padding: 10px;
+
 }
+
 .p20{
+
     padding: 20px;
+
 }
+
 .p30{
+
     padding: 30px;
+
 }
+
 .pt0{
+
+    padding-top: 0px;
+
+}
+
+.pt10{
+
+    padding-top: 10px;
+
+}
+
+.pt20{
+
+    padding-top: 20px;
+
+}
+
+.pt30{
+
+   padding-top: 30px;
+
+}
+
+.img-circle
+
+{
+
+	height: 90px!important;
+
+}
+
+.mt10{
+
+	margin-top:10px!important;
+
+}
+
+.mb10{
+
+	margin-bottom:10px!important;
+
+}
+
+.red{
+
+    color: red;
+
+    font-weight: bold;
+
+}
+.blue{
+    background: #244F75;
+}
+.lighgreen{
+    background: #60BFBF;
+}
+.magento{
+    background: #8C4B7E;
+}
+.yellow{
+    background: #F8BB44;
+}
+.red1{
+    background: #F24B4B;
+}
+.blueviolet{
+    background: blueviolet;
+}
+.darkcyan{
+    background: darkcyan;
+}
+.darkmagenta{
+    background: darkmagenta;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+.navbar{
     padding-top: 0px;
 }
-.pt10{
-    padding-top: 10px;
-}
-.pt20{
-    padding-top: 20px;
-}
-.pt30{
-   padding-top: 30px;
-}
-.img-circle
-{
-	height: 90px!important;
-}
-.mt10{
-	margin-top:10px!important;
-}
-.mb10{
-	margin-bottom:10px!important;
-}
-.red{
-    color: red;
-    font-weight: bold;
+.navbar-nav>li{
+    margin-right: 9px;
 }
