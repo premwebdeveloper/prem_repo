@@ -276,7 +276,12 @@ ul.cntitms{width:100%;}
 .right-pad{
   padding-right:0px;
 }
-
+.hidden-xs{
+    display: hidden;
+}
+.hidden-lg{
+    display: visible;
+}
 @media (min-width:320px) {
   .right-pad-spl{
     padding-right:0px;
@@ -301,6 +306,15 @@ ul.cntitms{width:100%;}
     }
     .newskannada-video a{
         left: -160px;
+    }
+    .hidden-xs{
+        display: visible;
+    }
+    .hidden-lg{
+        display: hidden;
+    }
+    .newskannada-vaish a{
+        padding: 10px 10px!important;
     }
 }
 

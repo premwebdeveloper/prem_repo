@@ -8,9 +8,11 @@
     }
     .amit .active{
         background: #b60c31;
+        margin-right: 20px;
     }     
     .amit li{
         background: #5bc0de;
+        margin-right: 20px;
     }     
     .amit li h3{
         color: #fff;
@@ -44,12 +46,32 @@
 			$('#family').addClass('in active');
 		}
         var val = "<?= $user->seva_nivrat;?>"; // retrieve the value
+        //alert(val);
         if(val==1){
             $(".antimg_pad").show();
         }
         else{
             $(".antimg_pad").hide();
         }
+        // Date of Birth
+        var dob = "<?= $user->dob;?>";
+        var arr = dob.split('-');
+        var date = arr[2];
+        var month = arr[1];
+        var year = arr[0];
+        $('#date option[value='+date+']').attr('selected','selected');
+        $('#month option[value='+month+']').attr('selected','selected');
+        $('#year option[value='+year+']').attr('selected','selected');        
+
+        // Marriage Date 
+        var marriage = "<?= $user->marriage_date;?>";
+        var arrr = marriage.split('-');
+        var m_date = arrr[2];
+        var m_month = arrr[1];
+        var m_year = arrr[0];
+        $('#m_date option[value='+m_date+']').attr('selected','selected');
+        $('#m_month option[value='+m_month+']').attr('selected','selected');
+        $('#m_year option[value='+m_year+']').attr('selected','selected');
 	});
 </script>
 
@@ -167,7 +189,7 @@
 
 		    									    	<h4>Whatsapp/Mobile No.</h4>
 												    	<div class="form-group">
-													      <input type="tel" class="form-control personal_info" placeholder="+91-123456789" name="whatsapp" id="whatsapp" value="{{$user->whatsapp_mobile}}">
+													      <input type="tel" class="form-control personal_info" placeholder="+91-123456789" name="phone" id="phone" value="{{$user->phone}}" readonly>
 													    </div>
 												    </div>
 
@@ -175,7 +197,7 @@
 												    <div class="col-md-3">
 												    	<h4>Email Id</h4>
 												    	<div class="form-group">
-													      <input type="email" class="form-control" placeholder="+91-123456789" name="email" id="email" value="{{$user->email}}" readonly>
+													      <input type="email" class="form-control" placeholder="example@gmail.com" name="email" id="email" value="{{$user->email}}">
 													    </div>
                                                         <h4>Cast / जाति </h4>
                                                         <div class="form-group">
@@ -248,28 +270,28 @@
                                                                                                             </div>
                                                     </div> -->
 
-													<div class="col-md-2">
+													<div class="col-md-4">
 														<h4>मूल निवासी </h4>
 												    	<div class="form-group">
 										      			<textarea class="form-control personal_info" rows="1" placeholder="मूल निवासी(स्थान का नाम , जिला, राज्य दें) " name="origin_place" id="origin_place">{{$user->origin_place}}</textarea>
 													    </div>
 												    </div>
 
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3">
                                                         <h4>Date of Birth</h4>
-                                                        <div class="col-md-4" style="padding-left: 0px">
+                                                        <div class="col-md-4" style="padding-left: 0px;padding-right: 0px;">
                                                             <div class="form-group">
-                                                                <select class="form-control" name="date">
+                                                                <select class="form-control" name="date" id="date">
                                                                     <option value="">Date</option>
-                                                                    <option value="1">1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3">3</option>
-                                                                    <option value="4">4</option>
-                                                                    <option value="5">5</option>
-                                                                    <option value="6">6</option>
-                                                                    <option value="7">7</option>
-                                                                    <option value="8">8</option>
-                                                                    <option value="9">9</option>
+                                                                    <option value="01">1</option>
+                                                                    <option value="02">2</option>
+                                                                    <option value="03">3</option>
+                                                                    <option value="04">4</option>
+                                                                    <option value="05">5</option>
+                                                                    <option value="06">6</option>
+                                                                    <option value="07">7</option>
+                                                                    <option value="08">8</option>
+                                                                    <option value="09">9</option>
                                                                     <option value="10">10</option>
                                                                     <option value="11">11</option>
                                                                     <option value="12">12</option>
@@ -295,28 +317,28 @@
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-4" style="padding-left: 0px;padding-right: 0px;">
                                                             <div class="form-group">
-                                                                <select class="form-control" name="month">
+                                                                <select class="form-control" name="month" id="month" style="padding: 6px 8px;">
                                                                     <option value="">Month</option>
-                                                                    <option value="1">1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3">3</option>
-                                                                    <option value="4">4</option>
-                                                                    <option value="5">5</option>
-                                                                    <option value="6">6</option>
-                                                                    <option value="7">7</option>
-                                                                    <option value="8">8</option>
-                                                                    <option value="9">9</option>
+                                                                    <option value="01">1</option>
+                                                                    <option value="02">2</option>
+                                                                    <option value="03">3</option>
+                                                                    <option value="04">4</option>
+                                                                    <option value="05">5</option>
+                                                                    <option value="06">6</option>
+                                                                    <option value="07">7</option>
+                                                                    <option value="08">8</option>
+                                                                    <option value="09">9</option>
                                                                     <option value="10">10</option>
                                                                     <option value="11">11</option>
                                                                     <option value="12">12</option>
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4" style="padding-right: 0px">
+                                                        <div class="col-md-4" style="padding-left: 0px;padding-right: 0px;">
                                                             <div class="form-group">
-                                                                <select class="form-control" name="birth-year">
+                                                                <select class="form-control" name="year" id="year">
                                                                     <option value="">Year</option>
                                                                     <option value="2018">2018</option>
                                                                     <option value="2017">2017</option>
@@ -437,21 +459,21 @@
                                                         </div>
 
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3">
                                                         <h4>Marriage Date</h4>
-                                                        <div class="col-md-4" style="padding-left: 0px">
+                                                        <div class="col-md-4" style="padding-left: 0px;padding-right: 0px;">
                                                             <div class="form-group">
-                                                                <select class="form-control" name="date">
+                                                                <select class="form-control" name="m_date" id="m_date">
                                                                     <option value="">Date</option>
-                                                                    <option value="1">1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3">3</option>
-                                                                    <option value="4">4</option>
-                                                                    <option value="5">5</option>
-                                                                    <option value="6">6</option>
-                                                                    <option value="7">7</option>
-                                                                    <option value="8">8</option>
-                                                                    <option value="9">9</option>
+                                                                    <option value="01">1</option>
+                                                                    <option value="02">2</option>
+                                                                    <option value="03">3</option>
+                                                                    <option value="04">4</option>
+                                                                    <option value="05">5</option>
+                                                                    <option value="06">6</option>
+                                                                    <option value="07">7</option>
+                                                                    <option value="08">8</option>
+                                                                    <option value="09">9</option>
                                                                     <option value="10">10</option>
                                                                     <option value="11">11</option>
                                                                     <option value="12">12</option>
@@ -477,28 +499,28 @@
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-4" style="padding-left: 0px;padding-right: 0px;">
                                                             <div class="form-group">
-                                                                <select class="form-control" name="month">
+                                                                <select class="form-control" name="m_month" id="m_month" style="padding: 6px 8px;">
                                                                     <option value="">Month</option>
-                                                                    <option value="1">1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3">3</option>
-                                                                    <option value="4">4</option>
-                                                                    <option value="5">5</option>
-                                                                    <option value="6">6</option>
-                                                                    <option value="7">7</option>
-                                                                    <option value="8">8</option>
-                                                                    <option value="9">9</option>
+                                                                    <option value="01">1</option>
+                                                                    <option value="02">2</option>
+                                                                    <option value="03">3</option>
+                                                                    <option value="04">4</option>
+                                                                    <option value="05">5</option>
+                                                                    <option value="06">6</option>
+                                                                    <option value="07">7</option>
+                                                                    <option value="08">8</option>
+                                                                    <option value="09">9</option>
                                                                     <option value="10">10</option>
                                                                     <option value="11">11</option>
                                                                     <option value="12">12</option>
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4" style="padding-right: 0px">
+                                                        <div class="col-md-4" style="padding-left: 0px;padding-right: 0px;">
                                                             <div class="form-group">
-                                                                <select class="form-control" name="birth-year">
+                                                                <select class="form-control" name="m_year" id="m_year">
                                                                     <option value="">Year</option>
                                                                     <option value="2018">2018</option>
                                                                     <option value="2017">2017</option>
@@ -624,11 +646,11 @@
 												    	<h4>सेवा निवृत हैं</h4>
 													    <div class="form-group ">
 													    	@if($user->seva_nivrat==2)
-													    		<input type="radio" class="personal_info seva_nirvit mb20px" name="seva_nivrat" value="1"> Yes
-												   				<input type="radio" class="personal_info seva_nirvit mb20px" name="seva_nivrat" value="2" checked="checked"> No
+													    		<input type="radio" class="personal_info seva_nirvit" name="seva_nivrat" value="1"> Yes
+												   				<input type="radio" class="personal_info seva_nirvit" name="seva_nivrat" value="2" checked="checked"> No
 													    	@else
-													    	    <input type="radio" class="personal_info seva_nirvit mb20px" name="seva_nivrat" value="1" checked="checked"> Yes
-												   				<input type="radio" class="personal_info seva_nirvit mb20px" name="seva_nivrat" value="2"> No
+													    	    <input type="radio" class="personal_info seva_nirvit" name="seva_nivrat" value="1" checked="checked"> Yes
+												   				<input type="radio" class="personal_info seva_nirvit" name="seva_nivrat" value="2"> No
 												   			@endif
 												   		 </div>
 												    </div>
@@ -636,14 +658,14 @@
                                                     <div class="col-md-2 antimg_pad" style="display: none;">
                                                         <h4>अंतिम पद</h4>
                                                         <div class="form-group">
-                                                          <input type="text" class="form-control personal_info" placeholder="अंतिम पद " name="education" id="antim_pad" value="">
+                                                          <input type="text" class="form-control personal_info" placeholder="अंतिम पद " name="antim_pad" id="antim_pad" value="{{$user->antim_pad}}">
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-3 antimg_pad" style="display: none;">
                                                         <h4>विभाग का नाम</h4>
                                                         <div class="form-group">
-                                                          <input type="text" class="form-control personal_info" placeholder="विभाग का नाम" name="education" id="vibhag" value="">
+                                                          <input type="text" class="form-control personal_info" placeholder="विभाग का नाम" name="vibhag" id="vibhag" value="{{$user->vibhag}}">
                                                         </div>
                                                     </div>
 
@@ -675,10 +697,10 @@
                                                         </div>
 												    </div>
 
-                                                    <div class="col-md-5">
-                                                        <h4>किसी अन्य संस्थाओ में पद/दायित्व</h4>
+                                                    <div class="col-md-3">
+                                                        <h4>किन्ही अन्य संस्थाओ में पद/दायित्व</h4>
                                                         <div class="form-group">
-                                                            <input class="form-control personal_info"  placeholder="किसी अन्य संस्थाओ में पद/दायित्व" name="pad" id="pad">
+                                                            <input class="form-control personal_info"  placeholder="किसी अन्य संस्थाओ में पद/दायित्व" name="pad" id="pad" value="{{$user->pad}}">
                                                         </div>
                                                     </div>
 
@@ -1186,7 +1208,7 @@
 
 													<div class="col-md-3">
 												    	<div class="form-group">
-													      <input type="text" class="form-control member_profile" placeholder="मुखिया से सम्बन्ध" name="relation_to_head_member" id="relation_to_head_member">
+													      <input type="text" class="form-control member_profile" placeholder="मुखिया से सम्बन्ध" name="relation_to_head_member" id="relation_to_head_member" required="required">
 											    		</div>
 										    		</div>
 
@@ -1205,13 +1227,13 @@
 
 													<div class="col-md-3">
 												    	<div class="form-group">
-													      <input type="tel" class="form-control" name="phone" id="phone" required="required" placeholder="Mobile/Whatsapp">
+													      <input type="tel" class="form-control" name="phone" id="phone" placeholder="Mobile/Whatsapp">
 													    </div>
 												    </div>
 
 												    <div class="col-md-3">
 												    	<div class="form-group">
-													      <input type="email" class="form-control" placeholder="Email Id" name="email" id="email" required="required">
+													      <input type="email" class="form-control" placeholder="Email Id" name="email" id="email">
 													    </div>
 												    </div>
 

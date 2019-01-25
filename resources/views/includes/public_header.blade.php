@@ -36,7 +36,10 @@
 	<div class="top">
 		<div class="col-lg-6 col-xs-12 newskannada-vaish">
 			<a href="tel:+91-9871495195" title="Video">
-				<i class="fa fa-phone"></i> +91-9871495195
+                <i class="fa fa-phone"></i> +91-9871495195
+            </a>
+            <a href="tel:+91-8368139141" title="Video">
+				<i class="fa fa-phone"></i> +91-8368139141
 			</a>
 			<a href="mailto:info@vaishparivarsangh.com" title="Video">
 				<i class="fa fa-envelope"></i> info@vaishparivarsangh.com
@@ -56,8 +59,11 @@
 
 	<div class="header">
 		<div class="row">
-			<div class="col-md-12">
-				<img src="{{asset('resources/frontend_assets/img/homebanner.gif')}}" class="img-responsive" alt="Home Banner">
+			<div class="col-md-12 hidden-lg">
+                <img src="{{asset('resources/frontend_assets/img/banner-2.gif')}}" class="img-responsive" alt="Home Banner">
+            </div>
+            <div class="col-md-12 hidden-xs">
+				<img src="{{asset('resources/frontend_assets/img/veshya-pariwar-sangh.gif')}}" class="img-responsive" alt="Home Banner">
 			</div>
 
 <!-- 			<div class="col-md-1 hidetext">
@@ -96,9 +102,9 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav ">
-					<li class="{{ Request::path() == '/' ? 'active' : 'blue' }}"><a href="{{ url('/') }}" title="Home">होम<br>Home</a></li>
-					<li class="{{ Request::path() == 'aboutus' ? 'active' : 'lighgreen' }}"><a href="{{ route('aboutus') }}" title="Home" class="text-center">संस्था को जानें <br>About Us</a></li>
-					<li class="{{ Request::path() == 'aims' ? 'active' : 'magento' }}"><a href="{{ route('aims') }}" title="Home" class="text-center">लक्ष्य और उद्देश्य<br>Aims & Objectives</a></li>
+					<li class="{{ Request::path() == '/' ? 'active' : 'blue' }}"><a href="{{ url('/') }}" title="Home" class="text-center">होम<br>Home</a></li>
+					<li class="{{ Request::path() == 'aboutus' ? 'active' : 'lighgreen' }}"><a href="{{ route('aboutus') }}" title="About Us" class="text-center">संस्था को जानें <br>About Us</a></li>
+					<li class="{{ Request::path() == 'aims' ? 'active' : 'magento' }}"><a href="{{ route('aims') }}" title="Aims & Objectives" class="text-center">लक्ष्य और उद्देश्य<br>Aims & Objectives</a></li>
 					<li class="{{ Request::path() == 'how_can_help' ? 'active' : 'yellow' }}"><a href="{{ route('how_can_help') }}" title="संस्था सहयोगी कैसे बने" class="text-center">संस्था सहयोगी कैसे बनें<br> How can we help our body</a></li>
 					<li class="{{ Request::path() == 'suggestion' ? 'active' : 'red1' }}"><a href="{{ route('suggestion') }}" class="text-center" title="Your Suggestion">आपके सुझाव<br>Your Suggestion<br></a></li>
 					<li class="{{ Request::path() == 'problem' ? 'active' : 'blueviolet' }}"><a href="{{ route('problem') }}" class="text-center" title="Home">आपकी समस्याएं <br>Put Your Problem</a></li>

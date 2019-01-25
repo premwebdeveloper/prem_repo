@@ -13,6 +13,7 @@ use DB;
 use Mail;
 use App\Mail\verifyEmail;
 use Session;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -446,6 +447,62 @@ class HomeController extends Controller
                 
                 return view('auth.register', array('otp' => $otp, 'exist_phone' => $phone ));
             }
+        }
+    }
+
+
+    // send otp and verify otp function 
+    public function verifyOtp(Request $request){
+
+        //dd($request);
+        if(!empty($request->phone)){
+
+            # Set validation for
+            $this->validate($request, [
+                'phone' => 'required|numeric|digits:10',
+            ]);
+
+            $exist = DB::table('users')->where(['phone' => $request->phone, 'status' => 1])->first();
+
+            if(!empty($exist)){
+
+                $otp = rand(100000, 999999);
+
+                if(is_null($exist->otp)){
+
+                    $send_otp = DB::table('users')->where('phone', $request->phone)->update(['otp' => $otp]);
+
+                    // send otp on mobile number using curl
+                    $url = "http://bulksms.dexusmedia.com/sendsms.jsp";                    
+                    //$mobiles = implode(",", $mobilesArr);
+                    $sms = 'Verify your mobile to login ABVPSR with OTP - '.$otp;
+
+                    $params = array(
+                                "user" => "abvpsr",
+                                "password" => "452311821aXX",
+                                "senderid" => "ABVPSR",
+                                "mobiles" => $request->phone,
+                                "sms" => $sms
+                                );
+
+                    $params = http_build_query($params);            
+
+                    $ch = curl_init();
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+                    curl_setopt($ch, CURLOPT_POST, 1);
+                    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                    $result = curl_exec($ch);
+                }
+
+                return view('auth.login', array('otp' => $otp, 'exist_phone' => $request->phone ));
+
+            }else{
+                return Redirect::back()->withErrors(['This phone number is not exist in our record ! Please try with another phone number.']);
+            }
+        }else{
+            return redirect('/login');
         }
     }
 

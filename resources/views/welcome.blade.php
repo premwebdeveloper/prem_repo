@@ -20,7 +20,7 @@
 			<div id="myCarousel" class="carousel slide pt10px pb20px" data-ride="carousel">
 				<div class="carousel-inner">
 					<div class="item active">
-					  <img src="resources/frontend_assets/img/vaisya.jpg" alt="Vaisya Parivar Sangh" style="height:340px;">
+					  <img src="resources/frontend_assets/img/banner.gif" alt="Vaisya Parivar Sangh" style="height:340px;">
 					</div>
 
 					<div class="item">

@@ -127,6 +127,9 @@ Route::any('verifyRegisterOtp/', 'HomeController@verifyRegisterOtp')->name('veri
 // OTP Verification
 Route::post('/otpVerification', 'AjaxController@otpVerification')->name('otpVerification');
 
+// Login OTP
+Route::any('/verifyOtp', 'HomeController@verifyOtp')->name('verifyOtp');
+
 /**************************************************/
 // A user can access after login only these routes//
 /**************************************************/

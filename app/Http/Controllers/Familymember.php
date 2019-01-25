@@ -32,28 +32,31 @@ class Familymember extends Controller
             $uploaded = Storage::put($destinationPath, file_get_contents($file->getRealPath()));
         }
 
+        $user_id = $request->user_id;
+
         $email = $request->email;
         $phone = $request->phone;
-
+        
         $is_available = DB::table('users')->where('email', $email)->first();
 
-        $is_mobile_available = DB::table('users')->where('phone', $phone)->first();
 
-        if(!empty($is_available))
+/*        if(!empty($is_available))
         {
             $member_email_exist = 'This email is already exist.';
             return redirect('profile')->with('member_email_exist', $member_email_exist);
-        }
-
-        /*if(!empty($is_mobile_available))
-        {
-            $member_mobile_exist = 'This mobile no. is already exist.';
-            return redirect('profile')->with('member_email_exist', $member_mobile_exist);
         }*/
 
-        $date = date('Y-m-d H:i:s');
+        if(!empty($phone))
+        {
+            $is_mobile_available = DB::table('users')->where(['phone' => $phone, 'id' => $user_id])->first();
+            if(!empty($is_mobile_available))
+            {
+                $member_mobile_exist = 'This mobile no. is already exist.';
+                return redirect('profile')->with('member_email_exist', $member_mobile_exist);
+            }
+        }
 
-        $user_id = $request->user_id;
+        $date = date('Y-m-d H:i:s');
 
         $name = $request->name;
         $relation_to_head_member = $request->relation_to_head_member;

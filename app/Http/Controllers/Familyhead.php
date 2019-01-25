@@ -38,6 +38,7 @@ class Familyhead extends Controller
         $name = $request->name;
         $gender = $request->gender;
         $father_husband_name = $request->father_husband_name;
+        $email = $request->email;
         $whatsapp = $request->whatsapp;
         $phone = $request->phone;
         $sampraday = $request->sampraday;
@@ -46,9 +47,18 @@ class Familyhead extends Controller
         $gotra = $request->gotra;
         $bunk = $request->bunk;
         $origin_place = $request->origin_place;
-        $dob = $request->dob;
+        $date = $request->date;
+        $month = $request->month;
+        $year = $request->year;
+        $dob = $year.'-'.$month.'-'.$date;
         $married = $request->married;
-        $marriage_date = $request->marriage_date;
+        $m_date = $request->m_date;
+        $m_month = $request->m_month;
+        $m_year = $request->m_year;
+        $marriage_date = $m_year.'-'.$m_month.'-'.$m_date;
+        $antim_pad = $request->antim_pad;
+        $vibhag = $request->vibhag;
+        $pad = $request->pad;
         $life_partner = $request->life_partner;
         $education = $request->education;
         $special_qualification = $request->special_qualification;
@@ -74,7 +84,7 @@ class Familyhead extends Controller
 
         $user_update = DB::table('users')->where('id', $user_id)->update(array('name' => $name, 'phone' => $phone));
 
-        $user_details_update = DB::table('user_details')->where('user_id', $user_id)->update(array('name' => $name, 'father_husband_name' => $father_husband_name, 'whatsapp_mobile' => $whatsapp, 'phone' => $phone, 'sampraday' => $sampraday, 'cast' => $cast, 'sub_cast' => $sub_cast, 'gotra' => $gotra, 'bunk' => $bunk, 'origin_place' => $origin_place, 'married' => $married, 'marriage_date' => $marriage_date, 'life_partner_name' => $life_partner, 'education' => $education, 'special_qualification' => $special_qualification, 'experience_field' => $experience_field, 'occupation' => $occupation, 'seva_nivrat' => $seva_nivrat, 'image' => $filename, 'gender' => $gender, 'dob' => $dob, 'residential_address' => $residential_address, 'residential_pincode' => $residential_pincode, 'residential_district' => $residential_district, 'residential_state' => $residential_state, 'occupation_address' => $occupation_address, 'occupation_pincode' => $occupation_pincode, 'occupation_district' => $occupation_district, 'occupation_state' => $occupation_state, 'social_hours' => $social_hours, 'social_field' => $social_field, 'social_hours_according' => $social_hours_according, 'donate_hundred' => $donate_hundred, 'updated_at' => $updated_at, 'bio' => $bio));
+        $user_details_update = DB::table('user_details')->where('user_id', $user_id)->update(array('name' => $name, 'father_husband_name' => $father_husband_name, 'whatsapp_mobile' => $whatsapp, 'phone' => $phone, 'email' => $email, 'sampraday' => $sampraday, 'cast' => $cast, 'sub_cast' => $sub_cast, 'gotra' => $gotra, 'bunk' => $bunk, 'origin_place' => $origin_place, 'married' => $married, 'marriage_date' => $marriage_date, 'life_partner_name' => $life_partner, 'education' => $education, 'special_qualification' => $special_qualification, 'experience_field' => $experience_field, 'occupation' => $occupation, 'seva_nivrat' => $seva_nivrat, 'image' => $filename, 'gender' => $gender, 'dob' => $dob, 'residential_address' => $residential_address, 'residential_pincode' => $residential_pincode, 'residential_district' => $residential_district, 'residential_state' => $residential_state, 'occupation_address' => $occupation_address, 'occupation_pincode' => $occupation_pincode, 'occupation_district' => $occupation_district, 'occupation_state' => $occupation_state, 'social_hours' => $social_hours, 'social_field' => $social_field, 'social_hours_according' => $social_hours_according, 'donate_hundred' => $donate_hundred, 'updated_at' => $updated_at, 'bio' => $bio, 'antim_pad' => $antim_pad, 'vibhag' => $vibhag, 'pad' => $pad));
 
         $personal_status = "Personal information updated successfully !";
 
