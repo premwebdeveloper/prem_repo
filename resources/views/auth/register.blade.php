@@ -3,64 +3,68 @@
 @section('content')
 
 <script>
-$(document).ready(function(){
+    $(document).ready(function(){
 
-    $('#verifyButton').prop('disabled', true);
+        $('#verifyButton').prop('disabled', true);
 
-    // OTP verification on keyUP
-    $(document).on('keyup', '#otp', function(){
+        // OTP verification on keyUP
+        $(document).on('keyup', '#otp', function(){
 
-        var otp_length = $('#otp').val().length;
-        
-        if(otp_length == 6){
-
-            $('#otpMatched').hide();
-
-            var otp = $('#otp').val();
-            var exist_phone = $('#exist_phone').val();
+            var otp_length = $('#otp').val().length;
             
-            $.ajax({
-                method : 'post',
-                url: "{{ route('otpVerification') }}",
-                async : true,
-                data : {"_token": "{{ csrf_token() }}", 'otp' : otp, 'exist_phone' : exist_phone},
-                success:function(response){
+            if(otp_length == 4){
 
-                    console.log(response);
+                $('#otpMatched').hide();
 
-                    if(response == 0)
-                    {
-                        $('#verifyButton').prop('disabled', true);
-                    }
-                    else if(response == 1)
-                    {
-                        $('#verifyButton').prop('disabled', false);
-                    }
-                    else if(response == 2)
-                    {
-                        $('#otpMatched').html('');
-                        $('#otpMatched').html('OTP did not match!');
-                        $('#otpMatched').show();
+                var otp = $('#otp').val();
+                var exist_phone = $('#exist_phone').val();
+                
+                $.ajax({
+                    method : 'post',
+                    url: "{{ route('otpVerification') }}",
+                    async : true,
+                    data : {"_token": "{{ csrf_token() }}", 'otp' : otp, 'exist_phone' : exist_phone},
+                    success:function(response){
 
-                        $('#verifyButton').prop('disabled', true);
-                    }
-                },
-                error: function(data){
-                    console.log(data);
-                },
-            });
+                        console.log(response);
 
-        }
-        else{
+                        if(response == 0)
+                        {
+                            $('#verifyButton').prop('disabled', true);
+                        }
+                        else if(response == 1)
+                        {
+                            $('#verifyButton').prop('disabled', false);
+                        }
+                        else if(response == 2)
+                        {
+                            $('#otpMatched').html('');
+                            $('#otpMatched').html('OTP did not match!');
+                            $('#otpMatched').show();
 
-            $('#verifyButton').prop('disabled', true);
-            $('#otpMatched').show();
-        }
-    });
+                            $('#verifyButton').prop('disabled', true);
+                        }
+                    },
+                    error: function(data){
+                        console.log(data);
+                    },
+                });
 
-});  
+            }
+            else{
+
+                $('#verifyButton').prop('disabled', true);
+                $('#otpMatched').show();
+            }
+        });
+
+    });  
 </script>
-
+<style type="text/css">
+    .help-block{
+        color: red;
+    }
+</style>
 <div class="container">
     <div class="row">
 
@@ -129,34 +133,19 @@ $(document).ready(function(){
                             </div>
                         </div>
 
-                        <!-- <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
-                            <label for="lastname" class="col-md-4 control-label">Last Name</label>
+                        <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                            <label for="phone" class="col-md-4 control-label">Phone</label>
 
                             <div class="col-md-6">
-                                <input id="lastname" type="text" class="form-control" name="lastname" value="{{ old('lastname') }}" required autofocus>
+                                <input id="phone" type="tel" class="form-control" name="phone" value="{{ old('phone') }}" required autofocus>
 
-                                @if ($errors->has('lastname'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('lastname') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div> 
+                                <input type="hidden" name="csrf" id="csrf" value="{{ csrf_token() }}">
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-
-                                @if ($errors->has('email'))
-
-                                    <input type="hidden" name="csrf" id="csrf" value="{{ csrf_token() }}">
-
-                                    <script type="text/javascript">
-                                        $(document).ready(function(){
-                                            var email = $('#email').val();
+                                <script type="text/javascript">
+                                    $(document).ready(function(){
+                                        //alert('hi');
+                                        $("#phone").on('keyup', function(){
+                                            var phone = $('#phone').val();
                                             var csrf = $('#csrf').val();
 
                                             $.ajax({
@@ -166,45 +155,31 @@ $(document).ready(function(){
                                                 headers: {
                                                     'X-CSRF-TOKEN': csrf
                                                 },
-                                                data:{email: email},
+                                                data:{phone: phone},
                                                 success:function(response){
+                                                    console.log(response);
                                                     // Access the JSON response //
-                                                    var head_email = response.head_email;
-                                                    var temp = head_email.split('@');
-                                                    var email_first = temp[0];
-                                                    var email_second = temp[1];
+                                                    var head_phone = response.head_phone;
+                                                    //var temp = head_email.split('@');
+                                                    //var email_first = temp[0];
+                                                    //var email_second = temp[1];
 
-                                                    var email_start_chars = email_first.substr(0,4);
+                                                    var phone_start_chars = head_phone.substr(0,4);
 
-                                                    var display_email = email_start_chars+'******@'+email_second;
+                                                    var display_phone = phone_start_chars+'******';
 
-                                                    $('#head_email').text('This email is already registered with '+display_email);
+                                                    $('#head_phone').text('This phone no. is already registered with '+display_phone);
                                                 }
                                             });
-
                                         });
-                                    </script>
+                                    });
+                                </script>
 
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                    <span class="help-block" id="head_email"></span>
-                                @endif
-                            </div>
-                        </div>-->
-
-                        <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-                            <label for="phone" class="col-md-4 control-label">Phone</label>
-
-                            <div class="col-md-6">
-                                <input id="phone" type="tel" class="form-control" name="phone" value="{{ old('phone') }}" required autofocus>
-
-                                @if ($errors->has('phone'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('phone') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('phone') }}</strong>
+                                </span>
+                                <span class="help-block" id="head_phone"></span>
+                             </div>
                         </div>
 
                         <div class="form-group">
@@ -212,6 +187,9 @@ $(document).ready(function(){
                                 <button type="submit" class="btn btn-primary">
                                     Register
                                 </button>
+                                <a class="btn btn-link" href="{{ route('login') }}">
+                                    Registered User? Login.
+                                </a>
                             </div>
                         </div>
                     </form>

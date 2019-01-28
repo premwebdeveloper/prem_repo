@@ -1,6 +1,64 @@
 @extends('layouts.public_app')
 
 @section('content')
+<script>
+    $(document).ready(function(){
+
+        $('#verifyButton').prop('disabled', true);
+
+        // OTP verification on keyUP
+        $(document).on('keyup', '#otp', function(){
+
+            var otp_length = $('#otp').val().length;
+            
+            if(otp_length == 4){
+
+                $('#otpMatched').hide();
+
+                var otp = $('#otp').val();
+                var exist_phone = $('#exist_phone').val();
+                
+                $.ajax({
+                    method : 'post',
+                    url: "{{ route('otpVerification') }}",
+                    async : true,
+                    data : {"_token": "{{ csrf_token() }}", 'otp' : otp, 'exist_phone' : exist_phone},
+                    success:function(response){
+
+                        console.log(response);
+
+                        if(response == 0)
+                        {
+                            $('#verifyButton').prop('disabled', true);
+                        }
+                        else if(response == 1)
+                        {
+                            $('#verifyButton').prop('disabled', false);
+                        }
+                        else if(response == 2)
+                        {
+                            $('#otpMatched').html('');
+                            $('#otpMatched').html('OTP did not match!');
+                            $('#otpMatched').show();
+
+                            $('#verifyButton').prop('disabled', true);
+                        }
+                    },
+                    error: function(data){
+                        console.log(data);
+                    },
+                });
+
+            }
+            else{
+
+                $('#verifyButton').prop('disabled', true);
+                $('#otpMatched').show();
+            }
+        });
+
+    });  
+</script>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -26,13 +84,13 @@
 
                         @if(isset($otp))
 
-                            <div class="alert alert-warning" style="display: none;" id="otpMatched">Enter 6 digit OTP !</div>
+                            <div class="alert alert-warning" style="display: none;" id="otpMatched">Enter 4 digit OTP !</div>
 
                             <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                                 {{ csrf_field() }}
                         
                                 <div class="form-group row">
-                                    <label for="otp" class="col-sm-4 col-form-label text-md-right">Enter 6 digit OTP code sent to your mobile number</label>
+                                    <label for="otp" class="col-sm-4 col-form-label text-md-right">Enter 4 digit OTP code sent to your mobile number</label>
                                 
                                     <div class="col-md-6">
                                         <input id="otp" type="number" class="form-control{{ $errors->has('otp') ? ' is-invalid' : '' }}" name="otp" value="{{ old('otp') }}" placeholder="OTP" required autofocus>
@@ -68,7 +126,7 @@
                                     <label for="phone" class="col-sm-4 control-label">{{ __('Phone') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="phone" type="tel" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" placeholder="Mobile Number" value="{{ old('phone') }}" required autofocus>
+                                        <input type="tel" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" placeholder="Mobile Number" value="{{ old('phone') }}" required autofocus>
 
                                         @if ($errors->has('phone'))
                                             <span class="help-block">

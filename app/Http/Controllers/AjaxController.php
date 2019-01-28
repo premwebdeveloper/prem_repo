@@ -11,18 +11,18 @@ class AjaxController extends Controller
 
     public function index(Request $request){
 
-        $email = $request->email;
+        $phone = $request->phone;
 
-        $user_details = DB::table('users')->where('email', $email)->first();
+        $user_details = DB::table('users')->where('phone', $phone)->first();
 
         $family_head_id = $user_details->family_head_id;
 
         $user = DB::table('users')->where('id', $family_head_id)->first();
 
-        $head_email = $user->email;
+        $head_phone = $user->phone;
 
         return response()->json([
-                "head_email" => $head_email
+                "head_phone" => $head_phone
             ]);
    }
 

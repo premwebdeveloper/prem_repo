@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>Matrimonial  Vaish sangh Parivar</title>
+        <title>Vaish sangh Parivar</title>
 
         <script src="{{ asset('resources/assets/js/jquery-3.1.1.min.js') }}"></script>
     	<link href="{{ asset('resources/assets/css/bootstrap.min.css') }}" rel="stylesheet">

@@ -61,7 +61,7 @@ trait AuthenticatesUsers
         $this->validate($request, [
             $this->username() => 'required|numeric',
             'password' => 'required|string',
-            'otp' => 'required|numeric|digits:6',
+            'otp' => 'required|numeric|digits:4',
         ]);
     }
 

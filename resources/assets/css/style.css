@@ -1255,9 +1255,9 @@ button.dim:active:before {
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-  background-color: #f4f4f4;
+  background-color: #1c84c6;
   border-color: #DDDDDD;
-  color: inherit;
+  color: #fff;
   cursor: default;
   z-index: 2;
 }
@@ -3890,10 +3890,14 @@ img.circle-border {
   margin-bottom: 0;
 }
 .breadcrumb > li a {
-  color: inherit;
+    color: #fff;
+    background: #1ab394;
+    padding: 2px 10px;
 }
 .breadcrumb > .active {
-  color: inherit;
+    color: #fff;
+    background: #1c84c6;
+    padding: 2px 10px;
 }
 code {
   background-color: #F9F2F4;

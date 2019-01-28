@@ -121,6 +121,7 @@
                                     <li><a href="{{ route('user_home') }}" title="User Dashboard">User Dashboard</a></li>
 									<li><a href="{{ route('profile') }}" title="Profile">Profile</a></li>
 								@endif
+                                <li><a href="{{ route('dashboard') }}" title="Change Password">Go to Dashboard</a></li>
                                	<li><a href="{{ route('change_password') }}" title="Change Password">Change Password</a></li>
                                	<li><a href="{{ route('logout') }}" onclick="event.preventDefault();
 												 document.getElementById('logout-form').submit();" title="Logout">Logout</a></li>

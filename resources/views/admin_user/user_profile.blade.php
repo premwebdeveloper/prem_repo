@@ -90,11 +90,17 @@
                                                     <td>
                                                         @if($userDetail->married == 1)
                                                             <span>Yes</span>
-                                                        @else
+                                                        @esleif($userDetail->married == 2)
                                                             <span>No</span>
+                                                        @else
+                                                            <span></span>
                                                         @endif
                                                     </td>
-                                                    <td><b> Marriage Date </b></td><td> {{$userDetail->marriage_date}} </td>
+                                                    <?php
+                                                        $mDate = $userDetail->marriage_date;
+                                                        $marriageDate = date("d-m-Y", strtotime($mDate));
+                                                    ?>
+                                                    <td><b> Marriage Date </b></td><td> {{$marriageDate}} </td>
                                                 </tr>
                                                 <tr>
                                                     <td><b> Life Partner Name </b></td><td> {{$userDetail->life_partner_name}} </td>
@@ -110,8 +116,10 @@
                                                     <td>
                                                         @if($userDetail->seva_nivrat == 1)
                                                             <span>Yes</span>
-                                                        @else
+                                                        @elseif($userDetail->seva_nivrat == 2)
                                                             <span>No</span>
+                                                        @else
+                                                            <span></span>
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -120,11 +128,17 @@
                                                     <td>
                                                         @if($userDetail->gender == 1)
                                                             <span>Male</span>
-                                                        @else
+                                                        @elseif($userDetail->gender == 2)
                                                             <span>Female</span>
+                                                        @else
+                                                            <span></span>
                                                         @endif
                                                     </td>
-                                                    <td><b> DOB </b></td><td> {{$userDetail->dob}} </td>
+                                                    <?php
+                                                        $dobDate = $userDetail->dob;
+                                                        $dobDate = date("d-m-Y", strtotime($dobDate));
+                                                    ?>
+                                                    <td><b> DOB </b></td><td> {{$dobDate}} </td>
                                                 </tr>
                                                 <tr>
                                                     <td><b> व्यवसाय का पता </b></td><td> {{$userDetail->occupation_address}} </td>
@@ -145,16 +159,20 @@
                                                             <span>Daily</span>
                                                         @elseif($userDetail->social_hours_according == 2)
                                                             <span>Weekly</span>
-                                                        @else
+                                                        @elseif($userDetail->social_hours_according == 3)
                                                             <span>Monthly</span>
+                                                        @else
+                                                            <span></span>
                                                         @endif
                                                     </td>
                                                     <td><b> सहयोग 100/- प्रति प्राणी </b></td>
                                                     <td>
                                                         @if($userDetail->donate_hundred == 1)
                                                             <span>Yes</span>
-                                                        @else
+                                                        @elseif($userDetail->donate_hundred == 2)
                                                             <span>No</span>
+                                                        @else
+                                                            <span></span>
                                                         @endif
                                                     </td>
                                                 </tr>

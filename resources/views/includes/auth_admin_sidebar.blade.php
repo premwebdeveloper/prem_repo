@@ -37,6 +37,10 @@
             <li class="special_link">
                 <a href="{{ route('dashboard') }}"><i class="fa fa-database"></i> <span class="nav-label">Dashboard</span></a>
             </li>
+            
+            <li>
+                <a href="{{ route('/') }}"><i class="fa fa-database"></i> <span class="nav-label">Go to Website</span></a>
+            </li>
 
             <li>
                 <a href="{{ route('users') }}"><i class="fa fa-database"></i> <span class="nav-label">Users</span></a>

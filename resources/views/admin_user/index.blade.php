@@ -41,20 +41,24 @@
                     <table class="table table-striped table-bordered table-hover dataTables-example" >
                         <thead>
                             <tr>
+                                <th>S.No.</th>
                                 <th>Full Name</th>
                                 <th>Email</th>
                                 <th>Mobile</th>
+                                <th>Residential Address</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            @foreach($users as $user)
+                            @foreach($users as $key => $user)
 
                                 <tr class="gradeX">
+                                    <td>{{ $key+1 }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->phone }}</td>
+                                    <td>{{ $user->residential_address }}</td>
                                     <td>
                                         <a class="btn btn-success" href="{{ route('userView', ['id' => $user->user_id]) }}">View</a>
                                         <a class="btn btn-success" href="{{ route('disableUser', ['id' => $user->user_id]) }}">

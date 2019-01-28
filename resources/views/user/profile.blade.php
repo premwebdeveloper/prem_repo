@@ -170,12 +170,15 @@
 
 												    	<h4>Gender / लिंग </h4>
 													    <div class="form-group ">
-													    	@if($user->gender==2)
-													    		<input type="radio" class="personal_info" name="gender" value="1">
+													    	@if($user->gender==1)
+													    		<input type="radio" class="personal_info" name="gender" value="1" checked="checked">
 												      			&nbsp;&nbsp;Male
-												   				<input type="radio" class="personal_info" name="gender" value="2" checked="checked"> &nbsp;&nbsp;Female
+												   				<input type="radio" class="personal_info" name="gender" value="2"> &nbsp;&nbsp;Female
+                                                            @elseif($user->gender==2)
+                                                                <input type="radio" class="personal_info" name="gender" value="1"> &nbsp;&nbsp;Male
+                                                                <input type="radio" class="personal_info" name="gender" value="2" checked="checked"> &nbsp;&nbsp;Female
 													    	@else
-													    		<input type="radio" class="personal_info" name="gender" value="1" checked="checked"> &nbsp;&nbsp;Male
+													    		<input type="radio" class="personal_info" name="gender" value="1"> &nbsp;&nbsp;Male
 												   				<input type="radio" class="personal_info" name="gender" value="2"> &nbsp;&nbsp;Female
 												   			@endif
 												   		 </div>
@@ -645,11 +648,14 @@
 													<div class="col-md-2">
 												    	<h4>सेवा निवृत हैं</h4>
 													    <div class="form-group ">
-													    	@if($user->seva_nivrat==2)
+													    	@if($user->seva_nivrat==1)
+                                                                <input type="radio" class="personal_info seva_nirvit" name="seva_nivrat" value="1" checked="checked"> Yes
+                                                                <input type="radio" class="personal_info seva_nirvit" name="seva_nivrat" value="2"> No
+                                                            @elseif($user->seva_nivrat==2)
 													    		<input type="radio" class="personal_info seva_nirvit" name="seva_nivrat" value="1"> Yes
 												   				<input type="radio" class="personal_info seva_nirvit" name="seva_nivrat" value="2" checked="checked"> No
 													    	@else
-													    	    <input type="radio" class="personal_info seva_nirvit" name="seva_nivrat" value="1" checked="checked"> Yes
+													    	    <input type="radio" class="personal_info seva_nirvit" name="seva_nivrat" value="1"> Yes
 												   				<input type="radio" class="personal_info seva_nirvit" name="seva_nivrat" value="2"> No
 												   			@endif
 												   		 </div>
@@ -681,7 +687,11 @@
 														<div class="form-group ml0px">
 												      		<input type="text" name="social_hours" id="social_hours" class="personal_info form-control" style="width: 15%;" value="{{$user->social_hours}}">
 													      		&nbsp;&nbsp;&nbsp;घंटे &nbsp;&nbsp;
-                                                            @if($user->social_hours_according==2)
+                                                            @if($user->social_hours_according==1)
+                                                                <input type="radio" name="social_hours_according" class="personal_info" value="1" checked="checked"> Daily
+                                                                <input type="radio" name="social_hours_according" class="personal_info" value="2"> Weekly
+                                                                <input type="radio" name="social_hours_according" class="personal_info" value="3"> Monthly
+                                                            @elseif($user->social_hours_according==2)
 													    		<input type="radio" name="social_hours_according" class="personal_info" value="1"> Daily
 													      		<input type="radio" name="social_hours_according" class="personal_info" value="2" checked="checked"> Weekly
 													      		<input type="radio" name="social_hours_according" class="personal_info" value="3"> Monthly
@@ -690,7 +700,7 @@
 													      		<input type="radio" name="social_hours_according" class="personal_info" value="2"> Weekly
 													      		<input type="radio" name="social_hours_according" class="personal_info" value="3" checked="checked"> Monthly
 												   			@else
-												   				<input type="radio" name="social_hours_according" class="personal_info" value="1" checked="checked"> Daily
+												   				<input type="radio" name="social_hours_according" class="personal_info" value="1"> Daily
 													      		<input type="radio" name="social_hours_according" class="personal_info" value="2"> Weekly
 													      		<input type="radio" name="social_hours_according" class="personal_info" value="3"> Monthly
 												   			@endif
@@ -774,11 +784,14 @@
 													<div class="col-md-2 mb20px">
 													    <div class="form-group ml0px">
 
-													    	@if($user->donate_hundred==2)
+													    	@if($user->donate_hundred==1)
+                                                                <input type="radio" name="donate_hundred" class="personal_info" value="1" checked="checked"> Yes
+                                                                <input type="radio" name="donate_hundred" class="personal_info" value="2"> No
+                                                            @elseif($user->donate_hundred==2)
 													    		<input type="radio" name="donate_hundred" class="personal_info" value="1"> Yes
 												      			<input type="radio" name="donate_hundred" class="personal_info" value="2" checked="checked"> No
 												   			@else
-												   				<input type="radio" name="donate_hundred" class="personal_info" value="1" checked="checked"> Yes
+												   				<input type="radio" name="donate_hundred" class="personal_info" value="1"> Yes
 												      			<input type="radio" name="donate_hundred" class="personal_info" value="2"> No
 												   			@endif
 

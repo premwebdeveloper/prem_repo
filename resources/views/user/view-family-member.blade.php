@@ -49,14 +49,10 @@
 				        <div class="col-md-12">
 
 				            <div class="ibox float-e-margins">
+                                
+                                <div class="row mb10px">
 
-
-
-								<div class="row mb10px">
-
-
-
-									<div class="col-md-12">
+                                    <div class="col-md-12">
 
 									 	<!-- Update member success message -->
 
@@ -95,15 +91,6 @@
 					    			</div>
 
 
-
-									<div class="col-md-2 text-right">
-
-					    				<h4><a href="javascript:;" id="edit_member_profile">Edit Personal Info</a></h4>
-
-					    			</div>
-
-
-
 					    		</div>
 
 
@@ -112,7 +99,8 @@
 
 
 
-								<form class="form-inline" action="{{ route('updateMemberPersonalInfo') }}" method="post" enctype="multipart/form-data">
+								<form class="form-inline" action="{{ route('') }}" method="post" enctype="multipart/form-data">
+                               <!--  <form class="form-inline" action="{{ route('updateMemberPersonalInfo') }}" method="post" enctype="multipart/form-data"> -->
 
 
 
@@ -122,7 +110,9 @@
 
 									<input type="hidden" name="member_id" value="{{ $viewfamily->id }}">
 
-									<input type="hidden" name="f_member_user_id" value="{{ $viewfamily->f_member_user_id }}">
+                                    <input type="hidden" name="f_member_user_id" value="{{ $viewfamily->f_member_user_id }}">
+									
+                                    <input type="hidden" name="family_head_id" value="{{ $user->user_id }}">
 
 
 
@@ -134,7 +124,7 @@
 
 									    	<div class="form-group" style="margin-bottom: 30px;">
 
-										      	<input type="text" class="form-control member_profile" placeholder="Name" name="name" id="name" readonly value="{{ $viewfamily->name }}">
+										      	<input type="text" class="form-control" placeholder="Name" name="name" id="name" value="{{ $viewfamily->name }}">
 
 										    </div>
 
@@ -148,7 +138,7 @@
 
 									    	<div class="form-group">
 
-										      <input type="tel" class="form-control member_profile" placeholder="मुखिया से सम्बन्ध" name="relation_to_head_member" id="relation_to_head_member" readonly value="{{ $viewfamily->relation_to_head_member }}">
+										      <input type="tel" class="form-control" placeholder="मुखिया से सम्बन्ध" name="relation_to_head_member" id="relation_to_head_member" value="{{ $viewfamily->relation_to_head_member }}">
 
 								    		</div>
 
@@ -164,15 +154,21 @@
 
 										    	@if($viewfamily->gender == 1)
 
-									    			<input type="radio" class="member_radio" name="m_gender" value="1" checked="checked">&nbsp;&nbsp;Male
+                                                    <input type="radio" name="m_gender" value="1" checked="checked">&nbsp;&nbsp;Male
 
-								   					<input type="radio" class="member_radio" name="m_gender" value="2">&nbsp;&nbsp;
+                                                    <input type="radio" name="m_gender" value="2">&nbsp;&nbsp;
+
+                                                @elseif($viewfamily->gender == 2)
+
+									    			<input type="radio" name="m_gender" value="1">&nbsp;&nbsp;Male
+
+								   					<input type="radio" name="m_gender" value="2" checked="checked">&nbsp;&nbsp;
 
 								   				@else
 
-								   					<input type="radio" class="member_radio" name="m_gender" value="1">&nbsp;&nbsp;Male
+								   					<input type="radio" name="m_gender" value="1">&nbsp;&nbsp;Male
 
-								   					<input type="radio" class="member_radio" name="m_gender" value="2" checked="checked">&nbsp;&nbsp;Female
+								   					<input type="radio" name="m_gender" value="2">&nbsp;&nbsp;Female
 
 								   				@endif
 
@@ -188,7 +184,7 @@
 
 									    	<div class="form-group">
 
-										      <input type="tel" class="form-control member_profile" placeholder="+91-123456789" name="phone" id="phone" readonly value="{{ $viewfamily->phone }}">
+										      <input type="tel" class="form-control" placeholder="+91-123456789" name="phone" id="phone" value="{{ $viewfamily->phone }}">
 
 										    </div>
 
@@ -202,7 +198,7 @@
 
 									    	<div class="form-group">
 
-										      <input type="email" class="form-control member_profile" placeholder="Email" name="email" id="email" readonly value="{{ $viewfamily->email }}">
+										      <input type="email" class="form-control" placeholder="Email" name="email" id="email" value="{{ $viewfamily->email }}">
 
 										    </div>
 
@@ -216,7 +212,7 @@
 
 									    	<div class="form-group">
 
-										      <input type="text" format="Y-m-d" class="form-control datepicker member_radio" placeholder="DOB" name="dob" id="dob" value="{{ $viewfamily->dob }}">
+										      <input type="text" format="Y-m-d" class="form-control datepicker" placeholder="DOB" name="dob" id="dob" value="{{ $viewfamily->dob }}">
 
 										    </div>
 
@@ -230,7 +226,7 @@
 
 									    	<div class="form-group">
 
-										      <input type="file" name="image" class="form-control personal_info member_radio">
+										      <input type="file" name="image" class="form-control personal_info">
 
 										    </div>
 
@@ -244,7 +240,7 @@
 
 									    	<div class="form-group">
 
-										      <input type="text" format="Y-m-d" class="form-control datepicker member_radio" placeholder="Marriage Date" name="marriage_date" id="marriage_date" value="{{ $viewfamily->marriage_date }}">
+										      <input type="text" format="Y-m-d" class="form-control datepicker" placeholder="Marriage Date" name="marriage_date" id="marriage_date" value="{{ $viewfamily->marriage_date }}">
 
 										    </div>
 
@@ -258,7 +254,7 @@
 
 									    	<div class="form-group">
 
-										      <input type="text" class="form-control member_profile" placeholder="Education/शिक्षा " name="education" id="education" readonly value="{{ $viewfamily->education }}">
+										      <input type="text" class="form-control member_profile" placeholder="Education/शिक्षा " name="education" id="education" value="{{ $viewfamily->education }}">
 
 										    </div>
 
@@ -288,7 +284,7 @@
 
 									    	<div class="form-group">
 
-							      			<textarea class="form-control member_profile" rows="4" placeholder="कार्यालय/व्यापार/व्यवसाय का पता " name="occupation_address" id="occupation_address" readonly> {{ $viewfamily->occupation_address }}</textarea>
+							      			<textarea class="form-control" rows="4" placeholder="कार्यालय/व्यापार/व्यवसाय का पता " name="occupation_address" id="occupation_address"> {{ $viewfamily->occupation_address }}</textarea>
 
 										    </div>
 
@@ -302,15 +298,21 @@
 
 											    	@if($viewfamily->seva_nivrat == 1)
 
-											    		<input type="radio" class="member_radio" name="seva_nivrat" value="1" checked="checked">Yes
+                                                        <input type="radio" name="seva_nivrat" value="1" checked="checked">Yes
 
-									   					<input type="radio" class="member_radio" name="seva_nivrat" value="2">No
+                                                        <input type="radio" name="seva_nivrat" value="2">No
+
+                                                    @elseif($viewfamily->seva_nivrat == 2)
+
+											    		<input type="radio" name="seva_nivrat" value="1">Yes
+
+									   					<input type="radio" name="seva_nivrat" value="2" checked="checked">No
 
 									   				@else
 
-									   					<input type="radio" class="member_radio" name="seva_nivrat" value="1" checked="checked">Yes
+									   					<input type="radio" name="seva_nivrat" value="1">Yes
 
-									   					<input type="radio" class="member_radio" name="seva_nivrat" value="2" checked="checked">No
+									   					<input type="radio" name="seva_nivrat" value="2" checked="checked">No
 
 									   				@endif
 
@@ -328,49 +330,62 @@
 
 
 
-										      		<input type="text" name="social_hours" class="form-control member_profile" style="width: 15%;" readonly value="{{ $viewfamily->social_hours }}"> &nbsp;&nbsp;&nbsp;घंटे &nbsp;&nbsp;
+										      		<input type="text" name="social_hours" class="form-control" style="width: 15%;" value="{{ $viewfamily->social_hours }}"> &nbsp;&nbsp;&nbsp;घंटे &nbsp;&nbsp;
 
 
 
 													@if($viewfamily->social_hours_according == 1)
 
-											    		<input type="radio" name="social_hours_according" class="member_radio" value="1" checked="checked">
+                                                        <input type="radio" name="social_hours_according" value="1" checked="checked">
+
+                                                        Daily
+
+                                                        <input type="radio" name="social_hours_according" value="2">
+
+                                                        Weekly
+
+                                                        <input type="radio" name="social_hours_according" value="3">
+
+                                                        Monthly
+                                                    @elseif($viewfamily->social_hours_according == 2)
+
+											    		<input type="radio" name="social_hours_according" value="1">
 
 											      		Daily
 
-										      			<input type="radio" name="social_hours_according" class="member_radio" value="2" checked="checked">
+										      			<input type="radio" name="social_hours_according" value="2" checked="checked">
 
 											      		Weekly
 
-										      			<input type="radio" name="social_hours_according" class="member_radio" value="3">
+										      			<input type="radio" name="social_hours_according" value="3">
 
 											      		Monthly
 
 									   				@elseif($viewfamily->social_hours_according == 2)
 
-									   					<input type="radio" name="social_hours_according" class="member_radio" value="1">
+									   					<input type="radio" name="social_hours_according" value="1">
 
 											      		Daily
 
-										      			<input type="radio" name="social_hours_according" class="member_radio" value="2" checked="checked">
+										      			<input type="radio" name="social_hours_according" value="2">
 
 											      		Weekly
 
-										      			<input type="radio" name="social_hours_according" class="member_radio" value="3">
+										      			<input type="radio" name="social_hours_according" value="3" checked="checked">
 
 											      		Monthly
 
 									   				@else
 
-									   					<input type="radio" name="social_hours_according" class="member_radio" value="1">
+									   					<input type="radio" name="social_hours_according" value="1">
 
 											      		Daily
 
-										      			<input type="radio" name="social_hours_according" class="member_radio" value="2">
+										      			<input type="radio" name="social_hours_according" value="2">
 
 											      		Weekly
 
-										      			<input type="radio" name="social_hours_according" class="member_radio" value="3" checked="checked">
+										      			<input type="radio" name="social_hours_according" value="3">
 
 											      		Monthly
 
@@ -390,7 +405,7 @@
 
 									    	<div class="form-group">
 
-							      			<textarea class="form-control member_profile" rows="4" placeholder="निवास का पता" name="residential_address" id="residential_address" readonly> {{ $viewfamily->residential_address }}</textarea>
+							      			<textarea class="form-control" rows="4" placeholder="निवास का पता" name="residential_address" id="residential_address">{{ $viewfamily->residential_address }}</textarea>
 
 										    </div>
 
@@ -468,7 +483,7 @@
 
 										    	<div class="form-group">
 
-											      <input type="text" class="form-control member_profile" placeholder="पिन कोड" name="residential_pincode" id="residential_pincode" readonly value="{{ $viewfamily->residential_pincode }}">
+											      <input type="text" class="form-control" placeholder="पिन कोड" name="residential_pincode" id="residential_pincode" value="{{ $viewfamily->residential_pincode }}">
 
 											    </div>
 
@@ -484,9 +499,7 @@
 
 									    	<div class="form-group">
 
-							      				<textarea class="form-control member_profile" rows="5" placeholder="स्वयं/परिवार/वंश की उल्लेखनीय उपलब्धि यहां लिखें" name="bio" id="bio" readonly>{{ $viewfamily->bio }}
-
-							      				</textarea>
+							      				<textarea class="form-control member_profile" rows="5" placeholder="स्वयं/परिवार/वंश की उल्लेखनीय उपलब्धि यहां लिखें" name="bio" id="bio">{{ $viewfamily->bio }}</textarea>
 
 										    </div>
 
@@ -494,9 +507,9 @@
 
 
 
-									    <div class="col-md-12 update_member_profile text-left">
+									    <div class="col-md-12 text-left">
 
-											<input type="submit" class="btn btn-danger btn-block " name="update_member_personal_information" id="update_member_personal_information" value="Update Personal Information">
+											<input type="submit" class="btn btn-danger btn-block " name="update_member_personal_information" id="" value="Update Personal Information">
 
 										</div>
 

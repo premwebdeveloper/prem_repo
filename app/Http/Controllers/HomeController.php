@@ -368,7 +368,7 @@ class HomeController extends Controller
             exit;*/
             $password = "123456";
 
-            $otp = rand(100000, 999999);
+            $otp = rand(1000, 9999);
             
             $user = User::create([
                 //'family_head_id ' => null,
@@ -466,9 +466,14 @@ class HomeController extends Controller
 
             if(!empty($exist)){
 
-                $otp = rand(100000, 999999);
+                $otp = $exist->otp;
 
-                if(is_null($exist->otp)){
+                if(is_null($otp))
+                    {
+                        $otp = rand(1000, 9999);
+                    }
+
+                if(!empty($otp)){
 
                     $send_otp = DB::table('users')->where('phone', $request->phone)->update(['otp' => $otp]);
 

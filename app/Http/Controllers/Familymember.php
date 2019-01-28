@@ -278,6 +278,7 @@ class Familymember extends Controller
         $date = date('Y-m-d H:i:s');
 
         $member_id = $request->member_id;
+        $family_head_id = $request->family_head_id;
         $f_member_user_id = $request->f_member_user_id;
 
         $memberData = DB::table('user_family_details')->where('f_member_user_id', $f_member_user_id)->first();
@@ -300,42 +301,42 @@ class Familymember extends Controller
             $uploaded = Storage::put($destinationPath, file_get_contents($file->getRealPath()));
         }
 
-        $name = $request->name;
-        $relation_to_head_member = $request->relation_to_head_member;
-        $gender = $request->m_gender;
-        $father_husband_name = $request->father_husband_name;
-        $whatsapp_mobile = $request->whatsapp_mobile;
-        $email = $request->email;
-        $phone = $request->phone;
-        $sampraday = $request->sampraday;
+        echo $name = $request->name;
+        echo $relation_to_head_member = $request->relation_to_head_member;
+        echo $gender = $request->m_gender;
+        //$father_husband_name = $request->father_husband_name;
+        //$whatsapp_mobile = $request->whatsapp_mobile;
+        echo $email = $request->email;
+        echo $phone = $request->phone;
+/*        $sampraday = $request->sampraday;
         $cast = $request->cast;
         $sub_cast = $request->sub_cast;
         $gotra = $request->gotra;
         $bunk = $request->bunk;
-        $origin_place = $request->origin_place;
-        $dob = $request->dob;
-        $married = $request->married;
-        $marriage_date = $request->marriage_date;
-        $life_partner_name = $request->life_partner_name;
-        $education = $request->education;
-        $special_qualification = $request->special_qualification;
+        $origin_place = $request->origin_place;*/
+        echo $dob = $request->dob;
+        //$married = $request->married;
+        echo $marriage_date = $request->marriage_date;
+        //$life_partner_name = $request->life_partner_name;
+        echo $education = $request->education;
+/*        $special_qualification = $request->special_qualification;
         $experience_field = $request->experience_field;
-        $occupation = $request->occupation;
-        $seva_nivrat = $request->seva_nivrat;
-        $occupation_address = $request->occupation_address;
-        $occupation_pincode = $request->occupation_pincode;
+        $occupation = $request->occupation;*/
+        echo $seva_nivrat = $request->seva_nivrat;
+        echo $occupation_address = $request->occupation_address;
+/*        $occupation_pincode = $request->occupation_pincode;
         $occupation_district = $request->occupation_district;
-        $occupation_state = $request->occupation_state;
-        $residential_address = $request->residential_address;
-        $residential_pincode = $request->residential_pincode;
-        $residential_district = $request->residential_district;
-        $residential_state = $request->residential_state;
-        $social_hours = $request->social_hours;
-        $social_field = $request->social_field;
-        $social_hours_according = $request->social_hours_according;
-        $donate_hundred = $request->donate_hundred;
-        $bio = $request->bio;
-
+        $occupation_state = $request->occupation_state;*/
+        echo $residential_address = $request->residential_address;
+        echo $residential_pincode = $request->residential_pincode;
+        echo $residential_district = $request->residential_district;
+        echo $residential_state = $request->residential_state;
+        echo $social_hours = $request->social_hours;
+        echo $social_field = $request->social_field;
+        echo $social_hours_according = $request->social_hours_according;
+        //$donate_hundred = $request->donate_hundred;
+        echo $bio = $request->bio;
+        //exit;
          // If image is uploaded
         /*if($request->hasFile('image'))
         {
@@ -364,13 +365,13 @@ class Familymember extends Controller
         }*/
 
         # update data user table
-        $user = DB::table('users')->where('id', $f_member_user_id)->first();
+        $user = DB::table('users')->where('id', $family_head_id)->first();
 
        # Get password user table
         $user_password = $user->password;
 
         # insert data user table
-        $user_table = DB::table('users')->where('id', $f_member_user_id)->update(
+        $user_table = DB::table('users')->where('id', $family_head_id)->update(
             array(
                     'name' => $name,
                     'username' => $email,
@@ -386,24 +387,24 @@ class Familymember extends Controller
         $member_update = DB::table('user_family_details')->where('id', $member_id)->update(
              array(
                     'name' => $name,
-                    'father_husband_name' => $father_husband_name,
+                    //'father_husband_name' => $father_husband_name,
                     'relation_to_head_member' => $relation_to_head_member,
                     'email' => $email,
-                    'whatsapp_mobile' => $whatsapp_mobile,
+                    //'whatsapp_mobile' => $whatsapp_mobile,
                     'phone' => $phone,
-                    'sampraday' => $sampraday,
-                    'cast' => $cast,
-                    'sub_cast' => $sub_cast,
-                    'gotra' => $gotra,
-                    'bunk' => $bunk,
-                    'origin_place' => $origin_place,
-                    'married' => $married,
+                    //'sampraday' => $sampraday,
+                    //'cast' => $cast,
+                    //'sub_cast' => $sub_cast,
+                    //'gotra' => $gotra,
+                    //'bunk' => $bunk,
+                    //'origin_place' => $origin_place,
+                    //'married' => $married,
                     'marriage_date' => $marriage_date,
-                    'life_partner_name' => $life_partner_name,
+                    //'life_partner_name' => $life_partner_name,
                     'education' => $education,
-                    'special_qualification' => $special_qualification,
-                    'experience_field' => $experience_field,
-                    'occupation' => $occupation,
+                    //'special_qualification' => $special_qualification,
+                    //'experience_field' => $experience_field,
+                    //'occupation' => $occupation,
                     'seva_nivrat' => $seva_nivrat,
                     'image' => $filename,
                     'bio' => $bio,
@@ -414,13 +415,13 @@ class Familymember extends Controller
                     'residential_district' => $residential_district,
                     'residential_state' => $residential_state,
                     'occupation_address' => $occupation_address,
-                    'occupation_pincode' => $occupation_pincode,
+/*                    'occupation_pincode' => $occupation_pincode,
                     'occupation_district' => $occupation_district,
-                    'occupation_state' => $occupation_state,
+                    'occupation_state' => $occupation_state,*/
                     'social_hours' => $social_hours,
                     'social_field' => $social_field,
                     'social_hours_according' => $social_hours_according,
-                    'donate_hundred' => $donate_hundred,
+                    //'donate_hundred' => $donate_hundred,
                     'created_at' => $date,
                     'updated_at' => $date,
                     'status' => 1
