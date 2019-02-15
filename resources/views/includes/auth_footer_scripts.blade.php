@@ -25,8 +25,6 @@
     <script src="{{ asset('resources/assets/js/plugins/chartJs/Chart.min.js') }}"></script>
     <script src="{{ asset('resources/assets/js/plugins/toastr/toastr.min.js') }}"></script>
 
-
-
     @include('includes.auth_scripts')
 
 </body>

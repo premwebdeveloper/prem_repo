@@ -41,7 +41,7 @@ h5 {
 .nav > li > a {
   color: #a7b1c2;
   font-weight: 600;
-  padding: 14px 20px 14px 25px;
+  padding: 14px 20px 14px 10px;
 }
 .nav.navbar-right > li > a {
   color: #999c9e;
@@ -180,7 +180,7 @@ ul.nav-second-level {
 }
 .nav > li.active {
   border-left: 4px solid #19aa8d;
-  background: #293846;
+  background: #1ab394!important;
 }
 .nav.nav-second-level > li.active {
   border: none;
@@ -350,11 +350,11 @@ body.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
   border-image: none;
   border-style: solid;
   border-width: 1px;
-  color: #555555;
+  color: #fff;
   cursor: default;
 }
 .nav.nav-tabs li {
-  background: none;
+  background: #1c84c6;
   border: none;
 }
 body.fixed-nav #wrapper .navbar-static-side,
@@ -389,12 +389,12 @@ body.fixed-nav.fixed-nav-basic.fixed-sidebar.mini-navbar.body-small .navbar-fixe
   margin-left: 0;
 }
 body.mini-navbar .navbar-static-side {
-  width: 70px;
+  width: 140px;
 }
 body.mini-navbar .profile-element,
 body.mini-navbar .nav-label,
 body.mini-navbar .navbar-default .nav li a span {
-  display: none;
+  display: contents;
 }
 body.canvas-menu .profile-element {
   display: block;
@@ -403,7 +403,7 @@ body:not(.fixed-sidebar):not(.canvas-menu).mini-navbar .nav-second-level {
   display: none;
 }
 body.mini-navbar .navbar-default .nav > li > a {
-  font-size: 16px;
+  font-size: 12px;
 }
 body.mini-navbar .logo-element {
   display: block;
@@ -419,7 +419,7 @@ body.canvas-menu .nav-header {
   padding: 33px 25px;
 }
 body.mini-navbar #page-wrapper {
-  margin: 0 0 0 70px;
+  margin: 0 0 0 140px;
 }
 body.fixed-sidebar.mini-navbar .footer,
 body.canvas-menu.mini-navbar .footer {
@@ -2897,11 +2897,12 @@ a.forum-item-title:hover {
 .tabs-container .nav-tabs > li.active > a:focus {
   border: 1px solid #e7eaec;
   border-bottom-color: transparent;
-  background-color: #fff;
+  background-color: transparent;
 }
 .tabs-container .nav-tabs > li {
   float: left;
   margin-bottom: -1px;
+  margin-right: 5px;
 }
 .tabs-container .tab-pane .panel-body {
   border-top: none;
@@ -2909,7 +2910,7 @@ a.forum-item-title:hover {
 .tabs-container .nav-tabs > li.active > a,
 .tabs-container .nav-tabs > li.active > a:hover,
 .tabs-container .nav-tabs > li.active > a:focus {
-  border: 1px solid #e7eaec;
+  border: none;
   border-bottom-color: transparent;
 }
 .tabs-container .nav-tabs {
@@ -3770,9 +3771,10 @@ body.body-small .footer.fixed {
   padding-bottom: 0;
 }
 .nav-tabs > li > a {
-  color: #A7B1C2;
+  color: #fff;
   font-weight: 600;
   padding: 10px 20px 10px 25px;
+  border: none;
 }
 .nav-tabs > li > a:hover,
 .nav-tabs > li > a:focus {

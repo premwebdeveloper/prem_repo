@@ -9,7 +9,7 @@
                     </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear"> <span class="block m-t-xs">
-                            <strong class="font-bold">David Williams</strong>
+                            <strong class="font-bold">Vaish Parivar Sangh</strong>
                         </span>
                         <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
                     </a>
@@ -19,18 +19,18 @@
                         <li><a href="mailbox.html">Mailbox</a></li>
                         <li class="divider"></li> -->
                         <li>
-							<a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-								<i class="fa fa-sign-out"></i> Log out
-							</a>
-							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-								{{ csrf_field() }}
-							</form>
-						</li>
+                                <i class="fa fa-sign-out"></i> Log out
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
                     </ul>
                 </div>
                 <div class="logo-element">
-                    IN+
+                    VPS
                 </div>
             </li>
 

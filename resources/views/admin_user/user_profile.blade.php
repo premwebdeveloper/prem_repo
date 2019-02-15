@@ -97,10 +97,14 @@
                                                         @endif
                                                     </td>
                                                     <?php
+                                                        if(!empty($userDetail->marriage_date)):
                                                         $mDate = $userDetail->marriage_date;
                                                         $marriageDate = date("d-m-Y", strtotime($mDate));
                                                     ?>
                                                     <td><b> Marriage Date </b></td><td> {{$marriageDate}} </td>
+                                                    <?php
+                                                        endif;
+                                                    ?>
                                                 </tr>
                                                 <tr>
                                                     <td><b> Life Partner Name </b></td><td> {{$userDetail->life_partner_name}} </td>
@@ -135,10 +139,14 @@
                                                         @endif
                                                     </td>
                                                     <?php
+                                                        if(!empty($userDetail->dob)):
                                                         $dobDate = $userDetail->dob;
                                                         $dobDate = date("d-m-Y", strtotime($dobDate));
                                                     ?>
                                                     <td><b> DOB </b></td><td> {{$dobDate}} </td>
+                                                    <?php
+                                                        endif;
+                                                    ?>
                                                 </tr>
                                                 <tr>
                                                     <td><b> व्यवसाय का पता </b></td><td> {{$userDetail->occupation_address}} </td>

@@ -99,8 +99,8 @@
 
 
 
-								<form class="form-inline" action="{{ route('') }}" method="post" enctype="multipart/form-data">
-                               <!--  <form class="form-inline" action="{{ route('updateMemberPersonalInfo') }}" method="post" enctype="multipart/form-data"> -->
+								
+                               <form class="form-inline" action="{{ route('updateMemberPersonalInfo') }}" method="post" enctype="multipart/form-data"> 
 
 
 
@@ -111,10 +111,9 @@
 									<input type="hidden" name="member_id" value="{{ $viewfamily->id }}">
 
                                     <input type="hidden" name="f_member_user_id" value="{{ $viewfamily->f_member_user_id }}">
-									
+                                    
                                     <input type="hidden" name="family_head_id" value="{{ $user->user_id }}">
-
-
+									
 
 							   		<div class="col-md-9">
 
@@ -156,13 +155,13 @@
 
                                                     <input type="radio" name="m_gender" value="1" checked="checked">&nbsp;&nbsp;Male
 
-                                                    <input type="radio" name="m_gender" value="2">&nbsp;&nbsp;
+                                                    <input type="radio" name="m_gender" value="2">&nbsp;&nbsp;Female
 
                                                 @elseif($viewfamily->gender == 2)
 
 									    			<input type="radio" name="m_gender" value="1">&nbsp;&nbsp;Male
 
-								   					<input type="radio" name="m_gender" value="2" checked="checked">&nbsp;&nbsp;
+								   					<input type="radio" name="m_gender" value="2" checked="checked">&nbsp;&nbsp;Female
 
 								   				@else
 

@@ -277,9 +277,11 @@ class Familymember extends Controller
     {
         $date = date('Y-m-d H:i:s');
 
-        $member_id = $request->member_id;
-        $family_head_id = $request->family_head_id;
-        $f_member_user_id = $request->f_member_user_id;
+        echo $member_id = $request->member_id;
+        
+        echo $f_member_user_id = $request->f_member_user_id;
+        
+        echo $family_head_id = $request->family_head_id;
 
         $memberData = DB::table('user_family_details')->where('f_member_user_id', $f_member_user_id)->first();
         $filename = $memberData->image;
@@ -371,7 +373,7 @@ class Familymember extends Controller
         $user_password = $user->password;
 
         # insert data user table
-        $user_table = DB::table('users')->where('id', $family_head_id)->update(
+        $user_table = DB::table('users')->where('id', $f_member_user_id)->update(
             array(
                     'name' => $name,
                     'username' => $email,
